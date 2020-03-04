@@ -1,0 +1,30 @@
+---
+meta_title: Components
+---
+
+<!--
+	hero_unit_option: bg_image|bg_color
+	hero_unit_bg_image: "/assets/images/cms/{{image.jpg}}"
+	hero_unit_bg_color: bg-{{color}}
+-->
+
+{{#> content-block template="columns"}}
+    <div class="grid-container">
+
+        {{> template-header headline="The Template Header" subheadline="The Template Subheadline" classes="align-center" }}
+
+        <div class="grid-x grid-margin-x has-1-cols">
+            <div class="cell small-12">
+                <div class="inner">
+                    {{> header headline="Header module" }} 
+                    {{> text-editor }}
+                    {{> picture }}
+                    {{> video src="https://www.youtube.com/embed/02J5A3r-Bdk" classes="youtube" }}
+                    {{> form}}
+                    {{>carousel}}
+                    {{>carousel slides=1}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/content-block}}

@@ -22,11 +22,6 @@
             "email": "ruslan@secretstache.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "SSM\\": "src/"
-        }
-    },
     "require": {
         "php": ">=7.1",
         "composer/installers": "~1.0"

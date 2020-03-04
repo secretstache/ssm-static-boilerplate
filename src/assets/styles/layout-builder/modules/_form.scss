@@ -1,0 +1,179 @@
+.module.form {
+
+    //overwrite gravity forms styles
+    .gform_wrapper {
+        margin: 0;
+
+        .validation_message {
+            color: $primary-font-color;
+        }
+
+        .validation_error {
+            color: $primary-font-color;
+            border-color: $primary-font-color;
+        }
+    }
+
+    body .gform_wrapper .top_label div.ginput_container {
+        margin: 0;
+    }
+
+    body .gform_wrapper ul li.gfield {
+        margin-top: rem-calc(12);
+
+        @include breakpoint(medium) {
+            padding-right: rem-calc(16);
+        }
+    }
+
+    .gform_wrapper ul.gform_fields {
+        @include breakpoint(medium) {
+            margin-right: rem-calc(-16) !important;
+        }
+    }
+
+    body .gform_wrapper ul li.gfield:first-child {
+        margin-top: 0;
+    }
+
+    .gform_wrapper .gform_footer {
+        margin: 0;
+        padding: 0;
+        margin-top: rem-calc(12);
+    }
+
+    .gform_wrapper .gform_footer input.button,
+    .gform_wrapper .gform_footer input[type=submit],
+    .gform_wrapper .gform_page_footer input.button,
+    .gform_wrapper .gform_page_footer input[type=submit] {
+        margin: 0;
+    }
+
+    .gform_wrapper .top_label div.ginput_container {
+        margin-top: rem-calc(7);
+    }
+
+    .gform_wrapper li.gfield.gfield_error,
+    .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning { 
+        background: none!important;
+        border-top: 0!important;
+        border-bottom: 0!important;
+        padding-bottom: 0!important;
+        padding-top: 0!important;
+    }
+
+    li.gfield+li.gfield.gfield_creditcard_warning {
+        border-top: 0!important;
+        border-bottom: 0!important;
+        padding: 0!important;
+    }
+
+    .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+    .gform_wrapper li.gfield_error textarea { 
+        border-bottom: rem-calc(2) solid rgba($primary-color, 0.5)!important;
+        border-top: none!important;
+        border-left: none!important;
+        border-right: none!important;
+    }
+
+    //layout styles
+    .gform_fields {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .gfield {
+        width: 100%;
+
+        @include breakpoint(medium) {
+            &.half-width {
+                width: 50%;
+            }
+        }
+    }
+
+    .gform_wrapper ul li.gfield {
+        margin-top: 0;
+        margin-bottom: rem-calc(12);
+    }
+
+    //inputs styles
+    .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type='file']),
+    .gform_wrapper select,
+    .gform_wrapper textarea {
+        margin: 0;
+
+        &::placeholder {
+            color: inherit;
+        }
+
+        &:focus {
+            // remove placeholder on input :focus by default
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
+
+    .gform_wrapper textarea {
+        height: auto;
+    }
+
+
+    //file input styles 
+    .input-file {
+        opacity: 0;
+
+        input[type="file"] {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+
+            +label {
+                display: block;
+                cursor: pointer;
+                width: 100%;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            &:focus+label,
+            +label:hover {
+                background-color: $black;
+                color: $white;
+            }
+
+            &:focus+label {
+                outline: 1px dotted #000;
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+
+            +label * {
+                pointer-events: none;
+            }
+        }
+    }
+
+    //datepicker input styles
+    .ginput_container_date {
+        position: relative;
+
+        .ui-datepicker-trigger {
+            position: absolute;
+            right: rem-calc(12);
+            top: 50%;
+            transform: translateY(-50%);
+            width: rem-calc(24) !important;
+            height: auto !important;
+        }
+
+        .datepicker_with_icon {
+            padding-right: rem-calc(40) !important;
+        }
+    }
+
+}
