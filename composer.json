@@ -1,0 +1,34 @@
+{
+    "name": "ssm/static-boilerplate",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "description": "Static boilerplate which contains a starting static development point for SSM projects",
+    "homepage": "https://www.secretstache.com/",
+    "authors": [
+        {
+            "name": "Rich Staats",
+            "email": "rich@secretstache.com"
+        },
+        {
+            "name": "Alexander Smulsky",
+            "email": "alex@secretstache.com"
+        },
+        {
+            "name": "Victoria Naumova",
+            "email": "victoria@secretstache.com"
+        },
+        {
+            "name": "Ruslan Anisimov",
+            "email": "ruslan@secretstache.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SSM\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "composer/installers": "~1.0"
+    }
+}
