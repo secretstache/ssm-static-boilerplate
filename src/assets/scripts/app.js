@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import 'what-input';
 window.jQuery = $;
-require('foundation-sites');
 
-import '../../../node_modules/slick-carousel/slick/slick.js';
+import 'foundation-sites';
+import 'slick-carousel/slick/slick';
 
 $(document).foundation();
 
