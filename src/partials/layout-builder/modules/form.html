@@ -4,15 +4,9 @@
             <div class="gform_body">
                 <ul class="gform_fields top_label">
                     <li class="gfield hidden_label">
-                        <label class="gfield_label" for="idlabel1">First Name</label>
+                        <label class="gfield_label" for="idlabel1">Name</label>
                         <div class="ginput_container">
-                            <input type="text" placeholder="First Name *" id="idlabel1">
-                        </div>
-                    </li>
-                    <li class="gfield hidden_label">
-                        <label class="gfield_label" for="idlabel2">Last Name</label>
-                        <div class="ginput_container">
-                            <input type="text" placeholder="Last Name *" id="idlabel2">
+                            <input type="text" placeholder="Name *" id="idlabel1">
                         </div>
                     </li>
                     <li class="gfield hidden_label">
@@ -21,24 +15,63 @@
                             <input type="text" placeholder="Email" id="idlabel3">
                         </div>
                     </li>
-                    <li class="gfield hidden_label">
+                    <li class="gfield">
                         <label class="gfield_label" for="idlabel4">Phone</label>
                         <div class="ginput_container">
                             <input type="text" placeholder="Phone" id="idlabel4">
                         </div>
                     </li>
-                    <li class="gfield half-width input-file">
+                    <li class="gfield half-width input-file field_description_above">
                         <label class="gfield_label" for="idlabel5">Upload file</label>
+                        <div class="gfield_description">Upload a file</div>
                         <div class="ginput_container ginput_container_fileupload">
                             <input id="idlabel5" type="file">
                         </div>
                     </li>
-                    <li class="gfield field_sublabel_below field_description_above half-width">
+                    <li class="gfield field_sublabel_below field_description_above half-width hidden_label">
                         <label class="gfield_label" for="idlabel6">Date</label>
                         <div class="gfield_description">Pick a date</div>
                         <div class="ginput_container ginput_container_date">
                             <input id="idlabel6" type="text" class="datepicker mdy datepicker_with_icon hasDatepicker">
                             <img class="ui-datepicker-trigger" src="https://image.flaticon.com/icons/svg/4/4430.svg" alt="" title="">
+                        </div>
+                    </li>
+                    <li class="gfield half-width">
+                        <label class="gfield_label">Checkboxes<span class="gfield_required">*</span></label>
+                        <div class="ginput_container ginput_container_checkbox">
+                            <ul class="gfield_checkbox">
+                                <li class="gchoice_3_4_1">
+                                    <input name="input_4.1" type="checkbox" value="" id="choice_3_4_1">
+                                    <label for="choice_3_4_1" id="label_3_4_1">Choice 1</label>
+                                </li>
+                                <li class="gchoice_3_4_2">
+                                    <input name="input_4.1" type="checkbox" value="" id="choice_3_4_2">
+                                    <label for="choice_3_4_2" id="label_3_4_2">Choice 1</label>
+                                </li>
+                                <li class="gchoice_3_4_3">
+                                    <input name="input_4.1" type="checkbox" value="" id="choice_3_4_3">
+                                    <label for="choice_3_4_3" id="label_3_4_3">Choice 3</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="gfield half-width">
+                        <label class="gfield_label">Radio buttons</label>
+                        <div class="ginput_container ginput_container_radio">
+                            <ul class="gfield_radio">
+                                <li>
+                                    <input name="input_36" type="radio" value="First Choice" id="choice_3_36_0">
+                                    <label for="choice_3_36_0" id="label_3_36_0">First Choice</label>
+                                </li>
+                                <li>
+                                    <input name="input_36" type="radio" value="Second Choice" id="choice_3_36_1">
+                                    <label for="choice_3_36_1" id="label_3_36_1">Second Choice</label>
+                                </li>
+                                <li>
+                                    <input name="input_36" type="radio" value="Third Choice" id="choice_3_36_2">
+                                    <label for="choice_3_36_2" id="label_3_36_2">Third Choice</label>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                     <li class="gfield half-width">
@@ -52,11 +85,33 @@
                         </div>
                     </li>
                     <li class="gfield">
-                            <label class="gfield_label" for="idlabel8">Your Comments/Quesitons<span class="gfield_required">*</span></label>
-                            <div class="ginput_container ginput_container_textarea">
-                                <textarea id="idlabel8" class="textarea" placeholder="Please share any comments or questions you may have for us." rows="10" cols="50"></textarea>
-                            </div>
-                        </li>
+                        <label class="gfield_label" for="idlabel8">Your Comments/Quesitons<span class="gfield_required">*</span></label>
+                        <div class="ginput_container ginput_container_textarea">
+                            <textarea id="idlabel8" class="textarea" placeholder="Please share any comments or questions you may have for us." rows="10" cols="50"></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="gform_footer top_label">
+                <input type="submit" class="gform_button button" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="module form inline">
+    <div class="gform_wrapper">
+        <form action="/">
+            <div class="gform_body">
+                <ul class="gform_fields top_label">
+                    <li class="gfield hidden_label">
+                        <label class="gfield_label" for="idlabel30">Email *</label>
+                        <div class="ginput_container">
+                            <input type="text" placeholder="Email" id="idlabel30">
+                        </div>
+                    </li>
                 </ul>
             </div>
 

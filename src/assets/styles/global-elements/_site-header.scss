@@ -1,1 +1,9 @@
-.site-header {}
+.site-header {
+    padding: rem-calc(20 0);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: color('white');
+    z-index: 9998;
+}

@@ -1,14 +1,79 @@
 .bg-dark {
-  color: $white;
+  color: color('inverse');
+
+  label, 
+  a:not(.button) {
+    color: color('inverse');
+  }
 
   .module.form .gform_wrapper {
     .validation_message {
-      color: $reverse-font-color;
+      color: color('inverse');
     }
 
     .validation_error {
-      color: $reverse-font-color;
-      border-color: $reverse-font-color;
+      color: color('inverse');
+      border-color: color('inverse');
     }
+
+    ul.gform_fields {
+      li.gfield {
+        .ginput_container_checkbox .gfield_checkbox,
+        .ginput_container_radio .gfield_radio {
+          > li {
+            label {
+              &:before {
+                border-color: color('inverse');
+              }
+              
+              &:after {
+                background: color('inverse') !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bg-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//video bg
+.bg-video {
+  position: relative;
+
+  .video-overlay {
+    overflow: hidden;
+    @include overlay;
+    z-index: 1;
+  
+    video {
+        transform: translate(-50%, -50%);
+        left: 50%;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 50%;
+        object-fit: fill;
+    }
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.bg-video,
+.bg-image {
+
+  .overlay {
+    @include overlay;
+    background: rgba(0,0,0,0.4);
   }
 }

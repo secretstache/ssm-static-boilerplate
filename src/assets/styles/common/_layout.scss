@@ -1,0 +1,4 @@
+.grid-container {
+    max-width: rem-calc(theme('layout', 'width') + theme('layout', 'padding') * 2);
+    padding: rem-calc(0 theme('layout', 'padding'));
+}

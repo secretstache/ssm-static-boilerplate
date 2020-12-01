@@ -16,10 +16,6 @@
         {
             "name": "Victoria Naumova",
             "email": "victoria@secretstache.com"
-        },
-        {
-            "name": "Ruslan Anisimov",
-            "email": "ruslan@secretstache.com"
         }
     ],
     "require": {

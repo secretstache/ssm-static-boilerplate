@@ -17,12 +17,22 @@ meta_title: Components
             <div class="cell small-12">
                 <div class="inner">
                     {{> header headline="Header module" }} 
-                    {{> text-editor }}
+                    {{#> text-editor }}
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ad, quis fugiat architecto ipsam soluta facilis nulla aut fuga enim! Quam, commodi itaque. Eos ea ullam officiis sapiente perspiciatis voluptate.</p>
+                        <img src="{{root}}assets/images/cms/placeholder.jpg" class="alignright" alt="" width="300">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ad, quis fugiat architecto ipsam soluta facilis nulla aut fuga enim! Quam, commodi itaque. Eos ea ullam officiis sapiente perspiciatis voluptate.</p>
+                        <h1>h1 heading</h1>
+                        <h2>h2 heading</h2>
+                        <h3>h3 heading</h3>
+                        <h4>h4 heading</h4>
+                        <h5>h5 heading</h5>
+                        <h6>h6 heading</h6>
+                    {{/text-editor}}
                     {{> picture }}
                     {{> video src="https://www.youtube.com/embed/02J5A3r-Bdk" classes="youtube" }}
                     {{> form}}
+                    {{{ buttons buttonClasses="default, simple" labels="Button default, Button simple" urls="#, #"}}} 
                     {{>carousel}}
-                    {{>carousel slides=1}}
                 </div>
             </div>
         </div>

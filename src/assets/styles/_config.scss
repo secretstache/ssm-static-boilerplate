@@ -1,0 +1,73 @@
+// Usage: 
+// color('primary');
+// color('blue', 'base');
+// fontFamily('body')
+// spacing('margin')
+// theme('layout', 'width')
+
+$theme: (
+    'colors': (
+        'primary': #23bffd,
+        'white': #fff,
+        'black': #000,
+        'inverse': #fff,
+        'text': #000,
+        // 'blue': (
+        //     'base': red,
+        //     'light': #121212,
+        //     'dark': #755445
+        // )
+    ),
+    'breakpoints': (
+        'small': 0,
+        'medium': 768,
+        'large': 1024,
+        'xlarge': 1280,
+        'xxlarge': 1536
+    ),
+    'fontFamily':(
+        'body': sans-serif,
+        'headings': serif
+    ),
+    'spacing':(
+        'margin': 100,
+        'padding': 100,
+        'module-margin': 30,
+        'module-padding': 30
+    ),
+    'layout':(
+        'width': 1140,
+        'padding': 30
+    ),
+    'headings': (
+        'h1': 48,
+        'h2': 40,
+        'h3': 31,
+        'h4': 25,
+        'h5': 20,
+        'h6': 16
+    ),
+    'extra': (
+        'border-radius': 5,
+        'transition-time': 0.6s,
+        'p-margin': 20
+    )
+);
+
+$breakpoints : theme('breakpoints');
+
+$base-margin: spacing('margin');
+$base-padding: spacing('padding');
+$module-margin: spacing('module-margin');
+$module-padding: spacing('module-padding');
+
+$border-radius:  theme('extra', 'border-radius');
+$tr: theme('extra', 'transition-time');
+$p-margin: theme('extra', 'p-margin');
+
+$h1: theme('headings', 'h1');
+$h2: theme('headings', 'h2');
+$h3: theme('headings', 'h3');
+$h4: theme('headings', 'h4');
+$h5: theme('headings', 'h5');
+$h6: theme('headings', 'h6');

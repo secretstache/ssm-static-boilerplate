@@ -1,0 +1,435 @@
+//helper
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// responsive font size
+// usage: @include responsive-type(20,16,1.6);
+@mixin responsive-type($max-font-size, $min-font-size: ($max-font-size - ($max-font-size * 0.3)), $line-height: normal, $min-vw: theme('breakpoints', 'medium'), $max-vw: theme('breakpoints', 'large')) {
+    & {
+        font-size: rem-calc($min-font-size);
+
+        @if $line-height == normal {
+
+        } @else if $line-height % 1 == 0 {
+            line-height: $line-height / $max-font-size;
+        } @else {
+            line-height: $line-height;
+        }
+     
+        @media screen and (min-width: #{$min-vw * 1px}) {
+            font-size: calc(#{$min-font-size * 1px} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw * 1px}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+
+        @media screen and (min-width: #{$max-vw * 1px}) {
+            font-size: rem-calc($max-font-size);
+        }
+    }
+}
+
+// font size
+// usage @include font-size(32, 60);
+@mixin font-size($font-size, $line-height: normal) {
+    font-size: rem-calc($font-size);
+
+    @if $line-height == normal {
+
+    } @else if $line-height % 1 == 0 {
+        line-height: $line-height / $font-size;
+    } @else {
+        line-height: $line-height;
+    }
+}
+  
+
+@mixin responsive-padding($direction: 'vert', $large: $base-padding, $base : 0.2, $important: 'false') {
+    //by default we have: 
+    //20% decrease for medium
+    //10% descrease of medium
+
+    $medium: $large - ($large * $base);
+    $small: $medium - ($medium * 0.1);
+
+    @if($base==0) {
+        $medium: $large;
+        $small: $large;
+    }
+
+    @if($important=='false') {
+        @if $direction=='top' {
+            padding-top: rem-calc($small);
+
+            @include breakpoint(medium) {
+                padding-top: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                padding-top: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='bottom' {
+            padding-bottom: rem-calc($small);
+
+            @include breakpoint(medium) {
+                padding-bottom: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                padding-bottom: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='vert' {
+            padding-bottom: rem-calc($small);
+            padding-top: rem-calc($small);
+
+            @include breakpoint(medium) {
+                padding-bottom: rem-calc($medium);
+                padding-top: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                padding-bottom: rem-calc($large);
+                padding-top: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='horz' {
+            padding-left: rem-calc($small);
+            padding-right: rem-calc($small);
+
+            @include breakpoint(medium) {
+                padding-left: rem-calc($medium);
+                padding-right: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                padding-left: rem-calc($large);
+                padding-right: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='all' {
+            padding: rem-calc($small);
+
+            @include breakpoint(medium) {
+                padding: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                padding: rem-calc($large);
+            }
+        }
+    }
+
+    @if($important=='true') {
+        @if $direction=='top' {
+            padding-top: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                padding-top: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                padding-top: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='bottom' {
+            padding-bottom: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                padding-bottom: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                padding-bottom: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='vert' {
+            padding-bottom: rem-calc($small) !important;
+            padding-top: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                padding-bottom: rem-calc($medium) !important;
+                padding-top: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                padding-bottom: rem-calc($large) !important;
+                padding-top: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='horz' {
+            padding-left: rem-calc($small) !important;
+            padding-right: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                padding-left: rem-calc($medium) !important;
+                padding-right: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                padding-left: rem-calc($large) !important;
+                padding-right: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='all' {
+            padding: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                padding: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                padding: rem-calc($large) !important;
+            }
+        }
+    }
+}
+
+
+@mixin responsive-margin($direction: 'vert', $large: $base-margin, $base : 0.2, $important: 'false') {
+    //by default we have: 
+    //20% decrease for medium
+    //10% descrease of medium for small
+
+    $medium: $large - ($large * $base);
+    $small: $medium - ($medium * 0.1);
+
+    @if($base==0) {
+        $medium: $large;
+        $small: $large;
+    }
+
+    @if($important=='false') {
+        @if $direction=='top' {
+            margin-top: rem-calc($small);
+
+            @include breakpoint(medium) {
+                margin-top: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                margin-top: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='bottom' {
+            margin-bottom: rem-calc($small);
+
+            @include breakpoint(medium) {
+                margin-bottom: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                margin-bottom: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='vert' {
+            margin-bottom: rem-calc($small);
+            margin-top: rem-calc($small);
+
+            @include breakpoint(medium) {
+                margin-bottom: rem-calc($medium);
+                margin-top: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                margin-bottom: rem-calc($large);
+                margin-top: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='horz' {
+            margin-left: rem-calc($small);
+            margin-right: rem-calc($small);
+
+            @include breakpoint(medium) {
+                margin-left: rem-calc($medium);
+                margin-right: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                margin-left: rem-calc($large);
+                margin-right: rem-calc($large);
+            }
+        }
+
+        @else if $direction=='all' {
+            margin: rem-calc($small);
+
+            @include breakpoint(medium) {
+                margin: rem-calc($medium);
+            }
+
+            @include breakpoint(large) {
+                margin: rem-calc($large);
+            }
+        }
+    }
+
+    @if($important=='true') {
+        @if $direction=='top' {
+            margin-top: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                margin-top: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                margin-top: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='bottom' {
+            margin-bottom: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                margin-bottom: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                margin-bottom: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='vert' {
+            margin-bottom: rem-calc($small) !important;
+            margin-top: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                margin-bottom: rem-calc($medium) !important;
+                margin-top: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                margin-bottom: rem-calc($large) !important;
+                margin-top: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='horz' {
+            margin-left: rem-calc($small) !important;
+            margin-right: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                margin-left: rem-calc($medium) !important;
+                margin-right: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                margin-left: rem-calc($large) !important;
+                margin-right: rem-calc($large) !important;
+            }
+        }
+
+        @else if $direction=='all' {
+            margin: rem-calc($small) !important;
+
+            @include breakpoint(medium) {
+                margin: rem-calc($medium) !important;
+            }
+
+            @include breakpoint(large) {
+                margin: rem-calc($large) !important;
+            }
+        }
+    }
+}
+
+
+@mixin overlay() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin closeButton($color: $black) {
+    display: inline-block;
+    width: rem-calc(20);
+    height: rem-calc(20);
+    position: relative;
+
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        width: rem-calc(3);
+        height: 100%;
+        background: $color;
+        position: absolute;
+        left: rem-calc(8);
+        top: 0;
+        border-radius: rem-calc(3);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+}
+
+
+////
+/// Helper function to easily use an SVG inline in CSS
+/// without encoding it to base64, saving bytes.
+/// It also helps with browser support.
+////
+
+/// A small function allowing skipping base64 encoding
+/// and simply pasting the SVG markup right in the CSS.
+/// @author Jakob Eriksen
+/// @link http://codepen.io/jakob-e/pen/doMoML
+/// @param {String} $svg - SVG image to encode
+/// @return {String} - Encoded SVG data uri
+//  background: svg-uri('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18.4px" height="9.4px" viewBox="0 0 18.4 9.4" style="enable-background:new 0 0 18.4 9.4;" xml:space="preserve"><path style="fill:#5BD8C6;" d="M9.2,9.4c-0.8,0-1.6-0.3-2.1-0.9L0,1.4L1.4,0l7.1,7.1c0.4,0.4,1,0.4,1.4,0L17,0l1.4,1.4l-7.1,7.1 C10.7,9.1,10,9.4,9.2,9.4z"/></svg>');
+@function svg-uri($svg) {
+    $encoded: '';
+    $slice: 2000;
+    $index: 0;
+    $loops: ceil(str-length($svg) / $slice);
+  
+    @for $i from 1 through $loops {
+        $chunk: str-slice($svg, $index, $index + $slice - 1);
+        $chunk: str-replace($chunk, '"', "'");
+        $chunk: str-replace($chunk, '<', '%3C');
+        $chunk: str-replace($chunk, '>', '%3E');
+        $chunk: str-replace($chunk, '&', '%26');
+        $chunk: str-replace($chunk, '#', '%23');
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+  
+    @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+  }
+
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @link http://sassmeister.com/gist/1b4f2da5527830088e4d
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+  
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+  
+    @return $string;
+  }

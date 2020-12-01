@@ -1,8 +1,32 @@
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color('primary');
+  color: color('white');
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  border: 0;
+  transition: color $tr, background $tr, border-color $tr;
+  @include font-size(16,1.6);
+  padding: rem-calc(10 30);
+  border-radius: rem-calc($border-radius);
+  height: rem-calc(50);
+
+  &:hover {
+    color: color('white');
+    background: scale-color(color('primary'), $lightness: -15%);
+  }
  
-  &:hover,
-  &:active,
-  &:focus {
- 
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+
+  &:disabled,
+  &.disabled{
+    pointer-events: none;
   }
 }

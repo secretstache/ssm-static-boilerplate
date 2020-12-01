@@ -1,34 +1,44 @@
-img[class*="wp-image-"],
-img[class^="wp-image-"] {
-  @include responsive-margin("bottom", $base-margin/2);
+$img-margin: $module-margin / 2;
+.alignleft,
+.alignright,
+.alignnone, 
+.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  float: none;
+  height: auto;
+
+  @include breakpoint(small only) {
+    + p,
+    p + & {
+      @include responsive-margin('top', $module-margin);
+    }
+  }
 }
 
-.alignnone {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 100%;
-    height: auto;
+.alignnone, 
+.aligncenter {
+  + p,
+  p + & {
+    @include responsive-margin('top', $module-margin);
   }
-  
-  .aligncenter {
-    @include responsive-margin("bottom", $base-margin/2);
-    display: block;
-    height: auto;
-  }
-  
-  .alignleft,
-  .alignright {
-    height: auto;
 }
-  
+
 @include breakpoint(medium) {
-    // Only float if not on an extra small device
     .alignleft {
         float: left;
-        margin-right: ($base-margin / 2);
+        margin-right: rem-calc($img-margin);
+        margin-bottom: rem-calc($img-margin);
     }
     .alignright {
         float: right;
-        margin-left: ($base-margin / 2);
+        margin-left: rem-calc($img-margin);
+        margin-bottom: rem-calc($img-margin);
     }
+
+    .alignnone {
+      margin-left: 0;
+      margin-right: 0;
+    }  
 }

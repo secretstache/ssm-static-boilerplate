@@ -1,0 +1,55 @@
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+      $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+// Usage: color('primary');
+// color('blue', 'base');
+@function color($keys...) {
+    $map: map-get($theme, 'colors');  
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// Usage: fontFamily('body')
+@function fontFamily($keys...) {
+    $map: map-get($theme, 'fontFamily');  
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// Usage: spacing('margin')
+@function spacing($keys...) {
+    $map: map-get($theme, 'spacing');  
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// Usage: theme('layout', 'width')
+@function theme($keys...) {
+    $map: $theme;  
+    @each $key in $keys {
+      $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// returns value decreased or increased basing on percent 
+// usage percent(20, 10);
+// usage percent(20, 10, up);
+@function percent($val, $percent, $dir : down) {
+    @if $dir == up {
+        @return $val + $val * $percent / 100;
+    } @else {
+        @return $val - $val * $percent / 100;
+    }
+}
