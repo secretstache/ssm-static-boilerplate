@@ -44,7 +44,7 @@ p {
     margin: rem-calc(0 0 $p-margin);
     padding: 0;
 
-    &:last-child {
+    &:last-of-type {
         margin-bottom: 0;
     }
 }

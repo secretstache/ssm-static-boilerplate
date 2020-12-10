@@ -4,3 +4,52 @@
     background: inherit;
     color: inherit;
 }
+
+.menu,
+.menu.dropdown {
+    li.button,
+    > li.button {
+        padding: 0;
+        background: none;
+        height: auto;
+        display: block;
+        text-align: left;
+
+        > a {
+            @extend .button;
+        }
+    }
+}
+
+.menu.dropdown {
+    > li {
+        &.is-dropdown-submenu-parent {
+            > a {
+                padding-right: 0;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        //submenu
+        ul {
+            display: block;
+            pointer-events: auto;
+            visibility: hidden;
+            opacity: 0;
+            transform: translate(0, 10px);
+            transition: opacity 0.3s ease-in, transform 0.3s ease-in, visibility 0.3s ease-in;
+        }
+
+        //active state            
+        &.is-active {
+           ul {
+               opacity: 1;
+               transform: translate(0, 0);
+               visibility: visible;
+           }
+       }
+    }
+}

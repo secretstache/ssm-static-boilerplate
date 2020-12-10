@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+@import 'helpers/functions';
+@import 'helpers/mixins';
+@import 'config';
+
 @import 'foundation-sites/scss/foundation';
 //@import 'motion-ui/src/motion-ui.scss';
 
@@ -57,16 +61,11 @@
 // @include motion-ui-transitions;
 // @include motion-ui-animations;
 
-@import 'helpers/functions';
-@import 'helpers/mixins';
-@import 'config';
-
 @import 'common/base';
 @import 'common/typography';
 @import 'common/backgrounds';
 @import 'common/wordpress';
 @import 'common/utilities';
-@import 'common/skip-main';
 @import 'common/layout';
 
 @import 'global-elements/offcanvas';
@@ -77,6 +76,7 @@
 @import 'global-elements/brand';
 @import 'global-elements/navigation';
 @import 'global-elements/hamburger';
+@import 'global-elements/skip-main';
 
 @import 'layout-builder/sections/sections-shared';
 

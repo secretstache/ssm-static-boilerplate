@@ -76,12 +76,12 @@ $input-border: 1px solid color('black');
             li.gfield {
                 width: 100%;
                 margin-top: 0;
-                @include responsive-margin('bottom', 30);
+                @include responsive-margin('bottom', 30, 0.2, 'true');
                 padding: rem-calc(0 15);
                 position: relative;
 
                 &:last-child {
-                    margin-bottom: 0;
+                    margin-bottom: 0 !important;
                 }
 
                 @include breakpoint(large) {
@@ -167,6 +167,7 @@ $input-border: 1px solid color('black');
 
                         label {
                             display: block;
+                            cursor: pointer;
 
                             &:before {
                                 content: '';
@@ -306,6 +307,26 @@ $input-border: 1px solid color('black');
 
         .ginput_container .select2 {
             margin: 0;
+        }
+
+         //columns
+        .gfmc-column {
+            @include responsive-margin('bottom', $module-margin);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            @include breakpoint(medium) {
+                margin-bottom: 0;
+                width: 50% !important;
+            }
         }
     }
 

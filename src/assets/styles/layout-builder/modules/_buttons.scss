@@ -17,7 +17,7 @@
 
         +.button-wrap {
             @include breakpoint(medium) {
-                margin-left: $module-margin;
+                margin-left: rem-calc($module-margin);
             }
         }
     }
