@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+body {
+    @apply bg-white text-black m-0 p-0 font-body font-normal text-base;
+}
+
+img {
+    @apply inline-block align-middle max-w-full h-auto border-0;
+    aspect-ratio: attr(width) / attr(height);
+    -ms-interpolation-mode: bicubic;
+}
+
+a {
+    @apply text-black no-underline transition hover:underline;
+}
+
+p {
+    @apply mb-p;
+    
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+small {
+   @apply text-small;
+}
+
+[type="search"] {
+    -webkit-appearance: textfield; 
+    outline-offset: -2px; 
+
+    &::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; 
+    font: inherit;
+}
