@@ -1,10 +1,10 @@
-<header class="">
-    <div class="container">
-        <div class="grid-x grid-margin-x align-justify align-middle">
-            <div class="brand cell shrink" role="banner">
+<header class="sticky pt-20 pb-20 top-0 left-0 w-full bg-white z-9999" id="site-header">
+    <div class="fluid-container">
+        <div class="flex flex-wrap -ml-col -mr-col">
+            <div class="pl-col pr-col flex-shrink" role="banner">
                 {{> brand}}
             </div>
-            <nav class="primary-navigation cell shrink grid-x align-middle" role="navigation">
+            <nav class="pl-col pr-col flex-grow" role="navigation">
                 {{> navigation type="dropdown" menuClasses="show-for-large" data=common.primary-navigation}}
 
                 {{> hamburger-button}}

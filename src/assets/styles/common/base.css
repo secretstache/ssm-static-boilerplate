@@ -1,44 +1,84 @@
-html {
-    box-sizing: border-box;
-    font-size: 100%;
-}
-
-body {
-    @apply bg-white text-black m-0 p-0 font-body font-normal text-base;
-}
-
-img {
-    @apply inline-block align-middle max-w-full h-auto border-0;
-    aspect-ratio: attr(width) / attr(height);
-    -ms-interpolation-mode: bicubic;
-}
-
-a {
-    @apply text-black no-underline transition hover:underline;
-}
-
-p {
-    @apply mb-p;
-    
-    &:last-of-type {
-        margin-bottom: 0;
+@layer base {
+    html {
+        box-sizing: border-box;
+        font-size: 100%;
     }
-}
 
-small {
-   @apply text-small;
-}
-
-[type="search"] {
-    -webkit-appearance: textfield; 
-    outline-offset: -2px; 
-
-    &::-webkit-search-decoration {
-        -webkit-appearance: none;
+    body {
+        @apply bg-white text-black m-0 p-0 font-body font-normal text-base;
     }
-}
 
-::-webkit-file-upload-button {
-    -webkit-appearance: button; 
-    font: inherit;
+    img {
+        @apply inline-block align-middle max-w-full h-auto border-0;
+        aspect-ratio: attr(width) / attr(height);
+        -ms-interpolation-mode: bicubic;
+    }
+
+    iframe {
+        @apply max-w-full;
+    }
+
+    a {
+        @apply text-black no-underline transition hover:underline;
+    }
+
+    p {
+        @apply mb-p;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    small {
+        @apply text-small;
+    }
+
+    [type="search"] {
+        -webkit-appearance: textfield; 
+        outline-offset: -2px; 
+
+        &::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+    }
+
+    ::-webkit-file-upload-button {
+        -webkit-appearance: button; 
+        font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-headings m-0 p-0;
+    }
+
+    h1 {
+        @apply text-h1;
+    }
+
+    h2 {
+        @apply text-h2;
+    }
+
+    h3 {
+        @apply text-h3;
+    }
+
+    h4 {
+        @apply text-h4;
+    }
+
+    h5 {
+        @apply text-h5;
+    }
+
+    h6 {
+        @apply text-h6;
+    }
+
 }

@@ -1,6 +1,5 @@
 'use strict';
 
-import {TILEWIND_PATHS, DIST, ASSETS_PATHS, ENTRIES, PORT} from './config';
 import plugins       from 'gulp-load-plugins';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
@@ -10,6 +9,12 @@ import rimraf        from 'rimraf';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+
+const TILEWIND_PATHS =  ['src/pages/**/*.html', 'src/{layouts,partials}/**/*.html', 'src/data/**/*.{js,json,yml}', 'src/helpers/**/*.js', 'src/assets/styles/**/*.css'];
+const ASSETS_PATHS = [ 'src/assets/**/*', '!src/assets/{scripts,styles}{,/**/*}'];
+const DIST = 'dist';
+const PORT = '8000';
+const ENTRIES = ['src/assets/scripts/app.js'];
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
