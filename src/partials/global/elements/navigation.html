@@ -1,0 +1,16 @@
+<ul class="md:flex md:flex-row{{#if cls}} {{cls}}{{/if}}">
+    {{#each data}}
+        <li class="relative{{#ifpage link}} current-menu-item{{/ifpage}}">
+            <a href="{{root}}{{link}}.html" class="px-4 py-2">{{text}}</a>
+            {{#if submenu }}
+                <ul class="absolute left-0 mt-2 origin-top-right rounded-md shadow-lg bg-white p-4 hidden md:w-48">
+                    {{#each submenu-items}}
+                        <li class="menu-item {{#ifpage submenu-link}} current-menu-item{{/ifpage}}{{#if classes}} {{classes}}{{/if}}">
+                            <a href="{{root}}{{submenu-link}}.html">{{submenu-text}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>

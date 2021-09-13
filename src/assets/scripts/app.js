@@ -1,6 +1,8 @@
-import $ from 'jquery';
-window.jQuery = $;
+import "regenerator-runtime/runtime.js"
+import $ from 'jquery'
+import Alpine from 'alpinejs'
 
-import './libs/accordion';
+window.jQuery = $
+window.Alpine = Alpine
 
-console.log('app.js');
+Alpine.start()

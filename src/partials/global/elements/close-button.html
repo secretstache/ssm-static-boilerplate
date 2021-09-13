@@ -1,0 +1,6 @@
+<button type="button" class="inline-flex items-center justify-center {{#if color}}text-{{color}}{{else}}text-gray-400{{/if}} {{#if hoverColor}}hover:text-{{hoverColor}}{{else}}hover:text-gray-500{{/if}} focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500{{#if cls}} {{cls}}{{/if}}">
+    <span class="sr-only">Close</span>
+    <svg class="{{#if size}}h-{{size}} w-{{size}}{{else}}h-4 w-4{{/if}} transition-all duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="{{#if strokeWidth}}{{strokeWidth}}{{else}}2{{/if}}" d="M1,13L13,1 M1,1l12,12"/>
+    </svg>
+</button>

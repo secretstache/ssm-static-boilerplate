@@ -11,3 +11,11 @@ show_hero_unit_button: true
 hero_unit_button_text: Learn More!
 hero_unit_button_url: "http://secretstache.com"
 ---
+
+<div x-data="{ open: false }">
+    <button @click="open = ! open">Expands</button>
+ 
+    <div x-show="open" x-transition>
+        Content...
+    </div>
+</div>

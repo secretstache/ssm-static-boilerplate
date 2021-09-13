@@ -100,7 +100,7 @@ function javascript() {
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest(DIST + '/assets/js'));
+    .pipe(gulp.dest(DIST + '/assets/scripts'));
 }
 
 // Start a server with BrowserSync to preview the site in

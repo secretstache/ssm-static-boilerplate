@@ -1,11 +1,11 @@
-<header class="sticky pt-20 pb-20 top-0 left-0 w-full bg-white z-9999" id="site-header">
+<header class="sticky pt-4 pb-4 top-0 left-0 w-full bg-white z-9998 md:pt-8 md:pb-8" id="site-header">
     <div class="fluid-container">
-        <div class="flex flex-wrap -ml-col -mr-col">
+        <div class="flex flex-wrap -ml-col -mr-col items-center">
             <div class="pl-col pr-col flex-shrink" role="banner">
                 {{> brand}}
             </div>
-            <nav class="pl-col pr-col flex-grow" role="navigation">
-                {{> navigation type="dropdown" menuClasses="show-for-large" data=common.primary-navigation}}
+            <nav class="pl-col pr-col flex-grow flex flex-row justify-end" role="navigation">
+                {{> navigation cls="hidden" data=common.primary-navigation}}
 
                 {{> hamburger-button}}
             </nav>
