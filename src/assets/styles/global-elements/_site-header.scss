@@ -6,4 +6,17 @@
     width: 100%;
     background: color('white');
     z-index: 9998;
+
+    .primary-navigation {
+        > ul {
+            align-items: center;
+
+            > li {
+                &.button {
+                    margin-right: 1rem;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
 }

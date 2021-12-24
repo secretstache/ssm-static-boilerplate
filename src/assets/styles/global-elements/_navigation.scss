@@ -25,7 +25,7 @@
     > li {
         &.is-dropdown-submenu-parent {
             > a {
-                padding-right: 0;
+                padding-right: .75rem;
 
                 &::after {
                     display: none;

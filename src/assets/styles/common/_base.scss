@@ -16,7 +16,7 @@ body {
     color: color('text');
     font-family: fontFamily('body');
     font-weight: normal;
-    @include font-size(16,1.6);
+    @include typo('body');
 }
 
 img {

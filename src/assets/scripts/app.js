@@ -5,6 +5,7 @@ window.jQuery = $;
 import './lib/foundation-explicit-pieces';
 import {editableSvg, isInViewport} from './lib/utilities';
 import 'slick-carousel/slick/slick';
+import select2 from 'select2';
 
 $(document).foundation();
 
@@ -41,4 +42,9 @@ $(function() {
         $('body').removeClass('offcanvas-active');
     });
 
+    $('select').each(function(){
+        $(this).select2({
+            minimumResultsForSearch: -1,
+        });
+    });
 });

@@ -1,35 +1,43 @@
+// @font-face {
+//     font-family: '';
+//     src:  url('../fonts/') format('woff2'),
+//     url('../fonts/') format('woff');
+//     font-weight: 200;
+//     font-style: italic;
+// }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: fontFamily('headings');
+    font-family: fontFamily('headings'), sans-serif ;
     margin: 0;
     padding: 0;
     line-height: 1.1;
 }
 
-h1 {
-    @include responsive-type($h1, percent($h1, 20));
+h1, .h1 {
+    @include typo('h1');
 }
 
-h2 {
-    @include responsive-type($h2, percent($h2, 20));
+h2, .h2 {
+    @include typo('h2');
 }
 
-h3 {
-    @include responsive-type($h3, percent($h3, 20));
+h3, .h3 {
+    @include typo('h3');
 }
 
-h4 {
-    @include responsive-type($h4, percent($h4, 20));
+h4, .h4 {
+    @include typo('h4');
 }
 
-h5 {
-    @include responsive-type($h5, percent($h5, 20));
+h5, .h5 {
+    @include typo('h5');
 }
 
-h6 {
-    @include responsive-type($h6, percent($h6, 20));
+h6, .h6 {
+    @include typo('h6');
 }

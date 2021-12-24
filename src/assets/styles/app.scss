@@ -6,6 +6,7 @@
 
 @import 'foundation-sites/scss/foundation';
 //@import 'motion-ui/src/motion-ui.scss';
+@import 'select2/src/scss/core.scss';
 
 // Grids 
 @include foundation-xy-grid-classes;
@@ -67,6 +68,8 @@
 @import 'common/wordpress';
 @import 'common/utilities';
 @import 'common/layout';
+@import 'common/gravity';
+@import 'common/facetwp';
 
 @import 'global-elements/offcanvas';
 @import 'global-elements/site-header';
@@ -90,5 +93,6 @@
 @import 'layout-builder/modules/carousel';
 @import 'layout-builder/modules/picture';
 @import 'layout-builder/modules/form';
+@import 'layout-builder/modules/hubspot';
 
 @import 'layout-builder/templates/template-header';

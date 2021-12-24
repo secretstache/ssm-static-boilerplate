@@ -3,48 +3,48 @@ $input-paddings: rem-calc(10 20);
 $input-border: 1px solid color('black');
 
 .module.form {
+    input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type='file']),
+    select,
+    textarea {
+        width: 100%;
+        box-shadow: none;
+        position: relative;
+        margin: 0;
+        padding: $input-paddings;
+        height: $input-height;
+        border: $input-border;
+
+        &::placeholder {
+            color: inherit;
+        }
+
+        &:focus {
+            // remove placeholder on input :focus by default
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
+
+    select {
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        background-image: svg-uri('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18.6 9.7" style="enable-background:new 0 0 18.6 9.7;" xml:space="preserve"><path d="M9.6,9.7c-0.3,0-0.7-0.1-1-0.3L0.5,2.7c-0.6-0.5-0.7-1.5-0.2-2.1c0.5-0.6,1.5-0.7,2.1-0.2l7.1,5.9l6.5-5.9 c0.6-0.6,1.6-0.5,2.1,0.1c0.6,0.6,0.5,1.6-0.1,2.1l-7.5,6.7C10.3,9.6,10,9.7,9.6,9.7z"/></svg>');
+        background-origin: content-box;
+        background-position: right 0 center;
+        background-repeat: no-repeat;
+        background-size: 9px 6px;
+        padding-right: 1rem;
+    }
+
     .gform_wrapper {
         margin: 0;
 
         .validation_error {
             width: 100%;
-        }
-
-        input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type='file']),
-        select,
-        textarea {
-            width: 100%;
-            box-shadow: none;
-            position: relative;
-            margin: 0;
-            padding: $input-paddings;
-            height: $input-height;
-            border: $input-border;
-
-            &::placeholder {
-                color: inherit;
-            }
-
-            &:focus {
-                // remove placeholder on input :focus by default
-                &::placeholder {
-                    color: transparent;
-                }
-            }
-        }
-
-        select {
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            outline: none;
-            background-image: svg-uri('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18.6 9.7" style="enable-background:new 0 0 18.6 9.7;" xml:space="preserve"><path d="M9.6,9.7c-0.3,0-0.7-0.1-1-0.3L0.5,2.7c-0.6-0.5-0.7-1.5-0.2-2.1c0.5-0.6,1.5-0.7,2.1-0.2l7.1,5.9l6.5-5.9 c0.6-0.6,1.6-0.5,2.1,0.1c0.6,0.6,0.5,1.6-0.1,2.1l-7.5,6.7C10.3,9.6,10,9.7,9.6,9.7z"/></svg>');
-            background-origin: content-box;
-            background-position: right 0 center;
-            background-repeat: no-repeat;
-            background-size: 9px 6px;
-            padding-right: 1rem;
         }
 
         textarea {
@@ -60,7 +60,7 @@ $input-border: 1px solid color('black');
             margin: 0;
         }
 
-        ul.gform_fields {
+        .gform_fields {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -73,12 +73,12 @@ $input-border: 1px solid color('black');
                 margin: 0;
             }
 
-            li.gfield {
+            .gfield {
                 width: 100%;
                 margin-top: 0;
-                @include responsive-margin('bottom', 30, 0.2, 'true');
                 padding: rem-calc(0 15);
                 position: relative;
+                margin-bottom: 0 !important;
 
                 &:last-child {
                     margin-bottom: 0 !important;

@@ -8,7 +8,7 @@ meta_title: Components
 	hero_unit_bg_color: bg-{{color}}
 -->
 
-{{#> content-block template="columns"}}
+{{#> content-block template="free-form"}}
     <div class="grid-container">
 
         {{> template-header headline="The Template Header" subheadline="The Template Subheadline" classes="align-center" }}
@@ -33,6 +33,28 @@ meta_title: Components
                     {{> form}}
                     {{{ buttons buttonClasses="default, simple" labels="Button default, Button simple" urls="#, #"}}} 
                     {{>carousel}}
+                    <div class="facetwp-facet facetwp-type-dropdown facetwp-type-resources">
+                        <div class="facetwp-sort">
+                           <select class="facetwp-sort-select">
+                              <option value="default">All Resources</option>
+                              <option value="date_desc">College Scholarship Database (5)</option>
+                              <option value="date_asc">Essay Writing Resources (1)</option>
+                              <option value="title_asc">Summer Program Database (1)</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="facetwp-facet facetwp-type-dropdown">
+                        <div class="facetwp-sort">
+                           <select class="facetwp-sort-select">
+                              <option value="default">SORT BY</option>
+                              <option value="featured">Newest > Oldest</option>
+                              <option value="date_desc">Oldest > Newest</option>
+                              <option value="title_asc">A - Z</option>
+                              <option value="title_desc">Z - A</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="facetwp-facet facetwp-facet-resource_search facetwp-type-search" data-name="resource_search" data-type="search"><span class="facetwp-input-wrap"><i class="facetwp-icon"></i><input type="text" class="facetwp-search" value="" placeholder="SEARCH" autocomplete="off"></span></div>
                 </div>
             </div>
         </div>

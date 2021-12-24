@@ -39,14 +39,6 @@ $theme: (
         'width': 1140,
         'padding': 30
     ),
-    'headings': (
-        'h1': 48,
-        'h2': 40,
-        'h3': 31,
-        'h4': 25,
-        'h5': 20,
-        'h6': 16
-    ),
     'extra': (
         'border-radius': 5,
         'transition-time': 0.6s,
@@ -64,10 +56,3 @@ $module-padding: spacing('module-padding');
 $border-radius:  theme('extra', 'border-radius');
 $tr: theme('extra', 'transition-time');
 $p-margin: theme('extra', 'p-margin');
-
-$h1: theme('headings', 'h1');
-$h2: theme('headings', 'h2');
-$h3: theme('headings', 'h3');
-$h4: theme('headings', 'h4');
-$h5: theme('headings', 'h5');
-$h6: theme('headings', 'h6');
