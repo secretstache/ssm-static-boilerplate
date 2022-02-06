@@ -4,8 +4,8 @@ $(document).ready(function() {
     if(tabs.length) {
         for (let i = 0; i < tabs.length; i++) {  // each tabs 
             if(tabs[i].hasAttribute('data-tabs')) { // check for data-tabs attribute
-                let tabsItems = tabs[i].querySelectorAll('.tabs-item');  // accordion items
-                let tabsNavs = tabs[i].querySelectorAll('.tabs-nav li');  // accordion navs
+                let tabsItems = tabs[i].querySelectorAll('.tabs-item');  // tabs items
+                let tabsNavs = tabs[i].querySelectorAll('.tabs-nav li');  // tabs navs
 
                 for (let n = 0; n < tabsNavs.length; n++) { // for each tabs nav
                     let currentTabNav = tabsNavs[n]; // current tab nav
@@ -30,14 +30,14 @@ $(document).ready(function() {
                     });
                 }
                 
-                /* Closing accordion items function start */
+                /* Closing tabs items function start */
                 function closeTabs(tabItems) {
                     tabItems.forEach((item, index) => {
                         item.classList.remove('is-active');
                         item.style.maxHeight = null;
                     })
                 }
-                /* Closing accordion items function end */
+                /* Closing tabs items function end */
             } 
 
         }
