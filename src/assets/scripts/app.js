@@ -7,6 +7,9 @@ import {editableSvg, isInViewport} from './lib/utilities';
 import 'slick-carousel/slick/slick';
 import select2 from 'select2';
 
+// modules
+import './layout-builder/modules/accordion';
+
 $(document).foundation();
 
 $(function() {
