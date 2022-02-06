@@ -9,6 +9,7 @@ import select2 from 'select2';
 
 // modules
 import './layout-builder/modules/accordion';
+import './layout-builder/modules/tabs';
 
 $(document).foundation();
 
