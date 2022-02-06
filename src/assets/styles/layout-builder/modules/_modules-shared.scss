@@ -13,8 +13,8 @@
     }
 }
 
-* + .module {
-    @include responsive-margin("top", $module-margin);
+.facetwp-facet + .module {
+        @include responsive-margin("top", $module-margin);
 }
 
 .cell+.cell {
