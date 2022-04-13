@@ -4,19 +4,12 @@ window.jQuery = $;
 
 import './lib/foundation-explicit-pieces';
 import {editableSvg, isInViewport} from './lib/utilities';
-import 'slick-carousel/slick/slick';
+import {carousel} from './layout-builder/modules/carousel';
 import select2 from 'select2';
-
-// modules
-import './layout-builder/modules/accordion';
-import './layout-builder/modules/tabs';
 
 $(document).foundation();
 
 $(function() {
-
-    /* slick slider */
-    $('[data-slick]').slick();
 
     /* Replace all SVG images with inline SVG */
     editableSvg('img.editable-svg');
@@ -51,4 +44,7 @@ $(function() {
             minimumResultsForSearch: -1,
         });
     });
+
+    // modules
+    carousel();
 });
