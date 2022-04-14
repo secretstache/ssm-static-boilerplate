@@ -31,58 +31,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 //select
 .facetwp-type-dropdown,
 .facetwp-sort {
-    //select 2
-    .select2-container {
-        width: 100% !important;
 
-        .select2-selection--single {
-          border: 0;
-          background: none;
-          border-radius: 0;
-          height: rem-calc(41);
-
-
-
-          .select2-selection__rendered {
-            border: 1px solid color('text');
-            line-height: rem-calc(41);
-            color: rgba(color('text'), 1);
-            background: none;
-            letter-spacing: 2.4px;
-            text-transform: uppercase;
-            font-size: rem-calc(12);
-            font-weight: 600;
-            padding-left: rem-calc(24);
-            padding-right: rem-calc(40);
-          }
-
-          &[aria-expanded="true"] .select2-selection__rendered {
-            background: color('blue-light');
-        }
-
-          .select2-selection__arrow {
-            background: svg-uri('<svg xmlns="http://www.w3.org/2000/svg" width="13.224" height="5.131" viewBox="0 0 13.224 5.131"><path id="Path_9847" data-name="Path 9847" d="M0,4.115,6.339,0l6.34,4.115" transform="translate(12.951 4.535) rotate(180)" fill="none" stroke="#001522" stroke-width="1"/></svg>') no-repeat;
-            background-size: contain;
-            width: rem-calc(16);
-            height: rem-calc(6);
-            right: rem-calc(20);
-            bottom: rem-calc(16);
-            top: auto;
-            background-position: 50% 50%;
-
-            b {
-              display: none;
-            }
-          }
-        }
-
-        //open state
-        &.select2-container--open {
-          .select2-selection__arrow {
-            transform: rotate(180deg);
-          }
-        }
-    }
 }
 
 //search

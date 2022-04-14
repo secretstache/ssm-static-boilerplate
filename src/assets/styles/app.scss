@@ -6,7 +6,7 @@
 
 @import 'foundation-sites/scss/foundation';
 //@import 'motion-ui/src/motion-ui.scss';
-@import 'select2/src/scss/core.scss';
+@import 'slim-select/src/slim-select/slimselect.scss';
 
 // Grids 
 @include foundation-xy-grid-classes;

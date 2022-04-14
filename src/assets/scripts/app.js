@@ -5,7 +5,7 @@ window.jQuery = $;
 import './lib/foundation-explicit-pieces';
 import {editableSvg, isInViewport} from './lib/utilities';
 import {carousel} from './layout-builder/modules/carousel';
-import select2 from 'select2';
+import SlimSelect from 'slim-select'
 
 $(document).foundation();
 
@@ -39,11 +39,13 @@ $(function() {
         $('body').removeClass('offcanvas-active');
     });
 
-    $('select').each(function(){
-        $(this).select2({
-            minimumResultsForSearch: -1,
-        });
-    });
+    // Slim-select
+    const selects = document.querySelectorAll('.slim-selects')
+    selects.forEach((selectElement) => {
+        new SlimSelect({
+            select: selectElement
+        })
+    })
 
     // modules
     carousel();

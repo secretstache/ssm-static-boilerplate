@@ -21,9 +21,9 @@
         "motion-ui": "^2.0.3",
         "os": "^0.1.1",
         "path": "^0.12.7",
-        "select2": "^4.1.0-rc.0",
-        "what-input": "^5.1.2",
-        "swiper": "^8.0.7"
+        "slim-select": "^1.27.1",
+        "swiper": "^8.0.7",
+        "what-input": "^5.1.2"
     },
     "devDependencies": {
         "@babel/core": "^7.1.2",

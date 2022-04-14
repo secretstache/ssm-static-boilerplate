@@ -119,7 +119,7 @@ $input-border: 1px solid color('black');
                     border: 0;
 
                     input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
-                    textarea, .select2-container--default .select2-selection--single {
+                    textarea {
                         border-color: red;
                     }
 
@@ -303,10 +303,6 @@ $input-border: 1px solid color('black');
             .datepicker_with_icon {
                 padding-right: rem-calc(40);
             }
-        }
-
-        .ginput_container .select2 {
-            margin: 0;
         }
 
          //columns
