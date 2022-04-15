@@ -2,12 +2,25 @@
 meta_title: Home Page
 body_classes: home
 
-show_hero_unit: true
-hero_unit_option: bg_image
-hero_unit_bg_image: "assets/images/cms/hero-bg.jpg"
-hero_unit_headline: The Headline
-hero_unit_subheadline: The Subheadline
-show_hero_unit_button: true
-hero_unit_button_text: Learn More!
-hero_unit_button_url: "http://secretstache.com"
+hero_unit: {
+    classes: 'bg-dark',
+    bg: {
+        type: 'image',
+        image: 'assets/images/cms/hero-bg.jpg',
+        //color: 'red',
+        //video: 'assets/video/PlaceholderVideo.mp4',
+        //videoType: video/mp4,
+        //videoOptions: muted autoplay playsinline loop
+    },
+    headline: 'The Headline',
+    subheadline: 'The Subheadline',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit architecto iusto necessitatibus accusantium aliquid non quod? Doloremque asperiores corporis.',
+    buttons: [
+        {
+            text: 'Learn More!',
+            href: 'http://secretstache.com',
+            classes: 'button'
+        },
+    ]
+}
 ---
