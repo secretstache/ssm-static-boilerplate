@@ -2,8 +2,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: color('primary');
-  color: color('white');
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -14,11 +12,6 @@
   padding: rem-calc(10 30);
   border-radius: rem-calc($border-radius);
   height: rem-calc(50);
-
-  &:hover {
-    color: color('white');
-    background: scale-color(color('primary'), $lightness: -15%);
-  }
  
   &:focus,
   &:active {
@@ -28,5 +21,48 @@
   &:disabled,
   &.disabled{
     pointer-events: none;
+  }
+
+  &.default {
+    color: color('white');
+    background: color('primary');
+
+    &:hover {
+      background: scale-color(color('primary'), $lightness: -15%);
+    }
+  }
+
+  &.outlined {
+    border: 1px solid color('primary');
+    color: color('primary');
+
+    &:hover {
+      color: color('white');
+      background: color('primary');
+    }
+  }
+
+  &.simple {
+    color: color('primary');
+  }
+
+  .icon {
+    line-height: 0;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+
+    img, svg {
+      height: rem-calc(16);
+      line-height: 0;
+    }
+
+    &-start {
+      margin-right: rem-calc(16);
+    }
+
+    &-end {
+      margin-left: rem-calc(16);
+    }
   }
 }

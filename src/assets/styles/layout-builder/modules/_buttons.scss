@@ -1,28 +1,12 @@
 .module.buttons {
-    .button {
-        margin: 0;
-    }
+    display: flex;
+    flex-wrap: wrap;
 
-    .button-wrap {
-        margin-bottom: rem-calc($module-margin * 0.5);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        @include breakpoint(medium) {
-            display: inline-block;
-            margin-bottom: 0;
-        }
-
-        +.button-wrap {
-            @include breakpoint(medium) {
-                margin-left: rem-calc($module-margin);
-            }
-        }
+    .button:not(:last-of-type) {
+        margin: rem-calc( 0 16 16 0);
     }
 
     &.align-center {
-        text-align: center;
+        justify-content: center;
     }
 }
