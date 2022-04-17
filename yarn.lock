@@ -3023,6 +3023,13 @@ dom-serializer@0:
     domelementtype "^2.0.1"
     entities "^2.0.0"
 
+dom7@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-4.0.4.tgz#8b68c5d8e5e2ed0fddb1cb93e433bc9060c8f3fb"
+  integrity sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==
+  dependencies:
+    ssr-window "^4.0.0"
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -5787,6 +5794,11 @@ liftoff@^3.1.0:
     rechoir "^0.6.2"
     resolve "^1.1.7"
 
+lightgallery@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/lightgallery/-/lightgallery-2.4.0.tgz#b22b355bdbd48d3129e15c9d7d17e8e65bb2a17c"
+  integrity sha512-9i/E/w3yaqs56y3k6SWIUS3JTLpeDCZIVnIuNppzAmj5KjLGy5wrFisoDUD0HdxVUdX0wHG5mjvB4h0TXtyf/w==
+
 limiter@^1.0.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/limiter/-/limiter-1.1.5.tgz#8f92a25b3b16c6131293a0cc834b4a838a2aa7c2"
@@ -8184,11 +8196,6 @@ seek-bzip@^1.0.3:
   dependencies:
     commander "^2.8.1"
 
-select2@^4.1.0-rc.0:
-  version "4.1.0-rc.0"
-  resolved "https://registry.yarnpkg.com/select2/-/select2-4.1.0-rc.0.tgz#ba3cd3901dda0155e1c0219ab41b74ba51ea22d8"
-  integrity sha512-Hr9TdhyHCZUtwznEH2CBf7967mEM0idtJ5nMtjvk3Up5tPukOLXbHUNmh10oRfeNIhj+3GD3niu+g6sVK+gK0A==
-
 semver-greatest-satisfied-range@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/semver-greatest-satisfied-range/-/semver-greatest-satisfied-range-1.1.0.tgz#13e8c2658ab9691cb0cd71093240280d36f77a5b"
@@ -8371,10 +8378,10 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-slick-carousel@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
-  integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
+slim-select@^1.27.1:
+  version "1.27.1"
+  resolved "https://registry.yarnpkg.com/slim-select/-/slim-select-1.27.1.tgz#aab08c1f0428fc2c32b0376857f3da9b1fbdcb2f"
+  integrity sha512-LvJ02cKKk6/jSHIcQv7dZwkQSXHLCVQR3v3lo8RJUssUUcmKPkpBmTpQ8au8KSMkxwca9+yeg+dO0iHAaVr5Aw==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -8595,6 +8602,11 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
+
+ssr-window@^4.0.0, ssr-window@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
+  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
 
 ssri@^6.0.1:
   version "6.0.1"
@@ -9035,6 +9047,14 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+swiper@^8.0.7:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.1.1.tgz#14fa1cb443f03a98c6df8fddce3e16d179b67b3b"
+  integrity sha512-Ypx0K79en1Y5EcTy4ArR6E9EP/OwMMY2K0gawl/P27B5PYRiHedFdbdgfyuOFuxSUKsMoSVqFdmKs3DPXYHTdQ==
+  dependencies:
+    dom7 "^4.0.4"
+    ssr-window "^4.0.2"
 
 symbol-observable@1.0.1:
   version "1.0.1"
