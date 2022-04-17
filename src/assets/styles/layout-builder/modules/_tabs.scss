@@ -44,4 +44,19 @@
       opacity: 1;
     }
   }
+
+  &.vertical {
+    @include breakpoint(medium) {
+      display: flex;
+      align-items: flex-start;
+
+      .tabs-nav {
+        flex-direction: column;
+      }
+
+      .tabs-item {
+        border: none;
+      }
+    }
+  }
 }

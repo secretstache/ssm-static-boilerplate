@@ -5,6 +5,8 @@ window.jQuery = $;
 import './lib/foundation-explicit-pieces';
 import {editableSvg, isInViewport} from './lib/utilities';
 import {carousel} from './layout-builder/modules/carousel';
+import {tabs} from './layout-builder/modules/tabs';
+import {accordion} from './layout-builder/modules/accordion';
 import SlimSelect from 'slim-select'
 
 $(document).foundation();

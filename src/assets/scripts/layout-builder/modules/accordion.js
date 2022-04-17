@@ -1,4 +1,4 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     let accordion = document.querySelectorAll(".accordion");
 
     if(accordion.length) {

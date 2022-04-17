@@ -1,4 +1,4 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     let tabs = document.querySelectorAll(".tabs");
 
     if(tabs.length) {
@@ -9,6 +9,20 @@ $(document).ready(function() {
 
                 for (let n = 0; n < tabsNavs.length; n++) { // for each tabs nav
                     let currentTabNav = tabsNavs[n]; // current tab nav
+                    
+                    if(tabsNavs[n].classList.contains('is-active')) {
+                        let tabNavId = tabsNavs[n].querySelector('a').getAttribute("href").substring(1); // Get the href of nav which user clicked
+
+                        for (let k = 0; k < tabsItems.length; k++) { // for each tabs items
+                            if(tabsItems[k].id === tabNavId) { // searching which tabs item have simular id to href in nav
+                                let currentItem = tabsItems[k];
+                                closeTabs(tabsItems);  // close all tab items
+
+                                currentItem.classList.toggle('is-active'); // toggle active class in tab content
+                                currentItem.style.maxHeight ? currentItem.style.maxHeight = null : currentItem.style.maxHeight = currentItem.querySelector('.inner').offsetHeight + 'px';  // changing max-height for tab content
+                            }
+                        }
+                    }
 
                     currentTabNav.addEventListener("click", function(e) {  // current tab on click
                         e.preventDefault();
@@ -42,4 +56,4 @@ $(document).ready(function() {
 
         }
     }
-})
+});
