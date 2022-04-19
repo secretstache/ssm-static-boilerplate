@@ -66,3 +66,32 @@
     }
   }
 }
+
+.play-button {
+  display: inline-block;
+  width: rem-calc(48);
+  height: rem-calc(48);
+  border: 3px solid color('white');
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity $tr;
+
+  &:before {
+    content: '';
+    display: block;
+    width: rem-calc(24);
+    height: rem-calc(24);
+    background-color: color('white');
+    clip-path: polygon(20% 0, 20% 100%, 100% 50%);
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

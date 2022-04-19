@@ -17,13 +17,13 @@
         "foundation-sites": "^6.5.1",
         "fs": "0.0.1-security",
         "jquery": "^3.4.1",
-        "lightgallery": "^2.4.0",
         "mkdirp": "^0.5.1",
         "motion-ui": "^2.0.3",
         "os": "^0.1.1",
         "path": "^0.12.7",
         "slim-select": "^1.27.1",
         "swiper": "^8.0.7",
+        "tingle.js": "^0.16.0",
         "what-input": "^5.1.2"
     },
     "devDependencies": {
