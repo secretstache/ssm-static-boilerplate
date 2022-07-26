@@ -6,7 +6,7 @@
     {{#if hero_unit.bg.video}}
         <div class="overlay"></div>
         <div class="video-overlay">
-            <video {{#if hero_unit.bg.videoOptions}}{{hero_unit.bg.videoOptions}}{{/if}}>
+            <video  muted autoplay playsinline loop>
                 <source src="{{root}}{{hero_unit.bg.video}}" type="{{videoType}}">
             </video>
         </div>
@@ -29,9 +29,11 @@
             {{/if}}
 
             {{#if hero_unit.buttons}}
-               {{#each hero_unit.buttons}}
-               <a href="{{href}}" class='{{classes}}'>{{text}}</a>
-               {{/each}}
+               <div class="buttons">
+                    {{#each hero_unit.buttons}}
+                    <a href="{{href}}" class='button{{#if classes}} {{classes}}{{/if}}'>{{text}}</a>
+                    {{/each}}
+                </div>
             {{/if}}
         </div>
 

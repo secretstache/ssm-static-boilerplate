@@ -13,7 +13,7 @@ export function carousel() {
         if( slides.length > 1 ) {
             const swiperCarousel = new Swiper(slider, {
                 modules: [Autoplay, Pagination, Navigation],
-                speed: 1500,
+                speed: 800,
                 autoplay: {
                     delay: 8000,
                 },

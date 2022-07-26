@@ -1,7 +1,7 @@
-$offcanvas-background: color('white');
+$offcanvas-background: var(--white);
 $offcanvas-background-opacity: 1;
-$offcanvas-links-color: color('text');
-$offcanvas-text-color: color('text');
+$offcanvas-links-color: var(--body-color);
+$offcanvas-text-color: var(--body-color);
 
 //off-canvas content
 .off-canvas {

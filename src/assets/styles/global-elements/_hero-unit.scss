@@ -9,7 +9,20 @@ section.hero-unit {
 
     &.bg-image,
     &.bg-video {
-        color: color('inverse');
+        color: var(--inverse);
+    }
+
+    .subheadline,
+    .hero-unit-text,
+    .buttons {
+        margin-top: rem-calc($p-margin);
+    }
+
+    .buttons {
+        display: flex;
+        gap: rem-calc(10);
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     //home hero unit

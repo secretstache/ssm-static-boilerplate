@@ -12,10 +12,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: color('white');
-    color: color('text');
-    font-family: fontFamily('body');
-    font-weight: normal;
+    background: var(--white);
+    color: var(--body-color);
     @include typo('body');
 }
 
@@ -29,14 +27,14 @@ img {
 }
 
 a {
-    color: color('text');
+    color: var(--body-color);
     text-decoration: none;
     transition: color $tr;
 
     &:hover,
     &:focus,
     &:active {
-        color: color('primary');
+        color: var(--primary-color);
     }
 }
 

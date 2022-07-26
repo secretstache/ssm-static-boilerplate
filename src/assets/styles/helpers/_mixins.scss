@@ -343,107 +343,6 @@
     }
 }
 
-
-@mixin typo($type) {
-    @if $type=='h1' {
-        font-weight: 800;
-        @include responsive-type(50,40);
-        line-height: 1.166;
-    }
-
-    @if $type=='h2' {
-        font-weight: 600;
-        @include responsive-type(42,34);
-        line-height: 1.12;
-    }
-
-    @if $type=='h3' {
-        font-weight: 700;
-        @include responsive-type(30,24);
-        line-height: 1.1;
-    }
-    
-    @if $type=='h4' {
-        font-weight: 600;
-        @include responsive-type(24,20);
-        line-height: 1.1;
-    }
-    
-    @if $type=='h5' {
-        font-weight: 400;
-        @include responsive-type(18,16);
-        line-height: 1.366;
-    }
-    
-    @if $type=='h6' {
-        font-weight: 400;
-        @include responsive-type(16,16);
-        line-height: 1.3636;
-    }
-
-    @if $type=='subheadline' {
-        font-weight: 700;
-        @include responsive-type(12,12);
-        text-transform: uppercase;
-        line-height: rem-calc(13);
-
-        @include breakpoint(medium){
-            line-height: rem-calc(23);
-        }
-    }
-
-    @if $type=='body' {
-        font-weight: 400;
-        @include responsive-type(16,14);
-        line-height: rem-calc(20);
-    }
-
-    @if $type=='p-lg' {
-        font-weight: 400;
-        font-size: rem-calc(20);
-        line-height: rem-calc(13);
-    }
-}
-
-@mixin overlay() {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@mixin closeButton($color: $black) {
-    display: inline-block;
-    width: rem-calc(20);
-    height: rem-calc(20);
-    position: relative;
-
-    &:after,
-    &:before {
-        content: '';
-        display: block;
-        width: rem-calc(3);
-        height: 100%;
-        background: $color;
-        position: absolute;
-        left: rem-calc(8);
-        top: 0;
-        border-radius: rem-calc(3);
-    }
-
-    &:after {
-        transform: rotate(-45deg);
-    }
-
-    &:before {
-        transform: rotate(45deg);
-    }
-}
-
-
 ////
 /// Helper function to easily use an SVG inline in CSS
 /// without encoding it to base64, saving bytes.
@@ -494,3 +393,92 @@
   
     @return $string;
   }
+
+@mixin typo($type) {
+    @if $type=='h1' {
+        font-family: fontFamily('headings'), sans-serif ;
+        font-weight: 800;
+        @include responsive-type(50,40);
+        line-height: 1.166;
+    }
+
+    @if $type=='h2' {
+        font-family: fontFamily('headings'), sans-serif ;
+        font-weight: 600;
+        @include responsive-type(42,34);
+        line-height: 1.12;
+    }
+
+    @if $type=='h3' {
+        font-family: fontFamily('headings'), sans-serif ;
+        font-weight: 700;
+        @include responsive-type(30,24);
+        line-height: 1.1;
+    }
+    
+    @if $type=='h4' {
+        font-family: fontFamily('headings'), sans-serif ;
+        font-weight: 600;
+        @include responsive-type(24,20);
+        line-height: 1.1;
+    }
+    
+    @if $type=='h5' {
+        font-family: fontFamily('headings'), sans-serif ;
+        font-weight: 400;
+        @include responsive-type(18,16);
+        line-height: 1.366;
+    }
+    
+    @if $type=='h6' {
+        font-family: fontFamily('headings'), sans-serif ;
+        font-weight: 400;
+        @include responsive-type(16,16);
+        line-height: 1.3636;
+    }
+
+    @if $type=='body' {
+        font-weight: 400;
+        @include responsive-type(16,14);
+        line-height: rem-calc(20);
+        font-family: fontFamily('body');
+    }
+}
+
+@mixin overlay() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin closeButton($color: $black) {
+    display: inline-block;
+    width: rem-calc(20);
+    height: rem-calc(20);
+    position: relative;
+
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        width: rem-calc(3);
+        height: 100%;
+        background: $color;
+        position: absolute;
+        left: rem-calc(8);
+        top: 0;
+        border-radius: rem-calc(3);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+}

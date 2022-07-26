@@ -6,7 +6,7 @@ section.content-block {
 
     @include breakpoint(small only) {
         .grid-x .cell.small-order-1 {
-            @include responsive-margin("bottom", $module-margin);
+            @include responsive-margin("bottom", rem-calc($module-margin));
         }
     }
 }

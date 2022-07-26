@@ -1,6 +1,6 @@
 .module.text-editor {
     a:not(.button) {
-        color: color('primary');
+        color: var(--primary-color);
 
         &:hover {
             text-decoration: underline;
@@ -17,17 +17,7 @@
         &+h5,
         &+h6,
         &+div {
-            margin-top: rem-calc($p-margin);
+            margin-top: var(--p-margin);
         }
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: rem-calc($p-margin / 2);
-    }
-    
+    } 
 }

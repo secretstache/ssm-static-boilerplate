@@ -1,23 +1,23 @@
 .bg-dark {
-  color: color('inverse');
+  color: var(--inverse);
 
   label, 
   a:not(.button) {
-    color: color('inverse');
+    color: var(--inverse);
   }
 
   .close-button {
-    color: color('inverse');
+    color: var(--inverse);
   }
 
   .module.form .gform_wrapper {
     .validation_message {
-      color: color('inverse');
+      color: var(--inverse);
     }
 
     .validation_error {
-      color: color('inverse');
-      border-color: color('inverse');
+      color: var(--inverse);
+      border-color: var(--inverse);
     }
 
     ul.gform_fields {
@@ -27,11 +27,11 @@
           > li {
             label {
               &:before {
-                border-color: color('inverse');
+                border-color: var(--inverse);
               }
               
               &:after {
-                background: color('inverse') !important;
+                background: var(--inverse) !important;
               }
             }
           }

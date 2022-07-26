@@ -4,20 +4,20 @@
 // fontFamily('body')
 // spacing('margin')
 // theme('layout', 'width')
+:root {
+    //fonts
+    --body-font: 'Arial', sans-serif;
+    --alt-font: 'Times New Roman', serif;
+
+    //colors
+    --black: rgb(0, 0, 0);
+    --white: rgb(255,255,255);
+    --inverse: rgb(255,255,255);
+    --primary-color: rgb(35, 191, 253);
+    --body-color: rgb(0, 0, 0);
+}
 
 $theme: (
-    'colors': (
-        'primary': #23bffd,
-        'white': #fff,
-        'black': #000,
-        'inverse': #fff,
-        'text': #000,
-        // 'blue': (
-        //     'base': red,
-        //     'light': #121212,
-        //     'dark': #755445
-        // )
-    ),
     'breakpoints': (
         'small': 0,
         'medium': 768,
@@ -26,8 +26,8 @@ $theme: (
         'xxlarge': 1536
     ),
     'fontFamily':(
-        'body': sans-serif,
-        'headings': sans-serif
+        'body': var(--body-font),
+        'headings': var(--alt-font)
     ),
     'spacing':(
         'margin': 100,
@@ -56,3 +56,10 @@ $module-padding: spacing('module-padding');
 $border-radius:  theme('extra', 'border-radius');
 $tr: theme('extra', 'transition-time');
 $p-margin: theme('extra', 'p-margin');
+
+$grid-margin-gutters: (
+  small: 20px,
+  medium: 30px
+);
+
+$breakpoint-classes: (small medium large);

@@ -24,26 +24,25 @@
   }
 
   &.default {
-    color: color('white');
-    background: color('primary');
+    color: var(--white);
+    background: var(--primary-color);
 
     &:hover {
-      background: scale-color(color('primary'), $lightness: -15%);
     }
   }
 
   &.outlined {
-    border: 1px solid color('primary');
-    color: color('primary');
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
 
     &:hover {
-      color: color('white');
-      background: color('primary');
+      color: var(--white);
+      background: var(--primary-color);
     }
   }
 
   &.simple {
-    color: color('primary');
+    color: var(--primary-color);
   }
 
   .icon {

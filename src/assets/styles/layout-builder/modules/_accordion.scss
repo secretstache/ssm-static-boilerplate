@@ -1,14 +1,10 @@
 .module.accordion {
 
     .accordion-title {
-        @include typo('h5');
-        text-transform: uppercase;
-        color: color('text');
-        font-weight: 700;
         position: relative;
         display: flex;
         align-items: center;
-        padding: rem-calc(10 10);
+        padding: rem-calc(10);
         line-height: normal;
 
         // plus icon
@@ -19,7 +15,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 500;
             width: rem-calc(20);
             height: rem-calc(20);
             font-size: rem-calc(20);
@@ -36,27 +31,5 @@
     .inner {
         transition: padding 0.3s;
         padding: rem-calc(10 10);
-    }
-
-    .accordion-item {
-        border: 1px solid #e6e6e6;
-        transition: border 0.3s;
-
-        & + * {
-            margin-top: rem-calc($module-margin)/2;
-        }
-
-        // active state
-        &.active {
-            .accordion-title {
-                color: color('text');
-                opacity: .5;
-                border-bottom: 1px solid #e6e6e6;
-
-                &::after {
-                    content: '-';
-                }
-            }
-        }
     }
 }
