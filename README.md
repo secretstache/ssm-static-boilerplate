@@ -4,7 +4,7 @@ Static boilerplate which contains a starting static development point for SSM pr
 
 ## Requirements
 
-- [NodeJS](https://nodejs.org/en/) (0.12 or greater)
+- [NodeJS](https://nodejs.org/en/) (4.0 or greater)
 - [Composer](https://getcomposer.org/download/)
 - [Git](https://git-scm.com/)
 

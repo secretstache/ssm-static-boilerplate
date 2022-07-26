@@ -25,12 +25,14 @@ import { Foundation } from 'foundation-sites/js/foundation.core';
 // import { Accordion } from 'foundation-sites/js/foundation.accordion';
 //import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsiveAccordionTabs';
 //import { AccordionMenu } from 'foundation-sites/js/foundation.accordionMenu';
-//import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
+//import { ResponsiveMenu } from 'foundation-sites/js/foundation.responsiveMenu';
+//import { Sticky } from 'foundation-sites/js/foundation.sticky';
+
+
 import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
 import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
-//import { ResponsiveMenu } from 'foundation-sites/js/foundation.responsiveMenu';
 import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
-import { Sticky } from 'foundation-sites/js/foundation.sticky';
+import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
 
 Foundation.addToJquery($);
 
@@ -84,10 +86,11 @@ Foundation.addToJquery($);
 // Foundation.plugin(Accordion, 'Accordion');
 //Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 //Foundation.plugin(AccordionMenu, 'AccordionMenu');
-//Foundation.plugin(Drilldown, 'Drilldown');
+//Foundation.plugin(ResponsiveMenu, 'ResponsiveMenu');
+
 Foundation.plugin(Dropdown, 'Dropdown');
 Foundation.plugin(DropdownMenu, 'DropdownMenu');
-//Foundation.plugin(ResponsiveMenu, 'ResponsiveMenu');
 Foundation.plugin(OffCanvas, 'OffCanvas');
+Foundation.plugin(Drilldown, 'Drilldown');
 
 //module.exports = Foundation;

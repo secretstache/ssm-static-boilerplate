@@ -5,11 +5,12 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    gap: rem-calc(20);
+    margin-bottom: rem-calc(20);
 
     li {
       a {
         display: block;
-        padding: rem-calc(20);
       }
     }
   }
@@ -21,10 +22,6 @@
     transition: max-height 0.4s, padding 0.4s, opacity 0.4s;
     opacity: 0;
     border-top: 0;
-
-    .inner {
-      padding: rem-calc(20);
-    }
 
     &.is-active {
       opacity: 1;
@@ -38,11 +35,10 @@
 
       .tabs-nav {
         flex-direction: column;
-      }
-
-      .tabs-item {
-        border: none;
+        margin-bottom: 0;
+        margin-right: rem-calc(20);
       }
     }
+    
   }
 }

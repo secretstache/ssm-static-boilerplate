@@ -1,11 +1,10 @@
 $offcanvas-background: var(--white);
-$offcanvas-background-opacity: 1;
 $offcanvas-links-color: var(--body-color);
 $offcanvas-text-color: var(--body-color);
 
 //off-canvas content
 .off-canvas {
-    background: rgba($offcanvas-background, $offcanvas-background-opacity);
+    background: $offcanvas-background;
     color: $offcanvas-text-color;
     overflow: auto;
     top: 0;
@@ -14,7 +13,8 @@ $offcanvas-text-color: var(--body-color);
     width: 100%;
     transform: translateX(100%);
     transition: transform $tr;
-    padding: rem-calc(26 33);
+    padding: rem-calc(80 0 30);
+    z-index: 9998;
 
     //color of the links 
     a:link,
@@ -52,8 +52,6 @@ $offcanvas-text-color: var(--body-color);
 }
 
 .off-canvas.is-transition-overlap {
-    z-index: 9999;
-
     &.is-open {
         box-shadow: none;
     }

@@ -10,11 +10,11 @@
     --alt-font: 'Times New Roman', serif;
 
     //colors
-    --black: rgb(0, 0, 0);
-    --white: rgb(255,255,255);
-    --inverse: rgb(255,255,255);
-    --primary-color: rgb(35, 191, 253);
-    --body-color: rgb(0, 0, 0);
+    --black: #000;
+    --white: #fff;
+    --inverse: #fff;
+    --primary-color: #23bffd;
+    --body-color: #000;
 }
 
 $theme: (

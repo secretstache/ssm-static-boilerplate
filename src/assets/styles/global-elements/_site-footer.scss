@@ -1,8 +1,8 @@
 footer.site-footer {
-    background: $black;
-    color: $white;
+    background: var(--black);
+    color: var(--inverse);
 
     a {
-        color: $white;
+        color: var(--inverse);
     }
 }
