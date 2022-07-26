@@ -8,7 +8,6 @@ import {carousel} from './layout-builder/modules/carousel';
 import {tabs} from './layout-builder/modules/tabs';
 import {accordion} from './layout-builder/modules/accordion';
 import SlimSelect from 'slim-select'
-import setHeroModal from './layout-builder/modules/hero-modal';
 
 $(document).foundation();
 
@@ -31,6 +30,7 @@ $(function() {
     }
     /* end Sticky header */
 
+    
     /* Hamburger click handle */
     $('.hamburger').on('click', function() {
         $('body').toggleClass('offcanvas-active');
@@ -48,8 +48,7 @@ $(function() {
             select: selectElement
         })
     })
-    
+
     // modules
     carousel();
-    setHeroModal('.hero-open-modal');
 });

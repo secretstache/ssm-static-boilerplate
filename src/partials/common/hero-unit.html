@@ -33,25 +33,6 @@
                <a href="{{href}}" class='{{classes}}'>{{text}}</a>
                {{/each}}
             {{/if}}
-
-            {{#if hero_unit.modalButtons}}
-               
-            <div class="hero-unit-modal-preview">
-
-                {{#if hero_unit.modalPreview}}
-                <img src="{{root}}{{hero_unit.modalPreview}}" alt="">
-                {{/if}}
-
-                {{#each hero_unit.modalButtons}}
-                <button
-                class="{{classes}}"
-                data-video-src="{{modalVideo}}">
-                    <span class="show-for-sr">{{text}}</span>
-                </button>
-                {{/each}}
-            </div>
-               
-            {{/if}}
         </div>
 
     </div>

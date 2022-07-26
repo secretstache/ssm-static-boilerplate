@@ -12,38 +12,6 @@ section.hero-unit {
         color: color('inverse');
     }
 
-    .hero-unit-modal-preview {
-        display: flex;
-        justify-content: center;
-        position: relative;
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
-}
-
-.tingle-modal.hero-modal {
-    z-index: 10000;
-
-    .tingle-modal-box {
-        background-color: transparent;
-    }
-
-    .tingle-modal-box__content {
-        position: relative;
-        padding: 0 0 56.25% 0;
-        height: 0;
-    }
-      
-    iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+    //home hero unit
+    .home & {}
 }
