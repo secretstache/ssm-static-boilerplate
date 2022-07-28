@@ -46,6 +46,49 @@ $input-border: 1px solid $input-border-color;
     }
 
     .gform_wrapper.gravity-theme {
+        .gform_fields {
+            grid-column-gap: rem-calc(20);
+            grid-row-gap: rem-calc(20);
+        }
+
+        .gform_footer {
+            margin: 0;
+            padding: 0;
+            margin-top: rem-calc(40);
+        }
+
+        .gform_validation_errors {
+            padding: rem-calc(10 0);
+            border: 0;
+            border-top: 1px solid var(--red);
+            border-bottom: 1px solid var(--red);
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+            margin: 0;
+            margin-bottom: rem-calc(20);
+
+            h2 {
+                @include typo('h4');
+                color: var(--red);
+            }
+    
+            .gform-icon {
+                display: none;
+            }
+        }
+    
+        .gfield_validation_message {
+            background: none;
+            padding: 0;
+            border: 0;
+            color: var(--red);
+            font-size: rem-calc(14);
+            margin-top: rem-calc(10);
+        }
+    }
+
+    .gform_wrapper.gravity-theme {
         .gfield {
             .gfield_label {
                 margin-bottom: rem-calc(10);

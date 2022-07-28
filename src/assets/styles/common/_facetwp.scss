@@ -70,22 +70,22 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
       border: none;
       border-bottom: 1px solid var(--body-color);
       border-radius: 0;
-      font-size: rem-calc(12);
-      line-height: rem-calc(17);
-      letter-spacing: 2.4px;
-      font-weight: 600;
-      color: var(--body-color);
       padding-right: rem-calc(40);
       outline: none;
       padding-bottom: rem-calc(4);
       padding-left: rem-calc(4);
+      font-size: rem-calc(16);
+      line-height: rem-calc(20);
+      font-weight: 600;
+      color: var(--body-color);
+      letter-spacing: 1;
 
       &::placeholder {
-        font-size: rem-calc(12);
-        line-height: rem-calc(17);
+        font-size: rem-calc(16);
+        line-height: rem-calc(20);
         font-weight: 600;
         color: var(--body-color);
-        letter-spacing: 2.4px;
+        letter-spacing: 1;
       }
     }
 }
