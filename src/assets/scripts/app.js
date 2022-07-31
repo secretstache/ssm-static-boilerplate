@@ -6,7 +6,7 @@ import './lib/foundation-explicit-pieces';
 import {editableSvg, isInViewport} from './lib/utilities';
 import {carousel} from './layout-builder/modules/carousel';
 import './layout-builder/modules/tabs';
-import './layout-builder/modules/accordion';
+import { Accordion } from './layout-builder/modules/accordion'; // import accordions
 import SlimSelect from 'slim-select';
 
 $(document).foundation();
@@ -51,4 +51,6 @@ $(function() {
 
     // modules
     carousel();
+
+    document.querySelectorAll('.accordion').forEach(item => {const accordion = new Accordion(item)}); // init accordions
 });

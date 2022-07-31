@@ -21,6 +21,16 @@
         }
     }
 
+    .accordion-item {
+        &.active {
+            .accordion-title {
+                &::after {
+                    content: '-';
+                }
+            }
+        }
+    }
+
     .accordion-content {
         overflow: hidden;
         margin: 0;
