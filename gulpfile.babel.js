@@ -15,6 +15,8 @@ import named from 'vinyl-named';
 import uncss from 'uncss';
 import autoprefixer from 'autoprefixer';
 
+let uglify = require('gulp-uglify-es').default;
+
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
@@ -136,7 +138,7 @@ function javascript() {
         .pipe(named())
         //.pipe($.sourcemaps.init())
         .pipe(webpackStream(webpackConfig, webpack2))
-        .pipe($.if(PRODUCTION, $.uglify()
+        .pipe($.if(PRODUCTION, uglify()
             .on('error', e => { console.log(e); })
         ))
         //.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
