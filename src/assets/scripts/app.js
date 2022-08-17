@@ -4,9 +4,9 @@ window.jQuery = $;
 
 import './lib/foundation-explicit-pieces';
 import {editableSvg, isInViewport} from './lib/utilities';
-import {carousel} from './layout-builder/modules/carousel';
-import './layout-builder/modules/tabs';
-import './layout-builder/modules/accordion';
+// import {carousel} from './layout-builder/modules/carousel';
+// import './layout-builder/modules/tabs';
+// import './layout-builder/modules/accordion';
 import SlimSelect from 'slim-select';
 
 $(document).foundation();
@@ -48,7 +48,4 @@ $(function() {
             select: selectElement
         })
     })
-
-    // modules
-    carousel();
 });
