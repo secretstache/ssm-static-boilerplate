@@ -1,14 +1,11 @@
-$(document).ready(function() {
-    //pause and play on button click
+import Plyr from 'plyr';
 
-    var videoContainer = $('.video-wrapper');
-    videoContainer.on('click', function() {
-        if (videoContainer.hasClass('playing')) {
-            videoContainer.find('video')[0].pause();
-            videoContainer.removeClass('playing');
-        } else {
-            videoContainer.find('video')[0].play();
-            videoContainer.addClass('playing');
-        }
-    });
-})
+export default function Video() {
+    document.querySelectorAll('.module.video .video-player').forEach(video => {
+        new Plyr(video, {
+            loop: {
+                active: false,
+            },
+        });
+    })
+}

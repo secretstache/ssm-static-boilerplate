@@ -4,8 +4,10 @@ header.module {
     }
 
     .headline {
-        span {
-            display: block;
+        @include breakpoint(medium) {
+            span {
+                display: block;
+            }
         }
     }
 }

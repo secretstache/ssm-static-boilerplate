@@ -12,7 +12,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: var(--white);
+    background: var(--body-bg);
     color: var(--body-color);
     @include typo('body');
 }
@@ -21,25 +21,25 @@ img {
     display: inline-block;
     vertical-align: middle;
     border: 0;
-     max-width: 100%;
-     height: auto;
-     -ms-interpolation-mode: bicubic;
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
 }
 
 a {
-    color: var(--body-color);
+    color: var(--link-color);
     text-decoration: none;
-    transition: color $tr;
+    transition: color var(--tr);
 
     &:hover,
     &:focus,
     &:active {
-        color: var(--primary-color);
+        --link-color: var(--link-hover-color)
     }
 }
 
 p {
-    margin: rem-calc(0 0 $p-margin);
+    margin: 0 0 var(--p-margin);
     padding: 0;
 
     &:last-of-type {
@@ -50,15 +50,15 @@ p {
 small {
     font-size: 80%;
 }
-  
+
 button,
 input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; 
-  font-size: 100%; 
-  margin: 0; 
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
 }
 
 button {
@@ -68,8 +68,8 @@ button {
 }
 
 [type="search"] {
-    -webkit-appearance: textfield; 
-    outline-offset: -2px; 
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
 
     &::-webkit-search-decoration {
         -webkit-appearance: none;
@@ -77,6 +77,15 @@ button {
 }
 
 ::-webkit-file-upload-button {
-    -webkit-appearance: button; 
+    -webkit-appearance: button;
     font: inherit;
+}
+
+b,strong {
+    font-weight: 700;
+}
+
+video,
+svg{
+    max-width: 100%;
 }

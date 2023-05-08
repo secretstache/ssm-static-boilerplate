@@ -2,50 +2,32 @@ import $ from 'jquery';
 import 'what-input';
 window.jQuery = $;
 
-import './lib/foundation-explicit-pieces';
-import {editableSvg, isInViewport} from './lib/utilities';
-// import {carousel} from './layout-builder/modules/carousel';
-// import './layout-builder/modules/tabs';
-// import './layout-builder/modules/accordion';
-import SlimSelect from 'slim-select';
+import './libs/foundation-explicit-pieces';
 
-$(document).foundation();
+import { fixVw } from './global/utilities';
 
-$(function() {
+import Header from "./global/header";
+import Offcanvas from "./global/off-canvas";
+import Svg from "./global/svg";
+//import Cursor from "./global/cursor";
+//import Modals from "./global/modal";
+//import Lottie from './global/lottie';
 
-    /* Replace all SVG images with inline SVG */
-    editableSvg('img.editable-svg');
+import Video from "./layout-builder/modules/video";
 
-    /* Sticky header */
-    window.onscroll = function() { stickyHeader() };
-    const header = document.querySelector('.site-header');
-    var sticky = header.offsetTop;
+document.addEventListener("DOMContentLoaded", function () {
+    $(document).foundation();
 
-    function stickyHeader() {
-        if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-        } else {
-            header.classList.remove("sticky");
-        }
-    }
-    /* end Sticky header */
+    fixVw();
 
-    
-    /* Hamburger click handle */
-    $('.hamburger').on('click', function() {
-        $('body').toggleClass('offcanvas-active');
-    });
+    /* global */
+    Header();
+    Offcanvas();
+    Svg();
+    //Cursor();
+    //Modals();
+    //Lottie();
 
-    /* Offcanvas close button handle */
-    $('.off-canvas .close-button').on('click', function() {
-        $('body').removeClass('offcanvas-active');
-    });
-
-    // Slim-select
-    const selects = document.querySelectorAll('.slim-selects')
-    selects.forEach((selectElement) => {
-        new SlimSelect({
-            select: selectElement
-        })
-    })
+    /* modules */
+    Video();
 });

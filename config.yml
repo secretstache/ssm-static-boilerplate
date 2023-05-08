@@ -30,8 +30,6 @@ PATHS:
     - "node_modules"
   sassEntries: 
     - "src/assets/styles/app.scss"
-    - "src/assets/styles/layout-builder/modules/*.scss"
-    - "src/assets/styles/layout-builder/templates/*.scss"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/scripts/app.js"

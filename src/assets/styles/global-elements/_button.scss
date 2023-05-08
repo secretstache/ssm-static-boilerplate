@@ -1,4 +1,12 @@
 .button {
+  --buttonBg: var(--black);
+  --buttonColor: var(--white);
+  --buttonBorder: transparent;
+  --buttonPadding: 10px 30px;
+  --buttonHeight: 50px;
+  --buttonRadius: 50px;
+  --buttonFontSize: 16px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -6,12 +14,15 @@
   text-decoration: none;
   cursor: pointer;
   user-select: none;
-  border: 0;
-  transition: color $tr, background $tr, border-color $tr;
-  @include font-size(16,1.6);
-  padding: rem-calc(10 30);
-  border-radius: rem-calc($border-radius);
-  height: rem-calc(50);
+  border: 1px solid;
+  transition: color var(--tr), background var(--tr), border-color var(--tr);
+  font-size: var(--buttonFontSize);
+  padding: var(--buttonPadding);
+  min-height: var(--buttonHeight);
+  border-radius: var(--buttonRadius);
+  border-color: var(--buttonBorder);
+  background: var(--buttonBg);
+  color: var(--buttonColor);
  
   &:focus,
   &:active {
@@ -23,45 +34,29 @@
     pointer-events: none;
   }
 
-  &.default {
-    color: var(--white);
-    background: var(--primary-color);
-
-    &:hover {
-    }
+  &:hover {
+    --buttonBg: var(--transparent);
+    --buttonColor: var(--black);
+    --buttonBorder: var(--black);
   }
 
   &.outlined {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    --buttonBg: var(--transparent);
+    --buttonColor: var(--black);
+    --buttonBorder: var(--black);
 
     &:hover {
-      color: var(--white);
-      background: var(--primary-color);
+      --buttonBg: var(--black);
+      --buttonColor: var(--white);
+      --buttonBorder: var(--black);
     }
   }
 
   &.simple {
-    color: var(--primary-color);
-  }
-
-  .icon {
-    line-height: 0;
-    font-size: 0;
-    margin: 0;
-    padding: 0;
-
-    img, svg {
-      height: rem-calc(16);
-      line-height: 0;
-    }
-
-    &-start {
-      margin-right: rem-calc(16);
-    }
-
-    &-end {
-      margin-left: rem-calc(16);
-    }
+    --buttonBg: var(--transparent);
+    --buttonColor: var(--black);
+    --buttonBorder: transparent;
+    --buttonPadding: 0;
+    --buttonHeight: auto;
   }
 }

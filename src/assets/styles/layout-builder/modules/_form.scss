@@ -1,9 +1,8 @@
-$input-height: rem-calc(50);
-$input-paddings: rem-calc(10 20);
-$input-border-color: var(--black);
-$input-border: 1px solid $input-border-color;
-
 .module.form {
+    --inputBorderColor: var(--black);
+    --formButtonColor: var(--inverse);
+    --formButtonBg: var(--black);
+
     input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type='file']),
     select,
     textarea {
@@ -11,19 +10,18 @@ $input-border: 1px solid $input-border-color;
         box-shadow: none;
         position: relative;
         margin: 0;
-        padding: $input-paddings;
-        height: $input-height;
-        border: $input-border;
+        padding: rem-calc(10 10);
+        height: auto;
+        border: 1px solid var(--inputBorderColor);
+        color: var(--inputBorderColor);
+        outline: none;
+        display: block;
+        background: none;
+        line-height: 1.2;
 
         &::placeholder {
             color: inherit;
-        }
-
-        &:focus {
-            // remove placeholder on input :focus by default
-            &::placeholder {
-                color: transparent;
-            }
+            opacity: 0.4;
         }
     }
 
@@ -45,7 +43,13 @@ $input-border: 1px solid $input-border-color;
         height: auto;
     }
 
+
     .gform_wrapper.gravity-theme {
+        .gform_fields {
+            row-gap: rem-calc(30);
+            column-gap: rem-calc(30);
+        }
+
         .gfield {
             .gfield_label {
                 margin-bottom: rem-calc(10);
@@ -62,5 +66,22 @@ $input-border: 1px solid $input-border-color;
                 gap: rem-calc(10);
             }
         }
+
+        .gform_footer {
+            margin-top: rem-calc(30);
+
+            .gform_button {
+                background: var(--formButtonBg);
+                color: var(--formButtonColor);
+            }
+        }
+    }
+}
+
+.bg-dark {
+    .module.form {
+        --inputBorderColor: var(--white);
+        --formButtonBg: var(--white);
+        --formButtonColor: var(--black);
     }
 }

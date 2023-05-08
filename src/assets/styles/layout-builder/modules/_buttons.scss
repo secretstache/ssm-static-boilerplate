@@ -1,10 +1,7 @@
 .module.buttons {
     display: flex;
     flex-wrap: wrap;
-
-    .button:not(:last-of-type) {
-        margin: rem-calc( 0 16 16 0);
-    }
+    gap: rem-calc(20);
 
     &.align-center {
         justify-content: center;

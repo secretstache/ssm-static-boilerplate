@@ -1,43 +1,8 @@
 .bg-dark {
   color: var(--inverse);
 
-  label, 
   a:not(.button) {
     color: var(--inverse);
-  }
-
-  .close-button {
-    color: var(--inverse);
-  }
-
-  .module.form .gform_wrapper {
-    .validation_message {
-      color: var(--inverse);
-    }
-
-    .validation_error {
-      color: var(--inverse);
-      border-color: var(--inverse);
-    }
-
-    ul.gform_fields {
-      li.gfield {
-        .ginput_container_checkbox .gfield_checkbox,
-        .ginput_container_radio .gfield_radio {
-          > li {
-            label {
-              &:before {
-                border-color: var(--inverse);
-              }
-              
-              &:after {
-                background: var(--inverse) !important;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 }
 
@@ -55,15 +20,16 @@
     overflow: hidden;
     @include overlay;
     z-index: 1;
-  
+    pointer-events: none;
+
     video {
-        transform: translate(-50%, -50%);
-        left: 50%;
-        position: absolute;
-        min-width: 100%;
-        min-height: 100%;
-        top: 50%;
-        object-fit: fill;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      top: 50%;
+      object-fit: fill;
     }
   }
 
@@ -78,6 +44,18 @@
 
   .overlay {
     @include overlay;
+    pointer-events: none;
     background: rgba(0,0,0,0.4);
+  }
+}
+
+@each $color in $pallette {
+  .bg-#{$color}{
+    background-color: var(--#{$color}) !important;
+
+    +  .bg-#{$color} {
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
 }

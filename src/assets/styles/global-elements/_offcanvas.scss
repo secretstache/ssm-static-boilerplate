@@ -1,49 +1,19 @@
-$offcanvas-background: var(--white);
-$offcanvas-links-color: var(--body-color);
-$offcanvas-text-color: var(--body-color);
-
-//off-canvas content
 .off-canvas {
-    background: $offcanvas-background;
-    color: $offcanvas-text-color;
+    background: var(--black);
+    color: var(--inverse);
     overflow: auto;
     top: 0;
     right: 0;
     height: 100%;
     width: 100%;
     transform: translateX(100%);
-    transition: transform $tr;
-    padding: rem-calc(80 0 30);
+    transition: transform var(--tr);
+    padding: rem-calc(30);
     z-index: 9998;
 
-    //color of the links 
-    a:link,
-    a:visited {
-        color: $offcanvas-links-color;
-    }
 
     &.is-open {
         transform: translateX(0);
-    }
-
-    //menu
-    .menu {
-        a {
-            padding: 0;
-        }
-
-        &.drilldown {
-            overflow: visible;
-        }
-    }
-
-
-    //close button
-    .close-button {
-        @include closeButton($offcanvas-text-color);
-        position: absolute;
-        right: rem-calc(30);
-        top: rem-calc(20);
     }
 }
 

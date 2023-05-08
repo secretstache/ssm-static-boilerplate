@@ -2,21 +2,51 @@
 meta_title: Components
 ---
 
-<!--
-	hero_unit_option: bg_image|bg_color
-	hero_unit_bg_image: "/assets/images/cms/{{image.jpg}}"
-	hero_unit_bg_color: bg-{{color}}
--->
-
 {{#> content-block template="free-form"}}
     <div class="grid-container">
 
-        {{> template-header headline="The Template Header" subheadline="The Template Subheadline" classes="align-center" }}
+        <div style="margin: 0 0 60px;">
+            <h5>Modules</h5>
+
+            <ul>
+                <li><a href="#header">Header</a></li>
+                <li><a href="#editor">Editor</a></li>
+                <li><a href="#image">Image</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#form">Form</a></li>
+            </ul>
+
+            <h5>Templates</h5>
+
+            <ul>
+                <li><a href="#free-form">Free form</a></li>
+            </ul>
+
+
+            <h5>Pages</h5>
+
+            <ul>
+                <li><a href="{{root}}index.html">Home</a></li>
+            </ul>
+        </div>
+
+
+        {{> template-header
+            headline="The Template Header"
+            moduleClasses="align-center"
+        }}
 
         <div class="grid-x grid-margin-x has-1-cols">
             <div class="cell small-12">
                 <div class="inner">
-                    {{> header headline="Header module" }} 
+
+                    <h3 style="margin: 30px 0;" id="header">Header</h3>
+
+                    {{> header headline="Header module" }}
+
+                    <h3 style="margin: 30px 0;" id="editor">Text editor</h3>
+
                     {{#> text-editor }}
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ad, quis fugiat architecto ipsam soluta facilis nulla aut fuga enim! Quam, commodi itaque. Eos ea ullam officiis sapiente perspiciatis voluptate.</p>
                         <img src="{{root}}assets/images/cms/placeholder.svg" class="alignright" alt="" width="300">
@@ -28,49 +58,46 @@ meta_title: Components
                         <h5>h5 heading</h5>
                         <h6>h6 heading</h6>
                     {{/text-editor}}
-                    {{> image }}
-                    {{> video src="https://www.youtube.com/embed/02J5A3r-Bdk" classes="youtube" }}
-                    {{> form}}
-                    {{{ buttons buttonClasses="default, simple" labels="Button default, Button simple" urls="#, #"}}} 
-                    {{>carousel}}
 
-                    <div class="facetwp-facet facetwp-type-dropdown facetwp-type-resources">
-                        <div class="facetwp-sort">
-                           <select class="facetwp-sort-select slim-selects">
-                              <option value="default">All Resources</option>
-                              <option value="date_desc">College Scholarship Database (5)</option>
-                              <option value="date_asc">Essay Writing Resources (1)</option>
-                              <option value="title_asc">Summer Program Database (1)</option>
-                           </select>
+                    <h3 style="margin: 30px 0;" id="image">Image</h3>
+
+                    <div class="grid-x grid-margin-x" style="margin-top: var(--module-margin); margin-bottom: var(--module-margin)">
+                        <div class="cell medium-6">
+                            {{> image
+                                src="assets/images/cms/placeholder.svg"
+                            }}
                         </div>
-                     </div>
+                    </div>
 
-                     <div class="facetwp-facet facetwp-type-dropdown">
-                        <div class="facetwp-sort">
-                           <select class="facetwp-sort-select slim-selects">
-                              <option value="default">SORT BY</option>
-                              <option value="featured">Newest > Oldest</option>
-                              <option value="date_desc">Oldest > Newest</option>
-                              <option value="title_asc">A - Z</option>
-                              <option value="title_desc">Z - A</option>
-                           </select>
+                    <h3 style="margin: 30px 0;" id="video">Video</h3>
+
+                    <div class="grid-x grid-margin-x" style="margin-top: var(--module-margin); margin-bottom: var(--module-margin)">
+                        <div class="cell medium-6">
+                            {{> video
+                                video="assets/video/placeholder.mp4"
+                            }}
                         </div>
-                     </div>
 
-                     <div class="facetwp-facet facetwp-facet-resource_search facetwp-type-search" data-name="resource_search" data-type="search"><span class="facetwp-input-wrap"><i class="facetwp-icon"></i><input type="text" class="facetwp-search" value="" placeholder="SEARCH" autocomplete="off"></span></div>
-                    {{>accordion}}
-                    {{> header headline="Space for accordions" }} 
-                    {{>accordion type="multi-expand"}}
-                    {{>tabs}}
-                    {{>tabs moduleClasses="vertical"}}
+                        <div class="cell medium-6">
+                            {{> video
+                                iframe="https://www.youtube.com/embed/9No-FiEInLA"
+                                placeholder="assets/images/cms/placeholder.svg"
+                            }}
+                        </div>
+                    </div>
+
+
+                    <h3 style="margin: 30px 0;" id="buttons">Buttons</h3>
 
                     {{#> buttons}}
                         {{#> button type="default" href="#"}}Default{{/button}}
                         {{#> button type="outlined" href="#"}}Outlined{{/button}}
                         {{#> button type="simple" href="#"}}Simple{{/button}}
-                        {{#> button type="default" href="#" starticon='<svg x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" fill="#fff"/></g></svg>'}}With left icon{{/button}}
-                        {{#> button type="default" href="#" endicon='<svg x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" fill="#fff"/></g></svg>'}}With right icon{{/button}}
                     {{/buttons}}
+
+
+                    <h3 style="margin: 30px 0;" id="form">Form</h3>
+                    {{> form}}
                 </div>
             </div>
         </div>
@@ -78,4 +105,7 @@ meta_title: Components
 {{/content-block}}
 
 
+<div class="grid-container" style="margin-top: 30px; margin-bottom: 30px;" >
+    <h3 id="free-form">Free Form</h3>
+</div>
 

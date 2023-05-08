@@ -1,7 +1,7 @@
 module.exports = function(options) {
     let labels = options.hash.labels || '';
     let urls = options.hash.urls || '';
-    let classes = options.hash.classes || '';
+    let classes = options.hash.moduleClasses || '';
     let buttonClasses = options.hash.buttonClasses || '';
     labels = labels.split(',');
     urls = urls.split(',');

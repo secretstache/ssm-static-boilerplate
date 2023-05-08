@@ -15,7 +15,7 @@ section.hero-unit {
     .subheadline,
     .hero-unit-text,
     .buttons {
-        margin-top: rem-calc($p-margin);
+        margin-top: var(--p-margin);
     }
 
     .buttons {

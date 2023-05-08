@@ -1,19 +1,20 @@
 <div class="module video{{#if moduleClasses}} {{moduleClasses}}{{/if}}">
 
-    {{#if src}}
-        <div class="responsive-embed widescreen">
-            <iframe width="1730" height="692" src="{{src}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+    {{#if iframe}}
+
+    <div class="plyr__video-embed video-player">
+        <iframe
+                src="{{iframe}}"
+                allowfullscreen
+                allowtransparency
+        ></iframe>
+    </div>
+
     {{else}}
 
-        <div class="video-wrapper">
-            <div class="play-button"></div>
-
-            <video>
-                <source src="{{root}}assets/video/PlaceholderVideo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <video class="video-player" playsinline controls {{#if placeholder}}poster="{{root}}{{placeholder}}"{{/if}}>
+        <source src="{{root}}{{video}}" type="video/mp4" />
+    </video>
 
     {{/if}}
 

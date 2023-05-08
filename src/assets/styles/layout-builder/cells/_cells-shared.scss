@@ -3,7 +3,7 @@ section.content-block {
 
         &[class^="bg-"],
         &[class*="bg-"] {
-            @include responsive-padding('all', $module-padding);
+            padding: var(--module-padding);
         }
     }
 }

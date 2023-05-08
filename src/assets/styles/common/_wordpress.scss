@@ -1,7 +1,6 @@
-$img-margin: $module-margin / 2;
 .alignleft,
 .alignright,
-.alignnone, 
+.alignnone,
 .aligncenter {
   margin-left: auto;
   margin-right: auto;
@@ -12,33 +11,35 @@ $img-margin: $module-margin / 2;
   @include breakpoint(small only) {
     + p,
     p + & {
-      @include responsive-margin('top', $module-margin);
+      margin-top: var(--module-margin);
     }
   }
 }
 
-.alignnone, 
+.alignnone,
 .aligncenter {
   + p,
   p + & {
-    @include responsive-margin('top', $module-margin);
+    margin-top: var(--module-margin);
   }
 }
 
 @include breakpoint(medium) {
-    .alignleft {
-        float: left;
-        margin-right: rem-calc($img-margin);
-        margin-bottom: rem-calc($img-margin);
-    }
-    .alignright {
-        float: right;
-        margin-left: rem-calc($img-margin);
-        margin-bottom: rem-calc($img-margin);
-    }
+  .alignleft {
+    float: left;
+    margin-right: var(--module-margin);
+    margin-bottom: var(--module-margin);
+    margin-block-start: 0 !important
+  }
+  .alignright {
+    float: right;
+    margin-left: var(--module-margin);
+    margin-bottom: var(--module-margin);
+    margin-block-start: 0 !important;
+  }
 
-    .alignnone {
-      margin-left: 0;
-      margin-right: 0;
-    }  
+  .alignnone {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

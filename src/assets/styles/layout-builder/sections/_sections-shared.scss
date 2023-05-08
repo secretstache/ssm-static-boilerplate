@@ -1,19 +1,18 @@
 section.content-block {
     @include clearfix;
-    @include responsive-margin("top");
+    margin-top: var(--base-margin);
     position: relative;
     z-index: 1;
 
-    @include breakpoint(small only) {
-        .grid-x .cell.small-order-1 {
-            @include responsive-margin("bottom", rem-calc($module-margin));
-        }
+    .grid-x {
+        row-gap: var(--module-margin);
     }
 }
 
 section[class^="bg-"],
 section[class*="bg-"] {
-    @include responsive-padding("vert");
+    padding-top: var(--base-padding);
+    padding-bottom: var(--base-padding);
 }
 
 section[class^="bg-"]+section[class^="bg-"],
@@ -22,7 +21,7 @@ section[class*="bg-"]+section[class*="bg-"] {
 }
 
 section.content-block:last-of-type {
-    @include responsive-margin("bottom");
+    margin-bottom: var(--base-margin);
 }
 
 section:last-of-type[class^="bg-"],
@@ -31,20 +30,10 @@ section:last-of-type[class*="bg-"] {
 }
 
 section.content-block:last-of-type.collapse-vert {
-    @include responsive-margin("bottom", $base-margin);
+    margin-bottom: var(--base-margin);
 }
 
 section.collapse .grid-x .cell {
     padding-left: 0;
     padding-right: 0;
-}
-
-.has-2-cols,
-.has-3-cols,
-.has-4-cols {
-    @include breakpoint(small only) {
-        &:not(.block-grid)>.cell+.cell {
-            @include responsive-margin("top", $module-margin);
-        }
-    }
 }
