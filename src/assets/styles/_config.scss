@@ -1,3 +1,27 @@
+$breakpoints : (
+        'small': 0,
+        'medium': 768,
+        'large': 1024,
+        'xlarge': 1280,
+        'xxlarge': 1536
+);
+
+$breakpoint-classes: (small medium large);
+
+$palette: (
+        'red': #B41111,
+);
+
+$spacing: (
+        '0': 0,
+        'xs': rem-calc(10),
+        'sm': rem-calc(16),
+        'md': rem-calc(32),
+        'lg': rem-calc(64),
+        'xl': rem-calc(128),
+        '2xl': rem-calc(160)
+);
+
 :root {
     //fonts
     --body-font: "Arial", sans-serif;
@@ -13,40 +37,34 @@
     --link-hover-color: var(--body-color);
 
     //theme colors
+    @each $prop, $value in $palette {
+        --#{$prop}: #{$value};
+    }
 
-    //plyr
-    --plyr-color-main: var(--black);
+    //spacings
+    @each $prop, $value in $spacing {
+        --spacing-#{$prop}: #{$value};
+    }
 
     //margins and paddings
     --p-margin: 1.25rem; //20px
-    --base-margin: 6.25rem; //120px
-    --base-padding: 6.25rem; //120px
-    --module-padding: 1.875rem; //30px
-    --module-margin: 1.875rem; //40px
+    --base-margin: var(--spacing-xl);
+    --base-padding: var(--spacing-xl);
+    --module-padding: var(--spacing-md);
+    --module-margin: var(--spacing-md);
+
+    @include breakpoint(small only) {
+        --base-margin: var(--spacing-lg);
+    }
 
     //layout
-    --content-width: 86.25rem; //1380px
-    --content-paddings: 1.125rem; //18px
-    --content-contained-width: 72rem; //1152px
+    --container-width: 86.25rem; //1380px
+    --container-paddings: 1.125rem; //18px
+    --container-contained-width: 72rem; //1152px
+    --grid-row-gap: 2rem; //32px
+    --grid-column-gap: 2rem; //32px
 
     //other
     --tr: 0.6s;
+    --plyr-color-main: var(--black);
 }
-
-$breakpoints : (
-    'small': 0,
-    'medium': 768,
-    'large': 1024,
-    'xlarge': 1280,
-    'xxlarge': 1536
-);
-
-
-$grid-margin-gutters: (
-    small: 20px,
-    medium: 30px
-);
-
-$breakpoint-classes: (small medium large);
-
-$pallette: 'black', 'white';

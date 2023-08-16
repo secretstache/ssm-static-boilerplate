@@ -1,14 +1,8 @@
 @charset "utf-8";
 
-@import 'helpers/functions';
-@import 'helpers/mixins';
-@import 'config';
-
 @import 'foundation-sites/scss/foundation';
 
-// Grids 
-@include foundation-xy-grid-classes;
-@include foundation-responsive-embed;
+// Grids
 @include foundation-menu;
 @include foundation-drilldown-menu;
 @include foundation-dropdown-menu;
@@ -16,13 +10,8 @@
 // Layout components
 @include foundation-off-canvas;
 
-// Helpers
-@include foundation-visibility-classes;
-@include foundation-flex-classes;
-
 
 //plugins
-
 @import 'wp-plugins/facetwp'; // remove on the staging
 @import 'wp-plugins/gravity'; // remove on the staging
 
@@ -31,12 +20,17 @@
 //@import "libs/lightgallery/lightgallery";
 @import "libs/plyr";
 
+@import 'helpers/functions';
+@import 'helpers/mixins';
+@import 'config';
+
 @import 'common/base';
 @import 'common/typography';
 @import 'common/backgrounds';
 @import 'common/wordpress';
-@import 'common/utilities';
 @import 'common/layout';
+@import 'common/grid';
+@import 'common/utilities';
 
 //@import 'global-elements/cursor';
 //@import 'global-elements/modal';
@@ -50,10 +44,6 @@
 @import 'global-elements/hamburger';
 @import 'global-elements/skip-main';
 
-@import 'layout-builder/sections/sections-shared';
-
-@import 'layout-builder/cells/cells-shared';
-
 @import 'layout-builder/modules/modules-shared';
 @import 'layout-builder/modules/header';
 @import 'layout-builder/modules/text-editor';
@@ -62,4 +52,5 @@
 @import 'layout-builder/modules/image';
 @import 'layout-builder/modules/form';
 
+@import 'layout-builder/templates/shared';
 @import 'layout-builder/templates/template-header';
