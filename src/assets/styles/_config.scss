@@ -12,10 +12,14 @@
     //colors
     --black: #000;
     --white: #fff;
+    --gray: #f0f0f0;
     --inverse: #fff;
     --primary-color: #23bffd;
     --body-color: #000;
     --red: #c02b0a;
+
+    // transition time
+    --tr: 0.6s;
 }
 
 $theme: (

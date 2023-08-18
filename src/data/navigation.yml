@@ -1,0 +1,60 @@
+
+-
+  title: Simple
+  link: '#'
+  classes: false
+-
+  title: Has Submenu
+  link: '#'
+  classes: has-submenu
+  has-submenu: true
+  submenu-items: 
+    -
+      title: Item 01
+      link: '#'
+    -
+      title: Item 02
+      link: '#'
+    -
+      title: Item 03
+      link: '#'
+-
+  title: Has Megamenu
+  link: '#'
+  classes: has-submenu has-megamenu
+  has-submenu: true
+  megamenu-items:
+    -
+      img: assets/images/cms/placeholder.svg
+      img-alt: 'placeholder'
+    -
+      navigation:
+        -
+          title: Item 01
+          link: '#'
+        -
+          title: Item 02
+          link: '#'
+        -
+          title: Item 03
+          link: '#'
+    -
+      navigation:
+        -
+          title: Item 01
+          link: '#'
+        -
+          title: Item 02
+          link: '#'
+        -
+          title: Item 03
+          link: '#'
+
+-
+  title: Simple
+  link: '#'
+  classes: false
+-
+  title: Button
+  link: '#'
+  classes: button

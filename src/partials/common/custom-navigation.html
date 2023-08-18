@@ -1,0 +1,42 @@
+
+<ul class="menu{{#if menuClasses}} {{menuClasses}}{{/if}}{{#if menuDirection}} {{menuDirection}}{{/if}}{{#if menuType}} {{menuType}}{{/if}}">
+    {{#each data}}
+    <li class="menu-item{{#if classes}} {{classes}}{{/if}}">
+        <a href="{{link}}">{{title}}</a>
+        {{#if has-submenu}}
+        <ul class="menu submenu">
+            {{#if submenu-items}}
+                {{#each submenu-items}}
+                <li class="menu-item submenu-item{{#if classes}} {{classes}}{{/if}}">
+                    <a href="{{link}}">{{title}}</a>
+                </li>
+                {{/each}}
+            {{/if}}
+
+            {{#if megamenu-items}}
+                {{#each megamenu-items}}
+                <li class="menu-item megamenu-item{{#if classes}} {{classes}}{{/if}}">
+                    {{#if img}}
+                    <div class="img-wrapper">
+                        <img src="{{root}}{{img}}" alt="placeholder">
+                    </div>
+                    {{/if}}
+
+                    {{#if navigation}}
+                    <ul class="navigation">
+                        {{#each navigation}}
+                        <li>
+                            <a href="{{link}}">{{title}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+
+                </li>
+                {{/each}}
+            {{/if}}
+        </ul>
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>

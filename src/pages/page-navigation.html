@@ -1,0 +1,53 @@
+---
+meta_title: Page Navigation
+body_classes: home
+
+hero_unit: {
+    classes: 'bg-dark',
+    bg: {
+        image: 'assets/images/cms/placeholder.svg',
+        //color: 'red',
+        //video: 'assets/video/PlaceholderVideo.mp4',
+    },
+    headline: 'The Headline',
+    subheadline: 'The Subheadline',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit architecto iusto necessitatibus accusantium aliquid non quod? Doloremque asperiores corporis.',
+    buttons: [
+        {
+            text: 'Learn More!',
+            href: 'http://secretstache.com',
+            classes: 'default'
+        },
+    ]
+}
+---
+<div class="custom-navigation">
+    <div class="grid-container">
+        <p>Type: <strong>Dropdown</strong></p>
+        {{> custom-navigation
+            menuType="dropdown"
+            data=navigation
+        }}
+    </div>
+</div>
+
+<div class="custom-navigation">
+    <div class="grid-container">
+        <p>Type: <strong>Dropdown</strong></p>
+        {{> custom-navigation
+            menuDirection="vertical"
+            menuType="dropdown"
+            data=navigation
+        }}
+    </div>
+</div>
+
+<div class="custom-navigation">
+    <div class="grid-container">
+        <p>Type: <strong>Drilldown</strong></p>
+        {{> custom-navigation
+            menuType="drill-down"
+            data=navigation
+        }}
+    </div>
+</div>
