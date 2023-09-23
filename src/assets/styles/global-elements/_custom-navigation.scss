@@ -81,13 +81,14 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                z-index: 999;
+                z-index: 9999;
+                pointer-events: all;
                 
                 position: absolute;
                 left: 0;
                 right: 0;
 
-                background-color: var(--white);
+                background-color: var(--white) !important;
                 border: 1px solid var(--gray);
 
                 translate: rem-calc(0 -30);

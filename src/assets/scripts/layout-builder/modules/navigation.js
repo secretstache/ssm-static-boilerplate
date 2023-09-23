@@ -6,10 +6,10 @@ export default function Navigation(){
     dropdownMenu.forEach( menu => {
 
         
-        const menuItemsHasSubmenu = menu.querySelectorAll('.menu-item.has-submenu')
-
+        const menuItemsHasSubmenu = menu.querySelectorAll('.menu-item.has-submenu');
 
         menuItemsHasSubmenu.forEach( menuItemHasSubmenu => {
+
 
             menuItemHasSubmenu.addEventListener('click', (e) => {
                 e.preventDefault;

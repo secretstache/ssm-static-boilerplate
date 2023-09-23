@@ -7,6 +7,7 @@ import {editableSvg, isInViewport} from './lib/utilities';
 import {carousel} from './layout-builder/modules/carousel';
 import './layout-builder/modules/tabs';
 import Navigation from './layout-builder/modules/navigation';
+import AccordionTabs from './layout-builder/modules/accordion-tabs';
 import { Accordion } from './layout-builder/modules/accordion'; // import accordions
 import SlimSelect from 'slim-select';
 
@@ -56,4 +57,5 @@ $(function() {
     document.querySelectorAll('.accordion').forEach(item => {const accordion = new Accordion(item)}); // init accordions
 
     Navigation();
+    AccordionTabs();
 });

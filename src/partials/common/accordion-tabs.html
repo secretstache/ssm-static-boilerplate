@@ -1,0 +1,23 @@
+<div class="accordion-tabs">
+
+    <nav class="accordion-tabs-nav">
+        <ul>
+        {{#each data}}
+            <li>
+                <a href="#{{id}}"{{#if classes}} class="{{classes}}"{{/if}}>{{title}}</a>
+            </li>
+        {{/each}}
+        </ul>
+    </nav>
+
+    <div class="accordion-tabs-content">
+        {{#each data}}
+        <div id="{{id}}" class="accordion-tabs-item{{#if classes}} {{classes}}{{/if}}" data-title="{{title}}">
+            <div class="item-content">
+                {{{content}}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>

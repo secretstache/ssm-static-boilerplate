@@ -1,0 +1,128 @@
+.accordion-tabs {
+    background: var(--white);
+    border: rem-calc(1) solid var(--gray);
+  
+    @include breakpoint(large) {
+      display: flex;
+    }
+  
+    .accordion-tabs-nav {
+      @include breakpoint(medium down) {
+        display: none;
+      }
+  
+      @include breakpoint(large) {
+          width: 50%;
+          border-right: rem-calc(1) solid var(--gray);
+          padding: rem-calc(132 0);
+      }
+  
+      > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+  
+        li {
+          padding: 0;
+          margin: 0;
+
+          &:last-of-type {
+            a {
+              border-bottom: rem-calc(1) solid var(--gray);
+            }
+          }
+  
+          a {
+            display: flex;
+            align-items: center;
+            padding: rem-calc(32);
+            color: var(--black);
+            text-decoration: none;
+            position: relative;
+            border-top: rem-calc(1) solid var(--gray);
+  
+            &:hover,
+            &.active {
+              background: var(--primary);
+              color: var(--primary-color);
+  
+              &:after {
+                transform: translateX(0);
+                opacity: 1;
+              }
+            }
+          }
+        } 
+      }
+    }
+  
+    .accordion-tabs-content {
+      width: 100%;
+  
+      @include breakpoint(large) {
+        width: 50%;
+      }
+
+      .item-content {
+        strong {
+          display: block;
+          text-align: center;
+          margin-bottom: rem-calc(16);
+        }
+      }
+    }
+  
+    .accordion-tabs-item {
+      @include breakpoint(medium down) {
+        position: relative;
+        min-height: rem-calc(42);
+        
+        &::before {
+          content: attr(data-title);
+          cursor: pointer;
+          display: block;
+          height: rem-calc(42);
+          
+          font-size: rem-calc(24);
+          line-height: rem-calc(42);
+          font-weight:700;
+          color: var(--black);
+          padding-left: rem-calc(24);
+          border-bottom: rem-calc(1) solid var(--gray);
+        }
+  
+        .item-content {
+          opacity: 0;
+          visibility: hidden;
+          height: 0;
+        }
+  
+        &.active {
+  
+          &::before {
+            color: var(--primary-color);
+          }
+  
+          .item-content {
+            opacity: 1;
+            visibility: visible;
+            height:auto;
+            
+            padding: rem-calc(24);
+            transition: opacity var(--tr);
+            margin-bottom: rem-calc(22);
+            border-bottom: rem-calc(1) solid var(--gray);
+          }
+        }
+      }
+  
+      @include breakpoint(large){
+        display: none;
+        padding: rem-calc(42 64);
+  
+        &.active {
+          display: flex;
+        }
+      }
+    }
+  }

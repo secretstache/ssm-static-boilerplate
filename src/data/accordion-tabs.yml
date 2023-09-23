@@ -1,0 +1,20 @@
+-
+  id: 'tab-01'
+  title: 'Tab 1'
+  classes: active
+  content: '<p><strong>TAB 1</strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus similique id aperiam unde vero odit magni nostrum in nulla totam blanditiis beatae, consequatur neque, laudantium eveniet sapiente, molestiae esse sunt temporibus consequuntur obcaecati quam nihil maiores. Molestiae itaque temporibus, eveniet fugit numquam tempora aut ab culpa. Id suscipit corrupti nam delectus nihil velit minus quidem tenetur error commodi sint perferendis laborum, debitis aperiam, tempora deleniti quis tempore quos consequuntur atque quae molestiae totam obcaecati a? Libero sunt rem laborum quo molestiae deleniti, magni voluptatibus iure fugit placeat nesciunt facilis iusto voluptatum debitis ut! Quas nulla odit totam alias, esse repudiandae?</p>'
+-
+  id: 'tab-02'
+  title: 'Tab 2'
+  content: '<p><strong>TAB 2</strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus similique id aperiam unde vero odit magni nostrum in nulla totam blanditiis beatae, consequatur neque, laudantium eveniet sapiente, molestiae esse sunt temporibus consequuntur obcaecati quam nihil maiores. Molestiae itaque temporibus, eveniet fugit numquam tempora aut ab culpa. Id suscipit corrupti nam delectus nihil velit minus quidem tenetur error commodi sint perferendis laborum, debitis aperiam, tempora deleniti quis tempore quos consequuntur atque quae molestiae totam obcaecati a? Libero sunt rem laborum quo molestiae deleniti, magni voluptatibus iure fugit placeat nesciunt facilis iusto voluptatum debitis ut! Quas nulla odit totam alias, esse repudiandae?</p>'
+-
+  id: 'tab-03'
+  title: 'Tab 3'
+  content: '<p><strong>TAB 3</strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus similique id aperiam unde vero odit magni nostrum in nulla totam blanditiis beatae, consequatur neque, laudantium eveniet sapiente, molestiae esse sunt temporibus consequuntur obcaecati quam nihil maiores. Molestiae itaque temporibus, eveniet fugit numquam tempora aut ab culpa. Id suscipit corrupti nam delectus nihil velit minus quidem tenetur error commodi sint perferendis laborum, debitis aperiam, tempora deleniti quis tempore quos consequuntur atque quae molestiae totam obcaecati a? Libero sunt rem laborum quo molestiae deleniti, magni voluptatibus iure fugit placeat nesciunt facilis iusto voluptatum debitis ut! Quas nulla odit totam alias, esse repudiandae?</p>'
+-
+  id: 'tab-04'
+  title: 'Tab 4'
+  content: '<p><strong>TAB 4</strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus similique id aperiam unde vero odit magni nostrum in nulla totam blanditiis beatae, consequatur neque, laudantium eveniet sapiente, molestiae esse sunt temporibus consequuntur obcaecati quam nihil maiores. Molestiae itaque temporibus, eveniet fugit numquam tempora aut ab culpa. Id suscipit corrupti nam delectus nihil velit minus quidem tenetur error commodi sint perferendis laborum, debitis aperiam, tempora deleniti quis tempore quos consequuntur atque quae molestiae totam obcaecati a? Libero sunt rem laborum quo molestiae deleniti, magni voluptatibus iure fugit placeat nesciunt facilis iusto voluptatum debitis ut! Quas nulla odit totam alias, esse repudiandae?</p>'
+
+
+
