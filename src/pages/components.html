@@ -11,12 +11,38 @@ meta_title: Components
 {{#> content-block template="free-form"}}
     <div class="grid-container">
 
-        {{> template-header headline="The Template Header" subheadline="The Template Subheadline" classes="align-center" }}
+        <div style="margin: 0 0 60px;">
+            <h5>Modules</h5>
 
-        <div class="grid-x grid-margin-x has-1-cols">
-            <div class="cell small-12">
+            <ul>
+                <li><a href="#header">Header</a></li>
+                <li><a href="#editor">Editor</a></li>
+                <li><a href="#image">Image</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#form">Form</a></li>
+                <li><a href="#form-errors">Form With Errors</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#carousel">Carousel</a></li>
+                <li><a href="#accordion">Accordion</a></li>
+                <li><a href="#accordion">Tabs</a></li>
+                <li><a href="#accordion-tabs">Accordion Tabs</a></li>
+                <li><a href="#facet-selects">FacetWP Selects</a></li>
+            </ul>
+
+            <h5>Templates</h5>
+            <ul>
+                <li><a href="#template-header">Template header</a></li>
+            </ul>
+        </div>
+
+        <div class="grid-x has-1-cols align-center">
+            <div class="cell medium-10">
                 <div class="inner">
+
+                    <h3 style="margin: 30px 0;" id="header">Header</h3>
                     {{> header headline="Header module" }} 
+
+                    <h3 style="margin: 30px 0;" id="editor">Text editor</h3>
                     {{#> text-editor }}
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ad, quis fugiat architecto ipsam soluta facilis nulla aut fuga enim! Quam, commodi itaque. Eos ea ullam officiis sapiente perspiciatis voluptate.</p>
                         <img src="{{root}}assets/images/cms/placeholder.svg" class="alignright" alt="" width="300">
@@ -28,12 +54,17 @@ meta_title: Components
                         <h5>h5 heading</h5>
                         <h6>h6 heading</h6>
                     {{/text-editor}}
+
+                    <h3 style="margin: 30px 0;" id="image">Image</h3>
                     {{> image }}
+
+                    <h3 style="margin: 30px 0;" id="video">Video</h3>
                     {{> video src="https://www.youtube.com/embed/02J5A3r-Bdk" classes="youtube" }}
+
+                    <h3 style="margin: 30px 0;" id="form">Form</h3>
                     {{> form}}
 
-                    {{> header headline="Form with errors:" }} 
-
+                    <h3 style="margin: 30px 0;" id="form-errors">Form with errors</h3>
                     <div class="module form">
                         <div class="gf_browser_chrome gform_wrapper gravity-theme gform_validation_error" id="gform_wrapper_2"><div id="gf_2" class="gform_anchor" tabindex="-1"></div><div id="gf_form_focus" tabindex="-1"></div><div class="gform_validation_errors" id="gform_2_validation_container"><h2 class="gform_submission_error hide_summary"><span class="gform-icon gform-icon--close"></span>There was a problem with your submission. Please review the fields below.</h2></div><form method="post" enctype="multipart/form-data" target="gform_ajax_frame_2" id="gform_2" action="/#gf_2" novalidate="">
                             <div class="gform_body gform-body"><div id="gform_fields_2" class="gform_fields top_label form_sublabel_below description_below"><div id="field_2_1" class="gfield gfield--width-half gfield_error gfield_contains_required field_sublabel_below field_description_below hidden_label gfield_visibility_visible" data-js-reload="field_2_1"><label class="gfield_label" for="input_2_1">First<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class="ginput_container ginput_container_text"><input name="input_1" id="input_2_1" type="text" value="" class="large" aria-describedby="validation_message_2_1" placeholder="First" aria-required="true" aria-invalid="true"> </div><div id="validation_message_2_1" class="gfield_description validation_message gfield_validation_message">This field is required.</div></div><div id="field_2_2" class="gfield gfield--width-half gfield_error gfield_contains_required field_sublabel_below field_description_below hidden_label gfield_visibility_visible" data-js-reload="field_2_2"><label class="gfield_label" for="input_2_2">Last<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class="ginput_container ginput_container_text"><input name="input_2" id="input_2_2" type="text" value="" class="large" aria-describedby="validation_message_2_2" placeholder="Last" aria-required="true" aria-invalid="true"> </div><div id="validation_message_2_2" class="gfield_description validation_message gfield_validation_message">This field is required.</div></div><div id="field_2_3" class="gfield gfield--width-full field_sublabel_below field_description_below hidden_label gfield_visibility_visible" data-js-reload="field_2_3"><label class="gfield_label" for="input_2_3">Company name</label><div class="ginput_container ginput_container_text"><input name="input_3" id="input_2_3" type="text" value="" class="large" placeholder="Company name" aria-invalid="false"> </div></div><div id="field_2_4" class="gfield gfield--width-full gfield_error gfield_contains_required field_sublabel_below field_description_below hidden_label gfield_visibility_visible" data-js-reload="field_2_4"><label class="gfield_label" for="input_2_4">Enter your email<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class="ginput_container ginput_container_email">
@@ -53,8 +84,34 @@ meta_title: Components
                         </div>
                     </div>
 
-                    {{{ buttons buttonClasses="default, simple" labels="Button default, Button simple" urls="#, #"}}} 
+                    <h3 style="margin: 30px 0;" id="buttons">Buttons</h3>
+                    {{#> buttons}}
+                        {{#> button type="default" href="#"}}Default{{/button}}
+                        {{#> button type="outlined" href="#"}}Outlined{{/button}}
+                        {{#> button type="simple" href="#"}}Simple{{/button}}
+                        {{#> button type="default" href="#" starticon='<svg x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" fill="#fff"/></g></svg>'}}With left icon{{/button}}
+                        {{#> button type="default" href="#" endicon='<svg x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" fill="#fff"/></g></svg>'}}With right icon{{/button}}
+                    {{/buttons}}
+
+                    <h3 style="margin: 30px 0;" id="carousel">Carousel</h3>
                     {{>carousel}}
+
+                    <h3 style="margin: 30px 0;" id="accordion">Accordion</h3>
+                    {{> accordion }}
+
+                    <!-- {{>accordion type="multi-expand"}} -->
+
+                    <h3 style="margin: 30px 0;" id="tabs">Tabs</h3>
+                    {{>tabs}}
+                    {{>tabs moduleClasses="vertical"}}
+
+                    <h3 style="margin: 30px 0;" id="accordion-tabs">Accordion Tabs</h3>
+
+                    {{> accordion-tabs
+                        data=accordion-tabs
+                    }}
+
+                    <h3 style="margin: 30px 0;" id="facet-selects">FacetWP Selects</h3>
 
                     <div class="facetwp-facet facetwp-type-dropdown facetwp-type-resources">
                         <div class="facetwp-sort">
@@ -80,28 +137,13 @@ meta_title: Components
                      </div>
 
                      <div class="facetwp-facet facetwp-facet-resource_search facetwp-type-search" data-name="resource_search" data-type="search"><span class="facetwp-input-wrap"><i class="facetwp-icon"></i><input type="text" class="facetwp-search" value="" placeholder="SEARCH" autocomplete="off"></span></div>
-                    {{>accordion}}
-                    {{> header headline="Space for accordions" }} 
-                    {{>accordion type="multi-expand"}}
-                    {{>tabs}}
-                    {{>tabs moduleClasses="vertical"}}
-
-                    {{#> buttons}}
-                        {{#> button type="default" href="#"}}Default{{/button}}
-                        {{#> button type="outlined" href="#"}}Outlined{{/button}}
-                        {{#> button type="simple" href="#"}}Simple{{/button}}
-                        {{#> button type="default" href="#" starticon='<svg x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" fill="#fff"/></g></svg>'}}With left icon{{/button}}
-                        {{#> button type="default" href="#" endicon='<svg x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" fill="#fff"/></g></svg>'}}With right icon{{/button}}
-                    {{/buttons}}
                 </div>
             </div>
         </div>
 
-        <h2>Accordion Tabs</h2>
+        <h3 style="margin: 30px 0;" id="template-header">Template Header</h3>
+        {{> template-header headline="The Template Header" subheadline="The Template Subheadline" classes="align-center" }}
 
-        {{> accordion-tabs
-            data=accordion-tabs
-        }}
     </div>
 {{/content-block}}
 

@@ -1,35 +1,36 @@
-export class Accordion {
-    constructor(accordion) {
-        let accordionItems = accordion.querySelectorAll('.accordion-item');  // accordion items
+export default function Accordion() {
 
-        for (let n = 0; n < accordionItems.length; n++) { // for each accordion-item
-            let currentAccordion = accordionItems[n]; // current accordion
-            let currentAccordionTitle = currentAccordion.querySelector('.accordion-title'); // current accordion title
-            let content = currentAccordion.querySelector('.accordion-content'); // current accordion content
+    const accordions = document.querySelectorAll(".module.accordion");
 
-            currentAccordionTitle.addEventListener("click", function(e) {  // current accordion on click
-                e.preventDefault();
+    accordions.forEach(accordion => {
 
-                if (currentAccordion.classList.contains('active') && !accordion.hasAttribute('data-multi-expand')) {
-                    currentAccordion.classList.remove('active');
-                    return closeAccordions(accordionItems);
+        const accordionItems = document.querySelectorAll(".accordion-item");
+
+        const openAccordion = (accordion) => {
+            const content = accordion.querySelector(".accordion-content");
+            accordion.classList.add("is-active");
+            content.style.maxHeight = content.scrollHeight + "px";
+        };
+
+        const closeAccordion = (accordion) => {
+            const content = accordion.querySelector(".accordion-content");
+            accordion.classList.remove("is-active");
+            content.style.maxHeight = null;
+        };
+
+        accordionItems.forEach((accordionItem) => {
+            const title = accordionItem.querySelector(".accordion-title");
+            const content = accordionItem.querySelector(".accordion-content");
+
+            title.onclick = () => {
+                if (content.style.maxHeight) {
+                    closeAccordion(accordionItem);
+                } else {
+                    accordionItems.forEach((accordionItem) => closeAccordion(accordionItem));
+                    openAccordion(accordionItem);
                 }
-                
-                // close accordion items if accordion have data-multi-expand attr
-                !accordion.hasAttribute('data-multi-expand') ? closeAccordions(accordionItems) : false;
-                
-                currentAccordion.classList.toggle('active'); // toggle active class in accordion
-                content.style.maxHeight ? content.style.maxHeight = null : content.style.maxHeight = content.querySelector('.inner').offsetHeight + 'px';  // changing max-height for accordion
-            });
-        }
-        
-        /* Closing accordion items function start */
-        function closeAccordions(accItems) {
-            accItems.forEach((item, index) => {
-                item.classList.remove('active');
-                item.querySelector('.accordion-content').style.maxHeight = null;
-            })
-        }
-        /* Closing accordion items function end */
-    }
+            };
+        });
+    })
 }
+

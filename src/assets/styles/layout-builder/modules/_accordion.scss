@@ -1,45 +1,75 @@
 .module.accordion {
 
-    .accordion-title {
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding: rem-calc(10);
-        line-height: normal;
-
-        // plus icon
-        &::after {
-            content: '+';
-            position: relative;
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: rem-calc(20);
-            height: rem-calc(20);
-            font-size: rem-calc(20);
-        }
-    }
-
     .accordion-item {
-        &.active {
+        width: 100%;
+        overflow: hidden;
+        border-bottom: rem-calc(1) solid var(--white);
+    
+        .accordion-title {
+            position: relative;
+            padding: rem-calc(20);
+            cursor: pointer;
+            background: var(--secondary-color);
+            position: relative;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                width: rem-calc(21);
+                height: rem-calc(2);
+                background-color: var(--white);
+                position: absolute;
+                right: rem-calc(16);
+                top: 50%;
+                transform: translateY(-50%);
+                transition: transform var(--tr);
+            }
+
+            &:after {
+                transform: translateY(-50%) rotate(90deg);
+            }
+        }
+    
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            will-change: max-height;
+            transition: all var(--tr) ease-out;
+            color: var(--white);
+            background: var(--secondary-color);
+            opacity: 0;
+
+            .inner {
+                padding: rem-calc(24 16);
+            }
+        }
+    
+        h4 {
+            color: var(--white);
+            font-size: rem-calc(24);
+            font-weight: 500;
+        }
+    
+        p {
+            color: var(--white);
+            font-size: rem-calc(14);
+            line-height: rem-calc(18);
+            margin: 0;
+        }
+    
+        &.is-active {
+
             .accordion-title {
-                &::after {
-                    content: '-';
+                &:after {
+                    transform: translateY(-50%) rotate(0);
                 }
+            }
+    
+            .accordion-content {
+                opacity: 1;
             }
         }
     }
-
-    .accordion-content {
-        overflow: hidden;
-        margin: 0;
-        max-height: 0;
-        transition: max-height 0.3s, padding 0.3s;
-    }
-
-    .inner {
-        transition: padding 0.3s;
-        padding: rem-calc(10 10);
-    }
+    
 }

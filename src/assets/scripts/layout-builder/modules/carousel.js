@@ -1,34 +1,31 @@
-import Swiper, { Autoplay, Pagination, Navigation } from "swiper";
+import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
-export function carousel() {
-    const sliders = document.querySelectorAll(".carousel");
-
-    sliders.forEach((slider) => {
-        const nextButton = slider.querySelector(".swiper-button-next");
-        const prevButton = slider.querySelector(".swiper-button-prev");
-        const pagination = slider.querySelector(".swiper-pagination");
-        const slides = slider.querySelectorAll(".swiper-slide");
-
-        if (slides.length > 1) {
-            const swiperCarousel = new Swiper(slider, {
-                modules: [Autoplay, Pagination, Navigation],
-                speed: 800,
-                autoplay: {
-                    delay: 8000,
-                },
-                loop: true,
-                pagination: {
-                    el: pagination,
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: nextButton,
-                    prevEl: prevButton,
-                },
-            });
-        } else {
-            nextButton.classList.add("hide");
-            prevButton.classList.add("hide");
-        }
-    });
+export default function Carousel(){
+    initCarousel();
 }
+
+function initCarousel() {
+    document.querySelectorAll('.module.splide').forEach(carousel => {
+
+        const gap = 16;
+
+        const options = {
+            arrows: false,
+            pagination: false,
+            type: 'loop',
+            autoWidth: true,
+            gap: gap,
+            clones: 6,
+            autoScroll: {
+                pauseOnHover: true,
+                pauseOnFocus: false,
+                rewind: false,
+                speed: 2,
+            },
+        }
+
+        const splide = new Splide( carousel, options );
+        splide.mount( { AutoScroll });
+    });
+};

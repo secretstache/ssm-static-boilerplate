@@ -1,13 +1,11 @@
-<div class="module swiper carousel{{#if classes}} {{classes}}{{/if}}"">
-    
-    <div class="swiper-wrapper">
-        {{#repeat 10}}
-        <div class="swiper-slide">
-            <img src="{{root}}assets/images/cms/placeholder.svg" alt="">
+<div class="module splide{{#if classes}} {{classes}}{{/if}}"">
+    <div class="splide__track">
+        <div class="splide__list">
+            {{#repeat 10}}
+            <div class="splide__slide">
+                <img src="{{root}}assets/images/cms/placeholder.svg" alt="alt text">
+            </div>
+            {{/repeat}}
         </div>
-        {{/repeat}}
     </div>
-    <div class="swiper-button swiper-button-prev"></div>
-    <div class="swiper-button swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
 </div>

@@ -29,7 +29,7 @@ import { Foundation } from 'foundation-sites/js/foundation.core';
 //import { Sticky } from 'foundation-sites/js/foundation.sticky';
 
 
-import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
+// import { Dropdown } from 'foundation-sites/js/foundation.dropdown';
 // import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
 import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
 // import { Drilldown } from 'foundation-sites/js/foundation.drilldown';
@@ -88,7 +88,7 @@ Foundation.addToJquery($);
 //Foundation.plugin(AccordionMenu, 'AccordionMenu');
 //Foundation.plugin(ResponsiveMenu, 'ResponsiveMenu');
 
-Foundation.plugin(Dropdown, 'Dropdown');
+// Foundation.plugin(Dropdown, 'Dropdown');
 // Foundation.plugin(DropdownMenu, 'DropdownMenu');
 Foundation.plugin(OffCanvas, 'OffCanvas');
 // Foundation.plugin(Drilldown, 'Drilldown');

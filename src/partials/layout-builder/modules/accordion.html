@@ -1,53 +1,14 @@
-{{#ifequal type 'multi-expand'}}
-    <div class="module accordion" data-multi-expand="true" >
-
-        <div class="accordion-item">
-            <a href="#" class="accordion-title">Accordion with multi-expand - tab 1</a>
-
-            <div class="accordion-content">
-                <div class="inner">
-                    <p>Panel 1. Lorem ipsum dolor</p>
-                    <a href="#">Nowhere to Go</a>
-                </div>
+<div class="module accordion">
+    {{#repeat 5}}
+    <div class="accordion-item">
+        <div class="accordion-title">
+            <h4>Accordion title</h4>
+        </div>
+        <div class="accordion-content">
+            <div class="inner">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique laudantium molestiae tenetur blanditiis, veritatis perferendis molestias. Quis ipsam, earum asperiores debitis voluptate accusantium voluptatem necessitatibus hic! Ratione ipsum voluptatum commodi illo atque eum! Assumenda eum doloribus eos incidunt, corrupti sint possimus. Consequatur inventore ipsa, doloribus at ipsam unde in facilis.</p>
             </div>
         </div>
-
-        <div class="accordion-item">
-            <a href="#" class="accordion-title">Accordion with multi-expand - tab 2</a>
-
-            <div class="accordion-content">
-                <div class="inner">
-                    <p>Panel 1. Lorem ipsum dolor</p>
-                    <a href="#">Nowhere to Go</a>
-                </div>
-            </div>
-        </div>
-        
     </div>
-{{else}}
-    <div class="module accordion">
-
-        <div class="accordion-item">
-            <a href="#" class="accordion-title">Accordion without multi-expand - tab 1</a>
-
-            <div class="accordion-content">
-                <div class="inner">
-                    <p>Panel 1. Lorem ipsum dolor</p>
-                    <a href="#">Nowhere to Go</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <a href="#" class="accordion-title">Accordion without multi-expand - tab 2</a>
-
-            <div class="accordion-content">
-                <div class="inner">
-                    <p>Panel 1. Lorem ipsum dolor</p>
-                    <a href="#">Nowhere to Go</a>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-{{/ifequal}}
+    {{/repeat}}
+</div>
