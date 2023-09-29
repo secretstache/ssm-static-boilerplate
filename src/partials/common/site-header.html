@@ -5,7 +5,10 @@
                 {{> brand}}
             </div>
             <nav class="primary-navigation cell shrink grid-x align-middle" role="navigation">
-                {{> navigation type="dropdown" menuClasses="show-for-large" data=common.primary-navigation}}
+                {{> navigation
+                    menuType="drilldown"
+                    data=common.primary-navigation
+                }}
 
                 {{> hamburger-button}}
             </nav>

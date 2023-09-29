@@ -38,11 +38,11 @@
 // @include foundation-thumbnail;
 
 // Menu-based containers
-@include foundation-menu;
+// @include foundation-menu;
 //@include foundation-menu-icon;
 //@include foundation-accordion-menu;
-@include foundation-drilldown-menu;
-@include foundation-dropdown-menu;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown-menu;
 
 // Layout components
 @include foundation-off-canvas;
@@ -82,8 +82,7 @@
 @import 'global-elements/button';
 @import 'global-elements/brand';
 @import 'global-elements/accordion-tabs';
-// @import 'global-elements/navigation';
-@import 'global-elements/custom-navigation';
+@import 'global-elements/navigation';
 @import 'global-elements/hamburger';
 @import 'global-elements/skip-main';
 

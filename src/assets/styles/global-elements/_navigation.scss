@@ -1,55 +1,180 @@
-.dropdown.menu>li>a,
-.dropdown.menu>li.is-active>a,
-.menu .active>a {
-    background: inherit;
-    color: inherit;
-}
+.menu {
+    --buttonColor: var(--black);
+    --buttonHoverColor: var(--primary-color);
+    --buttonPadding: rem-calc(0 0 0 0);
 
-.menu,
-.menu.dropdown {
-    li.button,
-    > li.button {
-        padding: 0;
-        background: none;
-        height: auto;
-        display: block;
-        text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: rem-calc(24);
+    row-gap: rem-calc(16);
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    translate: rem-calc(0 0);
+    opacity: 1;
+    visibility: visible;
+
+    .menu-item {
 
         > a {
-            @extend .button;
+            color: var(--buttonColor);
+            padding: var(--buttonPadding);
+            transition: color var(--tr);
+        }
+        
+        &:hover {
+            > a {
+                color: var(--buttonHoverColor);
+            }
+        }
+
+        &.button {
+            padding: 0;
+
+            a {
+                border: rem-calc(1) solid var(--buttonHoverColor);
+                padding: rem-calc(8 16);
+                color: var(--buttonHoverColor);
+                transition: background-color var(--tr), color var(--tr);
+            }
+
+            &:hover {
+                a {
+                    background-color: var(--buttonHoverColor);
+                    color: var(--buttonColor);
+                }
+            }
         }
     }
-}
 
-.menu.dropdown {
-    > li {
-        &.is-dropdown-submenu-parent {
-            > a {
-                padding-right: .75rem;
+    .menu-item.has-submenu {
+        position: relative;
 
-                &::after {
-                    display: none;
+        > a {
+            display: flex;
+            align-items: center;
+
+            &:after {
+                content: '';
+                display: block;
+                width: rem-calc(12);
+                height: rem-calc(7);
+                background-size: contain;
+                margin-left: rem-calc(8);
+                
+                mask-image: svg-uri('<svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 0.654297L6.25225 5.79826L11.5045 0.654297" stroke="#000000" stroke-width="1.5"/><path d="M1 0.654297L6.25225 5.79826L11.5045 0.654297" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/></svg>');
+                mask-repeat: no-repeat;
+                mask-size: rem-calc(12 7);
+                mask-repeat: no-repeat;
+                background: var(--buttonColor);
+                transition: all var(--tr);
+            }
+
+            &:hover {
+                &:after {
+                    background: var(--buttonHoverColor);
                 }
             }
         }
 
-        //submenu
-        ul {
-            display: block;
-            pointer-events: auto;
-            visibility: hidden;
+        .menu.submenu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 9999;
+            pointer-events: all;
+            
+            position: absolute;
+            left: 0;
+            right: 0;
+
+            background-color: var(--white) !important;
+            border: 1px solid var(--gray);
+
+            translate: rem-calc(0 -30);
+
             opacity: 0;
-            transform: translate(0, 10px);
-            transition: opacity 0.3s ease-in, transform 0.3s ease-in, visibility 0.3s ease-in;
+            visibility: hidden;
+            transition: visibility var(--tr), opacity var(--tr), translate var(--tr);
+
+            a {
+                padding: rem-calc(8 16);
+            }
         }
 
-        //active state            
-        &.is-active {
-           ul {
-               opacity: 1;
-               transform: translate(0, 0);
-               visibility: visible;
-           }
-       }
+        &.has-megamenu {
+
+            .menu.submenu {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 100vw;
+            }
+        }
+    }
+
+    &.vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &.dropdown {
+
+        .menu-item.has-submenu {
+            &.open {
+
+                > a {
+                    &:after {
+                        transform: rotate(-180deg);
+                    }
+                }
+
+                .menu.submenu {
+                    translate: rem-calc(0 0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    &.drilldown {
+        .menu-item.has-submenu {
+            &:hover {
+
+                > a {
+
+                    &:after {
+                        transform: rotate(-180deg);
+                        background-color: var(--primary-color);;
+                    }
+                }
+
+                .menu.submenu {
+                    translate: rem-calc(0 #{rem-calc(16)});
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+.custom-navigation {
+    border-bottom: rem-calc(2) solid var(--gray);
+    position: relative;
+
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(large){
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 }
