@@ -1,10 +1,11 @@
 export default function Accordion() {
 
-    const accordions = document.querySelectorAll(".module.accordion");
+    const accordionModules = document.querySelectorAll(".module.accordion");
 
-    accordions.forEach(accordion => {
+    accordionModules.forEach(accordionModule => {
 
-        const accordionItems = document.querySelectorAll(".accordion-item");
+        const isMultyExpand = !!accordionModule.getAttribute('data-multy-expand');
+        const accordionItems = accordionModule.querySelectorAll(".accordion-item");
 
         const openAccordion = (accordion) => {
             const content = accordion.querySelector(".accordion-content");
@@ -26,7 +27,11 @@ export default function Accordion() {
                 if (content.style.maxHeight) {
                     closeAccordion(accordionItem);
                 } else {
-                    accordionItems.forEach((accordionItem) => closeAccordion(accordionItem));
+
+                    if(!isMultyExpand) {
+                        accordionItems.forEach((accordionItem) => closeAccordion(accordionItem));
+                    }
+
                     openAccordion(accordionItem);
                 }
             };
