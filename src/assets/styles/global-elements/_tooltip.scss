@@ -1,0 +1,107 @@
+.tooltip {
+  --tooltip-background: var(--primary-color);
+
+  position: relative;
+  display: inline-block;
+
+  .tooltip-trigger {
+    cursor: pointer;
+  }
+
+  .tooltip-content {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    width: rem-calc(250);
+    min-width: rem-calc(250);
+    margin: rem-calc(0 0 15);
+    padding: rem-calc(15);
+    color: var(--white);
+    background: var(--tooltip-background);
+    border-radius: rem-calc(5);
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity var(--tr) ease-out;
+    box-shadow: rem-calc(2 2 6) rgba(0, 0, 0, 0.28);
+    z-index: 99999;
+
+    &::after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      content: " ";
+    }
+
+    &.top {
+      bottom: 100%;
+      left: 50%;
+      margin: rem-calc(0 0 15 0);
+
+      &::after {
+        bottom: calc(-1 * #{rem-calc(10)});
+        left: 50%;
+        margin-left: calc(-1 * #{rem-calc(10)});
+        border-left: rem-calc(10) solid transparent;
+        border-right: rem-calc(10) solid transparent;
+        border-top: rem-calc(10) solid var(--tooltip-background);
+      }
+    }
+
+    &.bottom {
+      top: 100%;
+      left: 50%;
+      margin: rem-calc(15 0 0 0);
+
+      &::after {
+        top: calc(-1 * #{rem-calc(10)});
+        left: 50%;
+        margin-left: calc(-1 * #{rem-calc(10)});
+        border-bottom: rem-calc(10) solid var(--tooltip-background);
+        border-left: rem-calc(10) solid transparent;
+        border-right: rem-calc(10) solid transparent;
+      }
+    }
+
+    &.right {
+      top: 50%;
+      left: 100%;
+      margin: rem-calc(0 0 0 15);
+      transform: translate(0, -50%);
+
+      &::after {
+        top: 50%;
+        left: calc(-1 * #{rem-calc(10)});
+        right: auto;
+        margin-top: calc(-1 * #{rem-calc(10)});
+        border-top: rem-calc(10) solid transparent;
+        border-bottom: rem-calc(10) solid transparent;
+        border-left: 0;
+        border-right: rem-calc(10) solid var(--tooltip-background);
+      }
+    }
+
+    &.left {
+      top: 50%;
+      left: auto;
+      right: 100%;
+      margin: rem-calc(0 15 0 0);
+      transform: translate(0, -50%);
+
+      &::after {
+        top: 50%;
+        left: auto;
+        right: calc(-1 * #{rem-calc(10)});
+        margin-top: calc(-1 * #{rem-calc(10)});
+        border-top: rem-calc(10) solid transparent;
+        border-bottom: rem-calc(10) solid transparent;
+        border-left: rem-calc(10) solid var(--tooltip-background);
+        border-right: 0;
+      }
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

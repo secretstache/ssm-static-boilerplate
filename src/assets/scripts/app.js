@@ -3,7 +3,7 @@ import 'what-input';
 window.jQuery = $;
 
 import './lib/foundation-explicit-pieces';
-import {editableSvg, isInViewport} from './lib/utilities';
+import {editableSvg, isInViewport, tooltip} from './lib/utilities';
 import './layout-builder/modules/tabs';
 import Carousel from './layout-builder/modules/carousel';
 import Navigation from './layout-builder/modules/navigation';
@@ -17,6 +17,7 @@ $(function() {
 
     /* Replace all SVG images with inline SVG */
     editableSvg('img.editable-svg');
+    tooltip();
 
     /* Sticky header */
     window.onscroll = function() { stickyHeader() };
@@ -32,7 +33,7 @@ $(function() {
     }
     /* end Sticky header */
 
-    
+
     /* Hamburger click handle */
     $('.hamburger').on('click', function() {
         $('body').toggleClass('offcanvas-active');

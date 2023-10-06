@@ -7,7 +7,7 @@
 @import 'foundation-sites/scss/foundation';
 //@import 'motion-ui/src/motion-ui.scss';
 
-// Grids 
+// Grids
 @include foundation-xy-grid-classes;
 
 // Generic components
@@ -85,6 +85,7 @@
 @import 'global-elements/navigation';
 @import 'global-elements/hamburger';
 @import 'global-elements/skip-main';
+@import 'global-elements/tooltip';
 
 @import 'layout-builder/sections/sections-shared';
 
