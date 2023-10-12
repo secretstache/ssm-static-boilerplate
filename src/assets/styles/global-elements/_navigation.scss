@@ -1,12 +1,12 @@
-.menu {
+.menu:not(.submenu) {
+    --buttonPadding: rem-calc(0);
     --buttonColor: var(--black);
-    --buttonHoverColor: var(--primary-color);
-    --buttonPadding: rem-calc(0 0 0 0);
+    --buttonHover: var(--secondary-color);
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    column-gap: rem-calc(24);
+    column-gap: rem-calc(56);
     row-gap: rem-calc(16);
     list-style: none;
     padding-left: 0;
@@ -15,6 +15,8 @@
     translate: rem-calc(0 0);
     opacity: 1;
     visibility: visible;
+
+    margin-right: rem-calc(32);
 
     .menu-item {
 
@@ -26,7 +28,7 @@
         
         &:hover {
             > a {
-                color: var(--buttonHoverColor);
+                color: var(--buttonHover);
             }
         }
 
@@ -34,22 +36,22 @@
             padding: 0;
 
             a {
-                border: rem-calc(1) solid var(--buttonHoverColor);
+                border: rem-calc(1) solid var(--buttonHover);
                 padding: rem-calc(8 16);
-                color: var(--buttonHoverColor);
+                color: var(--buttonHover);
                 transition: background-color var(--tr), color var(--tr);
             }
 
             &:hover {
                 a {
-                    background-color: var(--buttonHoverColor);
+                    background-color: var(--buttonHover);
                     color: var(--buttonColor);
                 }
             }
         }
     }
 
-    .menu-item.has-submenu {
+    .menu-item.menu-item-has-children {
         position: relative;
 
         > a {
@@ -74,7 +76,7 @@
 
             &:hover {
                 &:after {
-                    background: var(--buttonHoverColor);
+                    background: var(--buttonHover);
                 }
             }
         }
@@ -83,15 +85,17 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            padding: rem-calc(8 16);
             z-index: 9999;
             pointer-events: all;
+            list-style: none;
             
             position: absolute;
             left: 0;
             right: 0;
 
-            background-color: var(--white) !important;
-            border: 1px solid var(--gray);
+            background-color: var(--white);
+            border: 1px solid var(--buttonHover);
 
             translate: rem-calc(0 -30);
 
@@ -123,7 +127,7 @@
 
     &.dropdown {
 
-        .menu-item.has-submenu {
+        .menu-item.menu-item-has-children{
             &.open {
 
                 > a {
@@ -142,19 +146,19 @@
     }
 
     &.drilldown {
-        .menu-item.has-submenu {
+        .menu-item.menu-item-has-children{
             &:hover {
 
                 > a {
 
                     &:after {
                         transform: rotate(-180deg);
-                        background-color: var(--primary-color);;
+                        background-color: var(--buttonHover);
                     }
                 }
 
                 .menu.submenu {
-                    translate: rem-calc(0 #{rem-calc(16)});
+                    translate: rem-calc(0 16);
                     opacity: 1;
                     visibility: visible;
                 }

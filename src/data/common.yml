@@ -10,7 +10,7 @@ primary-navigation:
   -
     title: Has Submenu
     link: '#'
-    classes: has-submenu
+    classes: menu-item-has-children
     has-submenu: true
     submenu-items: 
       -
