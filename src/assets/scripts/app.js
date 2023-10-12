@@ -8,7 +8,8 @@ import './layout-builder/modules/tabs';
 import Carousel from './layout-builder/modules/carousel';
 import Navigation from './layout-builder/modules/navigation';
 import AccordionTabs from './layout-builder/modules/accordion-tabs';
-import Accordion from './layout-builder/modules/accordion'; // import accordions
+import Accordion from './layout-builder/modules/accordion';
+import Navigation from './common/navigation';
 import SlimSelect from 'slim-select';
 
 $(document).foundation();
