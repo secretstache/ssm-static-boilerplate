@@ -4,12 +4,9 @@ export default function Navigation(){
     const openClass = 'open'
 
     dropdownMenu.forEach( menu => {
-
-        
-        const menuItemsHasSubmenu = menu.querySelectorAll('.menu-item.has-submenu');
+        const menuItemsHasSubmenu = menu.querySelectorAll('.menu-item.menu-item-has-children');
 
         menuItemsHasSubmenu.forEach( menuItemHasSubmenu => {
-
 
             menuItemHasSubmenu.addEventListener('click', (e) => {
                 e.preventDefault;

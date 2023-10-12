@@ -6,7 +6,7 @@
 -
   title: Has Submenu
   link: '#'
-  classes: has-submenu
+  classes: menu-item-has-children
   has-submenu: true
   submenu-items: 
     -
@@ -21,7 +21,7 @@
 -
   title: Has Megamenu
   link: '#'
-  classes: has-submenu has-megamenu
+  classes: menu-item-has-children menu-item-has-megamenu
   has-submenu: true
   megamenu-items:
     -
