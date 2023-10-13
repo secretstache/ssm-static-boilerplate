@@ -1,59 +1,56 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let tabs = document.querySelectorAll(".tabs");
+export default function Tabs(){
 
-    if(tabs.length) {
-        for (let i = 0; i < tabs.length; i++) {  // each tabs 
-            if(tabs[i].hasAttribute('data-tabs')) { // check for data-tabs attribute
-                let tabsItems = tabs[i].querySelectorAll('.tabs-item');  // tabs items
-                let tabsNavs = tabs[i].querySelectorAll('.tabs-nav li');  // tabs navs
+    const tabsContainers = document.querySelectorAll(".module.tabs");
 
-                for (let n = 0; n < tabsNavs.length; n++) { // for each tabs nav
-                    let currentTabNav = tabsNavs[n]; // current tab nav
-                    
-                    if(tabsNavs[n].classList.contains('is-active')) {
-                        let tabNavId = tabsNavs[n].querySelector('a').getAttribute("href").substring(1); // Get the href of nav which user clicked
+    tabsContainers.forEach(tabsContainer => {
 
-                        for (let k = 0; k < tabsItems.length; k++) { // for each tabs items
-                            if(tabsItems[k].id === tabNavId) { // searching which tabs item have simular id to href in nav
-                                let currentItem = tabsItems[k];
-                                closeTabs(tabsItems);  // close all tab items
+        let tabsItems = tabsContainer.querySelectorAll('.tabs-item');
+        let tabsNavs = tabsContainer.querySelectorAll('.tabs-nav li');
 
-                                currentItem.classList.toggle('is-active'); // toggle active class in tab content
-                                currentItem.style.maxHeight ? currentItem.style.maxHeight = null : currentItem.style.maxHeight = currentItem.querySelector('.inner').offsetHeight + 'px';  // changing max-height for tab content
-                            }
-                        }
+        for (let n = 0; n < tabsNavs.length; n++) {
+            let currentTabNav = tabsNavs[n];
+            
+            if(tabsNavs[n].classList.contains('is-active')) {
+                let tabNavId = tabsNavs[n].querySelector('a').getAttribute("href").substring(1);
+
+                for (let k = 0; k < tabsItems.length; k++) {
+                    if(tabsItems[k].id === tabNavId) {
+                        let currentItem = tabsItems[k];
+                        closeTabs(tabsItems);
+
+                        currentItem.classList.toggle('is-active');
+                        currentItem.style.maxHeight ? currentItem.style.maxHeight = null : currentItem.style.maxHeight = currentItem.querySelector('.inner').offsetHeight + 'px';  // changing max-height for tab content
                     }
+                }
+            }
 
-                    currentTabNav.addEventListener("click", function(e) {  // current tab on click
-                        e.preventDefault();
-                        let tabNavId = currentTabNav.querySelector('a').getAttribute("href").substring(1); // Get the href of nav which user clicked
+            currentTabNav.addEventListener("click", function(e) {
+                e.preventDefault();
+                let tabNavId = currentTabNav.querySelector('a').getAttribute("href").substring(1);
 
-                        tabsNavs.forEach((item, index) => { item.classList.remove('is-active'); }) // remove is-active class for each navs
-                        currentTabNav.classList.add('is-active'); // add is-active class to active tab nav
+                tabsNavs.forEach((item, index) => { item.classList.remove('is-active'); })
+                currentTabNav.classList.add('is-active');
 
-                        for (let k = 0; k < tabsItems.length; k++) { // for each tabs items
-                            if(tabsItems[k].id === tabNavId) { // searching which tabs item have simular id to href in nav
-                                let currentItem = tabsItems[k];
-                                closeTabs(tabsItems);  // close all tab items
+                for (let k = 0; k < tabsItems.length; k++) {
+                    if(tabsItems[k].id === tabNavId) {
+                        let currentItem = tabsItems[k];
+                        closeTabs(tabsItems);
 
-                                currentItem.classList.toggle('is-active'); // toggle active class in tab content
-                                currentItem.style.maxHeight ? currentItem.style.maxHeight = null : currentItem.style.maxHeight = currentItem.querySelector('.inner').offsetHeight + 'px';  // changing max-height for tab content
-                            }
-                        }
-                        
-                    });
+                        currentItem.classList.toggle('is-active');
+                        currentItem.style.maxHeight ? currentItem.style.maxHeight = null : currentItem.style.maxHeight = currentItem.querySelector('.inner').offsetHeight + 'px';  // changing max-height for tab content
+                    }
                 }
                 
-                /* Closing tabs items function start */
-                function closeTabs(tabItems) {
-                    tabItems.forEach((item, index) => {
-                        item.classList.remove('is-active');
-                        item.style.maxHeight = null;
-                    })
-                }
-                /* Closing tabs items function end */
-            } 
-
+            });
         }
-    }
-});
+        
+
+        function closeTabs(tabItems) {
+            tabItems.forEach((item, index) => {
+                item.classList.remove('is-active');
+                item.style.maxHeight = null;
+            })
+        }
+
+    })
+}
