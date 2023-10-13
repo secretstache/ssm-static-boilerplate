@@ -1,9 +1,10 @@
 export default function Navigation(){
 
-    const dropdownMenu = document.querySelectorAll('.menu.dropdown')
+    const menus = document.querySelectorAll('.menu:not(.submenu)');
+    const dropdownMenus = document.querySelectorAll('.menu.dropdown')
     const openClass = 'open'
 
-    dropdownMenu.forEach( menu => {
+    dropdownMenus.forEach( menu => {
         const menuItemsHasSubmenu = menu.querySelectorAll('.menu-item.menu-item-has-children');
 
         menuItemsHasSubmenu.forEach( menuItemHasSubmenu => {
@@ -28,4 +29,30 @@ export default function Navigation(){
             });
         });
     });
+
+    menus.forEach(menu => {
+        const megeMenuItems = menu.querySelectorAll('.menu-item-has-megamenu > .menu.submenu');
+
+        // mega menu items
+        megeMenuItems.forEach(megeMenuItem => {
+
+            function setMegaMenuPosition() {
+                const megeMenuItemPosition = megeMenuItem.getBoundingClientRect();
+                const megeMenuItemPositionLeft = megeMenuItemPosition.left
+                const megeMenuItemPositionRight = megeMenuItemPosition.right
+
+                megeMenuItem.style.left = `-${megeMenuItemPositionLeft}px`;
+                megeMenuItem.style.right = `${megeMenuItemPositionRight}px`;
+            }
+
+            setMegaMenuPosition()
+
+            setTimeout(() => {
+                window.addEventListener('resize', function(event) {
+                    setMegaMenuPosition()
+                });
+            }, 250)
+        })
+    })
 }
+

@@ -12,12 +12,6 @@
     padding-left: 0;
     margin: 0;
 
-    translate: rem-calc(0 0);
-    opacity: 1;
-    visibility: visible;
-
-    margin-right: rem-calc(32);
-
     .menu-item {
 
         > a {
@@ -91,8 +85,6 @@
             list-style: none;
             
             position: absolute;
-            left: 0;
-            right: 0;
 
             background-color: var(--white);
             border: 1px solid var(--buttonHover);
@@ -107,15 +99,14 @@
                 padding: rem-calc(8 16);
             }
         }
+    }
 
-        &.has-megamenu {
-
-            .menu.submenu {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                width: 100vw;
-            }
+    .menu-item.menu-item-has-megamenu {
+        .menu.submenu {
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            gap: rem-calc(24);
         }
     }
 
@@ -128,6 +119,7 @@
     &.dropdown {
 
         .menu-item.menu-item-has-children{
+            
             &.open {
 
                 > a {
