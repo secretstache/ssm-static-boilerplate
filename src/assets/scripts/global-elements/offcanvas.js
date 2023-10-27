@@ -1,5 +1,7 @@
 export default function Offcanvas() {
     const drilldownMenus = document.querySelectorAll(".off-canvas .menu.drilldown");
+    const mainContainer = document.querySelector('body');
+    const toggleButtons = document.querySelectorAll('.offcanvas-toggler');
 
     drilldownMenus.forEach((menu) => {
         const menuItemsHasSubmenu = menu.querySelectorAll(".menu-item.menu-item-has-children");
@@ -29,4 +31,10 @@ export default function Offcanvas() {
             });
         });
     });
+
+    toggleButtons.forEach(toggleButton => {
+        toggleButton.addEventListener('click', () => {
+            mainContainer.classList.toggle('offcanvas-active')
+        })
+    })
 }
