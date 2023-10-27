@@ -11,6 +11,7 @@ import Accordion from './layout-builder/modules/accordion';
 import Tabs from './layout-builder/modules/tabs';
 import Navigation from './global-elements/navigation';
 import SlimSelect from 'slim-select';
+import Offcanvas from './global-elements/offcanvas';
 
 $(document).foundation();
 
@@ -52,6 +53,8 @@ $(function() {
             select: selectElement
         })
     })
+
+    Offcanvas();
 
     // modules
     Carousel();
