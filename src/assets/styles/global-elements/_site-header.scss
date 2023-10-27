@@ -6,4 +6,19 @@
     width: 100%;
     background: var(--white);
     z-index: 9998;
+
+    .primary-navigation {
+
+        .menu {
+            @include breakpoint(medium down) {
+                display: none;
+            }
+        }
+
+        .offcanvas-toggler {
+            @include breakpoint(large) {
+                display: none;
+            }
+        }
+    }
 }
