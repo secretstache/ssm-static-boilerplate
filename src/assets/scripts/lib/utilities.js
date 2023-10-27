@@ -89,14 +89,14 @@ export function hideHeaderOnScroll() {
 export function tooltip() {
     const tooltips = document.querySelectorAll(".tooltip");
 
-    Array.prototype.forEach.call(tooltips, function (el, i) {
-        let tooltipTrigger = el.querySelector(".tooltip-trigger"),
-            tooltipContent = el.querySelector(".tooltip-content"),
+    tooltips.forEach((tooltip) => {
+        const tooltipTrigger = tooltip.querySelector(".tooltip-trigger"),
+            tooltipContent = tooltip.querySelector(".tooltip-content"),
             tooltipPositionClasses = tooltipContent.classList,
             arrClasses = [...tooltipPositionClasses],
             positionClasses = ["top", "right", "bottom", "left"];
 
-        let matched = positionClasses.filter(
+        const matched = positionClasses.filter(
             (el) => arrClasses.indexOf(el) > -1
         );
 
@@ -112,9 +112,6 @@ export function tooltip() {
             const tooltipSpace = tooltipTrigger.getBoundingClientRect();
             const tooltipBox = tooltipContent.getBoundingClientRect();
             const tooltipRight = tooltipBox.right + tooltipBox.width;
-
-            console.log(tooltipRight);
-            console.log(window.innerWidth);
 
             if (
                 tooltipSpace.top > tooltipBox.height &&
@@ -142,9 +139,7 @@ export function tooltip() {
             }
         }
 
-        window.addEventListener("resize", () => {
-            setTooltipPosition();
-        });
+        window.addEventListener("resize", throttle(setTooltipPosition, 200));
 
         let mouseOverTooltip = false,
             mouseOverTooltipButton = false;
@@ -186,4 +181,15 @@ export function tooltip() {
             tooltipContent.classList.remove("active");
         }
     });
+}
+
+export function throttle(f, t) {
+    return function (args) {
+        let previousCall = this.lastCall;
+        this.lastCall = Date.now();
+
+        if (previousCall === undefined || this.lastCall - previousCall > t) {
+            f(args);
+        }
+    };
 }

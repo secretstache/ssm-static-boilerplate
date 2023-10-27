@@ -1,0 +1,103 @@
+---
+meta_title: Page Tooltip
+body_classes: home
+
+hero_unit:
+  {
+    classes: "bg-dark",
+    bg:
+      {
+        image: "assets/images/cms/placeholder.svg",
+        //color: "red",
+        //video: "assets/video/PlaceholderVideo.mp4",
+      },
+    headline: "The Headline",
+    subheadline: "The Subheadline",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit architecto iusto necessitatibus accusantium aliquid non quod? Doloremque asperiores corporis.",
+    buttons:
+      [
+        {
+          text: "Learn More!",
+          href: "http://secretstache.com",
+          classes: "default",
+        },
+      ],
+  }
+---
+
+<div class="grid-container" style="margin: 50px auto">
+  <h2 style="margin: 50px 0">Tooltip aligment</h2>
+
+  <div class="justify-content-between d-flex">
+    <div class="tooltip">
+      <span class="tooltip-trigger">Tooltip left</span>
+
+      <div class="tooltip-content left">
+        <p>Tooltip content</p>
+      </div>
+    </div>
+
+    <div class="tooltip">
+      <span class="tooltip-trigger">Tooltip right</span>
+
+      <div class="tooltip-content right">
+        <p>Tooltip content</p>
+      </div>
+    </div>
+
+    <div class="tooltip">
+      <span class="tooltip-trigger">Tooltip top</span>
+
+      <div class="tooltip-content top">
+        <p>Tooltip content</p>
+      </div>
+    </div>
+
+    <div class="tooltip">
+      <span class="tooltip-trigger">Tooltip bottom</span>
+
+      <div class="tooltip-content bottom">
+        <p>Tooltip content</p>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2 style="margin: 50px 0">Button Tooltip</h2>
+
+  <div class="tooltip">
+    <a class="tooltip-trigger button" style="background: #23bffd; color: #fff"
+      >Button Tooltip</a
+    >
+
+    <div class="tooltip-content right">
+      <p>Tooltip content</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2 style="margin: 50px 0">Tooltip With Content</h2>
+
+  <div class="justify-content-between d-flex">
+    <div class="tooltip">
+      <span class="tooltip-trigger">Content tooltip</span>
+
+      <div class="tooltip-content">
+        <h4>Tooltip html item</h4>
+        <p>this has a <a href="#">focussable link</a></p>
+        <label for="#input-example">Even can have an input</label>
+        <input type="text" id="input-example" />
+      </div>
+    </div>
+
+    <div class="tooltip">
+      <span class="tooltip-trigger">Content tooltip with image</span>
+
+      <div class="tooltip-content">
+        <img src="{{root}}assets/images/cms/placeholder.svg" />
+      </div>
+    </div>
+  </div>
+</div>

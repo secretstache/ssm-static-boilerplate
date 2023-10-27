@@ -10,6 +10,7 @@ import AccordionTabs from './layout-builder/modules/accordion-tabs';
 import Accordion from './layout-builder/modules/accordion';
 import Tabs from './layout-builder/modules/tabs';
 import Navigation from './global-elements/navigation';
+import Offcanvas from './global-elements/offcanvas';
 import SlimSelect from 'slim-select';
 
 $(document).foundation();
@@ -58,5 +59,6 @@ $(function() {
     AccordionTabs();
     Accordion();
     Navigation();
+    Offcanvas();
     Tabs();
 });

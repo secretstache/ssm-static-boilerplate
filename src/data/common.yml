@@ -6,13 +6,27 @@ primary-navigation:
   -
     title: Simple
     link: '#'
-    classes: false
   -
     title: Has Submenu
     link: '#'
     classes: menu-item-has-children
     has-submenu: true
-    submenu-items: 
+    submenu-items:
+      -
+        title: Item 01
+        link: '#'
+      -
+        title: Item 02
+        link: '#'
+      -
+        title: Item 03
+        link: '#'
+  -
+    title: Has Submenu 2
+    link: '#'
+    classes: menu-item-has-children
+    has-submenu: true
+    submenu-items:
       -
         title: Item 01
         link: '#'

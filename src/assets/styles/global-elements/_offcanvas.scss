@@ -4,55 +4,142 @@ $offcanvas-text-color: var(--body-color);
 
 //off-canvas content
 .off-canvas {
-    background: $offcanvas-background;
-    color: $offcanvas-text-color;
-    overflow: auto;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    transform: translateX(100%);
-    transition: transform $tr;
-    padding: rem-calc(80 0 30);
-    z-index: 9998;
+  background: $offcanvas-background;
+  color: $offcanvas-text-color;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform $tr;
+  padding: rem-calc(80 0 30);
+  z-index: 9998;
 
-    //color of the links 
-    a:link,
-    a:visited {
-        color: $offcanvas-links-color;
+  //color of the links
+  a:link,
+  a:visited {
+    color: $offcanvas-links-color;
+  }
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  //menu
+  .menu {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      padding: 0;
     }
 
-    &.is-open {
-        transform: translateX(0);
+    &.drilldown {
+      overflow: hidden;
+      position: relative;
+
+      .menu-item.menu-item-has-children {
+        position: static !important;
+
+        > a {
+          &:after {
+            transform: rotate(270deg);
+          }
+        }
+
+        .menu.submenu {
+          position: absolute !important;
+          top: 0 !important;
+          left: 100% !important;
+          z-index: -1 !important;
+          width: 100%;
+          transition: transform 0.3s ease-out, z-index 0.3s ease-out !important;
+          max-height: max-content !important;
+          height: 100vh;
+
+          .drilldown-back {
+            display: flex;
+            align-items: center;
+
+            &::before {
+              content: "";
+              display: block;
+              width: rem-calc(12);
+              height: rem-calc(7);
+              background-size: contain;
+              margin-right: rem-calc(8);
+              mask-image: svg-uri(
+                '<svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 0.654297L6.25225 5.79826L11.5045 0.654297" stroke="#000000" stroke-width="1.5"/><path d="M1 0.654297L6.25225 5.79826L11.5045 0.654297" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/></svg>'
+              );
+              mask-repeat: no-repeat;
+              mask-size: rem-calc(12 7);
+              mask-repeat: no-repeat;
+              background: var(--buttonColor);
+              transition: all var(--tr);
+              transform: rotate(90deg);
+            }
+          }
+
+          &.active {
+            z-index: 9999 !important;
+            transform: translate(-100%);
+          }
+        }
+      }
     }
 
-    //menu
-    .menu {
+    .menu-item.menu-item-has-children {
+      .menu.submenu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 !important;
+        row-gap: rem-calc(10);
+        align-items: center;
+        z-index: 9999;
+        pointer-events: all;
+        list-style: none;
+        position: relative !important;
+        background-color: var(--white);
+        border: none !important;
+        translate: 0 !important;
+        opacity: 1;
+        visibility: visible;
+        transition: all var(--tr) ease-out !important;
+
+        max-height: 0;
+        overflow: hidden;
+        will-change: max-height;
+
         a {
-            padding: 0;
+          padding: 0 !important;
         }
+      }
 
-        &.drilldown {
-            overflow: visible;
+      &.open {
+        .menu.submenu {
+          margin-top: rem-calc(10) !important;
         }
+      }
     }
+  }
 
-
-    //close button
-    .close-button {
-        @include closeButton($offcanvas-text-color);
-        position: absolute;
-        right: rem-calc(30);
-        top: rem-calc(20);
-    }
+  //close button
+  .close-button {
+    @include closeButton($offcanvas-text-color);
+    position: absolute;
+    right: rem-calc(30);
+    top: rem-calc(20);
+  }
 }
 
 .off-canvas-wrapper {
-    overflow: visible;
+  overflow: visible;
 }
 
 .off-canvas.is-transition-overlap {
-    &.is-open {
-        box-shadow: none;
-    }
+  &.is-open {
+    box-shadow: none;
+  }
 }
