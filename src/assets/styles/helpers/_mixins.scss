@@ -1,6 +1,8 @@
+@use "sass:math";
+
 //helper
 @function strip-unit($value) {
-    @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1)
 }
 
 // responsive font size
@@ -59,7 +61,7 @@
     $encoded: '';
     $slice: 2000;
     $index: 0;
-    $loops: ceil(str-length($svg) / $slice);
+    $loops: ceil(math.div(str-length($svg), $slice));
 
     @for $i from 1 through $loops {
         $chunk: str-slice($svg, $index, $index + $slice - 1);

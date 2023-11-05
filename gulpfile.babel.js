@@ -6,28 +6,30 @@ import browser from 'browser-sync';
 import gulp from 'gulp';
 import panini from 'panini';
 import rimraf from 'rimraf';
-import sherpa from 'style-sherpa';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import webpackStream from 'webpack-stream';
 import webpack2 from 'webpack';
 import named from 'vinyl-named';
-import uncss from 'uncss';
 import autoprefixer from 'autoprefixer';
+import dartSass from 'sass';
 
 let uglify = require('gulp-uglify-es').default;
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
+const sassInited = $.sass(dartSass);
+
 // Check for --production flag
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { PORT, PATHS } = loadConfig();
 
 function loadConfig() {
     let ymlFile = fs.readFileSync('config.yml', 'utf8');
+
     return yaml.load(ymlFile);
 }
 
@@ -68,7 +70,7 @@ function pages() {
             layouts: 'src/layouts/',
             partials: 'src/partials/',
             data: 'src/data/',
-            helpers: 'src/helpers/'
+            helpers: 'src/helpers/',
         }))
         .pipe(gulp.dest(PATHS.dist));
 }
@@ -94,10 +96,8 @@ function sass() {
 
     return gulp.src(PATHS.sassEntries)
         .pipe($.sourcemaps.init())
-        .pipe($.sass({
-                includePaths: PATHS.sass
-            })
-            .on('error', $.sass.logError))
+        .pipe(sassInited({ includePaths: PATHS.sass })
+            .on('error', sassInited.logError))
         .pipe($.postcss(postCssPlugins))
         .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
         .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
@@ -110,25 +110,25 @@ let webpackConfig = {
     mode: (PRODUCTION ? 'production' : 'development'),
     module: {
         rules: [
-        {
-            test: /.js$/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ["@babel/preset-env"],
-                    compact: false
-                }
-            }
-        }]
+            {
+                test: /.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ["@babel/preset-env"],
+                        compact: false,
+                    },
+                },
+            }],
     },
     plugins: [
         new webpack2.ProvidePlugin({
             jQuery: 'jquery',
             $: 'jquery',
-            jquery: 'jquery'
-        })
-    ]
-}
+            jquery: 'jquery',
+        }),
+    ],
+};
 
 
 // Combine JavaScript into one file
@@ -139,7 +139,7 @@ function javascript() {
         //.pipe($.sourcemaps.init())
         .pipe(webpackStream(webpackConfig, webpack2))
         .pipe($.if(PRODUCTION, uglify()
-            .on('error', e => { console.log(e); })
+            .on('error', e => { console.log(e) }),
         ))
         //.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
         .pipe($.concat('app.js'))
@@ -151,7 +151,7 @@ function javascript() {
 function images() {
     return gulp.src('src/assets/images/**/*')
         .pipe($.if(PRODUCTION, $.imagemin({
-            progressive: true
+            progressive: true,
         })))
         .pipe(gulp.dest(PATHS.dist + '/assets/images'));
 }
@@ -160,7 +160,7 @@ function images() {
 function server(done) {
     browser.init({
         server: PATHS.dist,
-        port: PORT
+        port: PORT,
     });
     done();
 }
