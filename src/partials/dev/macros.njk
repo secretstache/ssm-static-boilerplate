@@ -1,0 +1,115 @@
+{%- macro menu(params) -%}
+
+    {%- from "../global/menu.njk" import render -%}
+    {{- render( params ) -}}
+
+{%- endmacro -%}
+
+
+{% macro columns(class) %}
+
+    <div class="grid-x {{ class }}">
+
+        {% if caller %}{{ caller() | safe }}{% endif %}
+
+    </div>
+
+{% endmacro %}
+
+
+{% macro column(class) %}
+
+    <div class="cell {{ class }}">
+
+        {% if caller %}{{ caller() | safe }}{% endif %}
+
+    </div>
+
+{% endmacro %}
+
+
+{% macro module(name, params) %}
+    {%- from "../modules/" + name + "/" + name + ".njk" import render -%}
+
+    {%- if caller -%}
+        {%- call render( params ) %}{{ caller() }}{% endcall -%}
+    {%- else -%}
+        {{- render( params ) -}}
+    {%- endif -%}
+
+{% endmacro %}
+
+
+{%- macro template(name, params) -%}
+{#    /**#}
+{#    * @param {string} class#}
+{#    * @param {string} id#}
+{#    * @param {object} templateHeader - { headline: 'string', preheadline: 'string', subheadline: 'string', class: 'string' }#}
+{#    * @param {string} bgColor#}
+{#    * @param {object} bgVideo - { src: 'string', poster: 'string', attributes: 'string' }#}
+{#    * @param {object} bgImage - { src: 'string' }#}
+{#    */#}
+
+    {%- from "../templates/" + name + "/" + name + ".njk" import render -%}
+
+    {% set classes = ([
+        'content-block template-' + name,
+        'bg-'+ params.bgColor if params.bgColor,
+        'bg-image' if params.bgImage,
+        'bg-video' if params.bgVideo,
+        params.class if params.class
+    ]) | toClassNames %}
+
+    {% set templateHeader = params.templateHeader %}
+
+    <section class="{{ classes }}"{% if params.id %} id="{{ params.id }}"{% endif %}>
+
+        {% if templateHeader %}
+            <header class="template-header{% if templateHeader.class %}{{ templateHeader.class }}{% endif %}">
+
+                <div class="grid-container">
+                    {% if templateHeader.preheadline %}
+                        <p class="template-header__preheadline">{{ templateHeader.preheadline | safe }}</p>
+                    {% endif %}
+
+                    {% if templateHeader.headline %}
+                        <h2 class="template-header__headline">{{ templateHeader.headline | safe }}</h2>
+                    {% endif %}
+
+                    {% if templateHeader.subheadline %}
+                        <h3 class="template-header__subheadline">{{ templateHeader.subheadline | safe }}</h3>
+                    {% endif %}
+                </div>
+
+            </header>
+        {% endif %}
+
+        {% if params.bgImage or params.bgVideo %}
+            <div class="bg-container">
+                <div class="overlay"></div>
+
+                {% if params.bgImage %}
+
+                    <img class="lazy-load" data-src="{{ root }}{{ params.bgImage.src }}" alt="">
+
+                {% endif %}
+
+                {% if params.bgVideo %}
+
+                    <video class="lazy-load"{% if params.bgVideo.poster %} data-poster="{{ root }}{{ params.bgVideo.poster }}"{% endif %} muted playsinline autoplay loop preload="none">
+                        <source data-src="{{ root }}{{ params.bgVideo.src }}" type="video/mp4">
+                    </video>
+
+                {% endif %}
+            </div>
+
+        {% endif %}
+
+        {%- if caller -%}
+            {%- call render( params ) %}{{ caller() }}{% endcall -%}
+        {%- else -%}
+            {{- render( params ) -}}
+        {%- endif -%}
+
+    </section>
+{%- endmacro -%}

@@ -11,9 +11,10 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
     background: var(--body-bg);
+    padding: 0;
     color: var(--body-color);
+
     @include typo('body');
 }
 
@@ -23,18 +24,19 @@ img {
     border: 0;
     max-width: 100%;
     height: auto;
-    -ms-interpolation-mode: bicubic;
 }
 
 a {
-    color: var(--link-color);
-    text-decoration: none;
     transition: color var(--tr);
+    color: var(--link-color);
+    text-decoration: underline;
 
     &:hover,
     &:focus,
     &:active {
-        --link-color: var(--link-hover-color)
+        --link-color: var(--link-hover-color);
+
+        text-decoration: none;
     }
 }
 
@@ -56,9 +58,9 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: inherit;
-    font-size: 100%;
     margin: 0;
+    font-size: 100%;
+    font-family: inherit;
 }
 
 button {
@@ -67,25 +69,26 @@ button {
     padding: 0;
 }
 
-[type="search"] {
-    -webkit-appearance: textfield;
+[type='search'] {
+    appearance: textfield;
     outline-offset: -2px;
 
     &::-webkit-search-decoration {
-        -webkit-appearance: none;
+        appearance: none;
     }
 }
 
 ::-webkit-file-upload-button {
-    -webkit-appearance: button;
+    appearance: none;
     font: inherit;
 }
 
-b,strong {
+b,
+strong {
     font-weight: 700;
 }
 
 video,
-svg{
+svg {
     max-width: 100%;
 }

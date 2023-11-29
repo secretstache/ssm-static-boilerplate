@@ -1,0 +1,19 @@
+section.content-block.template-hero-unit {
+    .hero-unit__content {
+        display: flex;
+        row-gap: var(--grid-row-gap);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-unit__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: rem-calc(20);
+    }
+
+    .hero-unit__button {
+        margin: 0;
+    }
+}

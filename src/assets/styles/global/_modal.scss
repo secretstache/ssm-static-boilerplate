@@ -1,0 +1,61 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    margin: 0 !important;
+    padding: rem-calc(30);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0.75;
+        background: var(--black, #000);
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal-wrapper {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal-inner {
+        display: table-cell;
+        position: relative;
+        vertical-align: middle;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: rem-calc(1300);
+    }
+
+    .modal-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: rem-calc(0);
+        right: rem-calc(-45);
+        z-index: 100;
+        cursor: pointer;
+        background: svg-uri('<svg width="35" height="34" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="17.6387" cy="16.9609" r="16.7363" fill="#F7FAF0" fill-opacity="0.2"/><line x1="11.6055" y1="10.2187" x2="24.3377" y2="22.9509" stroke="#F7FAF0" stroke-width="2"/><line x1="11.0859" y1="23.1835" x2="23.818" y2="10.4513" stroke="#F7FAF0" stroke-width="2"/></svg>') no-repeat;
+        background-size: contain;
+        width: rem-calc(20);
+        height: rem-calc(20);
+
+        @include breakpoint(medium) {
+            top: rem-calc(-30);
+            right: rem-calc(-120);
+            width: rem-calc(33);
+            height: rem-calc(33);
+        }
+    }
+}

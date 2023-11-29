@@ -1,0 +1,51 @@
+/**
+* @param {string} class
+* @param {Array} columns
+*/
+
+
+{% macro render( props ) %}
+
+    {% from "dev/macros.njk" import columns, column, module, template %}
+
+    <div class="grid-container">
+
+        {% if caller %}{{ caller()  }}{% endif %}
+
+        {% if props.columns %}
+
+            <div class="grid-x">
+
+                {% for column in props.columns %}
+
+                    <div class="cell {{ column.class }}">
+
+                        {% if column.content %}
+
+                            {% for content in column.content %}
+
+                                {% if content.module  %}
+
+                                    {{ module(content.module, content.props) }}
+
+                                {% else %}
+
+                                    {{ content | safe }}
+
+                                {% endif %}
+
+                            {%  endfor %}
+
+                        {%  endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

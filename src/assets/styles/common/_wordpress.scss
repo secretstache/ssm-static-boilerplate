@@ -2,44 +2,45 @@
 .alignright,
 .alignnone,
 .aligncenter {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  float: none;
-  height: auto;
+    display: block;
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
 
-  @include breakpoint(small only) {
-    + p,
-    p + & {
-      margin-top: var(--module-margin);
+    @include breakpoint(small only) {
+        + p,
+        p + & {
+            margin-top: var(--module-margin);
+        }
     }
-  }
 }
 
 .alignnone,
 .aligncenter {
-  + p,
-  p + & {
-    margin-top: var(--module-margin);
-  }
+    + p,
+    p + & {
+        margin-top: var(--module-margin);
+    }
 }
 
 @include breakpoint(medium) {
-  .alignleft {
-    float: left;
-    margin-right: var(--module-margin);
-    margin-bottom: var(--module-margin);
-    margin-block-start: 0 !important
-  }
-  .alignright {
-    float: right;
-    margin-left: var(--module-margin);
-    margin-bottom: var(--module-margin);
-    margin-block-start: 0 !important;
-  }
+    .alignleft {
+        float: left;
+        margin-right: var(--module-margin);
+        margin-bottom: var(--module-margin);
+        margin-block-start: 0 !important;
+    }
 
-  .alignnone {
-    margin-left: 0;
-    margin-right: 0;
-  }
+    .alignright {
+        float: right;
+        margin-bottom: var(--module-margin);
+        margin-left: var(--module-margin);
+        margin-block-start: 0 !important;
+    }
+
+    .alignnone {
+        margin-right: 0;
+        margin-left: 0;
+    }
 }

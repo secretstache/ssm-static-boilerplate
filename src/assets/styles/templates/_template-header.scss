@@ -1,0 +1,15 @@
+header.template-header {
+    margin-bottom: var(--module-margin);
+
+    &.align-center {
+        text-align: center;
+    }
+
+    .template-header__headline {
+        @include breakpoint(medium) {
+            span {
+                display: block;
+            }
+        }
+    }
+}

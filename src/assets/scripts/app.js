@@ -1,33 +1,18 @@
-import $ from 'jquery';
-import 'what-input';
-window.jQuery = $;
+import LazyLoad from './utils/LazyLoad';
+import EditableSvg from './utils/EditableSvg';
+import VideoPlayInViewportOnly from './utils/VideoPlayInViewportOnly';
+import Offcanvas from './global/Offcanvas';
 
-import './libs/foundation-explicit-pieces';
+// lazy loads elements with default selector '.lazy-load'
+// usage https://apoorv.pro/lozad.js/
+const lazyLoadObserver = LazyLoad();
+lazyLoadObserver.observe();
 
-import { fixVw } from './global/utilities';
+// editable svgs
+Array.from(document.querySelectorAll('.editable-svg')).map((img) => EditableSvg(img));
 
-import Header from "./global/header";
-import Offcanvas from "./global/off-canvas";
-import Svg from "./global/svg";
-//import Cursor from "./global/cursor";
-//import Modals from "./global/modal";
-//import Lottie from './global/lottie';
+// stop autoplay video when out of viewport
+Array.from(document.querySelectorAll('video[autoplay]')).map((video) => VideoPlayInViewportOnly(video));
 
-import Video from "./layout-builder/modules/video";
-
-document.addEventListener("DOMContentLoaded", function () {
-    $(document).foundation();
-
-    fixVw();
-
-    /* global */
-    Header();
-    Offcanvas();
-    Svg();
-    //Cursor();
-    //Modals();
-    //Lottie();
-
-    /* modules */
-    Video();
-});
+// global components
+Array.from(document.querySelectorAll('.offcanvas')).map((offcanvasEl) => new Offcanvas(offcanvasEl));

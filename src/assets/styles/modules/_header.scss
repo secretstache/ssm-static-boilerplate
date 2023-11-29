@@ -1,0 +1,14 @@
+header.module {
+    &.align-center {
+        text-align: center;
+    }
+
+    .header__subheadline,
+    .header__headline {
+        @include breakpoint(medium) {
+            span {
+                display: block;
+            }
+        }
+    }
+}

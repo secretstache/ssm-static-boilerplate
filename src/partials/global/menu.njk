@@ -1,0 +1,37 @@
+{#
+# @prop {array} nav - menu array
+# @prop {string} class
+# @prop {string} attributes
+#}
+{% from "dev/macros.njk" import menu %}
+{% macro render( props ) %}
+
+    <ul class="menu{% if props.class %} {{ props.class }}{% endif %}"{% if props.attributes %} {{ props.attributes | safe }}{% endif %}>
+
+        {% for link in props.nav %}
+
+            {% set classes = ([
+                'active' if props.currentPage == link.url,
+                'menu-item-has-children' if link.submenu
+            ]) | toClassNames %}
+
+            <li class="menu-item{{ classes }}">
+
+                <a href="{{ root }}{{ link.url }}">{{ link.name }}</a>
+
+                {%if link.submenu %}
+
+                    {{ menu({
+                        nav: link.submenu,
+                        currentPage: props.currentPage
+                    }) }}
+
+                {% endif %}
+
+            </li>
+
+        {% endfor -%}
+
+    </ul>
+
+{% endmacro %}

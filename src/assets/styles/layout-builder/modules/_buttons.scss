@@ -1,9 +1,0 @@
-.module.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: rem-calc(20);
-
-    &.align-center {
-        justify-content: center;
-    }
-}

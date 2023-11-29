@@ -1,56 +1,46 @@
 @charset "utf-8";
 
-@import 'foundation-sites/scss/foundation';
-
-// Grids
-@include foundation-menu;
-@include foundation-drilldown-menu;
-@include foundation-dropdown-menu;
-
-// Layout components
-@include foundation-off-canvas;
-
-
-//plugins
+// plugins
 @import 'wp-plugins/facetwp'; // remove on the staging
 @import 'wp-plugins/gravity'; // remove on the staging
-
-//@import 'slim-select/src/slim-select/slimselect.scss';
-//@import 'swiper/swiper.scss';
-//@import "libs/lightgallery/lightgallery";
-@import "libs/plyr";
-
 @import 'helpers/functions';
 @import 'helpers/mixins';
 @import 'config';
 
+// vendor
+@import 'vendor';
+
+// common
 @import 'common/base';
 @import 'common/typography';
 @import 'common/backgrounds';
-@import 'common/wordpress';
 @import 'common/layout';
 @import 'common/grid';
+@import 'common/wordpress';
 @import 'common/utilities';
 
-//@import 'global-elements/cursor';
-//@import 'global-elements/modal';
-@import 'global-elements/offcanvas';
-@import 'global-elements/site-header';
-@import 'global-elements/site-footer';
-@import 'global-elements/hero-unit';
-@import 'global-elements/button';
-@import 'global-elements/brand';
-@import 'global-elements/navigation';
-@import 'global-elements/hamburger';
-@import 'global-elements/skip-main';
+// @import 'global/cursor';
+// @import 'global/modal';
+@import 'global/off-canvas';
+@import 'global/site-header';
+@import 'global/site-footer';
+@import 'global/hero-unit';
+@import 'global/button';
+@import 'global/navigation';
+@import 'global/hamburger';
+@import 'global/skip-main';
 
-@import 'layout-builder/modules/modules-shared';
-@import 'layout-builder/modules/header';
-@import 'layout-builder/modules/text-editor';
-@import 'layout-builder/modules/buttons';
-@import 'layout-builder/modules/video';
-@import 'layout-builder/modules/image';
-@import 'layout-builder/modules/form';
+// modules
+@import 'modules/modules-shared';
+@import 'modules/header';
+@import 'modules/text-editor';
+@import 'modules/buttons';
+@import 'modules/video';
+@import 'modules/image';
+@import 'modules/form';
 
-@import 'layout-builder/templates/shared';
-@import 'layout-builder/templates/template-header';
+// templates
+@import 'templates/shared';
+@import 'templates/template-header';
+@import 'templates/free-form';
+@import 'templates/hero-unit';

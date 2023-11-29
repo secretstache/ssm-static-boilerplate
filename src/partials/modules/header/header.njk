@@ -1,0 +1,30 @@
+/**
+* @param {string} class
+* @param {string} headline
+* @param {string} subheadline
+* @param {string} preheadline
+*/
+
+{% macro render( props ) %}
+    <header class="module header{% if props.class %} {{ props.class }}{% endif %}">
+
+        {%if props.preheadline %}
+
+            <p class="header__preheadline">{{ props.preheadline | safe}}</p>
+
+        {% endif %}
+
+        {%if props.headline %}
+
+            <h2 class="header__headline">{{ props.headline | safe}}</h2>
+
+        {% endif %}
+
+        {%if props.subheadline %}
+
+            <h3 class="header__subheadline">{{ props.subheadline | safe}}</h3>
+
+        {% endif %}
+
+    </header>
+{% endmacro %}

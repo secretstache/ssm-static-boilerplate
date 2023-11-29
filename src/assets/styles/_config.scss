@@ -1,70 +1,116 @@
-$breakpoints : (
-        'small': 0,
-        'medium': 768,
-        'large': 1024,
-        'xlarge': 1280,
-        'xxlarge': 1536
+@use "sass:map";
+@use "sass:meta";
+
+$breakpoints: (
+    'small': 0,
+    'medium': 768,
+    'large': 1024,
+    'xlarge': 1280,
+    'xxlarge': 1536,
 );
 
 $breakpoint-classes: (small medium large);
 
 $palette: (
-        'red': #B41111,
+    'black': '#000',
+    'white': '#fff',
+    'red': '#b41111',
 );
 
+$backgrounds: ('black', 'red');
+
 $spacing: (
-        '0': 0,
-        'xs': rem-calc(10),
-        'sm': rem-calc(16),
-        'md': rem-calc(32),
-        'lg': rem-calc(64),
-        'xl': rem-calc(128),
-        '2xl': rem-calc(160)
+    0: 0,
+    px: 1px,
+    1: rem-calc(4),
+    2: rem-calc(8),
+    3: rem-calc(12),
+    4: rem-calc(16),
+    5: rem-calc(20),
+    6: rem-calc(24),
+    7: rem-calc(28),
+    8: rem-calc(32),
+    9: rem-calc(36),
+    10: rem-calc(40),
+    11: rem-calc(44),
+    12: rem-calc(48),
+    14: rem-calc(56),
+    16: rem-calc(64),
+    20: rem-calc(80),
+    24: rem-calc(96),
+    28: rem-calc(112),
+    32: rem-calc(128),
+    36: rem-calc(144),
+    40: rem-calc(160),
+    44: rem-calc(176),
+    48: rem-calc(192),
+    52: rem-calc(208),
+    56: rem-calc(224),
+    60: rem-calc(240),
+    64: rem-calc(256),
+    72: rem-calc(288),
+    80: rem-calc(320),
+    96: rem-calc(384),
+);
+
+$font-sizes: (
+    h1: responsive-type(61, 76),
+    h2: responsive-type(49, 61),
+    h3: responsive-type(39, 49),
+    h4: responsive-type(31, 39),
+    h5: responsive-type(25, 31),
+    h6: responsive-type(20, 25),
+    h7: responsive-type(18, 20),
+    body: rem-calc(16),
+    body-large: rem-calc(18),
+    body-small: rem-calc(14),
 );
 
 :root {
-    //fonts
-    --body-font: "Arial", sans-serif;
-    --alt-font: "Times New Roman", serif;
+    // fonts
+    --body-font: 'Arial', sans-serif;
+    --alt-font: 'Times New Roman', serif;
 
-    //colors
-    --black: #000;
-    --white: #fff;
+    // colors
     --inverse: var(--white);
     --body-color: var(--black);
     --body-bg: var(--white);
-    --link-color: var(--body-color);
+    --link-color: var(--red, #b41111);
     --link-hover-color: var(--body-color);
+    --primary-color: var(--black);
 
-    //theme colors
+    // theme colors
     @each $prop, $value in $palette {
         --#{$prop}: #{$value};
     }
 
-    //spacings
+    // spacings
     @each $prop, $value in $spacing {
         --spacing-#{$prop}: #{$value};
     }
 
-    //margins and paddings
-    --p-margin: 1.25rem; //20px
-    --base-margin: var(--spacing-xl);
-    --base-padding: var(--spacing-xl);
-    --module-padding: var(--spacing-md);
-    --module-margin: var(--spacing-md);
-
-    @include breakpoint(small only) {
-        --base-margin: var(--spacing-lg);
+    // font-sizes
+    @each $prop, $value in $font-sizes {
+        --font-size-#{$prop}: #{$value};
     }
 
-    //layout
-    --container-width: 86.25rem; //1380px
-    --container-paddings: 1.125rem; //18px
-    --container-contained-width: 72rem; //1152px
-    --grid-row-gap: 2rem; //32px
-    --grid-column-gap: 2rem; //32px
 
-    //other
-    --tr: 0.6s;
-    --plyr-color-main: var(--black);
+    // layout
+    --content-width: 86.25rem; // 1380px
+    --content-padding: 1.125rem; // 18px
+    --grid-column-gap: var(--spacing-6);
+    --grid-row-gap: var(--spacing-6);
+    --p-margin: var(--spacing-5);
+    --base-margin: var(--spacing-24);
+    --base-padding: var(--spacing-24);
+    --module-padding: var(--spacing-8);
+    --module-margin: var(--spacing-8);
+
+    // other
+    --tr: 0.35s;
+    --site-header-index: 1040;
+    --offcanvas-zindex: 1045;
+    --offcanvas-color: var(--inverse);
+    --offcanvas-bg: var(--black);
+    --offcanvas-width: 25rem;
 }
