@@ -2,22 +2,22 @@
 @use "sass:meta";
 
 $breakpoints: (
-    'small': 0,
-    'medium': 768,
-    'large': 1024,
-    'xlarge': 1280,
-    'xxlarge': 1536,
+    small: 0,
+    medium: 768,
+    large: 1024,
+    xlarge: 1280,
+    xxlarge: 1536,
 );
 
 $breakpoint-classes: (small medium large);
 
 $palette: (
-    'black': '#000',
-    'white': '#fff',
-    'red': '#b41111',
+    black: #000,
+    white: #fff,
+    red: #b41111,
 );
 
-$backgrounds: ('black', 'red');
+$backgrounds: ("black", "red");
 
 $spacing: (
     0: 0,
@@ -68,8 +68,8 @@ $font-sizes: (
 
 :root {
     // fonts
-    --body-font: 'Arial', sans-serif;
-    --alt-font: 'Times New Roman', serif;
+    --primary-font: "Arial", sans-serif;
+    --secondary-font: "Times New Roman", serif;
 
     // colors
     --inverse: var(--white);
@@ -94,21 +94,21 @@ $font-sizes: (
         --font-size-#{$prop}: #{$value};
     }
 
-
     // layout
     --content-width: 86.25rem; // 1380px
     --content-padding: 1.125rem; // 18px
     --grid-column-gap: var(--spacing-6);
     --grid-row-gap: var(--spacing-6);
-    --p-margin: var(--spacing-5);
     --base-margin: var(--spacing-24);
     --base-padding: var(--spacing-24);
     --module-padding: var(--spacing-8);
     --module-margin: var(--spacing-8);
 
     // other
+    --p-margin: var(--spacing-5);
     --tr: 0.35s;
     --site-header-index: 1040;
+    --site-header-bg: var(--white);
     --offcanvas-zindex: 1045;
     --offcanvas-color: var(--inverse);
     --offcanvas-bg: var(--black);

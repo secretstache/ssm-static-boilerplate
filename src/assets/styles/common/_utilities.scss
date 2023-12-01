@@ -35,15 +35,15 @@
     }
 
     .pt-#{$prop} {
-        margin-top: $value !important;
+        padding-top: $value !important;
     }
 
     .mb-#{$prop} {
-        margin-top: $value !important;
+        margin-bottom: $value !important;
     }
 
     .pb-#{$prop} {
-        margin-top: $value !important;
+        padding-bottom: $value !important;
     }
 }
 

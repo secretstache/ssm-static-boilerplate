@@ -1,7 +1,36 @@
-document.querySelectorAll('.is-parent-item > .ds-link').forEach((link) => {
-    link.addEventListener('click', (e) => {
+// document.querySelectorAll('.is-parent-item > .ds-link').forEach((link) => {
+//     link.addEventListener('click', (e) => {
+//         e.preventDefault();
+//         link.parentElement.classList.toggle('is-open');
+//     });
+// });
+
+window.addEventListener('click', (e) => {
+    const target = e.target;
+    console.log(target);
+    if (target.classList.contains('ds-link') && target.parentElement.classList.contains('is-parent-item')) {
         e.preventDefault();
-        link.parentElement.classList.toggle('is-open');
+        target
+            .closest('ul')
+            .querySelectorAll('.is-open')
+            .forEach((item) => {
+                if (item !== target.parentElement) {
+                    item.classList.remove('is-open');
+                }
+            });
+        target.parentElement.classList.toggle('is-open');
+    } else {
+        document.querySelectorAll('.is-open').forEach((item) => {
+            item.classList.remove('is-open');
+        });
+    }
+});
+
+document.querySelector('#viewpr-content iframe').addEventListener('load', () => {
+    document.querySelector('#viewpr-content iframe').contentWindow.document.addEventListener('click', () => {
+        document.querySelectorAll('.is-open').forEach((item) => {
+            item.classList.remove('is-open');
+        });
     });
 });
 
