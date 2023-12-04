@@ -1,13 +1,5 @@
-// document.querySelectorAll('.is-parent-item > .ds-link').forEach((link) => {
-//     link.addEventListener('click', (e) => {
-//         e.preventDefault();
-//         link.parentElement.classList.toggle('is-open');
-//     });
-// });
-
 window.addEventListener('click', (e) => {
     const target = e.target;
-    console.log(target);
     if (target.classList.contains('ds-link') && target.parentElement.classList.contains('is-parent-item')) {
         e.preventDefault();
         target
@@ -26,8 +18,8 @@ window.addEventListener('click', (e) => {
     }
 });
 
-document.querySelector('#viewpr-content iframe').addEventListener('load', () => {
-    document.querySelector('#viewpr-content iframe').contentWindow.document.addEventListener('click', () => {
+document.querySelector('#viewpr-content iframe')?.addEventListener('load', () => {
+    document.querySelector('#viewpr-content iframe').contentWindow.document?.addEventListener('click', () => {
         document.querySelectorAll('.is-open').forEach((item) => {
             item.classList.remove('is-open');
         });

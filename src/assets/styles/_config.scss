@@ -12,9 +12,9 @@ $breakpoints: (
 $breakpoint-classes: (small medium large);
 
 $palette: (
-    black: #000,
-    white: #fff,
-    red: #b41111,
+    "black": #000,
+    "white": #fff,
+    "red": #b41111,
 );
 
 $backgrounds: ("black", "red");
@@ -54,16 +54,16 @@ $spacing: (
 );
 
 $font-sizes: (
-    h1: responsive-type(61, 76),
-    h2: responsive-type(49, 61),
-    h3: responsive-type(39, 49),
-    h4: responsive-type(31, 39),
-    h5: responsive-type(25, 31),
-    h6: responsive-type(20, 25),
-    h7: responsive-type(18, 20),
-    body: rem-calc(16),
-    body-large: rem-calc(18),
-    body-small: rem-calc(14),
+    "h1": responsive-type(61, 76),
+    "h2": responsive-type(49, 61),
+    "h3": responsive-type(39, 49),
+    "h4": responsive-type(31, 39),
+    "h5": responsive-type(25, 31),
+    "h6": responsive-type(20, 25),
+    "h7": responsive-type(18, 20),
+    "body": rem-calc(16),
+    "body-large": rem-calc(18),
+    "body-small": rem-calc(14),
 );
 
 :root {
