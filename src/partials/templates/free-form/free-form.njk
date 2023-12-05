@@ -10,41 +10,13 @@
 
     <div class="grid-container">
 
-        {% if caller %}{{ caller()  }}{% endif %}
+        {% if props.innerContent %}
 
-        {% if props.columns %}
-
-            <div class="grid-x">
-
-                {% for column in props.columns %}
-
-                    <div class="cell {{ column.class }}">
-
-                        {% if column.content %}
-
-                            {% for content in column.content %}
-
-                                {% if content.module  %}
-
-                                    {{ module(content.module, content.props) }}
-
-                                {% else %}
-
-                                    {{ content | safe }}
-
-                                {% endif %}
-
-                            {%  endfor %}
-
-                        {%  endif %}
-
-                    </div>
-
-                {% endfor %}
-
-            </div>
+            {% include props.innerContent %}
 
         {% endif %}
+
+        {% if caller %}{{ caller()  }}{% endif %}
 
     </div>
 

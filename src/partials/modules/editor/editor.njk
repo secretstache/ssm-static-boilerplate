@@ -7,17 +7,15 @@
 
     <div class="module text-editor{%if props.class %} {{ props.class }}{% endif %}">
 
+        {% if props.innerContent %}
+
+            {% include props.innerContent %}
+
+        {% endif %}
+
         {% if caller %}
 
             {{ caller() | safe }}
-
-        {%  else %}
-
-            {% if props.content %}
-
-                {{ props.content | safe }}
-
-            {% endif %}
 
         {% endif %}
 

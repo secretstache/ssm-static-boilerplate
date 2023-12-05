@@ -67,10 +67,22 @@ module.exports = (eleventyConfig) => {
     });
 
     eleventyConfig.addPairedShortcode('brace', function (content, type = 'curly') {
-        const [opening, closing] = {
-            curly: ['{{', '}}'],
-            call: ['{%', '%}'],
-            silent: ['{%-', '-%}'],
+        const [
+            opening,
+            closing,
+        ] = {
+            curly: [
+                '{{',
+                '}}',
+            ],
+            call: [
+                '{%',
+                '%}',
+            ],
+            silent: [
+                '{%-',
+                '-%}',
+            ],
         }[type];
         return `${opening}${content}${closing}`;
     });

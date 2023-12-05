@@ -25,6 +25,7 @@
     background: var(--ds-sidebar-bg);
     padding: 10px var(--ds-sidebars-paddings);
     width: 100%;
+    min-height: 64px;
     color: var(--ds-sidebar-color);
     font-family: var(--ds-font-family), sans-serif;
 
@@ -43,9 +44,22 @@
     font-size: 20px;
 
     a {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        background: #2d3b83;
+        width: 64px;
+        height: 64px;
         color: white;
-        font-family: var(--ds-font-family), sans-serif;
+        font-family: var(--ds-font-family);
         text-decoration: none;
+    }
+
+    + .ds-menu {
+        margin-left: 40px;
     }
 }
 
@@ -90,7 +104,7 @@
         }
 
         &.ds-link--active {
-            box-shadow: inset 4px 0 0 #6c79d9;
+            box-shadow: inset 4px 0 0 var(--ds-accent-color);
             font-weight: bold;
         }
     }
@@ -104,7 +118,7 @@
 
             &.ds-link--active {
                 box-shadow: none;
-                border-bottom: 4px solid #6b7bd8;
+                border-bottom: 4px solid var(--ds-accent-color);
             }
         }
 
@@ -122,6 +136,13 @@
 
                 > .ds-menu__submenu {
                     display: block;
+                }
+            }
+
+            &.is-active {
+                > .ds-link {
+                    box-shadow: none;
+                    border-bottom: 4px solid var(--ds-accent-color);
                 }
             }
         }
@@ -246,7 +267,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-top: 0;
     margin-right: 30px;
+    margin-bottom: 0;
     margin-left: auto;
     font-size: 13px;
     list-style: none;
@@ -388,4 +411,7 @@ pre[class*="language-"] {
 
 body:has(.ds__body) {
     overflow: hidden;
+}
+
+.design-system-full-page {
 }

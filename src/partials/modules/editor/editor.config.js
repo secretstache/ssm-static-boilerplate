@@ -1,5 +1,6 @@
 module.exports = {
     title: 'Editor',
-    isContainer: true,
-    containerContext: 'common',
+    context: {
+        innerContent: 'default',
+    },
 };

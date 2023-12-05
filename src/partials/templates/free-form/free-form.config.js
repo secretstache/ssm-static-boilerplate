@@ -1,8 +1,7 @@
 module.exports = {
     title: 'Free form',
-    isContainer: true,
-    containerContext: 'with-1-col',
     context: {
+        innerContent: 'with-1-col',
         templateHeader: {
             preheadline: 'Template preheadline',
             headline: 'Template headline',
@@ -12,8 +11,9 @@ module.exports = {
     variants: [
         {
             title: '2 columns',
-            isContainer: true,
-            containerContext: 'with-2-cols',
+            context: {
+                innerContent: 'with-2-cols',
+            },
         },
     ],
 };

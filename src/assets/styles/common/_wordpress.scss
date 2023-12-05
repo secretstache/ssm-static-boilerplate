@@ -2,6 +2,7 @@
 .alignright,
 .alignnone,
 .aligncenter {
+    --image-spacing: 2rem;
     display: block;
     float: none;
     margin-right: auto;
@@ -11,7 +12,7 @@
     @include breakpoint(small only) {
         + p,
         p + & {
-            margin-top: var(--module-margin);
+            margin-top: var(--p-margin);
         }
     }
 }
@@ -20,23 +21,23 @@
 .aligncenter {
     + p,
     p + & {
-        margin-top: var(--module-margin);
+        margin-top: var(--p-margin);
     }
 }
 
 @include breakpoint(medium) {
     .alignleft {
         float: left;
-        margin-right: var(--module-margin);
-        margin-bottom: var(--module-margin);
-        margin-block-start: 0 !important;
+        margin-top: var(--image-spacing);
+        margin-right: var(--image-spacing);
+        margin-bottom: var(--image-spacing);
     }
 
     .alignright {
         float: right;
-        margin-bottom: var(--module-margin);
-        margin-left: var(--module-margin);
-        margin-block-start: 0 !important;
+        margin-top: var(--image-spacing);
+        margin-bottom: var(--image-spacing);
+        margin-left: var(--image-spacing);
     }
 
     .alignnone {

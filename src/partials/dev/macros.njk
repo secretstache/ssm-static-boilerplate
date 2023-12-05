@@ -45,18 +45,16 @@
 {#    * @param {string} class#}
 {#    * @param {string} id#}
 {#    * @param {object} templateHeader - { headline: 'string', preheadline: 'string', subheadline: 'string', class: 'string' }#}
-{#    * @param {string} bgColor#}
-{#    * @param {object} bgVideo - { src: 'string', poster: 'string', attributes: 'string' }#}
-{#    * @param {object} bgImage - { src: 'string' }#}
+{#    * @param {string} bg - { image | video | color }#}
 {#    */#}
 
     {%- from "../templates/" + name + "/" + name + ".njk" import render -%}
 
     {% set classes = ([
         'content-block template-' + name,
-        'bg-'+ params.bgColor if params.bgColor,
-        'bg-image' if params.bgImage,
-        'bg-video' if params.bgVideo,
+        'bg-'+ params.bg.color if params.bg.color,
+        'bg-image' if params.bg.image,
+        'bg-video' if params.bg.video,
         params.class if params.class
     ]) | toClassNames %}
 
@@ -84,20 +82,20 @@
             </header>
         {% endif %}
 
-        {% if params.bgImage or params.bgVideo %}
+        {% if params.bg.image or params.bg.video %}
             <div class="bg-container">
                 <div class="overlay"></div>
 
-                {% if params.bgImage %}
+                {% if params.bg.image %}
 
-                    <img class="lazy-load" data-src="{{ root }}{{ params.bgImage.src }}" alt="">
+                    <img class="lazy-load" data-src="{{ root }}{{ params.bg.image }}" alt="">
 
                 {% endif %}
 
-                {% if params.bgVideo %}
+                {% if params.bg.video %}
 
-                    <video class="lazy-load"{% if params.bgVideo.poster %} data-poster="{{ root }}{{ params.bgVideo.poster }}"{% endif %} muted playsinline autoplay loop preload="none">
-                        <source data-src="{{ root }}{{ params.bgVideo.src }}" type="video/mp4">
+                    <video class="lazy-load"{% if params.bg.poster %} data-poster="{{ root }}{{ params.bg.poster }}"{% endif %} muted playsinline autoplay loop preload="none">
+                        <source data-src="{{ root }}{{ params.bg.video }}" type="video/mp4">
                     </video>
 
                 {% endif %}

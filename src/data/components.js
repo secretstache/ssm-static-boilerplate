@@ -16,10 +16,17 @@ function convertComponent(cmp, componentType) {
     component.preview = component.preview || 'default';
     const parentSlug = component.slug || slugify(component.title.toLowerCase());
 
+    if (component.context.innerContent) {
+        component.context.innerContent = `${componentType}s/${component.name}/context/${component.context.innerContent}.njk`;
+    }
     // Loop the variants, returning a merged combo of component, then variant
     variants = variants.map((variant) => {
         const variantSlug = slugify(variant.title.toLowerCase());
         const preview = variant.preview ? variant.preview || 'default' : component.preview || 'default';
+
+        if (variant.context.innerContent) {
+            variant.context.innerContent = `${componentType}s/${component.name}/context/${variant.context.innerContent}.njk`;
+        }
 
         return {
             ...component,
@@ -31,7 +38,7 @@ function convertComponent(cmp, componentType) {
             preview,
             originalTitle: variant.title,
             title: `${component.title} - ${variant.title}`,
-            defaultTitle: '',
+            defaultTitle: variant.defaultTitle || '',
             slug: `${parentSlug}-${variantSlug}`,
         };
     });

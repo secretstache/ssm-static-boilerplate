@@ -17,14 +17,14 @@
         font-weight: 400;
         font-size: var(--font-size-h3);
         line-height: 120%;
-        font-family: var(--primary-font);
+        font-family: var(--secondary-font);
     }
 
     @if $type == "h4" {
         font-weight: 400;
         font-size: var(--font-size-h4);
         line-height: 120%;
-        font-family: var(--primary-font);
+        font-family: var(--secondary-font);
     }
 
     @if $type == "h5" {
@@ -37,13 +37,6 @@
     @if $type == "h6" {
         font-weight: 300;
         font-size: var(--font-size-h6);
-        line-height: 120%;
-        font-family: var(--primary-font);
-    }
-
-    @if $type == "h7" {
-        font-weight: 300;
-        font-size: var(--font-size-h7);
         line-height: 120%;
         font-family: var(--secondary-font);
     }

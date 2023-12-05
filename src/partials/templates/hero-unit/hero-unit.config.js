@@ -1,8 +1,8 @@
 module.exports = {
     title: 'Hero unit',
     context: {
-        bgVideo: {
-            src: '/assets/video/placeholder.mp4',
+        bg: {
+            video: '/assets/video/placeholder.mp4',
         },
         class: 'bg-dark',
         headline: 'The Headline',
