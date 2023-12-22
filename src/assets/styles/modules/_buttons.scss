@@ -1,6 +1,7 @@
 .module.buttons {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: rem-calc(20);
 
     &.is-centered {

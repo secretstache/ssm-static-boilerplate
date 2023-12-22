@@ -1,18 +1,31 @@
-import LazyLoad from './utils/LazyLoad';
-import EditableSvg from './utils/EditableSvg';
-import VideoPlayInViewportOnly from './utils/VideoPlayInViewportOnly';
-import Offcanvas from './global/Offcanvas';
+import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg } from './utils/utilities';
+import LazyLoad from './utils/lazy-load';
+import Offcanvas from './global/offcanvas';
+import Header from './global/header';
 
-// lazy loads elements with default selector '.lazy-load'
-// usage https://apoorv.pro/lozad.js/
-const lazyLoadObserver = LazyLoad();
-lazyLoadObserver.observe();
+document.addEventListener('DOMContentLoaded', function () {
+    // lazy loads elements with default selector '.lazy-load'
+    const lazyLoadObserver = LazyLoad();
+    lazyLoadObserver.observe();
 
-// editable svgs
-Array.from(document.querySelectorAll('.editable-svg')).map((img) => EditableSvg(img));
+    // fix vw and vh units
+    setViewportUnits();
 
-// stop autoplay video when out of viewport
-Array.from(document.querySelectorAll('video[autoplay]')).map((video) => VideoPlayInViewportOnly(video));
+    // editable svgs
+    Array.from(document.querySelectorAll('.editable-svg')).map((img) => EditableSvg(img));
 
-// global components
-Array.from(document.querySelectorAll('.offcanvas')).map((offcanvasEl) => new Offcanvas(offcanvasEl));
+    // stop autoplay video when out of viewport
+    Array.from(document.querySelectorAll('video[autoplay]')).map((video) => PlayVideoInViewportOnly(video));
+
+    // offcanvas
+    const offcanvas = document.querySelector('.offcanvas');
+    if (offcanvas) {
+        new Offcanvas(offcanvas);
+    }
+
+    // site header
+    const header = document.querySelector('.site-header');
+    if (header) {
+        new Header(header);
+    }
+});

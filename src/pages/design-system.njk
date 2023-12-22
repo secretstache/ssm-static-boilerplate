@@ -4,7 +4,10 @@ title: Home
 
 {% extends "design-system/library.njk" %}
 
-{% set backgrounds = ['black', 'red'] %}
+{% set backgrounds = ["black", "red"] %}
+
+{% set colors = ["black", "white", "red"] %}
+
 
 {% set alignmentJustify = {
     'align-left': 'justify-content: flex-start;',
@@ -30,6 +33,10 @@ title: Home
     'align-self-stretch' : 'align-self: stretch;'
 } %}
 
+
+{% set TextAlignment = ["left", "right", "center", "justify", "start", "end"] %}
+
+{% set breakpoints = ['small', 'medium', 'large'] %}
 
 {% set spacings = {
     '0': '0',
@@ -97,6 +104,31 @@ title: Home
                         <td>bg-{{ background }}</td>
                         <td>
                             var(--{{ background }})</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+            <h2 class="ds-block-title">Colors</h2>
+
+            <table class="ds-classes-table">
+                <thead>
+                <tr>
+                    <th>Color</th>
+                    <th>Css variable</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for color in colors %}
+                    <tr class="ds-background">
+                        <td>
+                            <div class="ds-background__color" style="background: var(--{{ color }})"></div>
+                        </td>
+                        <td>
+                            var(--{{ color }})</td>
                     </tr>
                 {% endfor %}
 
@@ -201,6 +233,36 @@ title: Home
             </table>
 
 
+            <h3 class="ds-block-subtitle">Text alignment</h3>
+
+            <table class="ds-classes-table">
+                <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Properties</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for key in TextAlignment  %}
+                    <tr>
+                        <td>text-{{ key }}</td>
+                        <td>text-align: {{ key }};</td>
+                    </tr>
+                {% endfor %}
+
+                {% for breakpoint in breakpoints %}
+                    {% for key in TextAlignment  %}
+                        <tr>
+                            <td>{{ breakpoint }}-text-{{ key }}</td>
+                            <td>text-align: {{ key }}; [for {{ breakpoint }} breakpoint]</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+
+                </tbody>
+            </table>
 
             <h3 class="ds-block-subtitle">Visibility classes</h3>
 
@@ -224,7 +286,7 @@ title: Home
 
                 <tr>
                     <td>
-                        {% for item in ['small', 'medium', 'large', 'xlarge', 'xxlarge'] %}
+                        {% for item in breakpoints %}
                             hide-for-{{ item }}<br>
                         {% endfor %}
                     </td>
@@ -234,7 +296,7 @@ title: Home
 
                 <tr>
                     <td>
-                        {% for item in ['small', 'medium', 'large', 'xlarge', 'xxlarge'] %}
+                        {% for item in breakpoints %}
                             show-for-{{ item }}<br>
                         {% endfor %}
                     </td>
@@ -243,7 +305,7 @@ title: Home
 
                 <tr>
                     <td>
-                        {% for item in ['small', 'medium', 'large', 'xlarge', 'xxlarge'] %}
+                        {% for item in breakpoints %}
                             hide-for-{{ item }}-only<br>
                         {% endfor %}
                     </td>
@@ -253,7 +315,7 @@ title: Home
 
                 <tr>
                     <td>
-                        {% for item in ['small', 'medium', 'large', 'xlarge', 'xxlarge'] %}
+                        {% for item in breakpoints %}
                             show-for-{{ item }}-only<br>
                         {% endfor %}
                     </td>

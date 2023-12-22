@@ -7,7 +7,7 @@
     flex-direction: column;
     transform: translateX(-100%);
     visibility: hidden;
-    z-index: var(--offcanvas-zindex);
+    z-index: var(--offcanvas-z-index);
     transition: transform var(--tr) ease-in-out;
     outline: 0;
     background-clip: padding-box;

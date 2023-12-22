@@ -1,9 +1,9 @@
-import BaseComponent from '../utils/BaseComponent';
-import EventHandler from '../utils/dom/EventHandler';
-import Backdrop from '../utils/Backdrop';
-import enableDismissTrigger from '../utils/enableDismissTrigger';
-import FocusTrap from '../utils/FocusTrap';
-import ScrollBarHelper from '../utils/ScrollBarHelper';
+import BaseComponent from '../utils/base-component';
+import EventHandler from '../utils/dom/event-handler';
+import Backdrop from '../utils/backdrop';
+import enableDismissTrigger from '../utils/enable-dismiss-trigger';
+import FocusTrap from '../utils/focus-trap';
+import ScrollbarHelper from '../utils/scrollbar-helper';
 import { isDisabled, isVisible } from '../utils/utilities';
 
 /**
@@ -81,7 +81,7 @@ class Offcanvas extends BaseComponent {
         this._backdrop.show();
 
         if (!this._config.scroll) {
-            new ScrollBarHelper().hide();
+            new ScrollbarHelper().hide();
         }
 
         this._element.setAttribute('aria-modal', true);
@@ -128,7 +128,7 @@ class Offcanvas extends BaseComponent {
             this._element.removeAttribute('role');
 
             if (!this._config.scroll) {
-                new ScrollBarHelper().reset();
+                new ScrollbarHelper().reset();
             }
 
             EventHandler.trigger(this._element, EVENT_HIDDEN);
@@ -199,7 +199,12 @@ class Offcanvas extends BaseComponent {
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     const target = document.querySelector('#' + this.getAttribute('aria-controls'));
 
-    if (['A', 'AREA'].includes(this.tagName)) {
+    if (
+        [
+            'A',
+            'AREA',
+        ].includes(this.tagName)
+    ) {
         event.preventDefault();
     }
 

@@ -104,12 +104,25 @@ $font-sizes: (
     --module-margin: var(--spacing-8);
 
     // other
-    --p-margin: var(--spacing-5);
-    --tr: 0.35s;
-    --site-header-index: 1040;
+    --p-margin: var(--spacing-6);
+    --tr: 0.3s;
+
+    // site header
+    --site-header-z-index: 1040;
     --site-header-bg: var(--white);
-    --offcanvas-zindex: 1045;
+
+    // offcanvas
+    --offcanvas-z-index: 1045;
     --offcanvas-color: var(--inverse);
     --offcanvas-bg: var(--black);
     --offcanvas-width: 25rem;
+
+    // modals
+    --modal-z-index: 1050;
+    --modal-backdrop-z-index: 1049;
+
+    // forms
+    --form-input-border-color: var(--black);
+    --form-input-bg-color: var(--white);
+    --form-input-color: var(--black);
 }

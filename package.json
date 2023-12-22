@@ -1,19 +1,23 @@
 {
     "name": "ssm-static-boilerplate",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "author": "Secret Stache Media <rich@secretstache.com>",
     "license": "MIT",
+    "vars": {
+        "prefix": "/secretstache/ssmv4",
+        "project": "default"
+    },
     "scripts": {
         "clean": "rimraf dist",
         "start": "cross-env npm-run-all -l clean -p start:*",
-        "start:webpack": "cross-env mode=development webpack",
-        "start:eleventy": "cross-env prefix= mode=development eleventy --quiet --watch --serve",
+        "start:webpack": "cross-env project=$npm_package_vars_project mode=development webpack",
+        "start:eleventy": "cross-env prefix= project=$npm_package_vars_project mode=development eleventy --quiet --watch --serve",
         "build": "cross-env npm-run-all clean build:*",
         "staging-build": "cross-env npm-run-all clean staging-build:*",
         "build:webpack": "cross-env mode=production webpack",
-        "build:eleventy": "cross-env prefix=/snm/edb mode=production eleventy --quiet",
+        "build:eleventy": "cross-env prefix=$npm_package_vars_prefix project=$npm_package_vars_project mode=production eleventy --quiet",
         "staging-build:webpack": "cross-env mode=production webpack",
-        "staging-build:eleventy": "cross-env prefix=/static mode=production eleventy --quiet",
+        "staging-build:eleventy": "cross-env prefix=/static project=$npm_package_vars_project mode=production eleventy --quiet",
         "lint": "npm-run-all lint:js:fix lint:scss:fix",
         "lint:js": "eslint src",
         "lint:js:fix": "yarn lint:js --fix",

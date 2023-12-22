@@ -10,7 +10,7 @@
     <title>{{title}}</title>
   </head>
 
-  {% from "dev/macros.njk" import columns, column, module, template %}
+  {% from "macros/default.njk" import columns, column, module, template %}
 
   <body{% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
 
@@ -18,7 +18,7 @@
 
     <div class="site">
 
-        {% include 'global/off-canvas.njk' %}
+        {% include 'global/offcanvas.njk' %}
 
         {% include 'global/site-header.njk' %}
 

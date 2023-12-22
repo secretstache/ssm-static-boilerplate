@@ -31,7 +31,11 @@
 
     &:focus,
     &:active {
-        outline: 0;
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 1px dotted;
     }
 
     &:disabled,

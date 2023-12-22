@@ -1,4 +1,4 @@
-import EventHandler from './dom/EventHandler.js';
+import EventHandler from './dom/event-handler.js';
 import { execute, executeAfterTransition, reflow } from './utilities.js';
 
 const NAME = 'backdrop';
@@ -11,7 +11,7 @@ const Default = {
     clickCallback: null,
     isAnimated: false,
     isVisible: true, // if false, we use the backdrop helper without adding any element to the dom
-    rootElement: 'body', // give the choice to place backdrop under different elements
+    rootElement: document.body, // give the choice to place backdrop under different elements
 };
 
 class Backdrop {
@@ -81,6 +81,7 @@ class Backdrop {
         if (!this._element) {
             const backdrop = document.createElement('div');
             backdrop.className = this._config.className;
+
             if (this._config.isAnimated) {
                 backdrop.classList.add(CLASS_NAME_FADE);
             }
@@ -105,6 +106,7 @@ class Backdrop {
         }
 
         const element = this._getElement();
+
         this._config.rootElement.append(element);
 
         EventHandler.on(element, EVENT_MOUSEDOWN, () => {

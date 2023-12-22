@@ -11,7 +11,7 @@
     <title>{% if component.title %}{{ component.title }} - Design System{% else %}{{ title }}{% endif %}</title>
 </head>
 
-{% from "dev/macros.njk" import columns, column, module, template %}
+{% from "macros/default.njk" import columns, column, module, template %}
 
 <body{% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
 

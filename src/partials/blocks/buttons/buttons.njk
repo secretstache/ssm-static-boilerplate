@@ -1,0 +1,58 @@
+/**
+* @param {string} class
+* @param {string} style
+* @param {array} buttons
+* @param {string} justification - left, right, center, space-between
+* @param {boolean} stacked
+* @param {string} fontSize
+* @param {string} id
+* @param {string} align - full | wide
+* @param {string} customStyle
+*/
+
+{% macro render(props) %}
+
+    {% set classes = ([
+        props.class if props.class,
+        'has-custom-font-size has-' + props.fontSize + '-font-size' if props.fontSize,
+        'is-content-justification-' + props.justification if props.justification,
+        'is-vertical' if props.stacked,
+        'align' + props.align if props.align,
+        'is-style-' + props.customStyle if props.customStyle
+    ]) | toClassNames %}
+
+    {% set styles = ([props.style if props.style]) | toStyleString | safe %}
+
+    {% set id = ' id="' + props.id + '"' if props.id %}
+
+    <div class="wp-block-buttons{{ classes }}"{{ styles }}{{ id }}>
+
+        {% if props.buttons %}
+
+            {% for button in props.buttons %}
+
+                {% set linkClasses = ([
+                    button.class if button.class,
+                    'has-text-align-' + button.textAlign if button.textAlign,
+                    'has-text-color has-' + button.color + '-color' if button.color,
+                    'has-background has-' + button.background + '-background-color' if button.background,
+                    'has-' + button.fontSize + '-font-size' if button.fontSize
+                ]) | toClassNames %}
+
+                {% set linkStyles = ([button.style if button.style]) | toStyleString | safe %}
+
+                <div class="wp-block-button{% if button.type %} {{ button.type }}{% endif %}">
+
+                    <a href="{{ root }}{{ button.url }}" class="wp-block-button__link{{ linkClasses }}"{{ linkStyles }}>
+                        {{ button.label }}
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

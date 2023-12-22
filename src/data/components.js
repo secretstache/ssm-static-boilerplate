@@ -1,6 +1,8 @@
 const slugify = require('slugify');
 const requireGlob = require('require-glob');
 
+const isBlocks = process.env.project === 'blocks';
+
 function convertComponent(cmp, componentType) {
     const component = { ...cmp };
     component.type = componentType;
@@ -106,26 +108,57 @@ function prepareMenu(modulesGroups, templatesGroups) {
     return finalModuleMenu.concat(finaltemplateMenu);
 }
 
+function prepareBlocksMenu(blocksGroups) {
+    const blockMenu = createMenu(blocksGroups);
+
+    const finalBlockMenu = [
+        {
+            title: 'Blocks',
+            url: '#',
+            children: blockMenu,
+        },
+    ];
+
+    return finalBlockMenu;
+}
+
 module.exports = async function () {
-    // Pull in all the config files
-    const modules = await requireGlob('../partials/modules/**/*.config.js', { reducer, bustCache: true });
-    const templates = await requireGlob('../partials/templates/**/*.config.js', { reducer, bustCache: true });
+    if (isBlocks) {
+        // Pull in all the config files
+        const blocks = await requireGlob('../partials/blocks/**/*.config.js', { reducer, bustCache: true });
 
-    // Convert the components into our required format
-    const modulesGroups = modules.components
-        .map((cmp) => {
-            return convertComponent(cmp, 'module');
-        })
-        .filter(Boolean);
-    const templatesGroups = templates.components
-        .map((cmp) => {
-            return convertComponent(cmp, 'template');
-        })
-        .filter(Boolean);
+        // Convert the components into our required format
+        const blocksGroups = blocks.components
+            .map((cmp) => {
+                return convertComponent(cmp, 'block');
+            })
+            .filter(Boolean);
 
-    // Return the components and the menu, broken down into categories
-    return {
-        components: modulesGroups.concat(templatesGroups).flat(),
-        menu: prepareMenu(modulesGroups, templatesGroups),
-    };
+        // Return the components and the menu, broken down into categories
+        return {
+            components: blocksGroups.flat(),
+            menu: prepareBlocksMenu(blocksGroups),
+        };
+    } else {
+        const modules = await requireGlob('../partials/modules/**/*.config.js', { reducer, bustCache: true });
+        const templates = await requireGlob('../partials/templates/**/*.config.js', { reducer, bustCache: true });
+
+        // Convert the components into our required format
+        const modulesGroups = modules.components
+            .map((cmp) => {
+                return convertComponent(cmp, 'module');
+            })
+            .filter(Boolean);
+        const templatesGroups = templates.components
+            .map((cmp) => {
+                return convertComponent(cmp, 'template');
+            })
+            .filter(Boolean);
+
+        // Return the components and the menu, broken down into categories
+        return {
+            components: modulesGroups.concat(templatesGroups).flat(),
+            menu: prepareMenu(modulesGroups, templatesGroups),
+        };
+    }
 };

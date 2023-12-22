@@ -1,11 +1,11 @@
-import Manipulator from './dom/Manipulator.js';
+import Manipulator from './dom/manipulator.js';
 import { isElement } from './utilities.js';
 
 /**
  * Constants
  */
 
-const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
+const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top, .site-header';
 const SELECTOR_STICKY_CONTENT = '.sticky-top';
 const PROPERTY_PADDING = 'padding-right';
 const PROPERTY_MARGIN = 'margin-right';
@@ -14,7 +14,7 @@ const PROPERTY_MARGIN = 'margin-right';
  * Class definition
  */
 
-class ScrollBarHelper {
+class ScrollbarHelper {
     constructor() {
         this._element = document.body;
     }
@@ -102,4 +102,4 @@ class ScrollBarHelper {
     }
 }
 
-export default ScrollBarHelper;
+export default ScrollbarHelper;

@@ -1,6 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const isBlocks = process.env.project === 'blocks';
+
 function buildLoaders() {
     const jsLoader = {
         test: /\.js$/,
@@ -39,7 +41,12 @@ function buildLoaders() {
                         },
                     },
                 },
-                'sass-loader',
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        additionalData: '$isBlocks: ' + isBlocks + ';',
+                    },
+                },
             ],
         },
     ];

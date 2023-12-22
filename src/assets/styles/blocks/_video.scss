@@ -1,0 +1,27 @@
+.wp-block-video,
+.wp-block-embed {
+    display: block;
+    margin: 0;
+
+    video {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.wp-block-embed__wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

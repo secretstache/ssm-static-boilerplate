@@ -1,4 +1,4 @@
-import EventHandler from './dom/EventHandler.js';
+import EventHandler from './dom/event-handler.js';
 import { isDisabled } from './utilities.js';
 
 const enableDismissTrigger = (component, method = 'hide') => {
@@ -6,7 +6,12 @@ const enableDismissTrigger = (component, method = 'hide') => {
     const name = component.NAME;
 
     EventHandler.on(document, clickEvent, `[data-dismiss="${name}"]`, function (event) {
-        if (['A', 'AREA'].includes(this.tagName)) {
+        if (
+            [
+                'A',
+                'AREA',
+            ].includes(this.tagName)
+        ) {
             event.preventDefault();
         }
 

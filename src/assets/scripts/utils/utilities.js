@@ -1,4 +1,3 @@
-const MAX_UID = 1_000_000;
 const MILLISECONDS_MULTIPLIER = 1000;
 const TRANSITION_END = 'transitionend';
 
@@ -14,30 +13,6 @@ const parseSelector = (selector) => {
     }
 
     return selector;
-};
-
-// Shout-out Angus Croll (https://goo.gl/pxwQGp)
-const toType = (object) => {
-    if (object === null || object === undefined) {
-        return `${object}`;
-    }
-
-    return Object.prototype.toString
-        .call(object)
-        .match(/\s([a-z]+)/i)[1]
-        .toLowerCase();
-};
-
-/**
- * Public Util API
- */
-
-const getUID = (prefix) => {
-    do {
-        prefix += Math.floor(Math.random() * MAX_UID);
-    } while (document.getElementById(prefix));
-
-    return prefix;
 };
 
 const getTransitionDurationFromElement = (element) => {
@@ -143,6 +118,7 @@ const findShadowRoot = (element) => {
     // Can find the shadow root otherwise it'll return the document
     if (typeof element.getRootNode === 'function') {
         const root = element.getRootNode();
+
         return root instanceof ShadowRoot ? root : null;
     }
 
@@ -170,33 +146,6 @@ const reflow = (element) => {
     element.offsetHeight; // eslint-disable-line no-unused-expressions
 };
 
-const getjQuery = () => {
-    if (window.jQuery && !document.body.hasAttribute('data-no-jquery')) {
-        return window.jQuery;
-    }
-
-    return null;
-};
-
-const DOMContentLoadedCallbacks = [];
-
-const onDOMContentLoaded = (callback) => {
-    if (document.readyState === 'loading') {
-        // add listener on the first call when the document is in loading state
-        if (!DOMContentLoadedCallbacks.length) {
-            document.addEventListener('DOMContentLoaded', () => {
-                for (const callback of DOMContentLoadedCallbacks) {
-                    callback();
-                }
-            });
-        }
-
-        DOMContentLoadedCallbacks.push(callback);
-    } else {
-        callback();
-    }
-};
-
 const execute = (possibleCallback, args = [], defaultValue = possibleCallback) => {
     return typeof possibleCallback === 'function' ? possibleCallback(...args) : defaultValue;
 };
@@ -204,6 +153,7 @@ const execute = (possibleCallback, args = [], defaultValue = possibleCallback) =
 const executeAfterTransition = (callback, transitionElement, waitForTransition = true) => {
     if (!waitForTransition) {
         execute(callback);
+
         return;
     }
 
@@ -230,32 +180,124 @@ const executeAfterTransition = (callback, transitionElement, waitForTransition =
     }, emulatedDuration);
 };
 
-/**
- * Return the previous/next element of a list.
- *
- * @param {array} list    The list of elements
- * @param activeElement   The active element
- * @param shouldGetNext   Choose to get next or previous element
- * @param isCycleAllowed
- * @return {Element|elem} The proper element
- */
-const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed) => {
-    const listLength = list.length;
-    let index = list.indexOf(activeElement);
+const setViewportUnits = () => {
+    const fn = () => {
+        const vw = document.documentElement.clientWidth / 100;
+        const vh = document.documentElement.clientHeight / 100;
+        document.documentElement.style.setProperty('--vw', `${vw}px`);
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
 
-    // if the element does not exist in the list return an element
-    // depending on the direction and if cycle is allowed
-    if (index === -1) {
-        return !shouldGetNext && isCycleAllowed ? list[listLength - 1] : list[0];
-    }
-
-    index += shouldGetNext ? 1 : -1;
-
-    if (isCycleAllowed) {
-        index = (index + listLength) % listLength;
-    }
-
-    return list[Math.max(0, Math.min(index, listLength - 1))];
+    const resizeObserver = new ResizeObserver(() => fn());
+    resizeObserver.observe(document.body, {
+        childlist: true,
+        subtree: true,
+    });
 };
 
-export { execute, executeAfterTransition, findShadowRoot, getElement, getjQuery, getNextActiveElement, getTransitionDurationFromElement, getUID, isDisabled, isElement, isVisible, onDOMContentLoaded, parseSelector, reflow, triggerTransitionEnd, toType };
+const support = (type) => window && window[type];
+
+const onVideoIntersection = () => (entries) => {
+    entries.forEach((entry) => {
+        const video = entry.target;
+
+        if (video.classList.contains('lazy-load')) {
+            if (!video.dataset.loaded) return;
+        }
+
+        if (entry.intersectionRatio > 0 || entry.isIntersecting) {
+            video.play();
+        } else {
+            const playPromise = video.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    video.pause();
+                });
+            }
+        }
+    });
+};
+
+const PlayVideoInViewportOnly = (video) => {
+    if (support('IntersectionObserver')) {
+        const observer = new IntersectionObserver(onVideoIntersection(), {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0,
+        });
+
+        observer.observe(video);
+    }
+};
+
+const EditableSvg = (img) => {
+    const imgID = img.getAttribute('id');
+    const imgClass = img.getAttribute('class');
+    const imgURL = img.getAttribute('src');
+
+    fetch(imgURL)
+        .then((response) => response.text())
+        .then((data) => {
+            // let svg = data.querySelector('svg');
+            const parser = new DOMParser();
+            const html = parser.parseFromString(data, 'image/svg+xml');
+            let svg = html.querySelector('svg');
+
+            if (typeof imgID !== 'undefined') {
+                svg.setAttribute('id', imgID);
+            }
+
+            if (typeof imgClass !== 'undefined') {
+                svg.classList.add(imgClass, 'replaced-svg');
+                svg.classList.remove(imgClass, 'editable-svg');
+            }
+
+            svg.removeAttribute('xmlns:a');
+
+            if (!svg.getAttribute('viewBox') && svg.getAttribute('height') && svg.getAttribute('width')) {
+                svg.setAttribute('viewBox', '0 0 ' + svg.getAttribute('width') + ' ' + svg.getAttribute('height'));
+            }
+
+            img.replaceWith(svg);
+        });
+};
+
+const debounce = (callback, wait) => {
+    let timeoutId = null;
+    return (...args) => {
+        window.clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(() => {
+            callback.apply(null, args);
+        }, wait);
+    };
+};
+
+const throttle = (callback, delay) => {
+    let isThrottled = false,
+        args,
+        context;
+
+    function wrapper() {
+        if (isThrottled) {
+            args = arguments;
+            context = this;
+            return;
+        }
+
+        isThrottled = true;
+        callback.apply(this, arguments);
+
+        setTimeout(() => {
+            isThrottled = false;
+            if (args) {
+                wrapper.apply(context, args);
+                args = context = null;
+            }
+        }, delay);
+    }
+
+    return wrapper;
+};
+
+export { execute, executeAfterTransition, findShadowRoot, getElement, getTransitionDurationFromElement, isDisabled, isElement, isVisible, parseSelector, reflow, triggerTransitionEnd, setViewportUnits, PlayVideoInViewportOnly, EditableSvg, debounce, throttle };

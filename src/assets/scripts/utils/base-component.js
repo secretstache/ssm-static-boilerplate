@@ -1,5 +1,5 @@
 import Data from './dom/data.js';
-import EventHandler from './dom/EventHandler.js';
+import EventHandler from './dom/event-handler.js';
 import { executeAfterTransition, getElement } from './utilities.js';
 
 class BaseComponent {

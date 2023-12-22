@@ -4,7 +4,7 @@
 
 {% macro render( props ) %}
 
-    {% from "dev/macros.njk" import module %}
+    {% from "macros/default.njk" import module %}
 
     <div class="module buttons{%if props.class %} {{ props.class }}{% endif %}">
 

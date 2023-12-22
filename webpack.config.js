@@ -3,10 +3,15 @@ const { buildWebpackConfig } = require('./config/build/buildWebpackConfig');
 
 const paths = {
     entry: {
-        app: [path.resolve(__dirname, 'src', 'assets/scripts/app.js'), path.resolve(__dirname, 'src', 'assets/styles/app.scss')],
+        app: [
+            path.resolve(__dirname, 'src', 'assets/scripts/app.js'),
+            path.resolve(__dirname, 'src', 'assets/styles/app.scss'),
+        ],
         critical: [path.resolve(__dirname, 'src', 'assets/scripts/critical.js')],
-        'design-system': [path.resolve(__dirname, 'src', 'partials/design-system/assets/design-system-scripts.js'), path.resolve(__dirname, 'src', 'partials/design-system/assets/design-system-styles.scss')],
-        hot: ['webpack/hot/dev-server'],
+        'design-system': [
+            path.resolve(__dirname, 'src', 'partials/design-system/assets/design-system-scripts.js'),
+            path.resolve(__dirname, 'src', 'partials/design-system/assets/design-system-styles.scss'),
+        ],
     },
     dist: path.resolve(__dirname, 'dist'),
     src: path.resolve(__dirname, 'src'),

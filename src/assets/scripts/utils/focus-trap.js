@@ -1,5 +1,5 @@
-import EventHandler from './dom/EventHandler.js';
-import SelectorEngine from './dom/SelectorEngine.js';
+import EventHandler from './dom/event-handler.js';
+import SelectorEngine from './dom/selector-engine.js';
 
 const NAME = 'focustrap';
 const DATA_KEY = 'ssm.focustrap';

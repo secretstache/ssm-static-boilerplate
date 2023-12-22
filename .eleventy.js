@@ -22,6 +22,7 @@ const assets = [
 
 const mode = process.env.mode || 'development';
 const isDev = mode === 'development';
+const isBlocks = process.env.project === 'blocks';
 
 module.exports = (eleventyConfig) => {
     eleventyConfig.addPlugin(syntaxHighlight);
@@ -41,7 +42,12 @@ module.exports = (eleventyConfig) => {
     // (otherwise we need to manually include on each page that uses them)
     eleventyConfig.addCollection('everything', (collectionApi) => {
         // Note: Update the path to point to your macro file
-        const macroImport = `{% from "dev/macros.njk" import columns, column, module, template %}`;
+        let macroImport = '{% from "macros/default.njk" import columns, column, module, template %}';
+
+        if (isBlocks) {
+            macroImport = '{% from "macros/blocks.njk" import column, block %}';
+        }
+
         // Note: Collections don’t include layouts or includes, which still require importing macros manually
         let collection = collectionApi.getFilteredByGlob('src/**/*.njk');
         collection.forEach((item) => {
@@ -96,6 +102,9 @@ module.exports = (eleventyConfig) => {
     /* adds prefix to urls */
     eleventyConfig.addNunjucksGlobal('root', process.env.prefix);
 
+    /* adds prefix to urls */
+    eleventyConfig.addNunjucksGlobal('isBlocks', isBlocks);
+
     /* server options */
     eleventyConfig.setServerOptions({
         watch: [
@@ -108,9 +117,6 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addNunjucksGlobal('uid', () => {
         return `${Date.now() + Math.floor(Math.random() * 100)}`;
     });
-
-    /* is dev */
-    eleventyConfig.addNunjucksGlobal('isProd', !isDev);
 
     /* custom filters */
     eleventyConfig.addFilter('toClassNames', function (arr) {
