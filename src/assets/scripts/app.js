@@ -2,6 +2,7 @@ import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg } from './utils/
 import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
+import Modal from './global/modal';
 
 document.addEventListener('DOMContentLoaded', function () {
     // lazy loads elements with default selector '.lazy-load'
@@ -28,4 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (header) {
         new Header(header);
     }
+
+    // modals
+    Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
 });

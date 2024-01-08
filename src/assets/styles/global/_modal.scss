@@ -60,7 +60,6 @@
         margin-left: auto;
         padding: 0 var(--content-padding);
         width: 100%;
-        max-width: rem-calc(1000);
     }
 
     &__close-btn {
@@ -68,9 +67,9 @@
         mask-repeat: no-repeat;
         cursor: pointer;
         margin-left: auto;
-        background: var(--inverse);
-        width: rem-calc(30);
-        height: rem-calc(30);
+        background: var(--black);
+        width: rem-calc(16);
+        height: rem-calc(16);
         pointer-events: all;
         font-size: 0;
     }
@@ -119,7 +118,7 @@
     opacity: 0;
     z-index: var(--modal-backdrop-z-index);
     transition: opacity 0.15s;
-    background-color: var(--inverse);
+    background-color: var(--black);
     width: 100vw;
     height: 100vh;
 

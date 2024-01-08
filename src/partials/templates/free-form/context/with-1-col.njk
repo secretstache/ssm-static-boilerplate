@@ -1,6 +1,10 @@
-{% call columns('align-middle') %}
+{% call columns({
+    "align": "middle"
+}) %}
 
-    {% call column('medium-12') %}
+    {% call column({
+        "width": 12
+    }) %}
 
         {% call module( "editor" ) %}
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ad, quis fugiat architecto ipsam soluta facilis nulla aut fuga enim! Quam, commodi itaque. Eos ea ullam officiis sapiente perspiciatis voluptate.</p>

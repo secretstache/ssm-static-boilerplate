@@ -1,6 +1,7 @@
-node_modules/
-dist/
+/node_modules
+/vendor
+/dist
 npm-debug.log
 yarn-error.log
 .DS_Store
-.idea/
+/.idea

@@ -1,4 +1,10 @@
 .gform_wrapper.gravity-theme {
+    form {
+        grid-row-gap: rem-calc(30);
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
     fieldset,
     legend {
         background: 0 0;
@@ -16,13 +22,19 @@
         margin-left: 0;
     }
 
+    input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
+    select,
+    textarea {
+        @extend %input-styles;
+    }
+
     .gform_fields {
         display: grid;
         grid-template-rows: repeat(auto-fill, auto);
         grid-template-columns: repeat(12, 1fr);
-        grid-column-gap: rem-calc(30);
+        grid-column-gap: var(--form-column-gap);
         width: 100%;
-        grid-row-gap: rem-calc(30);
+        grid-row-gap: var(--form-row-gap);
     }
 
     .gfield {
@@ -73,6 +85,10 @@
             padding: 0;
             list-style-type: none;
         }
+
+        textarea.large {
+            height: rem-calc(122);
+        }
     }
 
     @media (max-width: 640px) {
@@ -86,11 +102,10 @@
     }
 
     .gform_footer {
-        margin-top: rem-calc(30);
+        text-align: center;
 
         .gform_button {
-            background: var(--black);
-            color: var(--white);
+            @extend .button;
         }
     }
 
@@ -128,5 +143,22 @@
     .ginput_complex {
         display: flex;
         flex-flow: row wrap;
+    }
+
+    // errors
+    .gform_submission_error {
+        display: none;
+    }
+
+    .gfield_validation_message {
+        color: var(--error-color);
+    }
+
+    .gfield.gfield_error {
+        input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
+        select,
+        textarea {
+            border-color: var(--error-color);
+        }
     }
 }

@@ -77,6 +77,7 @@ $font-sizes: (
     --link-color: var(--red, #b41111);
     --link-hover-color: var(--body-color);
     --primary-color: var(--black);
+    --error-color: var(--red, #b41111);
 
     // theme colors
     @each $prop, $value in $palette {
@@ -125,4 +126,7 @@ $font-sizes: (
     --form-input-border-color: var(--black);
     --form-input-bg-color: var(--white);
     --form-input-color: var(--black);
+    --form-input-border-radius: 0;
+    --form-row-gap: 1.875rem;
+    --form-column-gap: 1.25rem;
 }
