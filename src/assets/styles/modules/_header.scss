@@ -1,10 +1,22 @@
 header.module {
+    --header-headline-gap: var(--spacing-2);
+
+    display: flex;
+    row-gap: var(--header-headline-gap);
+    flex-direction: column;
+    align-items: flex-start;
+
     &.align-center {
+        align-items: center;
         text-align: center;
     }
 
-    .header__subheadline,
-    .header__headline {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @include breakpoint(medium) {
             span {
                 display: block;

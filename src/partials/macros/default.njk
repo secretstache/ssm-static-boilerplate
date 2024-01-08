@@ -57,7 +57,7 @@
     {#    /**#}
     {#    * @param {string} class#}
     {#    * @param {string} id#}
-    {#    * @param {object} templateHeader - { headline: 'string', preheadline: 'string', icon: 'string', subheadline: 'string', class: 'string' }#}
+    {#    * @param {object} templateHeader - { headline: 'string', preheadline: 'string', icon: 'string', subheadline: 'string', class: 'string', headers: 'array' }#}
     {#    * @param {string} bg - { image | video | color }#}
     {#    */#}
 
@@ -101,6 +101,19 @@
                     {% if templateHeader.description %}
                         <p class="template-header__description">{{ templateHeader.description | safe }}</p>
                     {% endif %}
+
+                    {#  ...or array of headers#}
+                    {% for header in templateHeader.headers %}
+                        {% set headerTag = header.tag if header.tag else 'h2' %}
+
+                        {% set classes = ([
+                            header.class if header.class,
+                            header.size if header.size
+                        ]) | toClassNames %}
+
+
+                        <{{ headerTag }}{% if classes %} class="{{ classes }}"{% endif %}>{{ header.text | safe }}</{{ headerTag }}>
+                    {% endfor %}
                 </div>
 
             </header>

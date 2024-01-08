@@ -3,9 +3,20 @@ module.exports = {
     context: {
         innerContent: 'with-1-col',
         templateHeader: {
-            preheadline: 'Template preheadline',
-            headline: 'Template headline',
-            subheadline: 'Template subheadline',
+            headers: [
+                {
+                    tag: 'p',
+                    text: 'Template preheadline',
+                },
+                {
+                    tag: 'h1',
+                    text: 'Template headline',
+                },
+                {
+                    tag: 'h2',
+                    text: 'Template subheadline',
+                },
+            ],
         },
     },
     variants: [

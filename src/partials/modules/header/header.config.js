@@ -1,8 +1,19 @@
 module.exports = {
     title: 'Header',
     context: {
-        preheadline: 'Preheadline',
-        headline: 'Headline',
-        subheadline: 'Subheadline',
+        headers: [
+            {
+                tag: 'p',
+                text: 'Preheadline',
+            },
+            {
+                text: 'Headline',
+            },
+            {
+                tag: 'h3',
+                text: 'Subheadline',
+                class: 'h4',
+            },
+        ],
     },
 };

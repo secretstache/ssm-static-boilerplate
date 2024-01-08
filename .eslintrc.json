@@ -11,6 +11,6 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "ignorePatterns": ["src/partials", "src/data", "config","src/assets/scripts/libs" ],
+    "ignorePatterns": ["src/partials", "src/data", "config", "src/assets/scripts/libs"],
     "root": true
 }

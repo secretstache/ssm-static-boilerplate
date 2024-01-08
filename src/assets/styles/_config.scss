@@ -65,6 +65,27 @@ $font-sizes: (
     "body-small": rem-calc(14),
 );
 
+$module-spacings: (
+    "none": 0,
+    "sm": rem-calc(16),
+    "md": rem-calc(24),
+    "lg": rem-calc(32),
+);
+
+$template-spacings: (
+    "none": 0,
+    "sm": rem-calc(80),
+    "md": rem-calc(112),
+    "lg": rem-calc(144),
+);
+
+$spacings-props: (
+    "mt": "margin-top",
+    "mb": "margin-bottom",
+    "pt": "padding-top",
+    "pb": "padding-bottom",
+);
+
 :root {
     // fonts
     --primary-font: "Arial", sans-serif;
@@ -89,6 +110,14 @@ $font-sizes: (
         --spacing-#{$prop}: #{$value};
     }
 
+    @each $prop, $value in $module-spacings {
+        --module-spacing-#{$prop}: #{$value};
+    }
+
+    @each $prop, $value in $template-spacings {
+        --template-spacing-#{$prop}: #{$value};
+    }
+
     // font-sizes
     @each $prop, $value in $font-sizes {
         --font-size-#{$prop}: #{$value};
@@ -99,10 +128,10 @@ $font-sizes: (
     --content-padding: 1.125rem; // 18px
     --grid-column-gap: var(--spacing-6);
     --grid-row-gap: var(--spacing-6);
-    --base-margin: var(--spacing-24);
-    --base-padding: var(--spacing-24);
-    --module-padding: var(--spacing-8);
-    --module-margin: var(--spacing-8);
+    --base-margin: var(--template-spacing-md);
+    --base-padding: var(--template-spacing-md);
+    --module-padding: var(--module-spacing-md);
+    --module-margin: var(--module-spacing-md-spacing-default);
 
     // other
     --p-margin: var(--spacing-6);

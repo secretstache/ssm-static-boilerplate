@@ -1,30 +1,22 @@
 /**
 * @param {string} class
-* @param {string} headline
-* @param {string} subheadline
-* @param {string} preheadline
+* @param {string} headers
 */
 
 {% macro render( props ) %}
     <header class="module header{% if props.class %} {{ props.class }}{% endif %}">
 
-        {%if props.preheadline %}
+    {% for header in props.headers %}
+        {% set headerTag = header.tag if header.tag else 'h2' %}
 
-            <p class="header__preheadline">{{ props.preheadline | safe}}</p>
+        {% set classes = ([
+            header.class if header.class,
+            header.size if header.size
+        ]) | toClassNames %}
 
-        {% endif %}
 
-        {%if props.headline %}
-
-            <h2 class="header__headline">{{ props.headline | safe}}</h2>
-
-        {% endif %}
-
-        {%if props.subheadline %}
-
-            <h3 class="header__subheadline">{{ props.subheadline | safe}}</h3>
-
-        {% endif %}
+        <{{ headerTag }}{% if classes %} class="{{ classes }}"{% endif %}>{{ header.text | safe }}</{{ headerTag }}>
+    {% endfor %}
 
     </header>
 {% endmacro %}

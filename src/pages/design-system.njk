@@ -151,6 +151,41 @@ title: Home
             </div>
 
 
+
+            <h2 class="ds-block-title">Templates and modules spacings</h2>
+
+            <p>Use the following css variables to control template and modules spacings: </p><br>
+
+            {% highlight "html" %}
+
+                <style>
+
+--template-spacing-none: 0;
+--template-spacing-sm: 9rem;
+--template-spacing-md: 11rem;
+--template-spacing-lg: 13rem;
+
+--module-spacing-none: 0;
+--module-spacing-sm: 1rem;
+--module-spacing-md: 1.5rem;
+--module-spacing-lg: 2rem;
+
+</style>
+
+            {% endhighlight %}
+
+            <br>
+            <p>Classes: </p><br>
+
+            {% highlight "css" %}
+
+.{mt|mb|pt|pb}-none
+.{mt|mb|pt|pb}-sm
+.{mt|mb|pt|pb}-md
+.{mt|mb|pt|pb}-lg
+
+{% endhighlight %}
+
             <h2 class="ds-block-title">Utility classes</h2>
 
             <h3 class="ds-block-subtitle">Spacings</h3>

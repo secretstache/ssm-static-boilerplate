@@ -1,15 +1,31 @@
 header.template-header {
-    margin-bottom: var(--module-margin);
+    --template-header-headline-gap: var(--spacing-2);
 
-    &.align-center {
-        text-align: center;
-    }
+    display: flex;
+    row-gap: var(--template-header-headline-gap);
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-12);
 
-    .template-header__headline {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @include breakpoint(medium) {
             span {
                 display: block;
             }
         }
+    }
+
+    .grid-container {
+        width: 100%;
+    }
+
+    &.align-center {
+        align-items: center;
+        text-align: center;
     }
 }

@@ -3,6 +3,29 @@
     column-gap: var(--grid-column-gap);
     row-gap: var(--grid-row-gap);
     flex-wrap: wrap;
+
+    &.reverse-order {
+        @include breakpoint(small only) {
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    @include breakpoint(medium) {
+        .container-width-#{$i} {
+            width: calc((100% / 12 * #{$i}) - ((12 / #{$i} - 1) * var(--grid-column-gap) / (12 / #{$i})));
+        }
+    }
+}
+
+.container-align-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-align-right {
+    margin-left: auto;
 }
 
 .cell {

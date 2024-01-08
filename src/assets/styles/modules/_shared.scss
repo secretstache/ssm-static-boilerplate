@@ -3,7 +3,15 @@
         margin-top: var(--module-margin);
     }
 
-    &.stack-order-1 {
-        margin-top: 0;
+    @each $name, $value in $module-spacings {
+        @each $spacings-prop, $spacings-value in $spacings-props {
+            &.#{$spacings-prop}-#{$name} {
+                #{$spacings-value}: var(--module-spacing-#{$name});
+            }
+        }
+    }
+
+    + .module {
+        margin-top: var(--module-margin);
     }
 }
