@@ -1,7 +1,7 @@
 import { throttle } from '../utils/utilities';
 
 const STICKY_CLASS = 'sticky';
-export default function Header(header) {
+function Header(header) {
     const sticky = 0;
 
     const stickyHeader = () => {
@@ -17,3 +17,5 @@ export default function Header(header) {
     const scrollCallback = throttle(stickyHeader, 100);
     window.addEventListener('scroll', scrollCallback);
 }
+
+export default Header;

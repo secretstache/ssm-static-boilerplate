@@ -2,7 +2,7 @@ import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg } from './utils/
 import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
-import Modal from './global/modal';
+// import Modal from './global/modal';
 
 document.addEventListener('DOMContentLoaded', function () {
     // lazy loads elements with default selector '.lazy-load'
@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // fix vw and vh units
     setViewportUnits();
 
-    // editable svgs
+    // editable svg
     Array.from(document.querySelectorAll('.editable-svg')).map((img) => EditableSvg(img));
 
     // stop autoplay video when out of viewport
     Array.from(document.querySelectorAll('video[autoplay]')).map((video) => PlayVideoInViewportOnly(video));
 
-    // offcanvas
+    // off canvas
     const offcanvas = document.querySelector('.offcanvas');
     if (offcanvas) {
         new Offcanvas(offcanvas);
@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // modals
-    Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
+    // Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
 });
