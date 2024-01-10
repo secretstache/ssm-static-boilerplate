@@ -54,12 +54,12 @@ $spacing: (
 );
 
 $font-sizes: (
-    "h1": responsive-type(61, 76),
-    "h2": responsive-type(49, 61),
-    "h3": responsive-type(39, 49),
-    "h4": responsive-type(31, 39),
-    "h5": responsive-type(25, 31),
-    "h6": responsive-type(20, 25),
+    "h1": min-max(61, 76),
+    "h2": min-max(49, 61),
+    "h3": min-max(39, 49),
+    "h4": min-max(31, 39),
+    "h5": min-max(25, 31),
+    "h6": min-max(20, 25),
     "body": rem-calc(16),
     "body-large": rem-calc(18),
     "body-small": rem-calc(14),
@@ -131,7 +131,7 @@ $spacings-props: (
     --base-margin: var(--template-spacing-md);
     --base-padding: var(--template-spacing-md);
     --module-padding: var(--module-spacing-md);
-    --module-margin: var(--module-spacing-md-spacing-default);
+    --module-margin: var(--module-spacing-md);
 
     // other
     --p-margin: var(--spacing-6);
@@ -158,4 +158,7 @@ $spacings-props: (
     --form-input-border-radius: 0;
     --form-row-gap: 1.875rem;
     --form-column-gap: 1.25rem;
+    --form-checkbox-color-active: var(--black);
+    --form-checkbox-color: var(--black);
+    --form-checkbox-bg: transparent;
 }

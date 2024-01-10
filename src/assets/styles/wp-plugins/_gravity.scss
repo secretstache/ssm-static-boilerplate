@@ -76,14 +76,118 @@
             margin-bottom: rem-calc(10);
         }
 
-        .gfield_checkbox,
+        &.gfield--type-checkbox,
+        &.gfield--type-radio {
+            .gfield_label {
+                margin-bottom: rem-calc(16);
+                text-transform: unset;
+            }
+
+            .gfield-choice-input {
+                display: none;
+
+                + label {
+                    display: block;
+                    position: relative;
+                    padding-left: rem-calc(28);
+                    min-height: rem-calc(25);
+
+                    @include breakpoint(large) {
+                        padding-left: rem-calc(24 + 12);
+                    }
+
+                    &::before {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        cursor: pointer;
+                        border: 1.75px solid;
+                        width: min-max(20, 24);
+                        height: min-max(20, 24);
+                        content: "";
+                    }
+
+                    &::after {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 0;
+                        pointer-events: none;
+                        content: "";
+                    }
+                }
+
+                &:checked {
+                    + label {
+                        &::before {
+                            border-color: var(--form-checkbox-color-active);
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &.gfield_error {
+                --form-checkbox-color: var(--error-color);
+                --form-checkbox-color-active: var(--error-color);
+                --form-checkbox-bg: var(--pure-red-50);
+            }
+        }
+
+        .gfield_radio,
+        .gfield_checkbox {
+            display: grid;
+            gap: rem-calc(8);
+        }
+
+        .gfield_checkbox {
+            .gfield-choice-input {
+                + label {
+                    &::before {
+                        border-radius: rem-calc(2);
+                    }
+
+                    &::after {
+                        top: rem-calc(5);
+                        left: rem-calc(4);
+                        background: svg-uri('<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.37501 9.67539L1.70001 6.00039L0.475006 7.22539L5.37501 12.1254L15.875 1.62539L14.65 0.400391L5.37501 9.67539Z" fill="white"/></svg>') no-repeat;
+                        background-size: contain;
+                        width: min-max(13, 16);
+                        height: min-max(10, 13);
+                    }
+                }
+
+                &:checked {
+                    + label {
+                        &::before {
+                            background: var(--form-checkbox-color-active);
+                        }
+                    }
+                }
+            }
+        }
+
         .gfield_radio {
-            display: flex;
-            flex-wrap: wrap;
-            gap: rem-calc(10);
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
+            .gfield-choice-input {
+                + label {
+                    &::before {
+                        border-radius: rem-calc(40);
+                    }
+
+                    &::after {
+                        top: min-max(4, 4.5);
+                        left: min-max(4, 4.5);
+                        border-radius: rem-calc(20);
+                        background: var(--form-checkbox-color-active);
+                        width: min-max(12, 15);
+                        height: min-max(12, 15);
+                    }
+                }
+            }
         }
 
         textarea.large {
@@ -103,10 +207,11 @@
 
     .gform_footer {
         text-align: center;
+    }
 
-        .gform_button {
-            @extend .button;
-        }
+    .gform-button,
+    .gform_button {
+        @extend .button;
     }
 
     .gfield_validation_message {

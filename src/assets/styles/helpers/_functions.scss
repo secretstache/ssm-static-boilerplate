@@ -1,7 +1,7 @@
-@use 'sass:math';
-@use 'sass:map';
-@use 'sass:string';
-@use 'sass:list';
+@use "sass:math";
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
 
 @function map-deep-get($map, $keys...) {
     @each $key in $keys {
@@ -35,7 +35,7 @@
 /// @param {String} $search - Substring to replace
 /// @param {String} $replace ('') - New value
 /// @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
+@function str-replace($string, $search, $replace: "") {
     $index: string.index($string, $search);
 
     @if $index {
@@ -112,7 +112,7 @@ $rem-base: 16px;
 
 /* Returns a CSS clamp function which resolves to $size-at-min-width when page width is below $min-width,$size-at-max-width when page width is above $max-width, and linearly scales between the two between $min-width and $max-width */
 
-@function responsive-type($min-size, $max-size, $min-breakpoint: 480, $max-breakpoint: 1024, $unit: 'vw') {
+@function min-max($min-size, $max-size, $min-breakpoint: 480, $max-breakpoint: 1024, $unit: "vw") {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
     $slope-to-unit: $slope * 100;
 
