@@ -255,15 +255,30 @@
         display: none;
     }
 
-    .gfield_validation_message {
-        color: var(--error-color);
-    }
+    form {
+        .gfield_error .gfield_repeater_cell label,
+        .gfield_error label,
+        .gfield_error legend,
+        .gfield_validation_message,
+        .validation_message,
+        [aria-invalid="true"] + label,
+        label + [aria-invalid="true"] {
+            color: var(--error-color);
+        }
 
-    .gfield.gfield_error {
-        input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
-        select,
-        textarea {
-            border-color: var(--error-color);
+        .gfield_validation_message,
+        .validation_message {
+            border: 0;
+            background: none;
+            padding: 0;
+        }
+
+        .gfield.gfield_error {
+            input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
+            select,
+            textarea {
+                border-color: var(--error-color);
+            }
         }
     }
 }

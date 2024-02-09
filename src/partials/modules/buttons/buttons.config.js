@@ -18,7 +18,7 @@ module.exports = {
         {
             title: 'Centered',
             context: {
-                class: 'is-centered',
+                class: 'align-center',
                 buttons: [
                     {
                         label: 'Button',

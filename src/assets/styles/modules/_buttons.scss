@@ -4,15 +4,19 @@
     align-items: center;
     gap: rem-calc(20);
 
-    &.is-centered {
+    &.align-center {
         justify-content: center;
+    }
+
+    &.align-right {
+        justify-content: flex-end;
     }
 
     &.is-vertical {
         flex-direction: column;
         align-items: flex-start;
 
-        &.is-centered {
+        &.align-center {
             align-items: center;
         }
     }

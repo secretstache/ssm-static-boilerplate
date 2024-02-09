@@ -9,7 +9,7 @@ section.content-block {
     @each $name, $value in $template-spacings {
         @each $spacings-prop, $spacings-value in $spacings-props {
             &.#{$spacings-prop}-#{$name} {
-                #{$spacings-value}: var(--template-spacing-#{$name});
+                #{$spacings-value}: var(--template-spacing-#{$name}) !important;
             }
         }
     }

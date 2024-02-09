@@ -135,23 +135,6 @@ title: Home
                 </tbody>
             </table>
 
-            <h2 class="ds-block-title">Typography</h2>
-
-            <div class="ds-typography">
-
-                <h1>h1 heading</h1>
-                <h2>h2 heading</h2>
-                <h3>h3 heading</h3>
-                <h4>h4 heading</h4>
-                <h5>h5 heading</h5>
-                <h6>h6 heading</h6>
-
-                <p><a href="">Lorem ipsum dolor sit amet</a>, consectetur adipisicing elit. Ab architecto consectetur cumque deleniti dolorem explicabo facere hic inventore libero maxime, numquam pariatur porro repellendus saepe tempore vel voluptatem voluptatibus, voluptatum!</p>
-
-            </div>
-
-
-
             <h2 class="ds-block-title">Templates and modules spacings</h2>
 
             <p>Use the following css variables to control template and modules spacings: </p><br>
@@ -161,9 +144,9 @@ title: Home
                 <style>
 
 --template-spacing-none: 0;
---template-spacing-sm: 9rem;
---template-spacing-md: 11rem;
---template-spacing-lg: 13rem;
+--template-spacing-sm: clamp(4rem, 5.8823529412vw + 2.2352941176rem, 6rem);
+--template-spacing-md: clamp(5rem, 8.8235294118vw + 2.3529411765rem, 8rem);
+--template-spacing-lg: clamp(7rem, 8.8235294118vw + 4.3529411765rem, 10rem);
 
 --module-spacing-none: 0;
 --module-spacing-sm: 1rem;
@@ -185,6 +168,22 @@ title: Home
 .{mt|mb|pt|pb}-lg
 
 {% endhighlight %}
+
+            <h2 class="ds-block-title">Typography</h2>
+
+            <div class="ds-typography">
+
+                <h1>h1 heading</h1>
+                <h2>h2 heading</h2>
+                <h3>h3 heading</h3>
+                <h4>h4 heading</h4>
+                <h5>h5 heading</h5>
+                <h6>h6 heading</h6>
+
+                <p><a href="">Lorem ipsum dolor sit amet</a>, consectetur adipisicing elit. Ab architecto consectetur cumque deleniti dolorem explicabo facere hic inventore libero maxime, numquam pariatur porro repellendus saepe tempore vel voluptatem voluptatibus, voluptatum!</p>
+
+            </div>
+
 
             <h2 class="ds-block-title">Utility classes</h2>
 

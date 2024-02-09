@@ -106,7 +106,7 @@
 }
 
 @each $size in $breakpoint-classes {
-    @include breakpoint($size) {
+    @include breakpoint($size only) {
         @each $align in (left, right, center, justify) {
             .#{$size}-text-#{$align} {
                 text-align: $align;
@@ -132,7 +132,7 @@
 }
 
 @each $size in $breakpoint-classes {
-    @include breakpoint($size) {
+    @include breakpoint($size only) {
         .#{$size}-shrink {
             flex: 0 0 auto;
             width: auto;
@@ -187,7 +187,7 @@ $-flex-align: (
 
 // order classes
 @each $size in $breakpoint-classes {
-    @include breakpoint($size) {
+    @include breakpoint($size only) {
         .#{$size}-order-first {
             order: -1;
         }

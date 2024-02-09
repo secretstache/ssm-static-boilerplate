@@ -1,10 +1,9 @@
-import '@dotlottie/player-component';
 import '@lottiefiles/lottie-player';
 
 const LOTTIE_PLAYER_SELECTOR = 'dotlottie-player, lottie-player';
 const LOADED_CLASS = 'is-loaded';
 const LOADING_CLASS = 'loading';
-const LOADING_SELECTOR = `.${LOADING_CLASS}`;
+const LOADER_SELECTOR = `.${LOADING_CLASS}`;
 const PARENT_CLASS = 'has-lottie';
 
 function LottieAnimations() {
@@ -12,14 +11,14 @@ function LottieAnimations() {
 
     players.forEach((player) => {
         const parentEl = player.parentElement;
-        const src = player.getAttribute('data-src');
+        const src = player.getAttribute('data-src') || player.getAttribute('src');
         let loader = null;
 
         if (parentEl) {
             parentEl.classList.add(PARENT_CLASS);
 
             // show loader
-            let loader = parentEl.querySelector(LOADING_SELECTOR);
+            let loader = parentEl.querySelector(LOADER_SELECTOR);
 
             if (!loader) {
                 loader = document.createElement('div');

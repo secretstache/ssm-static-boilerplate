@@ -135,6 +135,12 @@ module.exports = (eleventyConfig) => {
         return '';
     });
 
+    function sortByTitle(values) {
+        return values.slice().sort((a, b) => a.data.title.localeCompare(b.data.title));
+    }
+
+    eleventyConfig.addFilter('sortByTitle', sortByTitle);
+
     // eleventyConfig.addTransform('prettier', (content, outputPath) => {
     //     console.log(outputPath);
     //     if (outputPath.endsWith('.html') && !isDev) {

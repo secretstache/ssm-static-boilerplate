@@ -74,9 +74,9 @@ $module-spacings: (
 
 $template-spacings: (
     "none": 0,
-    "sm": rem-calc(80),
-    "md": rem-calc(112),
-    "lg": rem-calc(144),
+    "sm": min-max(64, 96),
+    "md": min-max(80, 128),
+    "lg": min-max(112, 160),
 );
 
 $spacings-props: (

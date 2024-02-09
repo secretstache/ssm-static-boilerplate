@@ -15,7 +15,7 @@ body {
     padding: 0;
     color: var(--body-color);
 
-    @include typo('body');
+    @include typo("body");
 }
 
 img {
@@ -44,7 +44,7 @@ p {
     margin: 0 0 var(--p-margin);
     padding: 0;
 
-    &:last-of-type {
+    &:where(:last-of-type) {
         margin-bottom: 0;
     }
 }
@@ -69,7 +69,7 @@ button {
     padding: 0;
 }
 
-[type='search'] {
+[type="search"] {
     appearance: textfield;
     outline-offset: -2px;
 

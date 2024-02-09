@@ -6,12 +6,8 @@
     @each $name, $value in $module-spacings {
         @each $spacings-prop, $spacings-value in $spacings-props {
             &.#{$spacings-prop}-#{$name} {
-                #{$spacings-value}: var(--module-spacing-#{$name});
+                #{$spacings-value}: var(--module-spacing-#{$name}) !important;
             }
         }
-    }
-
-    + .module {
-        margin-top: var(--module-margin);
     }
 }

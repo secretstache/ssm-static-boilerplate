@@ -168,7 +168,7 @@
 
             <ul role="list" class="ds-menu__submenu">
 
-                {%- for page in collections.page -%}
+                {%- for page in collections.page | sortByTitle -%}
 
                     <li class="lvl2">
 

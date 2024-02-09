@@ -73,6 +73,7 @@
 .ds-menu__submenu {
     display: none;
     position: absolute;
+    border-radius: 0 0 10px 10px;
     background: var(--ds-sidebar-bg);
     padding-top: 10px;
     padding-bottom: 10px;

@@ -7,11 +7,11 @@
         {% for link in props.nav %}
 
             {% set classes = ([
-                'active' if props.currentPage == link.url,
+                'current-menu-item' if props.currentPage == link.url,
                 'menu-item-has-children' if link.submenu
             ]) | toClassNames %}
 
-            <li class="menu-item{{ classes }}">
+            <li class="menu__item{{ classes }}">
 
                 <a href="{{ root }}{{ link.url }}">{{ link.name }}</a>
 
