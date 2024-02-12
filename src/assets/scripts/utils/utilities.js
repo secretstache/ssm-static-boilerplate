@@ -300,4 +300,19 @@ const throttle = (callback, delay) => {
     return wrapper;
 };
 
-export { execute, executeAfterTransition, findShadowRoot, getElement, getTransitionDurationFromElement, isDisabled, isElement, isVisible, parseSelector, reflow, triggerTransitionEnd, setViewportUnits, PlayVideoInViewportOnly, EditableSvg, debounce, throttle };
+const inViewport = (el, callback, options) => {
+    const observer = new IntersectionObserver(callback, { ...options });
+    observer.observe(el);
+};
+
+async function copyToClipboard(textToCopy) {
+    try {
+        if (navigator?.clipboard?.writeText) {
+            await navigator.clipboard.writeText(textToCopy);
+        }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export { execute, executeAfterTransition, findShadowRoot, getElement, getTransitionDurationFromElement, isDisabled, isElement, isVisible, parseSelector, reflow, triggerTransitionEnd, setViewportUnits, PlayVideoInViewportOnly, EditableSvg, debounce, throttle, copyToClipboard, inViewport };
