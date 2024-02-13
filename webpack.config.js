@@ -7,7 +7,6 @@ const paths = {
             path.resolve(__dirname, 'src', 'assets/scripts/app.js'),
             path.resolve(__dirname, 'src', 'assets/styles/app.scss'),
         ],
-        critical: [path.resolve(__dirname, 'src', 'assets/scripts/critical.js')],
         'design-system': [
             path.resolve(__dirname, 'src', 'partials/design-system/assets/design-system-scripts.js'),
             path.resolve(__dirname, 'src', 'partials/design-system/assets/design-system-styles.scss'),
