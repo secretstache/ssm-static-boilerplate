@@ -1,4 +1,4 @@
-import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg } from './utils/utilities';
+import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg, scrollToHash } from './utils/utilities';
 import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // fix vw and vh units
     setViewportUnits();
+
+    // hash links
+    scrollToHash();
 
     // editable svg
     Array.from(document.querySelectorAll('.editable-svg')).map((img) => EditableSvg(img));

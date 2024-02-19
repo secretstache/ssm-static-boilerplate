@@ -315,4 +315,44 @@ async function copyToClipboard(textToCopy) {
     }
 }
 
-export { execute, executeAfterTransition, findShadowRoot, getElement, getTransitionDurationFromElement, isDisabled, isElement, isVisible, parseSelector, reflow, triggerTransitionEnd, setViewportUnits, PlayVideoInViewportOnly, EditableSvg, debounce, throttle, copyToClipboard, inViewport };
+const scrollToHash = () => {
+    // hash links
+    let hash = window.location.hash;
+
+    if (hash) {
+        window.location.hash = '';
+    }
+
+    const scrollFn = (target) => {
+        const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+        setTimeout(function () {
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth',
+            });
+        }, 500);
+    };
+
+    window.addEventListener('load', () => {
+        const target = document.getElementById(hash.substring(1));
+
+        if (target) scrollFn(target);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.getElementById(this.getAttribute('href').substring(1));
+
+            if (target) {
+                e.preventDefault();
+                e.stopPropagation();
+                scrollFn(target);
+            }
+        });
+    });
+};
+
+export { execute, executeAfterTransition, findShadowRoot, getElement, getTransitionDurationFromElement, isDisabled, isElement, isVisible, parseSelector, reflow, triggerTransitionEnd, setViewportUnits, PlayVideoInViewportOnly, EditableSvg, debounce, throttle, copyToClipboard, inViewport, scrollToHash };
