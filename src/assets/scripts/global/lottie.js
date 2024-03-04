@@ -18,7 +18,7 @@ function LottieAnimations() {
             parentEl.classList.add(PARENT_CLASS);
 
             // show loader
-            let loader = parentEl.querySelector(LOADER_SELECTOR);
+            loader = parentEl.querySelector(LOADER_SELECTOR);
 
             if (!loader) {
                 loader = document.createElement('div');

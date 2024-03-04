@@ -29,7 +29,7 @@
     {%  set start = ' start="' + props.start + '"' if props.start %}
     {%  set id = ' id="' + props.id + '"' if props.id %}
 
-    <{{ props.tag if props.tag else 'ul'}} class="wp-block-image{{ classes }}"{{ styles }}{{ type }}{{ start }}{{ id }}>
+    <{{ props.tag if props.tag else 'ul'}} class="{{ classes }}"{{ styles }}{{ type }}{{ start }}{{ id }}>
 
         {% if props.items %}
 

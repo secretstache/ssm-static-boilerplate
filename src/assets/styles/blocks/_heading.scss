@@ -1,4 +1,8 @@
 .wp-block-heading {
+    mark {
+        background: none;
+    }
+
     &.is-style-h1 {
         @include typo("h1");
     }

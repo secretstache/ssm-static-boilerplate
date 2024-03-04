@@ -25,35 +25,38 @@
             height: 100%;
         }
     }
-}
 
-.video-js {
-    --big-play-button-size: 3.75rem;
+    .plyr {
+        &__poster {
+            background-size: cover;
+        }
 
-    .vjs-big-play-button {
-        border: 0;
-        border-radius: 50%;
-        background: var(--primary-color);
-        width: var(--big-play-button-size);
-        height: var(--big-play-button-size);
+        &__controls {
+            transform: translateY(100%);
+            opacity: 0;
+            pointer-events: none;
+        }
 
-        .vjs-icon-placeholder {
-            &::before {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+        &--playing {
+            .plyr__controls {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            &:after {
+                opacity: 0;
             }
         }
     }
 
-    &:focus,
-    &:hover {
-        .vjs-big-play-button {
-            background: var(--primary-color);
+    .entry-content-asset {
+        width: 100%;
+    }
+
+    &:not(.has-controls) {
+        .plyr__controls {
+            display: none !important;
         }
     }
-}
-
-.vjs-has-started.vjs-paused .vjs-big-play-button {
-    display: block;
 }

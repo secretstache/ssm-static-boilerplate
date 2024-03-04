@@ -1,0 +1,25 @@
+@mixin content-layout() {
+    position: relative;
+    padding: 0 var(--content-padding);
+
+    > * {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: var(--content-width);
+
+        &.alignwide,
+        .alignwide {
+            max-width: var(--content-width-wide) !important;
+        }
+
+        &.alignfull,
+        .alignfull {
+            @include alignfull;
+        }
+
+        + * {
+            margin-block-start: var(--block-margin);
+            margin-block-end: 0;
+        }
+    }
+}

@@ -124,14 +124,23 @@ $spacings-props: (
     }
 
     // layout
-    --content-width: 86.25rem; // 1380px
-    --content-padding: 1.125rem; // 18px
-    --grid-column-gap: var(--spacing-6);
+    --content-width: #{rem-calc(1280)};
+    --content-padding: #{rem-calc(24)};
+    --grid-column-gap: #{rem-calc(30)};
     --grid-row-gap: var(--spacing-6);
     --base-margin: var(--template-spacing-md);
     --base-padding: var(--template-spacing-md);
     --module-padding: var(--module-spacing-md);
     --module-margin: var(--module-spacing-md);
+
+    // for gutenberg
+    //--content-width-wide: #{rem-calc(1724)};
+    //--content-width-full: calc(var(--vw, 1vw) * 100);
+    //--content-height-full: calc(var(--vh, 1vh) * 100);
+    //--content-padding-negative: calc(var(--content-padding) * -1);
+    //--section-margin: #{min-max(120, 200)};
+    //--section-padding: #{min-max(120, 200)};
+    //--block-margin: #{rem-calc(40)};
 
     // other
     --p-margin: var(--spacing-6);
