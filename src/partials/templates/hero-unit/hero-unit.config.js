@@ -1,5 +1,8 @@
+const options = {};
+
 module.exports = {
     title: 'Hero unit',
+    options,
     context: {
         bg: {
             video: '/assets/video/placeholder.mp4',

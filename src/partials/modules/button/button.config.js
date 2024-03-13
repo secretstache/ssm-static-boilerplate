@@ -1,17 +1,23 @@
+const options = {
+    Primary: 'button--primary',
+    Outlined: 'button--outlined',
+};
+
 module.exports = {
     title: 'Button',
+    options,
     context: {
         label: 'Button',
-        type: 'button--primary',
         url: '#',
+        type: options['Primary'],
     },
     variants: [
         {
             title: 'Outlined',
             context: {
                 label: 'Outlined button',
-                type: 'button--outlined',
                 url: '#',
+                type: options['Outlined'],
             },
         },
     ],

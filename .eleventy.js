@@ -149,6 +149,48 @@ module.exports = (eleventyConfig) => {
     //     return content;
     // });
 
+    eleventyConfig.addShortcode('optionsTree', function (options) {
+        if (!options) return;
+
+        function createListFromObject(obj) {
+            let html = '';
+
+            if (obj['description']) {
+                html += `<p class="ds-options__description">${obj['description']}</p>`;
+            }
+
+            html += '<ul class="ds-options">';
+
+            for (const key in obj) {
+                // if (key === 'description') continue;
+                if (typeof obj[key] === 'object' && obj[key] !== null) {
+                    // If the property is an array, list each item
+                    if (Array.isArray(obj[key])) {
+                        html += `<li><strong>${key}</strong><ul>`;
+                        obj[key].forEach((item) => {
+                            html += `<li>${item}</li>`;
+                        });
+                        html += `</ul></li>`;
+                    } else {
+                        // If the property is an object, recurse
+                        html += `<li><strong>${key}</strong>${createListFromObject(obj[key])}</li>`;
+                    }
+                } else {
+                    // For non-object properties
+                    if (key !== 'description') {
+                        html += `<li><strong>${key}:</strong> ${obj[key]}</li>`;
+                    }
+                }
+            }
+
+            html += '</ul>';
+
+            return html;
+        }
+
+        return createListFromObject(options);
+    });
+
     return {
         dir,
         passthroughFileCopy: true,

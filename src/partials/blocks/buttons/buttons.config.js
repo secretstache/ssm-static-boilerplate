@@ -1,15 +1,18 @@
+const options = {};
+
 module.exports = {
     title: 'Buttons',
+    options,
     context: {
         buttons: [
             {
                 label: 'Button',
-                type: 'is-style-fill',
-                url: '/#',
+                customStyle: 'fill',
+                url: '/test',
             },
             {
                 label: 'Button',
-                type: 'is-style-outline',
+                customStyle: 'outline',
                 url: '/#',
             },
         ],
@@ -22,12 +25,12 @@ module.exports = {
                 buttons: [
                     {
                         label: 'Button',
-                        type: 'is-style-fill',
+                        customStyle: 'fill',
                         url: '/#',
                     },
                     {
                         label: 'Button',
-                        type: 'is-style-outline',
+                        customStyle: 'outline',
                         url: '/#',
                     },
                 ],
@@ -40,12 +43,12 @@ module.exports = {
                 buttons: [
                     {
                         label: 'Button',
-                        type: 'is-style-fill',
+                        customStyle: 'fill',
                         url: '/#',
                     },
                     {
                         label: 'Button',
-                        type: 'is-style-outline',
+                        customStyle: 'outline',
                         url: '/#',
                     },
                 ],
@@ -59,12 +62,12 @@ module.exports = {
                 buttons: [
                     {
                         label: 'Button',
-                        type: 'is-style-fill',
+                        customStyle: 'fill',
                         url: '/#',
                     },
                     {
                         label: 'Button',
-                        type: 'is-style-outline',
+                        customStyle: 'outline',
                         url: '/#',
                     },
                 ],

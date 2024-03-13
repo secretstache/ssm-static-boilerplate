@@ -1,5 +1,8 @@
+const options = {};
+
 module.exports = {
     title: 'Header',
+    options,
     context: {
         headers: [
             {

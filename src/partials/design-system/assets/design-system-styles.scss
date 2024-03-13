@@ -418,3 +418,80 @@ body:has(.ds__body) {
 
 .design-system-full-page {
 }
+
+.ds-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .ds-options {
+        margin-left: 30px;
+
+        > li + li {
+            margin-top: 20px;
+        }
+    }
+
+    &__description {
+        opacity: 0.5;
+        margin-top: 5px;
+        font-style: italic;
+        font-size: 15px;
+    }
+
+    svg {
+        display: none;
+    }
+}
+
+.is-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 1280px;
+
+    > .ds-options {
+        counter-reset: sevens;
+
+        > li {
+            counter-increment: sevens 1;
+            background: #0000000a;
+            padding: 20px;
+
+            &::before {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                border-radius: 30px;
+                background: #161f50;
+                width: 30px;
+                height: 30px;
+                content: counter(sevens);
+                color: white;
+                font-weight: bold;
+                line-height: 30px;
+                text-align: center;
+            }
+
+            > strong {
+                font-size: 18px;
+
+                svg {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 13px;
+                    height: auto;
+                }
+            }
+
+            > ul {
+                margin-top: 10px;
+            }
+
+            + li {
+                margin-top: 10px;
+            }
+        }
+    }
+}

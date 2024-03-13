@@ -1,5 +1,14 @@
+const options = {
+    Align: {
+        Center: 'align-center',
+        Right: 'align-right',
+    },
+    Stacked: 'is-stacked',
+};
+
 module.exports = {
     title: 'Buttons',
+    options,
     context: {
         buttons: [
             {
@@ -16,9 +25,27 @@ module.exports = {
     },
     variants: [
         {
-            title: 'Centered',
+            title: 'Aligned center',
             context: {
-                class: 'align-center',
+                class: options['Align']['Center'],
+                buttons: [
+                    {
+                        label: 'Button',
+                        type: 'button--primary',
+                        url: '#',
+                    },
+                    {
+                        label: 'Button',
+                        type: 'button--outlined',
+                        url: '#',
+                    },
+                ],
+            },
+        },
+        {
+            title: 'Aligned right',
+            context: {
+                class: options['Align']['Right'],
                 buttons: [
                     {
                         label: 'Button',
@@ -36,7 +63,7 @@ module.exports = {
         {
             title: 'Stacked',
             context: {
-                class: 'is-vertical',
+                class: options['Stacked'],
                 buttons: [
                     {
                         label: 'Button',

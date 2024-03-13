@@ -1,5 +1,8 @@
+const options = {};
+
 module.exports = {
     title: 'Free form',
+    options,
     context: {
         innerContent: 'with-1-col',
         templateHeader: {

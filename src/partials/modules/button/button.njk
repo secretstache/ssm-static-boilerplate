@@ -7,6 +7,11 @@
 
 {% macro render( props ) %}
 
-  <a href="{{ root }}{{ props.url }}" class="button{% if props.type %} {{ props.type }}{% endif %}{% if props.class %} {{ props.class }}{% endif %}">{{ props.label }}</a>
+    {% set classes = ([
+        props.class if props.class,
+        props.type if props.type
+    ]) | toClassNames %}
+
+    <a href="{{ root }}{{ props.url }}" class="button{{ classes }}">{{ props.label }}</a>
 
 {% endmacro %}

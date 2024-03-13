@@ -53,8 +53,8 @@
             <style>
                 .wp-container-{{ uid }}.wp-container-{{ uid }} > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
                     max-width: {{ props.contentWidth }};
-                    margin-left: {% if props.contentAlign === 'left' %}0{% else %}auto{% endif %} !important;
-                    margin-right: {% if props.contentAlign === 'right' %}0{% else %}auto{% endif %} !important;
+                    margin-left: {% if props.contentAlign == 'left' %}0{% else %}auto{% endif %} !important;
+                    margin-right: {% if props.contentAlign == 'right' %}0{% else %}auto{% endif %} !important;
                 }
             </style>
 

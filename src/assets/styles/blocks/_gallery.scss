@@ -1,18 +1,12 @@
-.wp-block-gallery {
-    --gap-size: 1rem;
+.wp-block-gallery.has-nested-images {
+    --wp--style--gallery-gap-default: 1rem;
 
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap-size) !important;
-    margin: 0;
+    gap: var(--wp--style--gallery-gap-default);
 
-    @include breakpoint(medium) {
-        --gap-size: 1.5rem;
-    }
-
-    .wp-block-image {
+    figure.wp-block-image {
         display: block;
-        margin: 0;
 
         a {
             height: 100%;
@@ -24,19 +18,19 @@
     }
 
     &.columns-default {
-        .wp-block-image {
-            width: calc(100% / 3 - (var(--gap-size) - var(--gap-size) / 3));
+        figure.wp-block-image:not(#individual-image) {
+            width: calc(100% / 3 - (var(--wp--style--gallery-gap-default) - var(--wp--style--gallery-gap-default) / 3));
         }
     }
 
     @for $i from 1 through 9 {
         &.columns-#{$i} {
-            .wp-block-image {
-                width: calc(100% / #{$i} - (var(--gap-size) - var(--gap-size) / #{$i}));
+            figure.wp-block-image:not(#individual-image) {
+                width: calc(100% / #{$i} - (var(--wp--style--gallery-gap-default) - var(--wp--style--gallery-gap-default) / #{$i}));
 
                 @if $i > 3 {
                     @include breakpoint(small only) {
-                        width: calc(100% / 3 - (var(--gap-size) - var(--gap-size) / 3));
+                        width: calc(100% / 3 - (var(--wp--style--gallery-gap-default) - var(--wp--style--gallery-gap-default) / 3));
                     }
                 }
             }
@@ -44,9 +38,9 @@
     }
 
     &.is-cropped {
-        align-items: unset !important;
+        align-items: unset;
 
-        .wp-block-image {
+        figure.wp-block-image:not(#individual-image) {
             max-height: rem-calc(255);
 
             img {

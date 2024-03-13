@@ -12,6 +12,8 @@
 
 {% macro render(props) %}
 
+    {% from "macros/blocks.njk" import block %}
+
     {% set classes = ([
         props.class if props.class,
         'has-custom-font-size has-' + props.fontSize + '-font-size' if props.fontSize,
@@ -31,23 +33,19 @@
 
             {% for button in props.buttons %}
 
-                {% set linkClasses = ([
-                    button.class if button.class,
-                    'has-text-align-' + button.textAlign if button.textAlign,
-                    'has-text-color has-' + button.color + '-color' if button.color,
-                    'has-background has-' + button.background + '-background-color' if button.background,
-                    'has-' + button.fontSize + '-font-size' if button.fontSize
-                ]) | toClassNames %}
-
-                {% set linkStyles = ([button.style if button.style]) | toStyleString | safe %}
-
-                <div class="wp-block-button{% if button.type %} {{ button.type }}{% endif %}">
-
-                    <a href="{{ root }}{{ button.url }}" class="wp-block-button__link{{ linkClasses }}"{{ linkStyles }}>
-                        {{ button.label }}
-                    </a>
-
-                </div>
+                {{ block("button", {
+                    "label": button.label,
+                    "url": button.url,
+                    "type": button.type,
+                    "fontSize": button.fontSize,
+                    "class": button.class,
+                    "fontFamily": button.fontFamily,
+                    "customStyle": button.customStyle,
+                    "color": button.color,
+                    "background": button.background,
+                    "wrapperStyle": button.wrapperStyle,
+                    "style": button.style
+                }) }}
 
             {% endfor %}
 

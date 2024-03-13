@@ -1,5 +1,8 @@
+const options = {};
+
 module.exports = {
     title: 'Video',
+    options,
     context: {
         src: '/assets/video/placeholder.mp4',
         attributes: 'controls',
