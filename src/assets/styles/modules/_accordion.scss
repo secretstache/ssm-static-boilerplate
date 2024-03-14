@@ -1,0 +1,98 @@
+.accordion {
+    &__nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: rem-calc(40);
+        margin-bottom: rem-calc(40);
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+            gap: rem-calc(20);
+        }
+
+        &-item {
+            opacity: 0.6;
+            transition: opacity var(--tr);
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.is-active {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__title {
+        @include typo("h5");
+        word-wrap: break-word;
+        hyphens: auto;
+        overflow-wrap: break-word;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        border-radius: rem-calc(32);
+        width: rem-calc(32);
+        min-width: rem-calc(32);
+        height: rem-calc(32);
+
+        &::before {
+            display: block;
+            mask: svg-uri('<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H0V6H6V0H8V6H14V8H8V14H6V8Z" fill="white"/></svg>') no-repeat;
+            mask-size: contain;
+            background: var(--black);
+            width: rem-calc(14);
+            height: rem-calc(14);
+            content: "";
+        }
+    }
+
+    &__list {
+        &:not(.is-active) {
+            display: none;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem-calc(24);
+        cursor: pointer;
+    }
+
+    &__content {
+        transition: max-height var(--tr);
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    &__item {
+        margin-bottom: rem-calc(24);
+        padding-bottom: rem-calc(24);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.is-opened {
+            .accordion__button {
+                &::before {
+                    mask-image: svg-uri('<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 2V0H14V2H0Z" fill="white"/></svg>');
+                    height: rem-calc(2);
+                }
+            }
+
+            .accordion__content {
+                padding-top: rem-calc(8);
+            }
+        }
+    }
+}
