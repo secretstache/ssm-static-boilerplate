@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: 255 115 179;
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-7xl;
+    }
+}

@@ -8,6 +8,13 @@ main:
             url: '/design-system/module/button'
           - name: 'Free form'
             url: '/design-system/template/free-form'
+    - name: 'Design system'
+      url: '/design-system'
+      submenu:
+        - name: 'Button'
+          url: '/design-system/module/button'
+        - name: 'Free form'
+          url: '/design-system/template/free-form'
 
 footer:
     - name: 'Home'

@@ -12,7 +12,7 @@
 
   {% from "macros/default.njk" import columns, column, module, template %}
 
-  <body{% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
+  <body class="bg-white text-black font-normal text-base font-primary {% if bodyClasses %} {{ bodyClasses }}{% endif %}">
 
     <a class="skip-main" href="#main">Skip to main content</a>
 

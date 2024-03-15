@@ -2,6 +2,7 @@ const prettify = require('html-prettify');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const fs = require('fs');
 const prettier = require('prettier');
+const twMerge = require('tailwind-merge').twMerge;
 
 const dir = {
     input: 'src/pages',
@@ -13,12 +14,7 @@ const dir = {
 
 const yaml = require('js-yaml');
 
-const assets = [
-    'images',
-    'video',
-    'fonts',
-    'animations',
-];
+const assets = ['images', 'video', 'fonts', 'animations'];
 
 const mode = process.env.mode || 'development';
 const isDev = mode === 'development';
@@ -73,22 +69,10 @@ module.exports = (eleventyConfig) => {
     });
 
     eleventyConfig.addPairedShortcode('brace', function (content, type = 'curly') {
-        const [
-            opening,
-            closing,
-        ] = {
-            curly: [
-                '{{',
-                '}}',
-            ],
-            call: [
-                '{%',
-                '%}',
-            ],
-            silent: [
-                '{%-',
-                '-%}',
-            ],
+        const [opening, closing] = {
+            curly: ['{{', '}}'],
+            call: ['{%', '%}'],
+            silent: ['{%-', '-%}'],
         }[type];
         return `${opening}${content}${closing}`;
     });
@@ -107,10 +91,7 @@ module.exports = (eleventyConfig) => {
 
     /* server options */
     eleventyConfig.setServerOptions({
-        watch: [
-            'dist/assets/scripts/**/*.*',
-            'dist/assets/styles/**/*.*',
-        ],
+        watch: ['dist/assets/scripts/**/*.*', 'dist/assets/styles/**/*.*'],
     });
 
     /* unique id */
@@ -140,6 +121,13 @@ module.exports = (eleventyConfig) => {
     }
 
     eleventyConfig.addFilter('sortByTitle', sortByTitle);
+
+    function twMergeFunc(arr) {
+        const classes = arr.filter((item) => Boolean(item)).join(' ');
+        return twMerge(classes);
+    }
+
+    eleventyConfig.addFilter('twMerge', twMergeFunc);
 
     // eleventyConfig.addTransform('prettier', (content, outputPath) => {
     //     console.log(outputPath);

@@ -1,6 +1,4 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
-
 const isBlocks = process.env.project === 'blocks';
 
 function buildLoaders() {
