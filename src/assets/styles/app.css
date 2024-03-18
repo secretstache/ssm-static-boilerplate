@@ -8,6 +8,10 @@
         --z-index--header: 1040;
         --z-index--offcanvas: 1045;
     }
+
+    body {
+        @apply bg-white text-black font-normal text-base font-primary;
+    }
 }
 
 @layer components {
