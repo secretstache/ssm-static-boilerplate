@@ -2,7 +2,7 @@ import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg, scrollToHash } 
 import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
-import Menu from './global/menu';
+import DropdownMenu from './global/dropdownMenu';
 // import Modal from './global/modal';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -37,5 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // modals
     // Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
 
-    Menu();
+    // menus
+    DropdownMenu();
 });

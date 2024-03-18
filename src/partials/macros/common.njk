@@ -1,4 +1,4 @@
-{# Menu macro #}
+{# DropdownMenu macro #}
 {%- macro menu(props) -%}
     {% from "macros/common.njk" import menu %}
 
@@ -6,7 +6,7 @@
 
         {% for link in props.nav %}
 
-            <li{% if link.submenu %} class="has-submenu relative group"{% endif %}>
+            <li{% if link.submenu %} class="relative group flex place-items-center"{% endif %}>
 
                 {% set linkClasses = ([
                     'peer',

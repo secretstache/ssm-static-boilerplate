@@ -1,14 +1,12 @@
-const Menu = () => {
+const DropdownMenu = () => {
     const menus = document.querySelectorAll('.is-dropdown');
 
     menus.forEach((menu) => {
-        new DropdownMenu(menu, {
-            withArrowButton: true,
-        });
+        new Dropdown(menu);
     });
 };
 
-class DropdownMenu {
+class Dropdown {
     constructor(domNode, options) {
         this.rootNode = domNode;
         this.openIndex = null;
@@ -41,7 +39,7 @@ class DropdownMenu {
             button.setAttribute('aria-expanded', 'false');
             button.setAttribute('aria-controls', `id_${id}`);
             button.setAttribute('aria-label', `More ${link.textContent} pages`);
-            button.classList.add('peer', 'border-b', 'border-r', 'border-black', 'rotate-45', 'w-4', 'h-4');
+            button.classList.add('peer', 'flex', 'w-7', 'h-7', 'items-center', 'justify-center', 'transition-transform',  'group-hover:rotate-180', 'after:border-b', 'after:border-r','after:border-black', 'after:rotate-45','after:w-2', 'after:h-2');
 
             link.insertAdjacentElement('afterend', button);
         }
@@ -202,4 +200,4 @@ const uid = () => {
     return `${Date.now() + Math.floor(Math.random() * 100)}`;
 };
 
-export default Menu;
+export default DropdownMenu;
