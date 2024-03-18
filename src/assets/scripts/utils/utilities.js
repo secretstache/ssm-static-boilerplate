@@ -324,7 +324,7 @@ const scrollToHash = () => {
     }
 
     const scrollFn = (target) => {
-        const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+        const headerOffset = document.getElementById('site-header')?.offsetHeight || 0;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -334,6 +334,10 @@ const scrollToHash = () => {
                 behavior: 'smooth',
             });
         }, 500);
+
+        target.setAttribute("tabindex", "-1");
+        target.focus();
+        target.removeAttribute("tabindex");
     };
 
     window.addEventListener('load', () => {
