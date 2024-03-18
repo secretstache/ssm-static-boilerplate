@@ -1,25 +1,33 @@
-{# Menu macro #}
+{# DropdownMenu macro #}
 {%- macro menu(props) -%}
     {% from "macros/common.njk" import menu %}
 
-    <ul class="menu{% if props.class %} {{ props.class }}{% endif %}"{% if props.attributes %} {{ props.attributes | safe }}{% endif %}>
+    <ul class="{{ props.menuClass }}"{% if props.attributes %} {{ props.attributes | safe }}{% endif %}>
 
         {% for link in props.nav %}
 
-            {% set classes = ([
-                'current-menu-item' if props.currentPage == link.url,
-                'menu-item-has-children' if link.submenu
-            ]) | toClassNames %}
+            <li>
 
-            <li class="menu__item{{ classes }}">
+                {% set linkClasses = ([
+                    'peer',
+                    props.linkClass if  props.linkClass,
+                    props.currentlinkClass if props.currentPage == link.url and props.currentlinkClass
+                ]) | toClassNames %}
 
-                <a href="{{ root }}{{ link.url }}">{{ link.name }}</a>
+                {% set linkAttributes = ([
+                    'aria-current="page"' if  props.currentPage == link.url,
+                    'aria-expanded="false"' if link.submenu
+                ]) | toClassNames %}
+
+                <a href="{{ root }}{{ link.url }}" class="{{ linkClasses }}"{{ linkAttributes | safe }}>{{ link.name }}</a>
 
                 {%if link.submenu %}
-
                     {{ menu({
                         nav: link.submenu,
-                        currentPage: props.currentPage
+                        currentPage: props.currentPage,
+                        menuClass: props.submenuClass,
+                        linkClass: props.submenuLinkClass,
+                        currentlinkClass: props.submenuCurrentlinkClass
                     }) }}
 
                 {% endif %}

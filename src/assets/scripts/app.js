@@ -3,8 +3,8 @@ import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
 // import Modal from './global/modal';
-
 import Accordion from './modules/accordion';
+import DropdownMenu from './global/dropdownMenu';
 
 document.addEventListener('DOMContentLoaded', function () {
     // lazy loads elements with default selector '.lazy-load'
@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // modals
     // Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
+
+    // menus
+    DropdownMenu();
 
     // modules
     Accordion();

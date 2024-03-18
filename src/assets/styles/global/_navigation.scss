@@ -3,6 +3,7 @@
 
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--menu-items-gap);
     margin: 0;
     padding: 0;
@@ -25,10 +26,27 @@
 
 // dropdown
 .is-dropdown {
-    // submenu
-    .menu-item-has-children {
+    .dropdown-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: rem-calc(10);
+        width: rem-calc(30);
+        height: rem-calc(30);
+        transition: transform var(--tr);
+
+        &::after {
+            display: block;
+            transform: rotate(45deg);
+            border-right: 1px solid var(--body-color);
+            border-bottom: 1px solid var(--body-color);
+            width: 0.5em;
+            height: 0.5em;
+            content: "";
+        }
     }
 
+    // submenu
     ul {
         display: flex;
         position: absolute;
@@ -36,27 +54,51 @@
         left: 0;
         flex-direction: column;
         gap: rem-calc(8);
-        transform: translateY(1rem);
         visibility: hidden;
         opacity: 0;
-        transition: var(--tr);
+        transition: opacity var(--tr);
         margin: 0;
+        box-shadow: var(--shadow, 0 0 10px rgba(0, 0, 0, 0.1));
         background: var(--white, #fff);
         padding: rem-calc(20);
         pointer-events: none;
         list-style: none;
+        width: rem-calc(150);
+
+        > * + * {
+            margin-top: rem-calc(5);
+        }
+
+        &:has(:focus) {
+            opacity: 1;
+        }
+    }
+
+    [aria-expanded="true"] {
+        &.dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        + ul {
+            visibility: visible;
+        }
+    }
+
+    [aria-expanded="true"]:focus {
+        + ul {
+            opacity: 1;
+        }
     }
 
     li:has(ul) {
+        display: flex;
         position: relative;
+        align-items: center;
 
-        &:hover,
-        &:focus {
+        &:hover {
             > ul {
-                transform: translateY(0);
-                visibility: visible;
                 opacity: 1;
-                pointer-events: all;
+                pointer-events: auto;
             }
         }
     }
