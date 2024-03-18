@@ -4,6 +4,8 @@ import Offcanvas from './global/offcanvas';
 import Header from './global/header';
 // import Modal from './global/modal';
 
+import Accordion from './modules/accordion';
+
 document.addEventListener('DOMContentLoaded', function () {
     // lazy loads elements with default selector '.lazy-load'
     const lazyLoadObserver = LazyLoad();
@@ -35,4 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // modals
     // Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
+
+    // modules
+    Accordion();
 });
