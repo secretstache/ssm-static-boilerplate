@@ -1,6 +1,6 @@
-<button class="hamburger hide-for-large" type="button" role="button" aria-label="open offcanvas menu" aria-controls="offcanvas" aria-expanded="false" >
-    <span class="show-for-sr">DropdownMenu toggle</span>
-    <span class="hamburger__line hamburger__line--1"></span>
-    <span class="hamburger__line hamburger__line--2"></span>
-    <span class="hamburger__line hamburger__line--3"></span>
+<button class="group block relative cursor-pointer border-0 bg-transparent w-6 h-4 min-w-6 lg:hidden" type="button" role="button" aria-label="open offcanvas menu" aria-controls="offcanvas" aria-expanded="false" >
+    <span class="sr-only">DropdownMenu toggle</span>
+    <span class="block absolute bg-black w-full h-0.5 top-0 left-0 transition-transform group-aria-expanded:translate-y-2 group-aria-expanded:rotate-45"></span>
+    <span class="block absolute bg-black w-full h-0.5 top-1/2 left-0 transition-transform mt-[-1px] group-aria-expanded:invisible"></span>
+    <span class="block absolute bg-black w-full h-0.5 bottom-0 left-0 transition-transform group-aria-expanded:-translate-y-[6px] group-aria-expanded:-rotate-45"></span>
 </button>

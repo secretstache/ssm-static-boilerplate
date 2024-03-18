@@ -8,7 +8,7 @@
 
             {% include 'global/brand.njk' %}
 
-            <nav aria-label="Main DropdownMenu">
+            <nav class="hidden lg:block" aria-label="Main DropdownMenu">
                 {{ menu({
                     nav: navigation.main,
                     style: 'main',
@@ -19,9 +19,9 @@
                     currentlinkClass: 'text-primary',
                     submenuClass: 'absolute top-full invisible pointer-events-none opacity-0 flex flex-col bg-white p-4 shadow space-y-2 transition-opacity duration-500 peer-aria-expanded:visible group-hover:pointer-events-auto group-hover:opacity-100 peer-focus:opacity-100 has-[:focus]:opacity-100 '
                 }) }}
-
-                {% include 'global/hamburger.njk' %}
             </nav>
+
+            {% include 'global/hamburger.njk' %}
 
         </div>
 
