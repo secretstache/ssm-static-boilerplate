@@ -5,6 +5,7 @@
 @layer base {
     :root {
         --color-primary: 255 115 179;
+        --z-index--offcanvas: 1045;
     }
 }
 

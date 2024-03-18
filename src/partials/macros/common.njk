@@ -5,8 +5,12 @@
     <ul class="{{ props.menuClass }}"{% if props.attributes %} {{ props.attributes | safe }}{% endif %}>
 
         {% for link in props.nav %}
+            {% set parentLiClasses = ([
+                'group' if link.submenu,
+                props.parentLiClasses if  props.parentLiClasses
+            ]) | twMerge %}
 
-            <li{% if link.submenu %} class="relative group flex place-items-center"{% endif %}>
+            <li{% if parentLiClasses %} class="{{ parentLiClasses }}"{% endif %}>
 
                 {% set linkClasses = ([
                     'peer',
