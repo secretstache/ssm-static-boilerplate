@@ -4,18 +4,99 @@
 
 @layer base {
     :root {
-        --color-primary: 255 115 179;
+        --color-primary: 37 99 235;
         --z-index--header: 1040;
         --z-index--offcanvas: 1045;
+        --base-margin: 6rem;
+        --module-margin: 1rem;
     }
 
     body {
         @apply bg-white text-black font-normal text-base font-primary;
     }
+
+    p {
+        @apply m-0 mb-4 p-0;
+
+        &:where(:last-of-type) {
+            @apply mb-0;
+        }
+    }
+
+    a {
+        @apply text-primary underline hover:no-underline dark:text-white;
+    }
+
+    h1 {
+        @apply text-4xl font-bold;
+    }
+
+
+    h2 {
+        @apply text-3xl font-bold;
+    }
+
+
+    h3 {
+        @apply text-2xl font-bold;
+    }
+
+
+    h4 {
+        @apply text-xl font-bold;
+    }
+
+    h5 {
+        @apply text-lg font-bold;
+    }
+
+
+    h6 {
+        @apply text-base font-bold;
+    }
+
+    input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
+    select,
+    textarea {
+        @apply block relative m-0 outline-none p-3 w-full h-auto shadow-none border border-black rounded bg-white text-black text-base leading-none placeholder:opacity-40 placeholder:text-inherit focus:outline-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-inset dark:bg-transparent dark:border-white dark:text-white;
+    }
 }
+
+@layer utilities {
+    .bg-dark {
+        @apply text-white;
+    }
+}
+
 
 @layer components {
     .container {
         @apply max-w-7xl;
+    }
+
+    .content-block {
+        @apply relative mt-[--base-margin] last-of-type:mb-[--base-margin];
+    }
+
+    .module + .module {
+        @apply mt-[--module-margin];
+    }
+
+    .button {
+        @apply inline-flex items-center justify-center transition-all cursor-pointer no-underline select-none text-center border border-black rounded-md font-primary font-normal text-base text-white bg-black py-3 px-6 focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 hover:bg-transparent hover:text-black;
+    }
+
+    .button--outlined {
+        @apply bg-transparent text-black hover:bg-black hover:text-white;
+    }
+
+    .text-editor {
+        ul {
+            @apply space-y-2 list-disc list-inside;
+        }
+
+        ol {
+            @apply space-y-2 list-decimal list-inside;
+        }
     }
 }

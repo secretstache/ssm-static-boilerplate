@@ -1,9 +1,13 @@
 const options = {
     Align: {
-        Center: 'align-center',
-        Right: 'align-right',
+        Center: 'justify-center',
+        Right: 'justify-end',
     },
-    Stacked: 'is-stacked',
+    Stacked: {
+        Default: 'flex-col items-start',
+        Center: 'flex-col items-center',
+        Right: 'flex-col items-end'
+    },
 };
 
 module.exports = {
@@ -27,7 +31,7 @@ module.exports = {
         {
             title: 'Aligned center',
             context: {
-                class: options['Align']['Center'],
+                align: 'center',
                 buttons: [
                     {
                         label: 'Button',
@@ -45,7 +49,7 @@ module.exports = {
         {
             title: 'Aligned right',
             context: {
-                class: options['Align']['Right'],
+                align: 'right',
                 buttons: [
                     {
                         label: 'Button',
@@ -63,7 +67,45 @@ module.exports = {
         {
             title: 'Stacked',
             context: {
-                class: options['Stacked'],
+                stacked: true,
+                buttons: [
+                    {
+                        label: 'Button',
+                        type: 'button--primary',
+                        url: '#',
+                    },
+                    {
+                        label: 'Button',
+                        type: 'button--outlined',
+                        url: '#',
+                    },
+                ],
+            },
+        },
+        {
+            title: 'Stacked aligned center',
+            context: {
+                stacked: true,
+                align: 'center',
+                buttons: [
+                    {
+                        label: 'Button',
+                        type: 'button--primary',
+                        url: '#',
+                    },
+                    {
+                        label: 'Button',
+                        type: 'button--outlined',
+                        url: '#',
+                    },
+                ],
+            },
+        },
+        {
+            title: 'Stacked aligned right',
+            context: {
+                stacked: true,
+                align: 'right',
                 buttons: [
                     {
                         label: 'Button',

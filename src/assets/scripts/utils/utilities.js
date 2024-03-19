@@ -323,27 +323,32 @@ const scrollToHash = () => {
         window.location.hash = '';
     }
 
-    const scrollFn = (target) => {
-        const headerOffset = document.getElementById('site-header')?.offsetHeight || 0;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    const scrollToHash = (target) => {
+        setTimeout(() => {
+            const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
-        setTimeout(function () {
+            console.log(elementPosition)
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth',
             });
-        }, 500);
 
-        target.setAttribute("tabindex", "-1");
-        target.focus();
-        target.removeAttribute("tabindex");
+            // for accessibility
+            target.setAttribute("tabindex", "-1");
+            target.focus();
+            target.removeAttribute("tabindex");
+
+        }, 50);
     };
 
     window.addEventListener('load', () => {
         const target = document.getElementById(hash.substring(1));
 
-        if (target) scrollFn(target);
+        if (target) {
+            scrollToHash(target);
+        }
     });
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -353,7 +358,7 @@ const scrollToHash = () => {
             if (target) {
                 e.preventDefault();
                 e.stopPropagation();
-                scrollFn(target);
+                scrollToHash(target);
             }
         });
     });

@@ -14,7 +14,8 @@ const minMax = (minSize, maxSize, minBreakpoint = 480, maxBreakpoint = 1024, uni
 };
 
 module.exports = {
-    content: ['./src/**/*.{njk,js}'],
+    content: ['./src/**/*.{njk,js}', './dist/design-system/**/*.html'],
+    darkMode: ['selector', '.bg-dark'],
     theme: {
         container: {
             center: true,

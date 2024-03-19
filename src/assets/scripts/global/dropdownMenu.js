@@ -31,20 +31,22 @@ class Dropdown {
 
         // create arrow button
         if (this.withArrowButton && submenu) {
-            const link = node.querySelector('a');
-            const id = uid();
+            if (!node.querySelector('button[aria-expanded]')) {
+                const link = node.querySelector('a');
+                const id = uid();
 
-            const button = document.createElement('button');
-            button.setAttribute('type', 'button');
-            button.setAttribute('aria-expanded', 'false');
-            button.setAttribute('aria-controls', `id_${id}`);
-            button.setAttribute('aria-label', `More ${link.textContent} pages`);
-            button.classList.add('peer', 'flex', 'w-7', 'h-7', 'items-center', 'justify-center', 'transition-transform',  'group-hover:rotate-180', 'after:border-b', 'after:border-r','after:border-black', 'after:rotate-45','after:w-2', 'after:h-2');
+                const button = document.createElement('button');
+                button.setAttribute('type', 'button');
+                button.setAttribute('aria-expanded', 'false');
+                button.setAttribute('aria-controls', `id_${id}`);
+                button.setAttribute('aria-label', `More ${link.textContent} pages`);
+                button.classList.add('peer', 'flex', 'w-7', 'h-7', 'items-center', 'justify-center', 'transition-transform', 'group-hover:rotate-180', 'after:border-b', 'after:border-r', 'after:border-black', 'after:rotate-45', 'after:w-2', 'after:h-2');
 
-            link.insertAdjacentElement('afterend', button);
+                link.insertAdjacentElement('afterend', button);
+            }
         }
 
-        const button = node.querySelector('button') ? node.querySelector('button') : node.querySelector('a');
+        const button = node.querySelector('button[aria-expanded]') ? node.querySelector('button[aria-expanded]') : node.querySelector('a');
 
         this.submenus.push(submenu ? submenu : null);
         this.topLevelButtons.push(button);

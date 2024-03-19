@@ -6,7 +6,17 @@
 
     {% from "macros/default.njk" import module %}
 
-    <div class="module buttons{%if props.class %} {{ props.class }}{% endif %}">
+    {% set classes = ([
+        'flex flex-wrap items-center gap-4',
+        'justify-center' if props.align == 'center',
+        'justify-end' if props.align == 'right',
+        'flex-col items-start' if props.stacked,
+        'flex-col items-center' if props.stacked and props.align == 'center',
+        'flex-col items-end' if props.stacked and props.align == 'right',
+        props.class if  props.class
+    ]) | twMerge %}
+
+    <div class="module buttons {{ classes }}">
 
         {% if props.buttons %}
 

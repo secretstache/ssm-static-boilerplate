@@ -5,7 +5,12 @@
 
 {% macro render( props ) %}
 
-    <div class="module text-editor{%if props.class %} {{ props.class }}{% endif %}">
+    {% set classes = ([
+        'space-y-4',
+        props.class if  props.class
+    ]) | twMerge %}
+
+    <div class="module text-editor {{ classes }}">
 
         {% if props.innerContent %}
 
