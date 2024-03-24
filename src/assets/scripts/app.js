@@ -6,6 +6,8 @@ import Header from './global/header';
 import Accordion from './modules/accordion';
 import DropdownMenu from './global/dropdownMenu';
 
+import './templates/vertical-tabs';
+
 document.addEventListener('DOMContentLoaded', function () {
     // lazy loads elements with default selector '.lazy-load'
     const lazyLoadObserver = LazyLoad();

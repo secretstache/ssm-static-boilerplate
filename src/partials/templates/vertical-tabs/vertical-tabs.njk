@@ -1,0 +1,78 @@
+/**
+* @param {string} class
+* @param {object} tabs
+*/
+
+{% macro render(props) %}
+    <div class="grid-container">
+
+        {% if props.tabs %}
+            <div class="template-vertical-tabs__container">
+
+                <nav class="template-vertical-tabs__wrapper">
+                    <div class="template-vertical-tabs__item {% if props.autoplay%}has-autoplay{% endif %}" role="tablist">
+
+                        {% for tab in props.tabs %}
+                            <div class="template-vertical-tabs__title {% if tab.classes %}{{ tab.classes }}{% endif %}" role="tab" aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">
+                                <div class="template-vertical-tabs__header">
+
+                                    <a href="#tab{{loop.index - 1}}">
+                                        {% if tab.icon %}
+                                            <div class="template-vertical-tabs__icon">
+                                                <div class="template-vertical-tabs__icon-wrapper">
+                                                    <div class="template-vertical-tabs__icon-mask" style="mask-image:url({{ root }}{{ tab.icon }})"></div>
+                                                    <img src="{{ root }}{{ tab.icon }}" alt="">
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        {{tab.title}}
+                                    </a>
+                                </div>
+
+                                {% if tab.description %}
+                                    <div class="template-vertical-tabs__content">
+                                        <div class="template-vertical-tabs__description">
+
+                                            {% if tab.image %}
+                                                <img alt="{{tab.title}}" src="{{root}}{{tab.image}}">
+                                            {% endif %}
+
+                                            <p>{{ tab.description }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if props.autoplay %}
+                                    <div class="template-vertical-tabs__progress">
+                                        <div class="template-vertical-tabs__progress-line"></div>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </nav>
+
+                <div class="template-vertical-tabs__image">
+
+                    {% for tab in props.tabs %}
+                        <div class="template-vertical-tabs__panel {% if tab.classes %}{{ tab.classes }}{% endif %}" role="tabpanel">
+                            <div class="template-vertical-tabs__panel-inner">
+
+                                {% if tab.image %}
+                                    <img alt="{{ tab.title }}" src="{{ root }}{{ tab.image }}">
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

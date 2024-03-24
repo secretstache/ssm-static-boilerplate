@@ -1,0 +1,296 @@
+.template-vertical-tabs {
+    --tabs-color: var(--black);
+    --tab-icon-color: var(--black);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(50);
+        width: 100%;
+
+        @include breakpoint(large) {
+            gap: rem-calc(140);
+        }
+
+        @include breakpoint(xlarge) {
+            gap: rem-calc(280);
+        }
+
+        @include breakpoint(medium) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+
+        @include breakpoint(large) {
+            width: rem-calc(495);
+            min-width: rem-calc(495);
+        }
+
+        @include breakpoint(medium) {
+            align-self: center;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(24);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include breakpoint(medium) {
+            gap: rem-calc(20);
+        }
+    }
+
+    &__content {
+        opacity: 0;
+        transition: var(--tr);
+        height: rem-calc(1);
+        pointer-events: none;
+
+        > div {
+            @include breakpoint(small only) {
+                display: flex;
+                gap: rem-calc(24);
+
+                > * {
+                    width: 50%;
+                }
+
+                p {
+                    align-self: center;
+                }
+            }
+
+            img,
+            figure {
+                @include breakpoint(medium) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+
+        a {
+            display: flex;
+            position: relative;
+            align-items: center;
+            gap: rem-calc(10);
+            @include typo("h3");
+            transition: var(--tr);
+            width: 100%;
+            color: var(--tabs-color);
+            text-decoration: none;
+
+            @include breakpoint(large only) {
+                font-size: rem-calc(25);
+            }
+
+            @include breakpoint(small only) {
+                &::after {
+                    display: block;
+                    mask-image: svg-uri('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none"><path d="M1 1L8 8L15 1" stroke="#2A3262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                    mask-size: contain;
+                    mask-repeat: no-repeat;
+                    transition: var(--tr);
+                    margin-left: auto;
+                    background: var(--black);
+                    width: rem-calc(16);
+                    height: rem-calc(9);
+                    content: "";
+                }
+            }
+        }
+
+        svg {
+            * {
+                transition:
+                    fill var(--tr),
+                    stroke var(--tr);
+
+                &[stroke] {
+                    stroke: var(--tabs-color) !important;
+                }
+
+                &:not([stroke]) {
+                    fill: var(--tabs-color) !important;
+                }
+            }
+        }
+    }
+
+    &__icon-wrapper {
+        display: inline-block;
+        position: relative;
+
+        img {
+            opacity: 0;
+        }
+    }
+
+    &__icon-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        background: var(--tab-icon-color);
+        width: 100%;
+        height: 100%;
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: rem-calc(5);
+        width: rem-calc(58);
+
+        @include breakpoint(large) {
+            margin-right: rem-calc(17);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        padding: 0;
+
+        &.is-active {
+            --tab-icon-color: var(--black);
+
+            .template-vertical-tabs__header {
+                a {
+                    @include breakpoint(small only) {
+                        &::after {
+                            transform: rotate(180deg);
+                            background: var(--black);
+                        }
+                    }
+                }
+
+                svg {
+                    * {
+                        &[stroke] {
+                            stroke: var(--black) !important;
+                        }
+
+                        &:not([stroke]) {
+                            fill: var(--black) !important;
+                        }
+                    }
+                }
+            }
+
+            .template-vertical-tabs__content {
+                opacity: 1;
+                margin-bottom: rem-calc(24);
+                height: auto;
+                pointer-events: all;
+            }
+
+            .template-vertical-tabs__progress {
+                height: rem-calc(4);
+
+                @include breakpoint(small only) {
+                    background: var(--black);
+                    height: rem-calc(2);
+                }
+            }
+        }
+    }
+
+    &__progress {
+        position: relative;
+        border-radius: rem-calc(2);
+        background: var(--black);
+        height: rem-calc(2);
+        overflow: hidden;
+
+        &-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--red);
+            width: 0;
+            height: 100%;
+        }
+    }
+
+    &__image {
+        position: relative;
+        border: unset;
+        background-color: unset;
+
+        @include breakpoint(small only) {
+            display: none;
+        }
+
+        @include breakpoint(medium) {
+            width: 50%;
+        }
+    }
+
+    &__panel {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        @include overlay;
+        opacity: 0;
+        transition: opacity var(--tr);
+
+        &-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            animation: fade 2s linear;
+
+            @include breakpoint(xlarge) {
+                width: rem-calc(495);
+                height: rem-calc(560);
+            }
+
+            img,
+            figure {
+                width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &.is-active {
+            position: relative;
+            opacity: 1;
+            z-index: 10;
+        }
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes animate-title {
+    0% {
+        font-weight: 300;
+    }
+
+    100% {
+        font-weight: 900;
+    }
+}
