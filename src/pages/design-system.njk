@@ -6,76 +6,7 @@ title: Home
 
 {% set backgrounds = ["black", "red"] %}
 
-{% set colors = ["black", "white", "red"] %}
-
-
-{% set alignmentJustify = {
-    'align-left': 'justify-content: flex-start;',
-    'align-right': 'justify-content: flex-end;',
-    'align-center': 'justify-content: center;',
-    'align-justify' : 'justify-content: space-between;',
-    'align-spaced': 'justify-content: space-around;',
-    'align-self-left': 'justify-self: flex-start;',
-    'align-self-right': 'justify-self: flex-end;',
-    'align-self-center': 'justify-self: center;',
-    'align-self-justify' : 'justify-self: space-between;',
-    'align-self-spaced': 'justify-self: space-around;'
-} %}
-
-{% set alignmentVertical = {
-    'align-top': 'align-items: flex-start;',
-    'align-bottom': 'align-items: flex-end;',
-    'align-middle': 'align-items: center;',
-    'align-stretch' : 'align-items: stretch;',
-    'align-self-top': 'align-self: flex-start;',
-    'align-self-bottom': 'align-self: flex-end;',
-    'align-self-middle': 'align-self: center;',
-    'align-self-stretch' : 'align-self: stretch;'
-} %}
-
-
-{% set TextAlignment = ["left", "right", "center", "justify"] %}
-
-{% set breakpoints = ['small', 'medium', 'large'] %}
-
-{% set spacings = {
-    '0': '0',
-    '1': '4',
-    '2': '8',
-    '3': '12',
-    '4': '16',
-    '5': '20',
-    '6': '24',
-    '7': '28',
-    '8': '32',
-    '9': '36',
-    '10': '40',
-    '11': '44',
-    '12': '48',
-    '14': '56',
-    '16': '64',
-    '20': '80',
-    '24': '96',
-    '28': '112',
-    '32': '128',
-    '36': '144',
-    '40': '160',
-    '44': '176',
-    '48': '192',
-    '52': '208',
-    '56': '224',
-    '60': '240',
-    '64': '256',
-    '72': '288',
-    '80': '320',
-    '96': '384'
-} %}
-
-{% set visibilityClasses = {
-    'hide': 'display: none;',
-    'show-for-sr': 'clip: rect(0, 0, 0, 0) !important;position: absolute !important;border: 0 !important;padding: 0 !important;width: 1px !important;height: 1px !important;overflow: hidden !important;'
-} %}
-
+{% set colors = ["black", "white"] %}
 
 {% block content %}
 
@@ -90,7 +21,7 @@ title: Home
                 <tr>
                     <th>Color</th>
                     <th width="30%">Class</th>
-                    <th>Css variable</th>
+                    <th></th>
                 </tr>
                 </thead>
 
@@ -102,8 +33,7 @@ title: Home
                             <div class="ds-background__color bg-{{ background }}"></div>
                         </td>
                         <td>bg-{{ background }}</td>
-                        <td>
-                            var(--{{ background }})</td>
+                        <td></td>
                     </tr>
                 {% endfor %}
 
@@ -116,7 +46,7 @@ title: Home
                 <thead>
                 <tr>
                     <th>Color</th>
-                    <th>Css variable</th>
+                    <th>Class</th>
                 </tr>
                 </thead>
 
@@ -127,47 +57,13 @@ title: Home
                         <td>
                             <div class="ds-background__color" style="background: var(--{{ color }})"></div>
                         </td>
-                        <td>
-                            var(--{{ color }})</td>
+                        <td>text-{{ color }}</td>
                     </tr>
                 {% endfor %}
 
                 </tbody>
             </table>
 
-            <h2 class="ds-block-title">Templates and modules spacings</h2>
-
-            <p>Use the following css variables to control template and modules spacings: </p><br>
-
-            {% highlight "html" %}
-
-                <style>
-
---template-spacing-none: 0;
---template-spacing-sm: clamp(4rem, 5.8823529412vw + 2.2352941176rem, 6rem);
---template-spacing-md: clamp(5rem, 8.8235294118vw + 2.3529411765rem, 8rem);
---template-spacing-lg: clamp(7rem, 8.8235294118vw + 4.3529411765rem, 10rem);
-
---module-spacing-none: 0;
---module-spacing-sm: 1rem;
---module-spacing-md: 1.5rem;
---module-spacing-lg: 2rem;
-
-</style>
-
-            {% endhighlight %}
-
-            <br>
-            <p>Classes: </p><br>
-
-            {% highlight "css" %}
-
-.{mt|mb|pt|pb}-none
-.{mt|mb|pt|pb}-sm
-.{mt|mb|pt|pb}-md
-.{mt|mb|pt|pb}-lg
-
-{% endhighlight %}
 
             <h2 class="ds-block-title">Typography</h2>
 
@@ -183,182 +79,6 @@ title: Home
                 <p><a href="">Lorem ipsum dolor sit amet</a>, consectetur adipisicing elit. Ab architecto consectetur cumque deleniti dolorem explicabo facere hic inventore libero maxime, numquam pariatur porro repellendus saepe tempore vel voluptatem voluptatibus, voluptatum!</p>
 
             </div>
-
-
-            <h2 class="ds-block-title">Utility classes</h2>
-
-            <h3 class="ds-block-subtitle">Spacings</h3>
-
-            <table class="ds-classes-table">
-                <thead>
-                <tr>
-                    <th>Value</th>
-                    <th>Css variable</th>
-                    <th>Classes</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                {% for key, value in spacings %}
-                    <tr>
-                        <td>
-                            {{ value }}px / {{ value | toRem }}
-                        </td>
-                        <td>
-                            var(--spacing-{{ key }})<br>
-                        </td>
-                        <td>
-                            mt-{{ key }} |
-                            mb-{{ key }} |
-                            pt-{{ key }} |
-                            pb-{{ key }}
-                        </td>
-                    </tr>
-                {% endfor %}
-
-                </tbody>
-            </table>
-
-            <h3 class="ds-block-subtitle">Horizontal alignment</h3>
-
-            <table class="ds-classes-table">
-                <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Properties</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                {% for key, value in alignmentJustify  %}
-                    <tr>
-                        <td>{{ key }}</td>
-                        <td>{{ value }}</td>
-                    </tr>
-                {% endfor %}
-
-                </tbody>
-            </table>
-
-
-            <h3 class="ds-block-subtitle">Vertical alignment</h3>
-
-
-            <table class="ds-classes-table">
-                <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Properties</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                {% for key, value in alignmentVertical  %}
-                    <tr>
-                        <td>{{ key }}</td>
-                        <td>{{ value }}</td>
-                    </tr>
-                {% endfor %}
-
-                </tbody>
-            </table>
-
-
-            <h3 class="ds-block-subtitle">Text alignment</h3>
-
-            <table class="ds-classes-table">
-                <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Properties</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                {% for key in TextAlignment  %}
-                    <tr>
-                        <td>text-{{ key }}</td>
-                        <td>text-align: {{ key }};</td>
-                    </tr>
-                {% endfor %}
-
-                {% for breakpoint in breakpoints %}
-                    {% for key in TextAlignment  %}
-                        <tr>
-                            <td>{{ breakpoint }}-text-{{ key }}</td>
-                            <td>text-align: {{ key }}; [for {{ breakpoint }} breakpoint]</td>
-                        </tr>
-                    {% endfor %}
-                {% endfor %}
-
-                </tbody>
-            </table>
-
-            <h3 class="ds-block-subtitle">Visibility classes</h3>
-
-            <table class="ds-classes-table">
-                <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Properties</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                {% for key, value in visibilityClasses  %}
-                    <tr>
-                        <td>{{ key }}</td>
-                        <td>{{ value }}</td>
-                    </tr>
-                {% endfor %}
-
-
-                <tr>
-                    <td>
-                        {% for item in breakpoints %}
-                            hide-for-{{ item }}<br>
-                        {% endfor %}
-                    </td>
-                    <td></td>
-                </tr>
-
-
-                <tr>
-                    <td>
-                        {% for item in breakpoints %}
-                            show-for-{{ item }}<br>
-                        {% endfor %}
-                    </td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>
-                        {% for item in breakpoints %}
-                            hide-for-{{ item }}-only<br>
-                        {% endfor %}
-                    </td>
-                    <td></td>
-                </tr>
-
-
-                <tr>
-                    <td>
-                        {% for item in breakpoints %}
-                            show-for-{{ item }}-only<br>
-                        {% endfor %}
-                    </td>
-                    <td></td>
-                </tr>
-
-                </tbody>
-            </table>
-
 
         </div>
 
