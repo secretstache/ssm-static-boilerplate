@@ -6,6 +6,7 @@ module.exports = {
     context: {
         bg: {
             video: '/assets/video/placeholder.mp4',
+            overlay: true,
         },
         class: 'bg-dark',
         headline: 'The Headline',

@@ -88,7 +88,7 @@
     }
 
     .button {
-        @apply inline-flex cursor-pointer select-none items-center justify-center rounded-md border border-black bg-black px-6 py-3 text-center font-primary text-base font-normal text-white no-underline transition-all hover:bg-transparent hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1;
+        @apply inline-flex cursor-pointer select-none items-center justify-center rounded-md border border-black bg-black px-6 py-3 text-center font-primary text-base font-normal text-white no-underline transition-all duration-500 hover:bg-transparent hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 dark:border-white dark:bg-white dark:text-black dark:hover:text-white;
     }
 
     .button--outlined {
