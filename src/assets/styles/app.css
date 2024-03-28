@@ -9,6 +9,8 @@
         --z-index--offcanvas: 1045;
         --base-margin: 6rem;
         --module-margin: 1rem;
+        --grid-column-gap: 1.5rem;
+        --grid-row-gap: 2rem;
     }
 
     body {
@@ -61,6 +63,14 @@
 @layer utilities {
     .bg-dark {
         @apply text-white;
+    }
+
+    .entry-content-asset {
+        @apply relative overflow-hidden before:block before:pt-[56.25%];
+
+        iframe {
+            @apply absolute left-0 top-0 h-full w-full;
+        }
     }
 }
 

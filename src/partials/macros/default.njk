@@ -1,22 +1,23 @@
 {% macro columns(props) %}
     {#    /**#}
-    {#    * @param {string} align -  top, bottom, middle, stretch #}
-    {#    * @param {string} justify -  left, right , center, justify, spaced #}
+    {#    * @param {string} alignY - start, end, center, baseline, stretch #}
+    {#    * @param {string} justify -  normal, start, end, center, between, around, evenly, stretch #}
     {#    * @param {string} width #}
-    {#    * @param {string} containerAlign - left, center, right #}
+    {#    * @param {string} containerAlign - center, right #}
     {#    * @param {string} class #}
     {#    */#}
 
     {% set classes = ([
+        'grid grid-cols-12 gap-x-[--grid-column-gap] gap-y-[--grid-row-gap]',
         props.class if props.class,
-        'align-' + props.align if props.align,
-        'align-' + props.justify if props.justify,
-        'container-width-' + props.width if props.width,
-        'container-align-' + props.containerAlign if props.containerAlign,
-        'reverse-order' if props.reverse
+        'items-' + props.alignY if props.alignY,
+        'justify-' + props.alignX if props.alignX,
+        'w-' + props.width if props.width,
+        'mx-auto' if props.containerAlign  == 'center',
+        'ml-auto' if props.containerAlign  == 'right'
     ]) | toClassNames %}
 
-    <div class="grid-x{{ classes }}">
+    <div class="{{ classes }}">
 
         {% if caller %}{{ caller() | safe }}{% endif %}
 
@@ -26,17 +27,17 @@
 
 {% macro column(props) %}
     {% set classes = ([
-        'medium-' + props.width if props.width,
+        'col-span-12',
+        'md:col-span-' + props.width if props.width,
         props.class if props.class
     ]) | toClassNames %}
 
-    <div class="cell{{ classes }}">
+    <div class="{{ classes }}">
 
-        <div class="cell__inner">
             {% if caller %}
                 {{ caller() | safe }}
             {% endif %}
-        </div>
+
     </div>
 
 {% endmacro %}
@@ -83,23 +84,23 @@
                 templateHeader.class if templateHeader.class
             ]) | toClassNames %}
 
-            <header class="template-header{{ classes }}">
+            <header class="mb-8 {{ classes }}">
 
                 <div class="container">
                     {% if templateHeader.preheadline %}
-                        <p class="template-header__preheadline">{{ templateHeader.preheadline | safe }}</p>
+                        <p>{{ templateHeader.preheadline | safe }}</p>
                     {% endif %}
 
                     {% set headlineTag = templateHeader.tag if templateHeader.tag else 'h2' %}
 
                     {% if templateHeader.headline %}
-                    <{{ headlineTag }} class="template-header__headline">
+                    <{{ headlineTag }}>
                         {{ templateHeader.headline | safe }}
                     </{{ headlineTag }}>
                     {% endif %}
 
                     {% if templateHeader.description %}
-                        <p class="template-header__description">{{ templateHeader.description | safe }}</p>
+                        <p>{{ templateHeader.description | safe }}</p>
                     {% endif %}
 
                     {#  ...or array of headers#}
