@@ -29,5 +29,25 @@ module.exports = {
                 innerContent: 'with-2-cols',
             },
         },
+        {
+            title: 'With image background',
+            context: {
+                innerContent: 'with-2-cols',
+                bg: {
+                    image: 'https://via.placeholder.com/1920x1080',
+                },
+            },
+        },
+        {
+            title: 'With video background',
+            context: {
+                innerContent: 'with-2-cols',
+                class: 'bg-dark',
+                bg: {
+                    video: '/assets/video/placeholder.mp4',
+                    overlay: true,
+                },
+            },
+        },
     ],
 };

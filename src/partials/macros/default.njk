@@ -66,9 +66,9 @@
 
     {% set classes = ([
         'template-' + name,
-        'bg-'+ props.bg.color if props.bg.color,
-        'bg-image' if props.bg.image,
-        'bg-video' if props.bg.video,
+        'content-block relative',
+        'pt-[--base-margin] pb-[--base-margin] first:mt-0' if props.bg,
+        'bg-' + props.bg.color if props.bg.color,
         props.class if props.class
     ]) | toClassNames %}
 
@@ -76,7 +76,7 @@
 
     {%  set id = ' id="' + props.id + '"' if props.id %}
 
-    <section class="content-block{{ classes }}"{{ id }}>
+    <section class="{{ classes }}"{{ id }}>
 
         {% if templateHeader %}
 
@@ -121,19 +121,21 @@
         {% endif %}
 
         {% if props.bg.image or props.bg.video %}
-            <div class="bg-container">
-                <div class="overlay"></div>
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                {% if props.bg.overlay %}
+                    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                {% endif %}
 
                 {% if props.bg.image %}
 
-                    <img class="lazy-load" data-src="{{ root }}{{ props.bg.image }}" alt="">
+                    <img class="block w-full h-full object-cover" src="{{ root }}{{ props.bg.image }}" alt="">
 
                 {% endif %}
 
                 {% if props.bg.video %}
 
-                    <video class="lazy-load"{% if props.bg.poster %} data-poster="{{ root }}{{ props.bg.poster }}"{% endif %} muted playsinline autoplay loop preload="none">
-                        <source data-src="{{ root }}{{ props.bg.video }}" type="video/mp4">
+                    <video class="block w-full h-full object-cover" {% if props.bg.poster %} data-poster="{{ root }}{{ props.bg.poster }}"{% endif %} muted playsinline autoplay loop preload="none">
+                        <source src="{{ root }}{{ props.bg.video }}" type="video/mp4">
                     </video>
 
                 {% endif %}
@@ -141,11 +143,12 @@
 
         {% endif %}
 
+        <div class="relative">
         {%- if caller -%}
             {%- call render( props ) %}{{ caller() }}{% endcall -%}
         {%- else -%}
             {{- render( props ) -}}
         {%- endif -%}
-
+        </div>
     </section>
 {%- endmacro -%}
