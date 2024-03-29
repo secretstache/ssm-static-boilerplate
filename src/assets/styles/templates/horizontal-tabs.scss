@@ -1,0 +1,263 @@
+.template-horizontal-tabs {
+
+    &__list {
+        display: flex;
+
+        @include breakpoint(large down) {
+            flex-direction: column;
+        }
+
+        @include breakpoint(large) {
+            justify-content: space-between;
+        }
+    }
+
+    &__item {
+        display: flex;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+        overflow: hidden;
+
+        @include breakpoint(large down) {
+            flex-direction: column;
+            border-bottom: rem-calc(2) solid var(--grey);
+        }
+
+        @include breakpoint(large) {
+            transition: width calc(var(--tr) * 3);
+            border-right: rem-calc(1) solid var(--grey);
+            width: rem-calc(112);
+            min-width: rem-calc(112);
+            height: rem-calc(700);
+            max-height: 100vh;
+        }
+
+        @include breakpoint(xlarge) {
+            width: rem-calc(156);
+            min-width: rem-calc(154);
+            height: rem-calc(818);
+        }
+
+        &:before {
+            display: block;
+
+            position: absolute;
+            top: rem-calc(20);
+            right: rem-calc(24);
+            rotate: (-90deg);
+            z-index: 11;
+            transition:
+                rotate calc(var(--tr) * 3),
+                translate calc(var(--tr) * 3);
+            background: svg-uri('<svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="25" transform="matrix(-1 0 0 1 51 1.29297)" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="M29.5714 18.7168L21.9953 26.2929L29.5714 33.8691" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>') no-repeat;
+            background-size: contain;
+            width: rem-calc(32);
+            min-width: rem-calc(32);
+            height: rem-calc(32);
+            pointer-events: none;
+            content: "";
+
+            @include breakpoint(large) {
+                top: rem-calc(32);
+                left: rem-calc(38);
+                rotate: (180deg);
+            }
+
+            @include breakpoint(xlarge) {
+                top: rem-calc(50);
+                left: rem-calc(52);
+                width: rem-calc(52);
+                min-width: rem-calc(52);
+                height: rem-calc(52);
+            }
+        }
+
+        &.is-active {
+            border: 0;
+            width: 100%;
+
+            &:before {
+                rotate: (90deg);
+
+                @include breakpoint(large) {
+                    translate: 10px;
+                    rotate: (0deg);
+                }
+            }
+
+            .template-horizontal-tabs {
+                &__label {
+                    @include breakpoint(large) {
+                        transform: translateX(-100%);
+                    }
+                }
+
+                &__item-content {
+                    @include breakpoint(large) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        &.is-visible-tab-content {
+            .template-horizontal-tabs {
+                &__item-content {
+                    @include breakpoint(large) {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &__label {
+        display: flex;
+        cursor: pointer;
+        background: var(--light-grey);
+        width: 100%;
+
+        @include breakpoint(large down) {
+            padding: rem-calc(24 64 24 24);
+        }
+
+        @include breakpoint(large) {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 10;
+
+            transition: transform calc(var(--tr) * 3);
+            padding: rem-calc(24 0 32);
+            width: rem-calc(112);
+            min-width: rem-calc(112);
+            height: 100%;
+        }
+
+        @include breakpoint(xlarge) {
+            padding: rem-calc(48 0 68);
+            width: rem-calc(156);
+            min-width: rem-calc(156);
+        }
+    }
+
+    &__label-title {
+        color: var(--white);
+        font-size: rem-calc(24);
+        letter-spacing: 0.72px;
+
+        @include breakpoint(large) {
+            transform: rotate(180deg);
+            writing-mode: tb-rl;
+            white-space: nowrap;
+        }
+
+        @include breakpoint(xlarge) {
+            font-size: rem-calc(36);
+        }
+    }
+
+    &__item-content {
+        position: relative;
+        overflow: hidden;
+
+        @include breakpoint(large down) {
+            transition: height var(--tr);
+            height: 0;
+        }
+
+        @include breakpoint(large) {
+            opacity: 0;
+            transition: opacity calc(var(--tr) * 3);
+            height: 100%;
+        }
+    }
+
+    &__image {
+        @include overlay();
+        z-index: -1;
+
+        &:before {
+            display: block;
+            content: "";
+            @include overlay();
+            z-index: 1;
+            mix-blend-mode: multiply;
+            background: linear-gradient(90deg, rgba(23, 35, 66, 0.55) 0%, rgba(23, 35, 66, 0.26) 100%);
+        }
+
+        img {
+            @include overlay();
+            object-fit: cover;
+        }
+    }
+
+    &__content-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @include breakpoint(large) {
+            height: rem-calc(700);
+            max-height: 100vh;
+        }
+
+        @include breakpoint(xlarge) {
+            height: rem-calc(818);
+        }
+    }
+
+    &__title {
+        @include breakpoint(large down) {
+            display: none;
+        }
+
+        @include breakpoint(large) {
+            position: relative;
+            z-index: 1;
+            margin-bottom: rem-calc(24);
+            margin-left: rem-calc(32);
+            color: var(--white);
+            font-weight: 500;
+            font-size: rem-calc(24);
+        }
+
+        @include breakpoint(xlarge) {
+            margin-bottom: rem-calc(44);
+            margin-left: rem-calc(64);
+            font-size: rem-calc(40);
+        }
+    }
+
+    &__description-block {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(24);
+
+        @include breakpoint(large down) {
+            margin: rem-calc(24);
+            padding: rem-calc(24);
+        }
+
+        @include breakpoint(large) {
+            position: relative;
+            z-index: 1;
+            padding: rem-calc(32 24);
+            width: 100%;
+            max-width: rem-calc(520);
+        }
+
+        @include breakpoint(xlarge) {
+            padding: rem-calc(60);
+            max-width: rem-calc(670);
+        }
+    }
+
+    &__link {
+        color: var(--white);
+    }
+}

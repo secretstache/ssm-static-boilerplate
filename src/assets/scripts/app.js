@@ -5,6 +5,7 @@ import Header from './global/header';
 // import Modal from './global/modal';
 import Accordion from './modules/accordion';
 import DropdownMenu from './global/dropdownMenu';
+import HorizontalTabs from './templates/horizontal-tabs'
 
 import './templates/vertical-tabs';
 
@@ -45,4 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // modules
     Accordion();
+
+    // templates
+    HorizontalTabs();
 });
