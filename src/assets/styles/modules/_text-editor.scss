@@ -1,9 +1,0 @@
-.module.text-editor {
-    > * + * {
-        margin-block-start: var(--p-margin);
-    }
-
-    &.align-center {
-        text-align: center;
-    }
-}

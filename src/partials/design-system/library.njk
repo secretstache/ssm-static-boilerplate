@@ -2,19 +2,15 @@
 
 {% block inner %}
 
-    <div class="ds">
+    <div class="overflow-hidden min-h-screen">
 
-        <div class="ds__body">
+        {% include "./sidebar.njk" %}
 
-            {% include "./sidebar.njk" %}
+        <main class="ds__main">
 
-            <main class="ds__main">
+            {% block content %}{% endblock %}
 
-                {% block content %}{% endblock %}
-
-            </main>
-
-        </div>
+        </main>
 
     </div>
 
