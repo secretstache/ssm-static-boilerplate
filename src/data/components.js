@@ -57,7 +57,7 @@ function convertComponent(cmp, componentType) {
 
 function reducer(options, tr, fileObj) {
     const tree = { ...tr };
-    if (!fileObj) return tree;
+    if (!fileObj || fileObj.exports.hidden) return tree;
     if (tree.components === undefined) tree.components = [];
     const path = fileObj.path.replaceAll('\\', '/').split('/');
     tree.components.push({
@@ -69,10 +69,7 @@ function reducer(options, tr, fileObj) {
 
 function createMenu(groups) {
     const menu = groups.map((group) => {
-        const [
-            parent,
-            ...variants
-        ] = group;
+        const [parent, ...variants] = group;
 
         return {
             title: parent.title,

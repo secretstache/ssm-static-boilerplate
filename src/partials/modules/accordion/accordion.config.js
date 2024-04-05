@@ -1,5 +1,6 @@
 module.exports = {
     title: 'Accordion',
+    hidden: true,
     context: {
         items: [
             {

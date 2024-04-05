@@ -49,20 +49,36 @@
 
 // margins
 @each $prop, $value in $spacing {
-    .mt-#{$prop} {
-        margin-top: $value !important;
-    }
-
     .pt-#{$prop} {
         padding-top: $value !important;
+    }
+
+    .pb-#{$prop} {
+        padding-bottom: $value !important;
+    }
+
+    .pl-#{$prop} {
+        padding-left: $value !important;
+    }
+
+    .pr-#{$prop} {
+        padding-right: $value !important;
+    }
+
+    .mt-#{$prop} {
+        margin-top: $value !important;
     }
 
     .mb-#{$prop} {
         margin-bottom: $value !important;
     }
 
-    .pb-#{$prop} {
-        padding-bottom: $value !important;
+    .ml-#{$prop} {
+        margin-left: $value !important;
+    }
+
+    .mr-#{$prop} {
+        margin-right: $value !important;
     }
 }
 

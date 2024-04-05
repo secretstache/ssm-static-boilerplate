@@ -3,12 +3,6 @@
     column-gap: var(--grid-column-gap);
     row-gap: var(--grid-row-gap);
     flex-wrap: wrap;
-
-    &.reverse-order {
-        @include breakpoint(small only) {
-            flex-direction: column-reverse;
-        }
-    }
 }
 
 @for $i from 1 through 12 {

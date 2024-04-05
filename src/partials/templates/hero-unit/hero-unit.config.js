@@ -2,6 +2,7 @@ const options = {};
 
 module.exports = {
     title: 'Hero unit',
+    hidden: true,
     options,
     context: {
         bg: {

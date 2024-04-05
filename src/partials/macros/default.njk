@@ -12,8 +12,7 @@
         'align-' + props.align if props.align,
         'align-' + props.justify if props.justify,
         'container-width-' + props.width if props.width,
-        'container-align-' + props.containerAlign if props.containerAlign,
-        'reverse-order' if props.reverse
+        'container-align-' + props.containerAlign if props.containerAlign
     ]) | toClassNames %}
 
     <div class="grid-x{{ classes }}">
@@ -27,6 +26,7 @@
 {% macro column(props) %}
     {% set classes = ([
         'medium-' + props.width if props.width,
+        'small-order-' + props.order if props.order,
         props.class if props.class
     ]) | toClassNames %}
 
