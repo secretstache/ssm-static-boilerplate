@@ -1,4 +1,4 @@
-.accordion {
+.template-accordion {
     &__nav {
         display: flex;
         flex-wrap: wrap;
@@ -83,14 +83,14 @@
         }
 
         &.is-opened {
-            .accordion__button {
+            .template-accordion__button {
                 &::before {
                     mask-image: svg-uri('<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 2V0H14V2H0Z" fill="white"/></svg>');
                     height: rem-calc(2);
                 }
             }
 
-            .accordion__content {
+            .template-accordion__content {
                 padding-top: rem-calc(8);
             }
         }

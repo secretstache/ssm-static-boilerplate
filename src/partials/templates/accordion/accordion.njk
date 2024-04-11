@@ -1,0 +1,44 @@
+/**
+* @param {string} class
+* @param {array} items
+*/
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        {% if props.filters %}
+
+            <div class="template-accordion__nav">
+
+                {% for filter in['Filter 1', 'Filter 2', 'Filter 3'] %}
+
+                    <button class="template-accordion__nav-item {% if loop.index == 1 %}is-active{% endif %}">{{ filter }}</button>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+        {% if props.filters %}
+
+            {% for i in[1, 2, 3] %}
+
+                <div class="template-accordion__list {% if loop.index == 1 %}is-active{% endif %}">
+
+                    {% include 'templates/accordion/items.njk' %}
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            {% include 'templates/accordion/items.njk' %}
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

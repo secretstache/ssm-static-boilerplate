@@ -1,0 +1,14 @@
+{% for item in props.items %}
+
+    <div class="template-accordion__item">
+        <header class="template-accordion__header">
+            <h3 class="template-accordion__title">{{ item.title }}</h3>
+            <button aria-expanded="false" class="template-accordion__button"></button>
+        </header>
+
+        <article class="template-accordion__content" aria-hidden="true">
+            {{ item.description | safe }}
+        </article>
+    </div>
+
+{% endfor %}

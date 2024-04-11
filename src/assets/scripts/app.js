@@ -3,9 +3,9 @@ import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
 // import Modal from './global/modal';
-import Accordion from './modules/accordion';
+import Accordion from './templates/accordion';
 import DropdownMenu from './global/dropdownMenu';
-import HorizontalTabs from './templates/horizontal-tabs'
+import HorizontalTabs from './templates/horizontal-tabs';
 
 import './templates/vertical-tabs';
 

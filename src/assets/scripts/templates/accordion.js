@@ -1,10 +1,10 @@
-const BLOCK_SELECTOR = '.accordion';
-const ITEM_SELECTOR = '.accordion__item';
-const HEADER_SELECTOR = '.accordion__header';
-const BUTTON_SELECTOR = '.accordion__button';
-const CONTENT_SELECTOR = '.accordion__content';
-const ACCORDION_NAVS_SELECTOR = '.accordion__nav-item';
-const ACCORDION_CONTENT_SELECTOR = '.accordion__list';
+const BLOCK_SELECTOR = '.template-accordion';
+const ITEM_SELECTOR = '.template-accordion__item';
+const HEADER_SELECTOR = '.template-accordion__header';
+const BUTTON_SELECTOR = '.template-accordion__button';
+const CONTENT_SELECTOR = '.template-accordion__content';
+const ACCORDION_NAVS_SELECTOR = '.template-accordion__nav-item';
+const ACCORDION_CONTENT_SELECTOR = '.template-accordion__list';
 const OPEN_CLASS = 'is-opened';
 const ACTIVE_CLASS = 'is-active';
 
