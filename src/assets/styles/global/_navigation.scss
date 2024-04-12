@@ -30,10 +30,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: transform var(--tr);
         margin-left: rem-calc(10);
         width: rem-calc(30);
         height: rem-calc(30);
-        transition: transform var(--tr);
 
         &::after {
             display: block;
@@ -61,9 +61,9 @@
         box-shadow: var(--shadow, 0 0 10px rgba(0, 0, 0, 0.1));
         background: var(--white, #fff);
         padding: rem-calc(20);
+        width: rem-calc(150);
         pointer-events: none;
         list-style: none;
-        width: rem-calc(150);
 
         > * + * {
             margin-top: rem-calc(5);
@@ -101,5 +101,12 @@
                 pointer-events: auto;
             }
         }
+    }
+}
+
+// scrollspy
+.is-scrollspy {
+    li.is-active a {
+        font-weight: 700;
     }
 }

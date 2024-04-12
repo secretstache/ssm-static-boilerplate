@@ -5,6 +5,7 @@ import Header from './global/header';
 // import Modal from './global/modal';
 import Accordion from './templates/accordion';
 import DropdownMenu from './global/dropdownMenu';
+import ScrollspyMenu from './global/scrollspyMenu';
 import HorizontalTabs from './templates/horizontal-tabs';
 
 import './templates/vertical-tabs';
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // menus
     DropdownMenu();
+    ScrollspyMenu();
 
     // modules
     Accordion();

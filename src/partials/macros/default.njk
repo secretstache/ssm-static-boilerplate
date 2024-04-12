@@ -73,7 +73,7 @@
 
     {% set templateHeader = props.templateHeader %}
 
-    {%  set id = ' id="' + props.id + '"' if props.id %}
+    {%  set id = ' id=' + props.id + '' if props.id %}
 
     <section class="content-block{{ classes }}"{{ id }}>
 
