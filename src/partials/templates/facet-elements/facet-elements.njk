@@ -1,0 +1,55 @@
+/**
+* @param {string} class
+* @param {string} style
+* @param {string} id
+* @param {string} customStyle
+* @param {array} items
+*/
+
+{% macro render(props) %}
+
+    {% from 'macros/blocks.njk' import block %}
+
+    {% set classes = ([
+    props.class if props.class,
+    'is-style-' + props.customStyle if props.customStyle
+  ]) | toClassNames %}
+
+    {% set styles = ([props.style if props.style]) | toStyleString | safe %}
+
+    {% set id = ' id="' + props.id + '"' if props.id %}
+
+    <div class="grid-container">
+
+        <h3 style="margin-bottom: 2rem">Dropdown Checkboxes</h3>
+        <div class="facet-dropdown facet-dropdown--checkbox">
+            {% for filter in props.filters %}
+            <div class="facet-wrap">
+                <h3>{{ filter.title }}</h3>
+                <div class="facetwp-facet facetwp-facet-make facetwp-type-checkboxes" data-name="make" data-type="checkboxes" aria-label="Make" role="group">
+                    {% for item in filter.items %}
+                    <div class="facetwp-checkbox{% if item.class %} {{ item.class }}{% endif %}" data-value="acura" role="checkbox" aria-checked="false" aria-label="Acura(7)" tabindex="0"><span class="facetwp-display-value">{{ item.title }}</span><span class="facetwp-counter">(7)</span></div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h3 style="margin-bottom: 2rem; margin-top: 2rem">Dropdown Radiobuttons</h3>
+        <div class="facet-dropdown facet-dropdown--checkbox">
+            {% for filter in props.filters %}
+            <div class="facet-wrap">
+                <h3>{{ filter.title }}</h3>
+                <div class="facetwp-facet facetwp-facet-make facetwp-type-radio" data-name="make" data-type="checkboxes" aria-label="Make" role="group">
+                    {% for item in filter.items %}
+                    <div class="facetwp-radio{% if item.class %} {{ item.class }}{% endif %}" data-value="acura" role="checkbox" aria-checked="false" aria-label="Acura(7)" tabindex="0"><span class="facetwp-display-value">{{ item.title }}</span><span class="facetwp-counter">(7)</span></div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+{% endmacro %}
