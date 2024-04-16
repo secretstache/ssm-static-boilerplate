@@ -12,17 +12,18 @@ title: "Components"
 {% block content %}
 
 
-    <div class="ds-tabs">
+    <div class="ds-tabs [&_pre]:overflow-x-auto  [&_pre]:m-0  [&_pre]:text-[14px]">
 
         <div id="demo" class="ds-tabs__panel is-active">
 
             <div class="ds-tabs__content">
 
-                <div class="viewport-wrapper">
+                <div class="viewport-wrapper  bg-[#f4f4f4]">
 
-                    <div id="viewpr-content" class="viewport-content">
 
-                            <iframe src="{{ root }}/design-system/{{ component.type }}/full/{{ component.slug }}/" sandbox="allow-same-origin allow-scripts allow-forms allow-modals" style="" vspace="0" hspace="0"></iframe>
+                    <div id="viewpr-content" class="viewport-content ml-auto mr-auto bg-white min-w-0 max-w-full">
+
+                            <iframe class="block grow m-0 b-none p-0 w-full min-h-[calc(var(--vh,1vh)_*_100_-_57px)] overflow-hidden" src="{{ root }}/design-system/{{ component.type }}/full/{{ component.slug }}/" sandbox="allow-same-origin allow-scripts allow-forms allow-modals" style="" vspace="0" hspace="0"></iframe>
 
                             {% set comp %}
 
@@ -38,7 +39,7 @@ title: "Components"
 
         </div>
 
-        <div id="code-tab" role="tabpanel" class="ds-tabs__panel">
+        <div id="code-tab" role="tabpanel" class="ds-tabs__panel hidden p-5">
 
             <div class="ds-tabs__content">
 
@@ -48,7 +49,7 @@ title: "Components"
 
         </div>
 
-        <div id="context-tab" role="tabpanel" class="ds-tabs__panel">
+        <div id="context-tab" role="tabpanel" class="ds-tabs__panel hidden p-5">
 
             <div class="ds-tabs__content">
 
@@ -58,7 +59,7 @@ title: "Components"
 
         </div>
 
-        <div id="options-tab" role="tabpanel" class="ds-tabs__panel">
+        <div id="options-tab" role="tabpanel" class="ds-tabs__panel hidden">
 
             <div class="ds-tabs__content">
 

@@ -14,7 +14,7 @@ const minMax = (minSize, maxSize, minBreakpoint = 480, maxBreakpoint = 1024, uni
 };
 
 module.exports = {
-    content: ['./src/**/*.{njk,js}', './dist/design-system/**/*.html'],
+    content: ['./src/**/*.{njk,js}', './dist/design-system/**/*.html', './eleventy.js'],
     darkMode: ['selector', '.bg-dark'],
     theme: {
         container: {
