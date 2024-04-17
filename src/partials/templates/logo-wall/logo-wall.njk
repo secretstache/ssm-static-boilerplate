@@ -1,0 +1,60 @@
+{#
+# @prop {string} img
+# @prop {string} title
+# @prop {array} items
+#}
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        {% if props.layoutGrid %}
+        <ul class="template-logo-wall__list">
+            {% for item in props.items %}
+                <li class="template-logo-wall__item">
+                    {% if item.link%}
+                    <a href="{{root}}{{item.link}}">
+                    {% endif %}
+                        <img src="{{root}}{{item.img}}" alt="{{item.title}}">
+                    {% if item.link%}
+                    </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+
+        <div class="template-logo-wall__wrapper">
+            <div class="splide">
+
+                <div class="splide__track">
+                    <ul class="splide__list">
+
+                        {% for item in props.items %}
+                            <li class="splide__slide">
+
+                                {% if item.link%}
+                                <a href="{{root}}{{item.link}}">
+                                {% endif %}
+
+                                <div class="template-logo-wall__item">
+                                    <img src="{{root}}{{item.img}}" alt="{{item.title}}">
+                                </div>
+
+                                {% if item.link%}
+                                </a>
+                                {% endif %}
+
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

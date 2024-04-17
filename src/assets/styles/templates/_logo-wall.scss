@@ -1,0 +1,59 @@
+.template-logo-wall {
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: rem-calc(0 20);
+        height: 100%;
+        max-height: rem-calc(52);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @include breakpoint(large) {
+            padding: rem-calc(0 52);
+            max-height: rem-calc(70);
+        }
+    }
+
+    &.layout-grid {
+        .template-logo-wall {
+            &__list {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: rem-calc(32);
+                margin: 0;
+                padding: 0;
+            }
+
+            &__item {
+                display: flex;
+                width: calc(100% / 2 - #{rem-calc(32)} / 2);
+                padding: 0;
+
+                a {
+                    width: 100%;
+                }
+
+                img {
+                    max-height: rem-calc(52);
+                }
+
+                @include breakpoint(medium) {
+                    width: calc(100% / 5 - #{rem-calc(128)} / 5);
+                }
+            }
+        }
+    }
+
+    .splide.is-centered {
+        .splide__list {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
