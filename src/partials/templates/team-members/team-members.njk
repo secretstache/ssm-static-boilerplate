@@ -1,0 +1,62 @@
+{#
+# @prop {array} members
+#}
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-team-members__list">
+            {% for member in props.members %}
+
+                <div class="template-team-members__card">
+
+                    {% if member.image %}
+                        <div class="template-team-members__image-wrapper">
+                            <img src="{{ root }}{{ member.image }}" alt="{{ member.name }}">
+                        </div>
+                    {% endif %}
+
+                    <div class="template-team-members__content">
+
+                        <div class="template-team-members__info">
+
+                            {% if member.name %}
+                                <h3 class="template-team-members__name">{{ member.name }}</h3>
+                            {% endif %}
+
+                            {% if member.position %}
+                                <p class="template-team-members__position">{{ member.position }}</p>
+                            {% endif %}
+
+                        </div>
+
+                        {% if member.linkList %}
+
+                            <ul class="template-team-members__link-list">
+
+                                {% for linkListItem in member.linkList %}
+
+                                    <li>
+                                        <a class="template-team-members__link" href="{{ linkListItem.link }}">
+                                            <img class="editable-svg" src="{{ root }}{{ linkListItem.linkIcon }}" alt="icon">
+                                        </a>
+                                    </li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

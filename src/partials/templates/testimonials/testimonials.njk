@@ -1,0 +1,61 @@
+{#
+# @prop {array} testimonials
+#}
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="splide">
+
+            <div class="splide__track">
+
+                <div class="splide__list">
+
+                    {% for testimonial in props.testimonials %}
+
+                        <div class="splide__slide">
+
+                            <div class="template-testimonials__item">
+
+                                {% if testimonial.image %}
+
+                                    <img class="template-testimonials__image" src="{{ root }}{{ testimonial.image }}" alt="">
+
+                                {% endif %}
+
+                                {% if testimonial.pullquote%}
+
+                                    <figure class="wp-block-pullquote">
+
+                                        <blockquote>
+
+                                            <p>{{ testimonial.pullquote }}</p>
+
+                                            {% if testimonial.cite %}
+
+                                                <cite>{{ testimonial.cite | safe }}</cite>
+
+                                            {% endif %}
+
+                                        </blockquote>
+
+                                    </figure>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endmacro %}

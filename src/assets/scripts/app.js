@@ -9,6 +9,7 @@ import ScrollspyMenu from './global/scrollspyMenu';
 import HorizontalTabs from './templates/horizontal-tabs';
 import LogoWall from './templates/logo-wall';
 import { FacetDropdown } from './templates/facet-elements';
+import Testimonials from './templates/testimonials';
 
 import './templates/vertical-tabs';
 
@@ -55,4 +56,5 @@ document.addEventListener('DOMContentLoaded', function () {
     HorizontalTabs();
     FacetDropdown();
     LogoWall();
+    Testimonials();
 });

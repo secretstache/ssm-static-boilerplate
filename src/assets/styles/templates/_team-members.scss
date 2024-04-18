@@ -1,0 +1,72 @@
+.template-team-members {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc(32 16);
+    }
+
+    &__card {
+        --column-gap: 1rem;
+        width: 100%;
+
+        @include breakpoint(medium) {
+            width: calc(100% / 2 - ((var(--column-gap)) / 2));
+        }
+
+        @include breakpoint(large) {
+            width: calc(100% / 3 - ((var(--column-gap) * 3) / 3));
+        }
+
+        &:hover {
+            .template-team-members__image-wrapper img {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    &__image-wrapper {
+        display: block;
+        position: relative;
+        margin-bottom: rem-calc(16);
+        border-radius: rem-calc(8);
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            @include overlay;
+            transition: transform var(--tr);
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(5);
+    }
+
+    &__link-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc(5);
+        margin: 0;
+        padding: 0;
+        max-width: 40%;
+        list-style: none;
+    }
+
+    &__link {
+        img,
+        svg {
+            width: rem-calc(24);
+            height: rem-calc(24);
+            object-fit: contain;
+        }
+    }
+}
