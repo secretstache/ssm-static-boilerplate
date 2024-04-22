@@ -78,12 +78,37 @@
     padding-top: 10px;
     padding-bottom: 10px;
     width: 290px;
+
+    @include breakpoint(medium down) {
+        position: relative;
+        width: 100%;
+        border-radius: 0;
+    }
 }
 
 .ds-menu {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @include breakpoint(medium down) {
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        top: 100%;
+        background: #161f50;
+        width: 100%;
+        padding: 20px 16px;
+        align-items: flex-start;
+        display: none;
+        max-height: calc(100vh - 80px);
+        overflow: auto;
+        border-top: 2px solid #2d3b84;
+
+        li {
+            width: 100%;
+        }
+    }
 
     .ds-link {
         display: flex;
@@ -103,6 +128,7 @@
             margin-left: auto;
             width: 14px;
             height: auto;
+            pointer-events: none;
         }
 
         &.ds-link--active {
@@ -161,7 +187,10 @@
 
         &.is-parent-item {
             &.is-active {
-                background: #39406a;
+                > a {
+                    background: #39406a;
+                }
+
 
                 > .ds-menu__submenu {
                     display: block;
@@ -174,6 +203,23 @@
                 > .ds-menu__submenu {
                     display: block;
                 }
+            }
+
+
+           @include breakpoint(medium down) {
+               &.is-active:not(.is-open) {
+                   > .ds-menu__submenu {
+                       display: none;
+                   }
+               }
+
+               &.is-active.is-open {
+                    > .ds-menu__submenu {
+                        display: block;
+                    }
+               }
+
+
             }
         }
     }
@@ -208,6 +254,11 @@
     color: white;
     font-size: 13px;
     text-decoration: none;
+
+    @include breakpoint(medium down) {
+        display: none;
+    }
+
 }
 
 .ds-tabs-nav {
@@ -219,6 +270,10 @@
     padding-top: 0;
     padding-bottom: 0;
     list-style: none;
+
+    @include breakpoint(medium down) {
+        display: none;
+    }
 
     &__link {
         display: block;
@@ -275,6 +330,10 @@
     margin-left: auto;
     font-size: 13px;
     list-style: none;
+
+    @include breakpoint(medium down) {
+        display: none;
+    }
 
     a {
         display: flex;
@@ -494,4 +553,36 @@ body:has(.ds__body) {
             }
         }
     }
+}
+
+.ds-hamburger {
+    width: 40px;
+    display: block;
+    min-width: 40px;
+    color: white;
+    margin-left: auto;
+
+    .ds-hamburger__close {
+        display: none;
+    }
+
+    &.is-active {
+        .ds-hamburger__close {
+            display: block;
+        }
+
+        .ds-hamburger__bars {
+            display: none;
+        }
+
+        + .ds-menu {
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    @include breakpoint(medium) {
+        display: none;
+    }
+
 }
