@@ -1,0 +1,79 @@
+{% call columns({
+  "align": "middle"
+}) %}
+
+  {% call column({
+    "width": 6
+  }) %}
+
+    {{ module("image", {
+      "class": "align-center",
+      "src": "/assets/images/cms/placeholder.svg"
+    }) }}
+
+  {% endcall %}
+
+  {% call column({
+    "width": 6
+  }) %}
+
+    {{ module("header", {
+      "headers": [
+        {
+          "tag": "h4",
+          "text": "Title 01"
+        }
+      ]
+    }) }}
+
+    {% call module( "editor", {
+      "class": "test-class"
+    } ) %}
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, ab ex. Aut qui blanditiis tenetur distinctio iure velit necessitatibus aperiam quia, consequatur architecto vel, omnis eaque. Harum inventore aliquam cupiditate ut officia consequuntur a saepe consectetur quas in suscipit dolore veniam minima provident beatae quos maiores et, illo, velit unde.</p>
+    {% endcall %}
+
+  {% endcall %}
+
+
+{% endcall %}
+
+
+
+{% call columns({
+  "align": "middle"
+}) %}
+
+  {% call column({
+    "width": 6
+  }) %}
+
+    {{ module("image", {
+      "class": "align-center",
+      "src": "/assets/images/cms/placeholder.svg"
+    }) }}
+
+  {% endcall %}
+
+  {% call column({
+    "width": 6
+  }) %}
+
+    {{ module("header", {
+      "headers": [
+        {
+          "tag": "h4",
+          "text": "Title 02"
+        }
+      ]
+    }) }}
+
+    {% call module( "editor", {
+      "class": "test-class"
+    } ) %}
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est asperiores quisquam a omnis perferendis, ex ut alias quibusdam ab nobis consequatur blanditiis vitae totam in fugit eveniet maiores ullam commodi! In saepe ullam sunt voluptas, explicabo magnam. Sed sit ex neque enim id maxime delectus saepe, molestiae numquam, perferendis fugiat!</p>
+    {% endcall %}
+
+  {% endcall %}
+
+
+{% endcall %}

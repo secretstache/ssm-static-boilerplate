@@ -1,0 +1,25 @@
+.template-split-content {
+    .grid-x + .grid-x {
+        margin-top: rem-calc(32);
+
+        @include breakpoint(medium) {
+            margin-top: rem-calc(64);
+        }
+    }
+
+    &:not(.is-reversed) {
+        .grid-x:nth-child(even) {
+            @include breakpoint(medium) {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    &.is-reversed {
+        .grid-x:nth-child(odd) {
+            @include breakpoint(medium) {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

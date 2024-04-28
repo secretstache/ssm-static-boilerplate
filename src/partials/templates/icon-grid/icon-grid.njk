@@ -1,0 +1,25 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-icon-grid__list">
+
+            {% for item in props.items %}
+
+                <div class="template-icon-grid__item">
+
+                    <div class="template-icon-grid__image-wrapper">
+                        <img class="template-icon-grid__image" src="{{ root }}{{ item.image }}" alt="{{ item.title }}">
+                    </div>
+
+                    <p class="template-icon-grid__title">{{ item.title }}</p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}
