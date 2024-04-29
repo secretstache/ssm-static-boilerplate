@@ -3,7 +3,6 @@
     "version": "3.0.1",
     "author": "Secret Stache Media <rich@secretstache.com>",
     "license": "MIT",
-    "private": true,
     "vars": {
         "prefix": "/secretstache/ssmv4",
         "project": "default"
