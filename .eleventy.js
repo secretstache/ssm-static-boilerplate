@@ -1,7 +1,6 @@
 const prettify = require('html-prettify');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const fs = require('fs');
-const prettier = require('prettier');
 
 const dir = {
     input: 'src/pages',
@@ -140,14 +139,6 @@ module.exports = (eleventyConfig) => {
     }
 
     eleventyConfig.addFilter('sortByTitle', sortByTitle);
-
-    // eleventyConfig.addTransform('prettier', (content, outputPath) => {
-    //     console.log(outputPath);
-    //     if (outputPath.endsWith('.html') && !isDev) {
-    //         return prettier.format(content, { parser: 'html' });
-    //     }
-    //     return content;
-    // });
 
     eleventyConfig.addShortcode('optionsTree', function (options) {
         if (!options) return;
