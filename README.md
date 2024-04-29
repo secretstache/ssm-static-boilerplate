@@ -11,7 +11,7 @@ Static boilerplate which contains a starting static development point for SSM pr
 
 ## Requirements
 
-- [NodeJS](https://nodejs.org/en/) (18.16.0 or higher)
+- [NodeJS](https://nodejs.org/en/) (20.9.0 or higher)
 
 ## Installation
 
