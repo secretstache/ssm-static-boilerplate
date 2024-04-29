@@ -2,5 +2,4 @@
 dist
 
 # Ignore files:
-**/*.html
-**/*.html
+src/assets/scripts/libs/

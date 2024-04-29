@@ -6,7 +6,7 @@ const options = {
     Stacked: {
         Default: 'flex-col items-start',
         Center: 'flex-col items-center',
-        Right: 'flex-col items-end'
+        Right: 'flex-col items-end',
     },
 };
 

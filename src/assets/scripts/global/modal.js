@@ -297,12 +297,7 @@ class Modal extends BaseComponent {
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     const target = SelectorEngine.getElementFromSelector(this);
 
-    if (
-        [
-            'A',
-            'AREA',
-        ].includes(this.tagName)
-    ) {
+    if (['A', 'AREA'].includes(this.tagName)) {
         event.preventDefault();
     }
 

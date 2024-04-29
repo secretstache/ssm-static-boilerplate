@@ -1,4 +1,4 @@
-{
+export default {
     "extends": ["stylelint-config-tailwindcss"],
     "rules": {
         "selector-class-pattern": null,
@@ -22,7 +22,7 @@
                     "for"
                 ]
             }
-        ],
-        "declaration-block-trailing-semicolon": null
-    }
-}
+        ]
+    },
+    "ignoreFiles": ["/src/assets/styles/libs", "/src/assets/styles/wp-plugins", "/src/assets/styles/vendor.scss"]
+};

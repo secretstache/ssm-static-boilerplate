@@ -1,4 +1,4 @@
-{
+export default {
     "plugins": [
         "prettier-plugin-multiline-arrays",
         "prettier-plugin-tailwindcss"
@@ -20,4 +20,4 @@
             }
         }
     ]
-}
+};

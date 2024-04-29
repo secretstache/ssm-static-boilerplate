@@ -1116,7 +1116,7 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@9.1.1":
+"@eslint/js@9.1.1", "@eslint/js@^9.1.1":
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.1.1.tgz#eb0f82461d12779bbafc1b5045cde3143d350a8a"
   integrity sha512-5WoDz3Y19Bg2BnErkZTp0en+c/i9PvgFS7MBe1+m60HjFr0hrphlAGp4yzI7pxpt4xShln4ZyYp4neJm8hmOkQ==
@@ -3044,6 +3044,11 @@ globals@^14.0.0:
   version "14.0.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-14.0.0.tgz#898d7413c29babcf6bafe56fcadded858ada724e"
   integrity sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==
+
+globals@^15.1.0:
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-15.1.0.tgz#4e03d200c8362201636b8cdfaa316d6cef67ff1e"
+  integrity sha512-926gJqg+4mkxwYKiFvoomM4J0kWESfk3qfTvRL2/oc/tK/eTDBbrfcKnSa2KtfdxB5onoL7D3A3qIHQFpd4+UA==
 
 globalthis@^1.0.3:
   version "1.0.3"
@@ -5674,9 +5679,9 @@ terser-webpack-plugin@^5.3.10:
     terser "^5.26.0"
 
 terser@^5.26.0:
-  version "5.30.4"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.30.4.tgz#62b4d16a819424e6317fd5ceffb4ee8dc769803a"
-  integrity sha512-xRdd0v64a8mFK9bnsKVdoNP9GQIKUAaJPTaqEQDL4w/J8WaW4sWXXoMZ+6SimPkfT5bElreXf8m9HnmPc3E1BQ==
+  version "5.31.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.31.0.tgz#06eef86f17007dbad4593f11a574c7f5eb02c6a1"
+  integrity sha512-Q1JFAoUKE5IMfI4Z/lkE/E6+SwgzO+x4tq4v1AyBLRj8VSYvRO6A/rQrPg1yud4g0En9EKI1TvFRF2tQFcoUkg==
   dependencies:
     "@jridgewell/source-map" "^0.3.3"
     acorn "^8.8.2"

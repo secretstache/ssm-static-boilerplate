@@ -143,7 +143,7 @@ const findShadowRoot = (element) => {
  * @see https://www.charistheo.io/blog/2021/02/restart-a-css-animation-with-javascript/#restarting-a-css-animation
  */
 const reflow = (element) => {
-    element.offsetHeight; // eslint-disable-line no-unused-expressions
+    element.offsetHeight;
 };
 
 const execute = (possibleCallback, args = [], defaultValue = possibleCallback) => {
@@ -329,17 +329,16 @@ const scrollToHash = () => {
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
-            console.log(elementPosition)
+            console.log(elementPosition);
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth',
             });
 
             // for accessibility
-            target.setAttribute("tabindex", "-1");
+            target.setAttribute('tabindex', '-1');
             target.focus();
-            target.removeAttribute("tabindex");
-
+            target.removeAttribute('tabindex');
         }, 50);
     };
 

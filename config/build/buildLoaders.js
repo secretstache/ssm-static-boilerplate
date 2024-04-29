@@ -7,12 +7,7 @@ function buildLoaders() {
         use: {
             loader: 'babel-loader',
             options: {
-                presets: [
-                    [
-                        '@babel/preset-env',
-                        { targets: 'defaults' },
-                    ],
-                ],
+                presets: [['@babel/preset-env', { targets: 'defaults' }]],
             },
         },
     };
@@ -33,9 +28,7 @@ function buildLoaders() {
                     loader: 'postcss-loader',
                     options: {
                         postcssOptions: {
-                            plugins: [
-                                require.resolve('autoprefixer'),
-                            ],
+                            plugins: [require.resolve('autoprefixer'), require.resolve('postcss-import'), require.resolve('postcss-for')],
                         },
                     },
                 },
@@ -49,10 +42,7 @@ function buildLoaders() {
         },
     ];
 
-    return [
-        jsLoader,
-        ...cssLoader,
-    ];
+    return [jsLoader, ...cssLoader];
 }
 
 exports.buildLoaders = buildLoaders;

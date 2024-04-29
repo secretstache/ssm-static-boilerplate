@@ -68,7 +68,7 @@
     .entry-content-asset {
         @apply relative overflow-hidden before:block before:pt-[56.25%];
 
-        iframe {
+        :is(iframe) {
             @apply absolute left-0 top-0 h-full w-full;
         }
     }
@@ -96,22 +96,21 @@
     }
 
     .text-editor {
-        ul {
+        :is(ul) {
             @apply list-inside list-disc space-y-2;
         }
 
-        ol {
+        :is(ol) {
             @apply list-inside list-decimal space-y-2;
         }
     }
 
     .gform_wrapper.gravity-theme {
-        fieldset,
-        legend {
+        :is(fieldset, legend) {
             @apply m-0 block border-none bg-transparent p-0;
         }
 
-        textarea.large {
+        :is(textarea.large) {
             @apply h-auto;
         }
 
@@ -210,7 +209,7 @@
                 @apply md:col-span-12;
             }
 
-            label {
+            :is(label) {
                 @apply mb-1 p-0 text-base;
             }
         }
@@ -239,21 +238,15 @@
         }
 
         .ginput_container_date {
-            input {
+            :is(input) {
                 @apply !w-full;
             }
         }
 
-        form {
+        :is(form) {
             @apply grid grid-cols-1 gap-y-4;
 
-            .gfield_error .gfield_repeater_cell label,
-            .gfield_error label,
-            .gfield_error legend,
-            .gfield_validation_message,
-            .validation_message,
-            [aria-invalid="true"] + label,
-            label + [aria-invalid="true"] {
+            :is(.gfield_error .gfield_repeater_cell label, .gfield_error label, .gfield_error legend, .gfield_validation_message, .validation_message, [aria-invalid="true"] + label, label + [aria-invalid="true"]) {
                 @apply text-red-500;
             }
 
@@ -263,9 +256,7 @@
             }
 
             .gfield.gfield_error {
-                input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
-                select,
-                textarea {
+                :is(input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]), select, textarea) {
                     @apply border-red-500;
                 }
             }
