@@ -70,5 +70,9 @@
         "lightgallery": "^2.7.1",
         "plyr": "^3.7.3",
         "slim-select": "^2.8.2"
+    },
+    "resolutions": {
+        "string-width": "^4.2.3",
+        "wrap-ansi": "^7.0.0"
     }
 }
