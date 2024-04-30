@@ -11,17 +11,15 @@ window.addEventListener('click', (e) => {
                 }
             });
         target.parentElement.classList.toggle('is-open');
-    } else if(target.classList.contains('ds-hamburger') || target.closest('.ds-hamburger')) {
+    } else if (target.classList.contains('ds-hamburger') || target.closest('.ds-hamburger')) {
         document.querySelector('.ds-hamburger').classList.toggle('is-active');
     } else {
-
         document.querySelectorAll('.is-open').forEach((item) => {
             item.classList.remove('is-open');
         });
 
         document.querySelector('.ds-hamburger').classList.remove('is-active');
     }
-
 });
 
 document.querySelector('#viewpr-content iframe')?.addEventListener('load', () => {

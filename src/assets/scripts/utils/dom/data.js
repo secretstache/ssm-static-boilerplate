@@ -11,7 +11,6 @@ export default {
         // make it clear we only want one instance per element
         // can be removed later when multiple key/instances are fine to be used
         if (!instanceMap.has(key) && instanceMap.size !== 0) {
-            // eslint-disable-next-line no-console
             console.error(`More than one instance per element is not allowed. Bound instance: ${Array.from(instanceMap.keys())[0]}.`);
             return;
         }

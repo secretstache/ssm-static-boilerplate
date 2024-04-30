@@ -77,8 +77,8 @@
 
     @include breakpoint(medium down) {
         position: relative;
-        width: 100%;
         border-radius: 0;
+        width: 100%;
     }
 }
 
@@ -89,18 +89,18 @@
     margin-left: 40px;
 
     @include breakpoint(medium down) {
-        position: absolute;
-        flex-direction: column;
-        right: 0;
-        top: 100%;
-        background: #161f50;
-        width: 100%;
-        padding: 20px 16px;
-        align-items: flex-start;
         display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        border-top: 2px solid #2d3b84;
+        background: #161f50;
+        padding: 20px 16px;
+        width: 100%;
         max-height: calc(100dvh - 64px);
         overflow: auto;
-        border-top: 2px solid #2d3b84;
 
         li {
             width: 100%;
@@ -190,7 +190,6 @@
                     background: #39406a;
                 }
 
-
                 > .ds-menu__submenu {
                     display: block;
                 }
@@ -204,7 +203,6 @@
                 }
             }
 
-
             @include breakpoint(medium down) {
                 &.is-active:not(.is-open) {
                     > .ds-menu__submenu {
@@ -217,8 +215,6 @@
                         display: block;
                     }
                 }
-
-
             }
         }
     }
@@ -257,7 +253,6 @@
     @include breakpoint(medium down) {
         display: none;
     }
-
 }
 
 .ds-tabs-nav {
@@ -555,11 +550,11 @@ body:has(.ds__body) {
 }
 
 .ds-hamburger {
-    width: 40px;
     display: block;
+    margin-left: auto;
+    width: 40px;
     min-width: 40px;
     color: white;
-    margin-left: auto;
 
     .ds-hamburger__close {
         display: none;
@@ -583,5 +578,4 @@ body:has(.ds__body) {
     @include breakpoint(medium) {
         display: none;
     }
-
 }

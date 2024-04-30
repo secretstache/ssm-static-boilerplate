@@ -43,30 +43,39 @@
         &.gfield--width-full {
             grid-column: span 12;
         }
+
         &.gfield--width-eleven-twelfths {
             grid-column: span 11;
         }
+
         &.gfield--width-five-sixths {
             grid-column: span 10;
         }
+
         &.gfield--width-three-quarter {
             grid-column: span 9;
         }
+
         &.gfield--width-two-thirds {
             grid-column: span 8;
         }
+
         &.gfield--width-seven-twelfths {
             grid-column: span 7;
         }
+
         &.gfield--width-half {
             grid-column: span 6;
         }
+
         &.gfield--width-five-twelfths {
             grid-column: span 5;
         }
+
         &.gfield--width-third {
             grid-column: span 4;
         }
+
         &.gfield--width-quarter {
             grid-column: span 3;
         }
@@ -124,6 +133,7 @@
                         &::before {
                             border-color: var(--form-checkbox-color-active);
                         }
+
                         &::after {
                             opacity: 1;
                         }
@@ -195,7 +205,7 @@
         }
     }
 
-    @media (max-width: 640px) {
+    @media (width <= 640px) {
         .gform_fields {
             grid-column-gap: 0;
         }
@@ -255,6 +265,7 @@
         display: none;
     }
 
+    /* stylelint-disable-next-line */
     form {
         .gfield_error .gfield_repeater_cell label,
         .gfield_error label,

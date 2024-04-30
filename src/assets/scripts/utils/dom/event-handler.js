@@ -8,7 +8,54 @@ const customEvents = {
     mouseleave: 'mouseout',
 };
 
-const nativeEvents = new Set(['click', 'dblclick', 'mouseup', 'mousedown', 'contextmenu', 'mousewheel', 'DOMMouseScroll', 'mouseover', 'mouseout', 'mousemove', 'selectstart', 'selectend', 'keydown', 'keypress', 'keyup', 'orientationchange', 'touchstart', 'touchmove', 'touchend', 'touchcancel', 'pointerdown', 'pointermove', 'pointerup', 'pointerleave', 'pointercancel', 'gesturestart', 'gesturechange', 'gestureend', 'focus', 'blur', 'change', 'reset', 'select', 'submit', 'focusin', 'focusout', 'load', 'unload', 'beforeunload', 'resize', 'move', 'DOMContentLoaded', 'readystatechange', 'error', 'abort', 'scroll']);
+const nativeEvents = new Set([
+    'click',
+    'dblclick',
+    'mouseup',
+    'mousedown',
+    'contextmenu',
+    'mousewheel',
+    'DOMMouseScroll',
+    'mouseover',
+    'mouseout',
+    'mousemove',
+    'selectstart',
+    'selectend',
+    'keydown',
+    'keypress',
+    'keyup',
+    'orientationchange',
+    'touchstart',
+    'touchmove',
+    'touchend',
+    'touchcancel',
+    'pointerdown',
+    'pointermove',
+    'pointerup',
+    'pointerleave',
+    'pointercancel',
+    'gesturestart',
+    'gesturechange',
+    'gestureend',
+    'focus',
+    'blur',
+    'change',
+    'reset',
+    'select',
+    'submit',
+    'focusin',
+    'focusout',
+    'load',
+    'unload',
+    'beforeunload',
+    'resize',
+    'move',
+    'DOMContentLoaded',
+    'readystatechange',
+    'error',
+    'abort',
+    'scroll',
+]);
 
 /**
  * Private methods
@@ -75,7 +122,11 @@ function normalizeParameters(originalTypeEvent, handler, delegationFunction) {
         typeEvent = originalTypeEvent;
     }
 
-    return [isDelegated, callable, typeEvent];
+    return [
+        isDelegated,
+        callable,
+        typeEvent,
+    ];
 }
 
 function addHandler(element, originalTypeEvent, handler, delegationFunction, oneOff) {
@@ -83,7 +134,11 @@ function addHandler(element, originalTypeEvent, handler, delegationFunction, one
         return;
     }
 
-    let [isDelegated, callable, typeEvent] = normalizeParameters(originalTypeEvent, handler, delegationFunction);
+    let [
+        isDelegated,
+        callable,
+        typeEvent,
+    ] = normalizeParameters(originalTypeEvent, handler, delegationFunction);
 
     // in case of mouseenter or mouseleave wrap the handler within a function that checks for its DOM position
     // this prevents the handler from being dispatched the same way as mouseover or mouseout does
@@ -138,7 +193,10 @@ function removeHandler(element, events, typeEvent, handler, delegationSelector) 
 function removeNamespacedHandlers(element, events, typeEvent, namespace) {
     const storeElementEvent = events[typeEvent] || {};
 
-    for (const [handlerKey, event] of Object.entries(storeElementEvent)) {
+    for (const [
+        handlerKey,
+        event,
+    ] of Object.entries(storeElementEvent)) {
         if (handlerKey.includes(namespace)) {
             removeHandler(element, events, typeEvent, event.callable, event.delegationSelector);
         }
@@ -166,7 +224,11 @@ const EventHandler = {
             return;
         }
 
-        const [isDelegated, callable, typeEvent] = normalizeParameters(originalTypeEvent, handler, delegationFunction);
+        const [
+            isDelegated,
+            callable,
+            typeEvent,
+        ] = normalizeParameters(originalTypeEvent, handler, delegationFunction);
         const inNamespace = typeEvent !== originalTypeEvent;
         const events = getElementEvents(element);
         const storeElementEvent = events[typeEvent] || {};
@@ -188,7 +250,10 @@ const EventHandler = {
             }
         }
 
-        for (const [keyHandlers, event] of Object.entries(storeElementEvent)) {
+        for (const [
+            keyHandlers,
+            event,
+        ] of Object.entries(storeElementEvent)) {
             const handlerKey = keyHandlers.replace(stripUidRegex, '');
 
             if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
@@ -221,7 +286,10 @@ const EventHandler = {
 };
 
 function hydrateObj(obj, meta = {}) {
-    for (const [key, value] of Object.entries(meta)) {
+    for (const [
+        key,
+        value,
+    ] of Object.entries(meta)) {
         try {
             obj[key] = value;
         } catch {

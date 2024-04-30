@@ -13,7 +13,38 @@ Static boilerplate which contains a starting static development point for SSM pr
 
 - [NodeJS](https://nodejs.org/en/) (20.9.0 or higher)
 
-## Installation
+## Getting Started
+
+1. Install dependencies:
+
+```
+yarn install
+```
+
+2. Run in development mode:
+
+```
+yarn run start
+```
+
+3. Or build for production:
+
+```
+yarn run build
+```
+
+## Notes
+
+- Update the URL prefix in the `package.json` file under `vars[prefix]`  if the site is located in a subdirectory.
+
+
+- Set the project type to `blocks` in `package.json` file under `vars[project]` when developing for WordPress Gutenberg blocks.
+
+
+- Run `yarn run lint` to lint the project.
+
+
+- Run `yarn run prettier:fix` to beautify the files.
 
 Install via Composer:
 

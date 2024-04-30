@@ -44,7 +44,7 @@
                 pointer-events: all;
             }
 
-            &:after {
+            &::after {
                 opacity: 0;
             }
         }

@@ -1,7 +1,7 @@
-{
+export default {
     "plugins": [
-        "prettier-plugin-css-order",
-        "prettier-plugin-multiline-arrays"
+        "prettier-plugin-multiline-arrays",
+        "prettier-plugin-css-order"
     ],
     "tabWidth": 4,
     "bracketSameLine": true,
@@ -20,4 +20,4 @@
             }
         }
     ]
-}
+};
