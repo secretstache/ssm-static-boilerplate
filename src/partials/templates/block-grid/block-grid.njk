@@ -7,19 +7,26 @@
             <div class="template-block-grid__list">
 
                 {% for item in props.items %}
+
                     <a href="{{ item.link }}" class="template-block-grid__item">
+
                         {% if item.img %}
                             <div class="template-block-grid__img-wrapper">
                                 <img src="{{ root }}{{ item.img }}" alt="{{ item.headline }}">
                             </div>
                         {% endif %}
+
                         <div class="template-block-grid__card-content">
                             {% if item.categoryList %}
+
                                 <ul class="template-block-grid__category-list">
+
                                     {% for category in item.categoryList %}
-                                    <li>{{ category.title }}</li>
+                                        <li>{{ category.title }}</li>
                                     {% endfor %}
+
                                 </ul>
+
                             {% endif %}
 
                             {% if item.headline %}
@@ -27,13 +34,16 @@
                             {% endif %}
 
                             {% if item.description %}
-                                <p class="template-block-grid__description">{{ item.description | safe }} </p>
+                                <p class="template-block-grid__description">{{ item.description | safe }}</p>
                             {% endif %}
 
                         </div>
                     </a>
+
                 {% endfor %}
+
             </div>
+
         </div>
 
     </div>

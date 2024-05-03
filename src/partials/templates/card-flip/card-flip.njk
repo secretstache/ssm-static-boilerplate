@@ -1,0 +1,109 @@
+{#
+# @prop {array} items
+#}
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        {% if props.layoutCarousel %}
+
+            {% if props.items %}
+
+                <div class="splide">
+
+                    <div class="splide__track">
+
+                        <div class="splide__list">
+
+                            {% for item in props.items %}
+
+                                <div class="splide__slide">
+
+                                    <div class="template-card-flip__item">
+
+                                        <div class="template-card-flip__front-side">
+                                            {% if item.image %}
+                                                <div class="template-card-flip__image">
+                                                    <img src="{{ root }}{{ item.image }}" alt="{{ item.title }}">
+                                                </div>
+                                            {% endif %}
+
+                                            {% if item.title %}
+                                                <h3 class="template-card-flip__title">{{ item.title | safe }}</h3>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="template-card-flip__back-side">
+                                            {% if item.title %}
+                                                <h3 class="template-card-flip__title">{{ item.title | safe }}</h3>
+                                            {% endif %}
+
+                                            {% if item.description %}
+                                                <p class="template-card-flip__description">{{ item.description | safe }}</p>
+                                            {% endif %}
+
+                                            <a class="template-card-flip__button" href="{{ root }}{{ item.link }}">Read More</a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        {% else %}
+
+            {% if props.items %}
+
+                <div class="template-card-flip__grid">
+
+                    {% for item in props.items %}
+
+                        <div class="template-card-flip__item">
+
+                            <div class="template-card-flip__front-side">
+                                {% if item.image %}
+                                    <div class="template-card-flip__image">
+                                        <img src="{{ root }}{{ item.image }}" alt="{{ item.title }}">
+                                    </div>
+                                {% endif %}
+
+                                {% if item.title %}
+                                    <h3 class="template-card-flip__title">{{ item.title | safe }}</h3>
+                                {% endif %}
+                            </div>
+
+                            <div class="template-card-flip__back-side">
+                                {% if item.title %}
+                                    <h3 class="template-card-flip__title">{{ item.title | safe }}</h3>
+                                {% endif %}
+
+                                {% if item.description %}
+                                    <p class="template-card-flip__description">{{ item.description | safe }}</p>
+                                {% endif %}
+
+                                <a class="template-card-flip__button" href="{{ root }}{{ item.link }}">Read More</a>
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

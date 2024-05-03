@@ -1,0 +1,182 @@
+.template-card-flip {
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__item {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+
+        &:hover {
+            .template-card-flip__front-side {
+                transform: rotateY(-180deg);
+            }
+
+            .template-card-flip__back-side {
+                transform: rotateY(0deg);
+            }
+
+            .template-card-flip__description {
+                animation: 0.3s linear 0.3s fadeIn;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        height: 100%;
+
+        &::before {
+            position: absolute;
+            background: linear-gradient(180deg, rgba(23, 35, 66, 80%) 14.64%, rgba(23, 35, 66, 23%) 72.54%);
+            width: 100%;
+            height: 100%;
+            content: "";
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__description {
+        opacity: 0;
+        overflow: auto;
+        font-size: min-max(10, 14);
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset rem-calc(0 0 6) rgba(0, 0, 0, 30%);
+        }
+
+        &::-webkit-scrollbar {
+            width: rem-calc(5);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset rem-calc(0 0 6) rgba(0, 0, 0, 30%);
+            background-color: var(--white);
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        gap: rem-calc(8);
+        color: var(--white);
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &::after {
+            display: block;
+            background: svg-uri('<svg xmlns="http://www.w3.org/2000/svg" width="9" height="11" viewBox="0 0 9 11" fill="none"><path d="M0 5.60742V0.747686C0 0.639871 0.115901 0.572487 0.20889 0.626395L4.4177 3.05626L8.6265 5.48613C8.71949 5.54004 8.71949 5.67346 8.6265 5.72737L4.4177 8.15723L0.20889 10.5884C0.115901 10.6424 0 10.575 0 10.4672V5.60742Z" fill="white"/></svg>') no-repeat;
+            background-size: contain !important;
+            width: rem-calc(9);
+            height: rem-calc(10);
+            content: "";
+
+            @include breakpoint(small only) {
+                width: rem-calc(6);
+                height: rem-calc(6);
+            }
+        }
+    }
+
+    &__front-side {
+        transform: rotateY(0deg);
+
+        .template-card-flip__title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: min-max(15, 32);
+            width: 100%;
+            color: var(--white);
+
+            @include breakpoint(large down) {
+                font-size: rem-calc(20);
+            }
+
+            @include breakpoint(small only) {
+                font-size: rem-calc(14);
+            }
+        }
+    }
+
+    &__back-side {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(16);
+        transform: rotateY(180deg);
+        background: var(--light-grey);
+        padding: rem-calc(15);
+        color: var(--white);
+
+        @include breakpoint(xlarge) {
+            gap: rem-calc(32);
+            padding: rem-calc(44 33);
+        }
+    }
+
+    &__back-side,
+    &__front-side {
+        backface-visibility: hidden;
+        transition: transform 0.6s;
+
+        @include overlay();
+    }
+
+    &.layout-carousel {
+        .splide {
+            display: flex;
+            position: static;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            &__track {
+                visibility: visible;
+                width: 100%;
+                overflow: visible;
+            }
+
+            &.is-centered-items {
+                .splide__list {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            &__slide {
+                width: 100%;
+                max-width: rem-calc(407);
+            }
+        }
+    }
+
+    &.layout-grid {
+        .template-card-flip__grid {
+            gap: rem-calc(30);
+        }
+
+        .template-card-flip__item {
+            @include breakpoint(medium) {
+                width: calc(100% / 3 - #{rem-calc(60)} / 3);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

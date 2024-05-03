@@ -11,6 +11,7 @@ import LogoWall from './templates/logo-wall';
 import { FacetDropdown } from './templates/facet-elements';
 import Testimonials from './templates/testimonials';
 import TeamMembers from './templates/team-members';
+import CardFlip from './templates/card-flip';
 
 import './templates/vertical-tabs';
 
@@ -59,4 +60,5 @@ document.addEventListener('DOMContentLoaded', function () {
     LogoWall();
     Testimonials();
     TeamMembers();
+    CardFlip();
 });
