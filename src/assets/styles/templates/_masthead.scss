@@ -1,0 +1,17 @@
+.template-masthead {
+    @include breakpoint(medium) {
+        .grid-x {
+            .cell:first-child:not(:only-child) {
+                .cell__inner {
+                    max-width: rem-calc(580);
+                }
+
+                &.medium-5 {
+                    .cell__inner {
+                        max-width: rem-calc(470);
+                    }
+                }
+            }
+        }
+    }
+}

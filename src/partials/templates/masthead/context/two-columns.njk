@@ -1,0 +1,46 @@
+{% call columns({
+  "align": "middle"
+}) %}
+
+  {% call column({
+    "width": 6
+  }) %}
+
+    {{ module("header", {
+      "headers": [
+        {
+          "tag": "h1",
+          "text": "masthead preheadline",
+          "class": "h4"
+        },
+        {
+          "tag": "h1",
+          "text": "<mark>Masthead</mark> Title",
+          "class": "h1"
+        }
+      ]
+    }) }}
+
+    {% call module( "editor", {
+      class: 'text-medium mt-sm'
+    } ) %}
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea recusandae debitis facilis ratione autem, ut quas cum libero voluptas. Facere beatae officia corrupti neque, praesentium blanditiis asperiores porro quae, consectetur aliquam reiciendis facilis nihil architecto. Corrupti ab vero ipsam excepturi!</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus debitis aspernatur quos quae earum totam itaque quasi dolorem possimus, qui excepturi hic? Ea, quod enim! Voluptatum molestiae quo dolor debitis officia libero iusto aperiam ea perspiciatis! Quam corrupti perspiciatis est quod illo alias expedita voluptatibus ad ducimus omnis impedit aspernatur ut debitis officiis quibusdam voluptatem voluptate magni velit iste neque hic laudantium, quisquam placeat. Possimus consequuntur voluptatem incidunt harum sequi impedit molestias voluptas tenetur commodi maxime inventore at, vitae nam consequatur sunt cum. Eum totam numquam tenetur veritatis, repellat, autem dolor asperiores distinctio incidunt nulla non fuga quia? Ea, quo?</p>
+
+    {% endcall %}
+
+  {% endcall %}
+
+
+  {% call column({
+    "width": 6
+  }) %}
+
+    {{ module("image", {
+      "src": "/assets/images/cms/placeholder.svg"
+    }) }}
+
+  {% endcall %}
+
+
+{% endcall %}

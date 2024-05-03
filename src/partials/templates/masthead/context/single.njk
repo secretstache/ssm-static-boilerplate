@@ -1,0 +1,27 @@
+{% call columns({
+}) %}
+
+  {% call column({
+    "width": 11
+  }) %}
+
+    {{ module("header", {
+      "headers": [
+        {
+          "tag": "h1",
+          "text": "<p>Masthead Title</p>"
+        }
+      ]
+    }) }}
+
+    {% call module( "editor", {
+      "class": "mt-sm"
+    } ) %}
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam possimus enim corrupti quos earum quisquam vel maiores. Sit totam inventore repellendus voluptate ipsum? Ut architecto debitis doloribus similique commodi hic culpa nobis quia, dolorum reprehenderit, aliquid magni esse? At laborum repellendus sapiente nemo iusto labore quidem placeat, cumque dolor non, maxime iure. Quod excepturi ipsum, sequi facilis nulla corrupti quisquam veniam. Voluptas quis quidem iste doloremque repellat natus voluptatibus reiciendis fugiat quasi, excepturi maxime placeat mollitia eius tenetur non quisquam accusantium nostrum porro id laboriosam nam assumenda. Minus, qui unde corrupti quis aspernatur dolore obcaecati neque aperiam incidunt odio!</p>
+
+    {% endcall %}
+
+  {% endcall %}
+
+{% endcall %}
