@@ -10,6 +10,7 @@ import HorizontalTabs from './templates/horizontal-tabs';
 import LogoWall from './templates/logo-wall';
 import { FacetDropdown } from './templates/facet-elements';
 import Testimonials from './templates/testimonials';
+import TeamMembers from './templates/team-members';
 
 import './templates/vertical-tabs';
 
@@ -57,4 +58,5 @@ document.addEventListener('DOMContentLoaded', function () {
     FacetDropdown();
     LogoWall();
     Testimonials();
+    TeamMembers();
 });
