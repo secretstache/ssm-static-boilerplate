@@ -1,0 +1,69 @@
+.template-search-result {
+    position: relative;
+    padding-top: rem-calc(125);
+
+    &__back-button {
+        display: flex;
+        position: absolute;
+        top: rem-calc(40);
+        left: var(--content-padding);
+        column-gap: rem-calc(16);
+        align-items: center;
+        text-decoration: none;
+
+        &:before {
+            display: block;
+            background: svg-uri('<svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.500153 7.9946L10.9633 0V4.60176H19.3965V11.3874H10.9633V15.9892L0.500153 7.9946Z" fill="black"/></svg>') no-repeat;
+            background-size: contain;
+            width: rem-calc(19);
+            height: rem-calc(16);
+            content: "";
+        }
+
+        @include breakpoint(1350) {
+            left: calc((100vw - var(--content-width)) / 2);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(30);
+        border-top: rem-calc(2) solid var(--black);
+        padding-top: rem-calc(32);
+
+        @include breakpoint(large) {
+            padding-top: rem-calc(32);
+        }
+    }
+
+    &__item {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: rem-calc(24);
+        padding-bottom: rem-calc(15);
+        text-decoration: none;
+
+        @include breakpoint(medium) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &:after {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            opacity: 0.1;
+            background-color: var(--black);
+            width: 100%;
+            height: rem-calc(1);
+            content: "";
+        }
+    }
+
+    &__text {
+        margin-top: rem-calc(16);
+    }
+}

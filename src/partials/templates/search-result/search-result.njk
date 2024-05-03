@@ -1,0 +1,28 @@
+{% macro render(props) %}
+    <div class="grid-container">
+
+        {% if props.backButton %}
+            <a href="{{ root }}{{ props.backButton }}" class="template-search-result__back-button">Back</a>
+        {% endif %}
+
+        <div class="template-search-result__list">
+
+            {% for item in props.items %}
+
+                <a href="{{ root }}{{ item.link }}" class="template-search-result__item">
+
+                    <div class="template-search-result__description">
+                        <h3 class="template-search-result__title">{{ item.title }}</h3>
+
+                        <p class="template-search-result__text">
+                            {{ item.description }}
+                        </p>
+                    </div>
+                </a>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endmacro %}
