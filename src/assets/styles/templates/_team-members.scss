@@ -1,9 +1,8 @@
 .template-team-members {
-
     ul {
-        list-style: none;
         margin: 0;
         padding: 0;
+        list-style: none;
 
         li {
             padding: 0;
@@ -17,26 +16,26 @@
                 flex-wrap: wrap;
                 gap: rem-calc(32 16);
             }
-        
+
             &__card {
                 --column-gap: 1rem;
                 width: 100%;
-        
+
                 @include breakpoint(medium) {
                     width: calc(100% / 2 - ((var(--column-gap)) / 2));
                 }
-        
+
                 @include breakpoint(large) {
                     width: calc(100% / 3 - ((var(--column-gap) * 3) / 3));
                 }
-        
+
                 &:hover {
                     .template-team-members__image-wrapper img {
                         transform: scale(1.2);
                     }
                 }
             }
-        
+
             &__image-wrapper {
                 display: block;
                 position: relative;
@@ -45,25 +44,25 @@
                 aspect-ratio: 1 / 1;
                 width: 100%;
                 overflow: hidden;
-        
+
                 img {
                     @include overlay;
                     transition: transform var(--tr);
                     object-fit: cover;
                 }
             }
-        
+
             &__content {
                 display: flex;
                 justify-content: space-between;
             }
-        
+
             &__info {
                 display: flex;
                 flex-direction: column;
                 gap: rem-calc(5);
             }
-        
+
             &__link-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -73,7 +72,7 @@
                 max-width: 40%;
                 list-style: none;
             }
-        
+
             &__link {
                 img,
                 svg {
@@ -86,40 +85,39 @@
     }
 
     &.layout-row {
-
         .template-team-members {
             &__list {
                 display: flex;
                 flex-wrap: wrap;
                 gap: rem-calc(92);
             }
-    
+
             &__item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
-    
+
                 @include breakpoint(medium) {
                     flex-direction: row;
                     align-items: flex-start;
                     gap: rem-calc(64);
                 }
-    
+
                 @include breakpoint(large) {
                     gap: rem-calc(112);
                 }
             }
-    
+
             &__img-wrapper {
+                position: relative;
                 margin-bottom: rem-calc(40);
+                border-radius: rem-calc(8);
                 aspect-ratio: 361 / 379;
                 width: 100%;
                 max-width: rem-calc(361);
-                position: relative;
-                border-radius: rem-calc(8);
                 overflow: hidden;
-    
+
                 @include breakpoint(medium) {
                     aspect-ratio: 337 / 354;
                     min-width: rem-calc(337);
@@ -137,51 +135,51 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-    
+
             &__info {
                 @include breakpoint(small only) {
                     max-width: rem-calc(361);
                 }
             }
-    
+
             &__title {
                 @include typo("h2");
             }
-    
+
             &__description {
                 margin-top: rem-calc(32);
-    
+
                 p {
                     transition: max-height var(--tr);
                     overflow: hidden;
                 }
             }
-    
+
             &__hidden-description {
+                transition: height var(--tr);
                 margin-top: rem-calc(20);
                 height: 0;
                 overflow: hidden;
-                transition: height var(--tr);
             }
-    
+
             &__description-inner {
                 p + p {
                     margin-top: rem-calc(12);
                 }
             }
-    
+
             &__toggle-read-more {
                 position: relative;
-                margin-top: rem-calc(12);
                 cursor: pointer;
+                margin-top: rem-calc(12);
             }
-    
+
             &__buttons-wrapper {
                 display: flex;
                 flex-wrap: wrap;
                 gap: rem-calc(12);
                 margin-top: rem-calc(24);
-    
+
                 @include breakpoint(small only) {
                     flex-direction: column;
                 }

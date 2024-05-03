@@ -1,5 +1,4 @@
 .template-logo-wall {
-
     &__item {
         display: flex;
         align-items: center;
@@ -32,8 +31,8 @@
 
             &__item {
                 display: flex;
-                width: calc(100% / 2 - #{rem-calc(32)} / 2);
                 padding: 0;
+                width: calc(100% / 2 - #{rem-calc(32)} / 2);
 
                 a {
                     width: 100%;

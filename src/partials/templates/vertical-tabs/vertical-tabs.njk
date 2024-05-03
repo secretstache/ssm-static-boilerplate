@@ -1,7 +1,7 @@
-/**
-* @param {string} class
-* @param {object} tabs
-*/
+{#
+# @param {string} class
+# @param {object} tabs
+#}
 
 {% macro render(props) %}
     <div class="grid-container">
@@ -13,6 +13,7 @@
                     <div class="template-vertical-tabs__item {% if props.autoplay%}has-autoplay{% endif %}" role="tablist">
 
                         {% for tab in props.tabs %}
+
                             <div class="template-vertical-tabs__title {% if tab.classes %}{{ tab.classes }}{% endif %}" role="tab" aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">
                                 <div class="template-vertical-tabs__header">
 
@@ -21,7 +22,7 @@
                                             <div class="template-vertical-tabs__icon">
                                                 <div class="template-vertical-tabs__icon-wrapper">
                                                     <div class="template-vertical-tabs__icon-mask" style="mask-image:url({{ root }}{{ tab.icon }})"></div>
-                                                    <img src="{{ root }}{{ tab.icon }}" alt="">
+                                                    <img src="{{ root }}{{ tab.icon }}" alt="icon">
                                                 </div>
                                             </div>
                                         {% endif %}
@@ -35,7 +36,7 @@
                                         <div class="template-vertical-tabs__description">
 
                                             {% if tab.image %}
-                                                <img alt="{{tab.title}}" src="{{root}}{{tab.image}}">
+                                                <img alt="{{ tab.title }}" src="{{ root }}{{ tab.image }}">
                                             {% endif %}
 
                                             <p>{{ tab.description }}</p>
@@ -50,6 +51,7 @@
                                 {% endif %}
 
                             </div>
+
                         {% endfor %}
 
                     </div>
