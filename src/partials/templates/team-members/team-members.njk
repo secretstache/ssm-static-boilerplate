@@ -6,14 +6,15 @@
 
     <div class="grid-container">
 
-        <div class="template-team-members__list">
-            {% for member in props.members %}
+        {% if props.layoutGrid %}
+        <ul class="template-team-members__list">
+            {% for item in props.items %}
 
-                <div class="template-team-members__card">
+                <li class="template-team-members__card">
 
-                    {% if member.image %}
+                    {% if item.image %}
                         <div class="template-team-members__image-wrapper">
-                            <img src="{{ root }}{{ member.image }}" alt="{{ member.name }}">
+                            <img src="{{ root }}{{ item.image }}" alt="{{ member.name }}">
                         </div>
                     {% endif %}
 
@@ -21,21 +22,21 @@
 
                         <div class="template-team-members__info">
 
-                            {% if member.name %}
-                                <h3 class="template-team-members__name">{{ member.name }}</h3>
+                            {% if item.name %}
+                                <h3 class="template-team-members__name">{{ item.name }}</h3>
                             {% endif %}
 
-                            {% if member.position %}
-                                <p class="template-team-members__position">{{ member.position }}</p>
+                            {% if item.position %}
+                                <p class="template-team-members__position">{{ item.position }}</p>
                             {% endif %}
 
                         </div>
 
-                        {% if member.linkList %}
+                        {% if item.linkList %}
 
                             <ul class="template-team-members__link-list">
 
-                                {% for linkListItem in member.linkList %}
+                                {% for linkListItem in item.linkList %}
 
                                     <li>
                                         <a class="template-team-members__link" href="{{ linkListItem.link }}">
@@ -51,12 +52,71 @@
 
                     </div>
 
-                </div>
+                </li>
 
             {% endfor %}
 
-        </div>
+        </ul>
+
+        {% else %}
+        <ul class="template-team-members__list">
+            {% for item in props.items %}
+
+                <li class="template-team-members__item">
+
+                    <div class="template-team-members__img-wrapper">
+                        {% if item.img %}
+                        <img src="{{ root }}{{ item.img }}" alt="{{ item.headline }}">
+                        {% endif %}
+                    </div>
+
+                    <div class="template-team-members__info">
+
+                        {% if item.preheadline %}
+                            <div class="template-team-members__pretitle">{{ item.preheadline }}</div>
+                        {% endif %}
+
+                        {% if item.headline %}
+                            <h3 class="template-team-members__title">{{ item.headline }}</h3>
+                        {% endif %}
+
+                        {% if item.description %}
+                            <div class="template-team-members__description">
+                                <p>{{ item.description }}</p>
+
+                                {% if item.hiddenDescription %}
+                                <div class="template-team-members__hidden-description">
+                                    <div class="template-team-members__description-inner">
+                                        <p>{{ item.hiddenDescription }}</p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                             <button class="template-team-members__toggle-read-more more">Read More</button>
+                        {% endif %}
+
+                        <div class="template-team-members__buttons-wrapper">
+                            {% if item.mail %}
+                                <a href="mailto:{{ item.mail }}" class="button button--outlined">{{ item.mail }}</a>
+                            {% endif %}
+
+                            {% if item.link %}
+                                <a href="{{ item.link }}" class="button button--outlined">Connect on LinkedIn</a>
+                            {% endif %}
+                        </div>
+
+                        
+                    </div>
+
+                </li>
+
+            {% endfor %}
+        </ul>
+        {% endif %}
 
     </div>
 
 {% endmacro %}
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quis dolor exercitationem consequuntur asperiores suscipit ipsa ut tempore officiis fugiat facilis aliquam, veritatis necessitatibus ullam enim vel quas esse distinctio. Reiciendis deserunt dignissimos eum quam modi possimus, natus officia labore repudiandae rem sapiente minima amet! Voluptatem sapiente harum deleniti aliquid dignissimos quaerat hic nam itaque. Sunt facere est vero quis officiis culpa aliquam hic consectetur exercitationem ipsa architecto, obcaecati porro quod eveniet eligendi alias cupiditate velit nesciunt impedit harum. Nihil sunt consequuntur reiciendis asperiores sit quo error dolores pariatur mollitia iusto sequi neque laudantium, labore dolor, iure perferendis numquam suscipit!</p>
