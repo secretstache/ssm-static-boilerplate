@@ -32,4 +32,24 @@ module.exports = {
             },
         ],
     },
+    variants: [
+        {
+            title: 'Layout Grid',
+            context: {
+                layoutGrid: true,
+                class: 'layout-grid',
+                items: [
+                    {
+                        description: '“Lorem ipsum dolor sit amet consectetur. Aliquam habitant sit in molestie et. Augue id pellentesque lacus ut felis ac adipiscing magna. Vestibulum mattis cursus ac lacus. Vitae ante mi nulla venenatis curabitur scelerisque lorem amet neque.”',
+                    },
+                    {
+                        description: '“Lorem ipsum dolor sit amet consectetur. Aliquam habitant sit in molestie et. Augue id pellentesque lacus ut felis ac adipiscing magna. Vestibulum mattis cursus ac lacus. Vitae ante mi nulla venenatis curabitur scelerisque lorem amet neque.”',
+                    },
+                    {
+                        description: '“Lorem ipsum dolor sit amet consectetur. Aliquam habitant sit in molestie et. Augue id pellentesque lacus ut felis ac adipiscing magna. Vestibulum mattis cursus ac lacus. Vitae ante mi nulla venenatis curabitur scelerisque lorem amet neque.”',
+                    },
+                ],
+            },
+        }
+    ]
 };

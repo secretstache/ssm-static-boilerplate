@@ -6,6 +6,25 @@
 
     <div class="grid-container">
 
+        {% if props.layoutGrid %}
+
+        <div class="template-testimonials__list">
+
+            {% for item in props.items %}
+
+                <div class="template-testimonials__item">
+
+                    {% if item.description%}
+                        <p class="template-testimonials__description">{{ item.description | safe }}</p>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+        </div>
+
+        {% else %}
+
         <div class="splide">
 
             <div class="splide__track">
@@ -55,6 +74,8 @@
             </div>
 
         </div>
+
+        {% endif %}
 
     </div>
 

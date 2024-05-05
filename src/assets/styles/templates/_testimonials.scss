@@ -1,41 +1,76 @@
 .template-testimonials {
-    .splide {
-        &__track {
-            overflow: visible;
+
+    &:not(.layout-grid) {
+        .splide {
+            &__track {
+                overflow: visible;
+            }
+    
+            &__slide {
+                width: 100%;
+                max-width: rem-calc(822);
+    
+                @include breakpoint(large) {
+                    min-height: min-max(450, 584);
+                }
+            }
         }
 
-        &__slide {
-            width: 100%;
-            max-width: rem-calc(822);
-
-            @include breakpoint(large) {
-                min-height: min-max(450, 584);
+        .template-testimonials {
+            
+            &__item {
+                position: relative;
+                cursor: grab;
+                border-radius: rem-calc(20);
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+        
+                &:has(.wp-block-pullquote) {
+                    display: flex;
+                    align-items: center;
+                    background: var(--light-grey);
+                    padding-top: min-max(50, 100);
+                    padding-right: min-max(32, 64);
+                    padding-bottom: min-max(50, 100);
+                    padding-left: min-max(32, 64);
+                }
+            }
+        
+            &__image {
+                border-radius: rem-calc(20);
+                object-fit: cover;
+                @include overlay();
             }
         }
     }
 
-    &__item {
-        position: relative;
-        cursor: grab;
-        border-radius: rem-calc(20);
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+    &.layout-grid {
+        .template-testimonials {
 
-        &:has(.wp-block-pullquote) {
-            display: flex;
-            align-items: center;
-            background: var(--light-grey);
-            padding-top: min-max(50, 100);
-            padding-right: min-max(32, 64);
-            padding-bottom: min-max(50, 100);
-            padding-left: min-max(32, 64);
+            &__list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: rem-calc(40);
+            }
+        
+            &__item {
+                display: flex;
+                flex-direction: column;
+                border-radius: rem-calc(20);
+                padding: rem-calc(40 32 24);
+                width: 100%;
+                background: var(--light-grey);
+        
+                @include breakpoint(medium) {
+                    width: calc(100% / 2 - #{rem-calc(40)} / 2);
+                }
+        
+                @include breakpoint(large) {
+                    width: calc(100% / 3 - #{rem-calc(80)} / 3);
+                }
+            }
         }
-    }
-
-    &__image {
-        border-radius: rem-calc(20);
-        object-fit: cover;
-        @include overlay();
     }
 }
