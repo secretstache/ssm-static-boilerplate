@@ -4,6 +4,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 const TEMPLATE_CLASS = 'template-logo-wall:has(.splide)';
 const SLIDER_CLASS = 'splide';
 const SLIDE_CLASS = 'splide__slide';
+const CENTERED_CLASS = 'is-centered'
 
 export default function LogoWall() {
     document.querySelectorAll(`.${TEMPLATE_CLASS}`).forEach((template) => {
@@ -27,7 +28,7 @@ export default function LogoWall() {
 
         splide.on('overflow', function (isOverflow) {
             if (isOverflow) {
-                slider.classList.remove('is-centered');
+                slider.classList.remove(CENTERED_CLASS);
                 splide.options = {
                     type: 'loop',
                     clones: slidesLength,
@@ -41,7 +42,7 @@ export default function LogoWall() {
                     drag: false,
                 };
 
-                slider.classList.add('is-centered');
+                slider.classList.add(CENTERED_CLASS);
             }
         });
 
