@@ -2,14 +2,17 @@ import Splide from '@splidejs/splide';
 import { Intersection } from '@splidejs/splide-extension-intersection';
 
 const BLOCK_SELECTOR = '.template-card-flip';
+const CARD_DESCRIPTION_CLASS = '.template-card-flip__description';
+const CAROUSEL_CLASS = '.splide';
+const PADDING_VALUE = 10;
 
 export default function CardFlip() {
     document.querySelectorAll(BLOCK_SELECTOR).forEach((template) => {
-        const cardFlipDescription = template.querySelectorAll('.template-card-flip__description');
-        const carousel = template.querySelector('.splide');
+        const cardFlipDescription = template.querySelectorAll(CARD_DESCRIPTION_CLASS);
+        const carousel = template.querySelector(CAROUSEL_CLASS);
 
         cardFlipDescription.forEach((desc) => {
-            if (desc.scrollHeight > desc.clientHeight) desc.style.paddingRight = '10px';
+            if (desc.scrollHeight > desc.clientHeight) desc.style.paddingRight = `${PADDING_VALUE}px`;
         });
 
         if (!carousel) return;
