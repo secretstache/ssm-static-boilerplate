@@ -20,11 +20,11 @@
         "build:css": "tailwindcss -i src/assets/styles/app.css -o dist/assets/styles/app.css --postcss",
         "staging-build:webpack": "cross-env mode=production webpack",
         "staging-build:eleventy": "cross-env prefix=/static project=$npm_package_vars_project mode=production eleventy --quiet",
-        "lint": "npm-run-all lint:js:fix lint:scss:fix",
+        "lint": "npm-run-all lint:js:fix lint:css:fix",
         "lint:js": "npx eslint src/assets/scripts",
         "lint:js:fix": "yarn lint:js --fix",
         "lint:css": "npx stylelint src/assets/styles",
-        "lint:css:fix": "yarn lint:scss --fix",
+        "lint:css:fix": "yarn lint:css --fix",
         "prettier": "npx prettier src --check",
         "prettier:fix": "yarn prettier --write"
     },
@@ -79,5 +79,9 @@
         "lightgallery": "^2.7.1",
         "plyr": "^3.7.3",
         "slim-select": "^2.8.2"
+    },
+    "resolutions": {
+        "string-width": "^4.2.3",
+        "wrap-ansi": "^7.0.0"
     }
 }
