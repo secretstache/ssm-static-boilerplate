@@ -1,0 +1,70 @@
+{#
+# @prop {array} timelines
+#}
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-timeline__filters">
+            <button class="template-timeline__filters-item is-active" data-filter=".">All years</button>
+            <button class="template-timeline__filters-item" data-filter="1909-1939">1909 - 1939</button>
+            <button class="template-timeline__filters-item" data-filter="1944-1980">1944 - 1980</button>
+            <button class="template-timeline__filters-item" data-filter="1981-today">1981 - Today</button>
+        </div>
+
+        {% if props.timelines %}
+
+            <div class="template-timeline__list">
+
+                {% for timeline in props.timelines %}
+
+                    <div class="template-timeline__item" data-categories="{{ timeline.categories }}">
+
+                        {% if timeline.image %}
+                            <div class="template-timeline__image">
+                                <img class="lazy-load" data-src="{{ root }}{{ timeline.image }}" alt="{{ timeline.title }}">
+                            </div>
+                        {% endif %}
+
+                        <div class="template-timeline__content">
+
+                            {% if timeline.date %}
+                                <time class="template-timeline__date">{{ timeline.date }}</time>
+                            {% endif %}
+
+                            {% if timeline.title %}
+                                <h5 class="template-timeline__title">{{ timeline.title }}</h5>
+                            {% endif %}
+
+                            {% if timeline.description %}
+                                <p class="template-timeline__description">{{ timeline.description }}</p>
+                            {% endif %}
+
+                            {% if timeline.link %}
+
+                                <a href="{{ root }}{{  timeline.link }}" class="button template-timeline__button">Read More</a>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <div class="template-timeline__not-found">
+                <h2>Not Found</h2>
+            </div>
+
+            <div class="template-timeline__loadmore">
+                <button>Load more</button>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

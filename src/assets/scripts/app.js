@@ -13,6 +13,7 @@ import Testimonials from './templates/testimonials';
 import TeamMembers from './templates/team-members';
 import CardFlip from './templates/card-flip';
 import RelatedContent from './templates/related-content';
+import Timeline from './templates/timeline';
 
 import './templates/vertical-tabs';
 
@@ -63,4 +64,5 @@ document.addEventListener('DOMContentLoaded', function () {
     TeamMembers();
     CardFlip();
     RelatedContent();
+    Timeline();
 });

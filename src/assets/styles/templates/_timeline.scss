@@ -1,0 +1,204 @@
+.template-timeline {
+    &__list {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: rem-calc(120);
+        background: svg-uri('<svg xmlns="http://www.w3.org/2000/svg" width="2" height="1706" viewBox="0 0 2 1706" fill="none"><path opacity="0.5" d="M1 0.919922L0.999925 1705.92" stroke="#172342"/></svg>') repeat-y;
+        background-position: center;
+
+        @include breakpoint(small only) {
+            background-position: rem-calc(7);
+        }
+
+        &::before,
+        &::after {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: svg-uri('<svg width="16" height="1" viewBox="0 0 16 1" fill="none" xmlns="http://www.w3.org/2000/svg"><line y1="0.5" x2="16" y2="0.5" stroke="#172342" stroke-opacity="0.5"/></svg>') no-repeat;
+            background-size: contain;
+            width: rem-calc(16);
+            height: rem-calc(1);
+            content: "";
+
+            @include breakpoint(small only) {
+                left: 0;
+                transform: unset;
+            }
+        }
+
+        &::after {
+            top: unset;
+            bottom: 0;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: rem-calc(2);
+        margin-bottom: min-max(60, 120);
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+
+            &-item {
+                width: 100%;
+            }
+        }
+
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--tr);
+            cursor: pointer;
+            background: var(--white);
+            padding: rem-calc(0 30);
+            min-width: rem-calc(212);
+            height: rem-calc(64);
+
+            &.is-active {
+                background: var(--black);
+                color: var(--white);
+            }
+
+            &:hover {
+                background: var(--black);
+                color: var(--white);
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem-calc(100);
+        transition: var(--tr);
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+            gap: rem-calc(50);
+            margin-left: auto;
+            width: 85%;
+        }
+
+        &::after {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: var(--tr);
+            background: svg-uri('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none"><circle cx="12" cy="12.6621" r="11.5" stroke="#000"/><circle cx="12" cy="12.6621" r="8" fill="#000"/></svg>') no-repeat;
+            background-size: contain;
+            width: rem-calc(24);
+            height: rem-calc(24);
+            content: "";
+
+            @include breakpoint(small only) {
+                top: 50%;
+                left: -15%;
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            @include breakpoint(small only) {
+                flex-direction: column;
+            }
+        }
+
+        &.is-visible {
+            &::after {
+                width: rem-calc(43);
+                height: rem-calc(43);
+            }
+        }
+
+        &.hide-cat {
+            display: none;
+        }
+    }
+
+    &__image {
+        flex-shrink: 0;
+        aspect-ratio: 516 / 336;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            // lazy loaded
+            &[data-src] {
+                opacity: 0;
+                transition: opacity 1s;
+
+                &[data-loaded="true"] {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__image,
+    &__content {
+        flex: 1;
+        width: 100%;
+        max-width: rem-calc(516);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(16);
+    }
+
+    &__description {
+        width: 100%;
+        max-width: rem-calc(407);
+    }
+
+    &__button {
+        align-self: flex-start;
+    }
+
+    &__loadmore {
+        display: none;
+        justify-content: center;
+        margin-top: min-max(85, 176);
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: rem-calc(8);
+            transition: color var(--tr);
+            cursor: pointer;
+            border: rem-calc(1) solid var(--black);
+            border-radius: rem-calc(100);
+            padding: rem-calc(16 24);
+            font-weight: 500;
+            font-size: rem-calc(16);
+            letter-spacing: rem-calc(1.6);
+            text-transform: uppercase;
+
+            &:hover {
+                background: var(--black);
+                color: var(--white);
+            }
+        }
+    }
+
+    &__not-found {
+        display: none;
+        text-align: center;
+    }
+}
