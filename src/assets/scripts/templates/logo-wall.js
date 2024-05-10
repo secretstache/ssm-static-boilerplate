@@ -4,7 +4,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 const TEMPLATE_CLASS = 'template-logo-wall:has(.splide)';
 const SLIDER_CLASS = 'splide';
 const SLIDE_CLASS = 'splide__slide';
-const CENTERED_CLASS = 'is-centered'
+const CENTERED_CLASS = 'is-centered';
 
 export default function LogoWall() {
     document.querySelectorAll(`.${TEMPLATE_CLASS}`).forEach((template) => {

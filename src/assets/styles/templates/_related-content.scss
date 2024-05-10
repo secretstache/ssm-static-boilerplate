@@ -1,14 +1,12 @@
 .template-related-content {
-
     a {
+        cursor: pointer;
         color: inherit;
         text-decoration: none;
-        cursor: pointer;
     }
 
     &.layout-grid {
         .template-related-content {
-
             &__list {
                 display: flex;
                 flex-wrap: wrap;
@@ -19,9 +17,9 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                width: 100%;
                 border: rem-calc(1) solid var(--black);
                 border-radius: rem-calc(8);
+                width: 100%;
                 overflow: hidden;
 
                 @include breakpoint(medium) {
@@ -40,23 +38,23 @@
                     }
 
                     .button {
-                        background-color: transparent;
                         border-color: rem-calc(1) solid var(--black);
+                        background-color: transparent;
                         color: var(--black);
                     }
                 }
             }
 
             &__img-wrapper {
-                width: 100%;
-                aspect-ratio: 16 / 9;
-                overflow: hidden;
                 position: relative;
+                aspect-ratio: 16 / 9;
+                width: 100%;
+                overflow: hidden;
 
                 img {
                     @include overlay();
-                    object-fit: cover;
                     transition: transform var(--tr);
+                    object-fit: cover;
                 }
             }
 
@@ -69,13 +67,12 @@
             }
 
             &__title {
-                @include typo('h4')
+                @include typo("h4");
             }
         }
     }
 
     &.layout-ticker {
-
         .splide-container {
             display: flex;
             flex-direction: column;
@@ -85,33 +82,31 @@
         .splide__slide {
             width: 100%;
 
-            @include breakpoint(medium){
+            @include breakpoint(medium) {
                 max-width: rem-calc(312);
             }
 
-            @include breakpoint(large){
+            @include breakpoint(large) {
                 max-width: rem-calc(480);
             }
         }
 
         .template-related-content {
-
-            
             &__item {
                 display: flex;
                 position: relative;
                 border-radius: rem-calc(8);
-                overflow: hidden;
                 padding: rem-calc(24 24 32);
+                overflow: hidden;
 
                 &:hover {
                     .template-related-content__img-wrapper {
-                        transform: scale(1.1)
+                        transform: scale(1.1);
                     }
 
                     .button {
-                        background-color: transparent;
                         border-color: rem-calc(1) solid var(--black);
+                        background-color: transparent;
                         color: var(--black);
                     }
                 }
@@ -132,11 +127,11 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: rem-calc(16)
+                gap: rem-calc(16);
             }
 
             &__title {
-                @include typo('h4');
+                @include typo("h4");
             }
         }
     }

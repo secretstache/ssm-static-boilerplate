@@ -8,72 +8,72 @@
 
         {% if props.layoutGrid %}
 
-        <div class="template-testimonials__list">
+            <div class="template-testimonials__list">
 
-            {% for item in props.items %}
+                {% for item in props.items %}
 
-                <div class="template-testimonials__item">
+                    <div class="template-testimonials__item">
 
-                    {% if item.description%}
-                        <p class="template-testimonials__description">{{ item.description | safe }}</p>
-                    {% endif %}
+                        {% if item.description%}
+                            <p class="template-testimonials__description">{{ item.description | safe }}</p>
+                        {% endif %}
 
-                </div>
+                    </div>
 
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
 
         {% else %}
 
-        <div class="splide">
+            <div class="splide">
 
-            <div class="splide__track">
+                <div class="splide__track">
 
-                <div class="splide__list">
+                    <div class="splide__list">
 
-                    {% for testimonial in props.testimonials %}
+                        {% for testimonial in props.testimonials %}
 
-                        <div class="splide__slide">
+                            <div class="splide__slide">
 
-                            <div class="template-testimonials__item">
+                                <div class="template-testimonials__item">
 
-                                {% if testimonial.image %}
+                                    {% if testimonial.image %}
 
-                                    <img class="template-testimonials__image" src="{{ root }}{{ testimonial.image }}" alt="">
+                                        <img class="template-testimonials__image" src="{{ root }}{{ testimonial.image }}" alt="">
 
-                                {% endif %}
+                                    {% endif %}
 
-                                {% if testimonial.pullquote%}
+                                    {% if testimonial.pullquote%}
 
-                                    <figure class="wp-block-pullquote">
+                                        <figure class="wp-block-pullquote">
 
-                                        <blockquote>
+                                            <blockquote>
 
-                                            <p>{{ testimonial.pullquote }}</p>
+                                                <p>{{ testimonial.pullquote }}</p>
 
-                                            {% if testimonial.cite %}
+                                                {% if testimonial.cite %}
 
-                                                <cite>{{ testimonial.cite | safe }}</cite>
+                                                    <cite>{{ testimonial.cite | safe }}</cite>
 
-                                            {% endif %}
+                                                {% endif %}
 
-                                        </blockquote>
+                                            </blockquote>
 
-                                    </figure>
+                                        </figure>
 
-                                {% endif %}
+                                    {% endif %}
+
+                                </div>
 
                             </div>
 
-                        </div>
+                        {% endfor %}
 
-                    {% endfor %}
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
 
         {% endif %}
 

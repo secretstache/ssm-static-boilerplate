@@ -1,72 +1,85 @@
 {#
-# @prop {array} testimonials
+# @prop {array} items
 #}
 
 {% macro render(props) %}
 
     {% if props.layoutGrid %}
-    <div class="grid-container">
+        <div class="grid-container">
 
-        <div class="template-related-content__list">
-            {% for item in props.items %}
-            <a href="{{ item.link }}" class="template-related-content__item{% if item.classes %} {{item.classes}}{% endif%}">
-                
-                {% if item.img %}
-                <div class="template-related-content__img-wrapper">
-                    <img src="{{ root }}{{ item.img }}" alt="{{ item.title }}">
-                </div>
-                {% endif %}
+            <div class="template-related-content__list">
 
-                <div class="template-related-content__description-wrapper">
-                    {% if item.title %}
-                    <h3 class="template-related-content__title">{{ item.title }}</h3>
-                    {% endif %}
+                {% for item in props.items %}
 
-                    {% if item.description %}
-                    <p class="template-related-content__description">{{ item.description }}</p>
-                    {% endif %}
+                    <a href="{{ item.link }}" class="template-related-content__item{% if item.classes %} {{item.classes}}{% endif%}">
 
-                    {% if item.button %}
-                    <div class="button">{{ item.button }}</div>
-                    {% endif %}
-                </div>
-            </a>
-            {% endfor%}
+                        {% if item.img %}
+                            <div class="template-related-content__img-wrapper">
+                                <img src="{{ root }}{{ item.img }}" alt="{{ item.title }}">
+                            </div>
+                        {% endif %}
+
+                        <div class="template-related-content__description-wrapper">
+                            {% if item.title %}
+                                <h3 class="template-related-content__title">{{ item.title }}</h3>
+                            {% endif %}
+
+                            {% if item.description %}
+                                <p class="template-related-content__description">{{ item.description }}</p>
+                            {% endif %}
+
+                            {% if item.button %}
+                                <div class="button">{{ item.button }}</div>
+                            {% endif %}
+                        </div>
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
         </div>
 
-    </div>
     {% endif %}
 
     {% if props.layoutTicker %}
 
-    <div class="splide-container">
-        {% for item in props.items %}
-        <div class="splide__slide">
-            <a href="{{ item.link }}" class="template-related-content__item{% if item.classes %} {{item.classes}}{% endif%}">
-                
-                {% if item.img %}
-                <div class="template-related-content__img-wrapper">
-                    <img src="{{ root }}{{ item.img }}" alt="{{ item.title }}">
+        <div class="splide-container">
+
+            {% for item in props.items %}
+
+                <div class="splide__slide">
+
+                    <a href="{{ item.link }}" class="template-related-content__item{% if item.classes %} {{item.classes}}{% endif%}">
+
+                        {% if item.img %}
+                            <div class="template-related-content__img-wrapper">
+                                <img src="{{ root }}{{ item.img }}" alt="{{ item.title }}">
+                            </div>
+                        {% endif %}
+
+                        <div class="template-related-content__description-wrapper">
+                            {% if item.title %}
+                                <h3 class="template-related-content__title">{{ item.title }}</h3>
+                            {% endif %}
+
+                            {% if item.description %}
+                                <p class="template-related-content__description">{{ item.description }}</p>
+                            {% endif %}
+
+                            {% if item.button %}
+                                <div class="button">{{ item.button }}</div>
+                            {% endif %}
+                        </div>
+
+                    </a>
+
                 </div>
-                {% endif %}
 
-                <div class="template-related-content__description-wrapper">
-                    {% if item.title %}
-                    <h3 class="template-related-content__title">{{ item.title }}</h3>
-                    {% endif %}
+            {% endfor %}
 
-                    {% if item.description %}
-                    <p class="template-related-content__description">{{ item.description }}</p>
-                    {% endif %}
-
-                    {% if item.button %}
-                    <div class="button">{{ item.button }}</div>
-                    {% endif %}
-                </div>
-            </a>
         </div>
-        {% endfor%}
-    </div>
 
     {% endif %}
 
