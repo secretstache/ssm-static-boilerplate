@@ -12,6 +12,7 @@ import { FacetDropdown } from './templates/facet-elements';
 import Testimonials from './templates/testimonials';
 import TeamMembers from './templates/team-members';
 import CardFlip from './templates/card-flip';
+import RelatedContent from './templates/related-content';
 
 import './templates/vertical-tabs';
 
@@ -61,4 +62,5 @@ document.addEventListener('DOMContentLoaded', function () {
     Testimonials();
     TeamMembers();
     CardFlip();
+    RelatedContent();
 });
