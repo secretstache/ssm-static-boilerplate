@@ -24,7 +24,7 @@ module.exports = {
                     {
                         title: 'Variant 05',
                     },
-                ]
+                ],
             },
         ],
     },

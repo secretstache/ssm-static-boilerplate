@@ -70,6 +70,7 @@
         "@splidejs/splide": "^4.1.4",
         "@splidejs/splide-extension-auto-scroll": "^0.5.3",
         "@splidejs/splide-extension-intersection": "^0.2.0",
+        "leaflet.markercluster": "^1.5.3",
         "lightgallery": "^2.7.1",
         "plyr": "^3.7.3",
         "slim-select": "^2.8.2"

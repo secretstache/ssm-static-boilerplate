@@ -8,7 +8,6 @@
 
         @include breakpoint(large) {
             justify-content: flex-start;
-            
         }
     }
 
@@ -81,7 +80,7 @@
                 rotate: (90deg);
 
                 @include breakpoint(large) {
-                    translate: 10px;
+                    translate: rem-calc(10);
                     rotate: (0deg);
                 }
             }
@@ -148,7 +147,7 @@
     &__label-title {
         color: var(--white);
         font-size: rem-calc(24);
-        letter-spacing: 0.72px;
+        letter-spacing: rem-calc(0.72);
 
         @include breakpoint(large) {
             transform: rotate(180deg);
@@ -260,27 +259,27 @@
     &__close-button {
         display: none;
 
-        @include breakpoint(medium){
+        @include breakpoint(medium) {
             display: flex;
-            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
             justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background: var(--black);
             width: rem-calc(48);
             min-width: rem-calc(48);
             height: rem-calc(48);
-            background: var(--black);
-            position: absolute;
-            right: 0;
-            top: 0;
-            cursor: pointer;
             font-size: 0;
 
             &:after {
-                content: '';
                 display: block;
-                width: rem-calc(24);
-                height: rem-calc(24);
                 background: svg-uri('<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0.636193" y1="13.0105" x2="12.657" y2="0.989645" stroke="#F5EFE6"/><line x1="12.6567" y1="13.0104" x2="0.635884" y2="0.9896" stroke="#F5EFE6"/></svg>') no-repeat;
                 background-size: contain;
+                width: rem-calc(24);
+                height: rem-calc(24);
+                content: "";
             }
         }
     }

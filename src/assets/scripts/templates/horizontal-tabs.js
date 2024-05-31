@@ -38,15 +38,15 @@ export default function HorizontalTabs() {
             el.addEventListener('click', (e) => {
                 const currentContentBlock = el.parentElement.querySelector(CONTENT_BLOCK_SELECTOR);
                 const contentInnerHeight = el.parentElement.querySelector(INNER_CONTENT_SELECTOR).offsetHeight;
-                const closeButton = el.parentElement.querySelector(CLOSE_BUTTON_SELECTOR)
+                const closeButton = el.parentElement.querySelector(CLOSE_BUTTON_SELECTOR);
 
                 tabsList.classList.add('has-open-tab');
 
-                closeButton.addEventListener('click', ()=> {
+                closeButton.addEventListener('click', () => {
                     tabsList.classList.remove('has-open-tab');
                     currentContentBlock.style.height = 0;
                     el.parentElement.classList.remove(ACTIVE_CLASS);
-                })
+                });
 
                 if (document.body.clientWidth < MOBILE_BREAKPOINT) {
                     if (el.classList.contains(ACTIVE_CLASS)) {

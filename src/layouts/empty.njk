@@ -1,35 +1,41 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="{{title}}">
+        <meta name="description" content="{{title}}">
 
-    <link rel="stylesheet" href="{{ root }}/assets/styles/app.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
-    <title>{% if component.title %}{{ component.title }} - Design System{% else %}{{ title }}{% endif %}</title>
-</head>
+        <link rel="stylesheet" href="{{ root }}/assets/styles/app.css">
 
-{% from "macros/default.njk" import columns, column, module, template %}
+        <title>
+            {% if component.title %}{{ component.title }} - Design System{% else %}{{ title }}
+            {% endif %}
+        </title>
+    </head>
 
-<body{% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
+    {% from "macros/default.njk" import columns, column, module, template %}
 
-<a class="skip-main" href="#main">Skip to main content</a>
+    <body{% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
 
-<div class="site">
+        <a class="skip-main" href="#main">Skip to main content</a>
 
-    <main class="content" id="main">
+        <div class="site">
 
-        {{ content | safe }}
+            <main class="content" id="main">
 
-    </main>
+                {{ content | safe }}
 
-</div>
+            </main>
 
-<script type="text/javascript" src="{{ root }}/assets/scripts/vendor.js"></script>
-<script type="text/javascript" src="{{ root }}/assets/scripts/app.js"></script>
+        </div>
 
-</body>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script type="text/javascript" src="{{ root }}/assets/scripts/vendor.js"></script>
+        <script type="text/javascript" src="{{ root }}/assets/scripts/app.js"></script>
+
+    </body>
 
 </html>

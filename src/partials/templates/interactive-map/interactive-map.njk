@@ -1,0 +1,39 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        {% if props.filter %}
+
+            <div class="template-interactive-map__nav">
+
+                <div class="template-interactive-map__nav-item">
+                    <label>
+                        <input type="checkbox" value="solution-centers">
+                        <span>Solution Centers</span>
+                    </label>
+                </div>
+
+                <div class="template-interactive-map__nav-item">
+                    <label>
+                        <input type="checkbox" value="hub-centers">
+                        <span>Hub Centers</span>
+                    </label>
+                </div>
+
+                <div class="template-interactive-map__nav-item">
+                    <label>
+                        <input type="checkbox" value="partners">
+                        <span>Partners</span>
+                    </label>
+                </div>
+
+            </div>
+
+        {% endif %}
+
+        <div class="template-interactive-map__map">
+            <div id="map"></div>
+        </div>
+    </div>
+
+{% endmacro %}

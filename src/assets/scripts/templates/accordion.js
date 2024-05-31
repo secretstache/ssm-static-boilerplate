@@ -5,6 +5,7 @@ const BUTTON_SELECTOR = '.template-accordion__button';
 const CONTENT_SELECTOR = '.template-accordion__content';
 const ACCORDION_NAVS_SELECTOR = '.template-accordion__nav-item';
 const ACCORDION_CONTENT_SELECTOR = '.template-accordion__list';
+const ACCORDION_ITEM = '.accordion__item';
 const OPEN_CLASS = 'is-opened';
 const ACTIVE_CLASS = 'is-active';
 
@@ -30,7 +31,7 @@ export default function Accordion() {
 
                 accordionContainer[index].classList.add(ACTIVE_CLASS);
 
-                const activeAccordion = accordionContainer[index].querySelectorAll('.accordion__item');
+                const activeAccordion = accordionContainer[index].querySelectorAll(ACCORDION_ITEM);
 
                 activeAccordion.forEach((item, index) => {
                     if (!item.classList.contains(OPEN_CLASS)) {
