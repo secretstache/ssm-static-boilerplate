@@ -1,0 +1,18 @@
+.template-image-mask {
+    &__wrapper {
+        display: inline-block;
+        position: relative;
+        mask: url(../images/cms/logo-placeholder.svg), linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1) 22%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-composite: intersect;
+
+        &::before {
+            display: block;
+            opacity: 0.4;
+            background: var(--white);
+            content: "";
+            @include overlay;
+        }
+    }
+}
