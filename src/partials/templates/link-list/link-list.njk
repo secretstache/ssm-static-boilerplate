@@ -1,0 +1,16 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <ul class="template-link-list__wrapper">
+            {% for item in props.items %}
+            <li class="template-link-list__item">
+                <p>{{ item.title }}</p>
+                <a href="{{ item.link }}" class="button">{{ item.button }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endmacro %}

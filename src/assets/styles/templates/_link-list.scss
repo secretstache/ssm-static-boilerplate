@@ -1,0 +1,40 @@
+.template-link-list {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-top: rem-calc(1) solid var(--black);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem-calc(12);
+        padding: rem-calc(12 0);
+        border-bottom: rem-calc(1) solid var(--black);
+
+        p {
+            @include typo('h6');
+            @include breakpoint(small only){
+                text-align: center;
+            }
+        }
+
+        @include breakpoint(medium){
+            flex-direction: row;
+        }
+    }
+
+    .bg-dark & {
+        .wp-block-ssm-link-list__wrapper,
+        .wp-block-ssm-link-list__item {
+            border-color: var(--white);
+        }
+    }
+}
