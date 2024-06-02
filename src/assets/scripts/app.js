@@ -15,6 +15,7 @@ import CardFlip from './templates/card-flip';
 import RelatedContent from './templates/related-content';
 import Timeline from './templates/timeline';
 import InteractiveMap from './templates/interactive-map';
+import SectionTabsInit from './templates/section-tabs';
 
 import './templates/vertical-tabs';
 
@@ -67,4 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {
     RelatedContent();
     Timeline();
     InteractiveMap();
+    SectionTabsInit();
 });

@@ -1,0 +1,164 @@
+.template-section-tabs {
+    --block-margin: #{rem-calc(24)};
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include breakpoint(large) {
+            gap: rem-calc(112);
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__item-content {
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include breakpoint(medium) {
+            gap: rem-calc(12);
+        }
+
+        @include breakpoint(large) {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: rem-calc(100);
+        }
+
+        &-title {
+            &.is-active {
+                .template-section-tabs__item-header {
+                    a {
+                        background-color: var(--black);
+                        color: var(--white);
+
+                        @include breakpoint(large down) {
+                            &:after {
+                                transform: rotate(-90deg);
+                            }
+                        }
+                    }
+                }
+
+                .template-section-tabs__item-content {
+                    opacity: 1;
+                    margin: rem-calc(12 0 32);
+                    height: auto;
+                    pointer-events: all;
+                }
+            }
+        }
+
+        &-header {
+            display: flex;
+
+            a {
+                @include typo("body");
+                transition:
+                    color var(--tr),
+                    background-color var(--tr);
+                border-radius: rem-calc(10);
+                background-color: transparent;
+                padding: rem-calc(6 27);
+                color: var(--black);
+                font-weight: 600;
+                text-decoration: none;
+                text-transform: uppercase;
+
+                @include breakpoint(large down) {
+                    display: flex;
+                    position: relative;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: var(--black);
+                    padding: rem-calc(12 27);
+                    width: 100%;
+                    color: var(--white);
+
+                    &:after {
+                        display: block;
+                        transform: rotate(90deg);
+                        transition: transform var(--tr);
+                        background: svg-uri('<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.99902 -0.00683594C4.48502 -0.00583594 -0.000976562 4.48016 -0.000976562 9.99416C-0.000976562 15.5082 4.48502 19.9942 10 19.9942C15.513 19.9942 19.999 15.5082 20 9.99416C20 4.48016 15.514 -0.00583594 9.99902 -0.00683594ZM10 17.9942C5.58802 17.9942 1.99902 14.4052 1.99902 9.99416C1.99902 5.58316 5.58802 1.99416 9.99902 1.99316C14.411 1.99416 18 5.58316 18 9.99416C17.999 14.4052 14.41 17.9942 10 17.9942Z" fill="#fffdf0"/><path d="M10 8.99409H6V10.9941H10V14.0001L14.005 9.99509L10 5.99109V8.99409Z" fill="#fffdf0"/></svg>') no-repeat;
+                        background-size: contain;
+                        width: rem-calc(20);
+                        height: rem-calc(20);
+                        content: "";
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--black);
+                    color: var(--white);
+                }
+            }
+        }
+
+        &-content {
+            opacity: 0;
+            transition: var(--tr);
+            height: rem-calc(1);
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        position: relative;
+        border: unset;
+        background-color: unset;
+
+        @include breakpoint(large down) {
+            display: none;
+        }
+    }
+
+    &__panel {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        @include overlay;
+        opacity: 0;
+        transition: opacity var(--tr);
+
+        &-inner {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            animation: fade 2s linear;
+            width: 100%;
+            padding: rem-calc(0 24);
+
+            @include breakpoint(large) {
+                // flex-direction: row;
+            }
+        }
+
+        &.is-active {
+            position: relative;
+            opacity: 1;
+            z-index: 10;
+        }
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
