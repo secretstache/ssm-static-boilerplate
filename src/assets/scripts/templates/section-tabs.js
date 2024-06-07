@@ -8,17 +8,15 @@ const blockClass = '.template-section-tabs';
 
 class SectionTabs {
     constructor(template) {
-        //dom
+        // DOM elements
         this.template = template;
         this.navItemsContainers = template.querySelectorAll(navItemsContainersClass);
         this.navItems = template.querySelectorAll(navItemsClass);
         this.contentItems = template.querySelectorAll(contentItemsClass);
         this.navContainer = template.querySelector(navContainerClass);
 
-        //vars
+        // Variables
         this.currentIndex = 0;
-
-        //autoplay
         this.hasAutoplay = false;
         this.autoplayTime = 6000;
         this.interval = null;
@@ -26,151 +24,112 @@ class SectionTabs {
     }
 
     actions() {
-        const app = this;
-
-        //on nav item click
-        app.navItems.forEach((el) => {
+        // On nav item click
+        this.navItems.forEach((el) => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
-
-                const index = [...app.navItems].indexOf(el);
-
-                app.isPaused = true;
-                app.goToTab(index);
+                const index = Array.from(this.navItems).indexOf(el);
+                this.isPaused = true;
+                this.goToTab(index);
             });
         });
 
-        if (app.hasAutoplay) {
-            //mouse events
-
-            //on mouse hover, pause autoplay
-            app.navContainer.addEventListener('mouseenter', () => {
-                app.isPaused = true;
+        if (this.hasAutoplay) {
+            // On mouse hover, pause autoplay
+            this.navContainer.addEventListener('mouseenter', () => {
+                this.isPaused = true;
             });
 
-            //on mouse leave, start autoplay
-            app.navContainer.addEventListener('mouseleave', () => {
-                app.isPaused = false;
+            // On mouse leave, start autoplay
+            this.navContainer.addEventListener('mouseleave', () => {
+                this.isPaused = false;
             });
         }
     }
 
     removeActiveClasses() {
-        const app = this;
-
-        app.contentItems.forEach((panel) => {
-            panel.classList.remove('is-active');
-        });
-
-        app.navItemsContainers.forEach((container) => {
-            container.classList.remove('is-active');
-        });
+        this.contentItems.forEach(panel => panel.classList.remove('is-active'));
+        this.navItemsContainers.forEach(container => container.classList.remove('is-active'));
     }
 
     goToTab(index) {
-        const app = this;
+        this.navItems[this.currentIndex].closest(navItemsContainersClass).classList.remove('is-active');
+        this.contentItems[this.currentIndex].classList.remove('is-active');
 
-        app.navItems[app.currentIndex].closest(navItemsContainersClass).classList.remove('is-active');
-        app.contentItems[app.currentIndex].classList.remove('is-active');
+        this.navItems[index].closest(navItemsContainersClass).classList.add('is-active');
+        this.contentItems[index].classList.add('is-active');
 
-        app.navItems[index].closest(navItemsContainersClass).classList.add('is-active');
-        app.contentItems[index].classList.add('is-active');
+        this.currentIndex = index;
 
-        app.currentIndex = index;
-
-        if (app.hasAutoplay && window.innerWidth > 1024) {
-            app.startAutoplay();
+        if (this.hasAutoplay && window.innerWidth > 1024) {
+            this.startAutoplay();
         }
     }
 
     startAutoplay() {
-        const app = this;
+        if (this.interval) clearInterval(this.interval);
+
         let startTime = Date.now();
         let progressTime = 0;
 
-        if (app.interval) {
-            clearInterval(app.interval);
-        }
-
-        app.interval = setInterval(() => {
-            if (app.isPaused) {
+        this.interval = setInterval(() => {
+            if (this.isPaused) {
                 startTime = Date.now() - progressTime;
             }
 
-            if (!app.isPaused) {
+            if (!this.isPaused) {
                 progressTime = Date.now() - startTime;
-                // app.updateProgressbar(progressTime);
 
-                //switch to the next tab
-                if (progressTime >= app.autoplayTime) {
-                    let nextIndex = app.currentIndex + 1;
-                    if (!app.navItems[nextIndex]) {
+                if (progressTime >= this.autoplayTime) {
+                    let nextIndex = this.currentIndex + 1;
+                    if (!this.navItems[nextIndex]) {
                         nextIndex = 0;
                     }
-                    app.goToTab(nextIndex);
+                    this.goToTab(nextIndex);
                 }
             }
         }, 10);
     }
 
     init() {
-        const app = this;
+        this.hasAutoplay = !!this.template.querySelector(hasAutoplayClass);
+        this.actions();
 
-        let resizeTimer;
-
-        app.hasAutoplay = !!app.template.querySelector(hasAutoplayClass);
-
-        app.actions();
-
-        let observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    if (app.hasAutoplay && window.innerWidth > 1024) {
-                        //if template is in view, start the autoplay
-                        app.isPaused = false;
-                    }
-                } else {
-                    app.isPaused = true;
-                }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                this.isPaused = !entry.isIntersecting;
             });
         });
 
-        observer.observe(app.template);
+        observer.observe(this.template);
 
-        //if template is in view, start the autoplay
-        if (window.scrollY + window.innerHeight > app.template.offsetTop) {
-            app.isPaused = false;
+        if (window.scrollY + window.innerHeight > this.template.offsetTop) {
+            this.isPaused = false;
         }
 
-        if (app.hasAutoplay && window.innerWidth > 1024) {
-            app.startAutoplay();
-        }
-
-        if (app.hasAutoplay && window.innerWidth > 1024) {
-            app.startAutoplay();
+        if (this.hasAutoplay && window.innerWidth > 1024) {
+            this.startAutoplay();
         }
 
         if (window.innerWidth < 768) {
-            app.removeActiveClasses();
-            app.isPaused = false;
+            this.removeActiveClasses();
+            this.isPaused = false;
         }
 
-        window.addEventListener('resize', function () {
-            clearTimeout(resizeTimer);
-
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeTimer);
             if (window.innerWidth < 768) {
-                resizeTimer = setTimeout(function () {
-                    app.removeActiveClasses();
+                this.resizeTimer = setTimeout(() => {
+                    this.removeActiveClasses();
                 }, 250);
             }
         });
     }
 }
 
-export default function SectionTabsInit(){
-    document.querySelectorAll(blockClass).forEach((template) => {
+export default function SectionTabsInit() {
+    document.querySelectorAll(blockClass).forEach(template => {
         const tabs = new SectionTabs(template);
         tabs.init();
     });
 }
-
