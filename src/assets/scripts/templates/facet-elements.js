@@ -5,31 +5,29 @@ const CHECKBOX_CLASS = 'facetwp-checkbox';
 const RADIOBUTTON_CLASS = 'facetwp-radio';
 
 function FacetDropdown() {
-    document.querySelectorAll(DROPDOWN_SELECTOR).forEach((el) => {
-        const checkboxes = el.querySelectorAll(`.${CHECKBOX_CLASS}, .${RADIOBUTTON_CLASS}`);
+    const dropdowns = document.querySelectorAll(DROPDOWN_SELECTOR);
 
+    dropdowns.forEach(el => {
         const button = el.querySelector(BUTTON_SELECTOR);
+        const dropdownTitle = button.innerText;
 
-        button.addEventListener('click', function () {
+        button.addEventListener('click', () => {
             el.classList.toggle(ACTIVE_CLASS);
         });
 
-        checkboxes.forEach((checkbox) => {
-            const dropdownTitle = button.innerText;
-
+        el.querySelectorAll(`.${CHECKBOX_CLASS}, .${RADIOBUTTON_CLASS}`).forEach(checkbox => {
             checkbox.addEventListener('click', () => {
                 button.innerText = `${dropdownTitle}: ${checkbox.innerText}`;
-
                 setTimeout(() => {
                     el.classList.remove(ACTIVE_CLASS);
                 }, 300);
             });
         });
+    });
 
-        document.addEventListener('click', (event) => {
-            const withinBoundaries = event.composedPath().includes(el);
-
-            if (!withinBoundaries) {
+    document.addEventListener('click', event => {
+        dropdowns.forEach(el => {
+            if (!el.contains(event.target)) {
                 el.classList.remove(ACTIVE_CLASS);
             }
         });
