@@ -1,0 +1,19 @@
+{% macro render(props) %}
+
+    {% set level = props.level if props.level else '2' %}
+
+    <div class="grid-container">
+
+        <h{{ level }}>
+
+            <span class="template-animated-heading__words-animation-wrapper">
+
+                <span>{{ props.content }}</span>
+
+            </span>
+
+        </h{{ level }}>
+
+    </div>
+
+{% endmacro %}

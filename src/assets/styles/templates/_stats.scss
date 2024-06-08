@@ -1,0 +1,46 @@
+.template-stats {
+    --items-gap: 3rem;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: var(--items-gap);
+    }
+
+    &__icon-wrapper {
+        display: flex;
+        align-items: center;
+        height: rem-calc(66);
+
+        img {
+            max-height: 100%;
+        }
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__counter {
+        @include typo("h1");
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: rem-calc(30);
+        width: 100%;
+
+        @include breakpoint(medium) {
+            width: calc(100% / 3 - ((var(--items-gap) * 2) / 3));
+        }
+
+        @include breakpoint(xlarge) {
+            width: calc(100% / 4 - ((var(--items-gap) * 3) / 4));
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-stats__list">
+
+            {% for item in props.items %}
+
+                <div class="template-stats__item">
+
+                    {% set start = item.start if item.start else '0' %}
+
+                    {% if item.icon %}
+                        <div class="template-stats__icon-wrapper">
+                            <img src="{{ root }}{{ item.icon }}" alt="{{ item.title }}">
+                        </div>
+                    {% endif %}
+
+                    <span class="template-stats__counter" {% if item.duration %}data-duration="{{ item.duration }}"{% endif %} data-count="{{ item.count }}">
+                        {{ start }}
+                    </span>
+
+                    {% if item.title %}
+                        <h3 class="template-stats__title">{{ item.title }}</h3>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

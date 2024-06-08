@@ -1,0 +1,87 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-product-tour__header">
+
+            <a href="#" class="template-product-tour__button">Back</a>
+
+        </div>
+
+        {% if props.slides %}
+
+            <div class="splide" role="group">
+
+                <div class="splide__track">
+
+                    <div class="splide__list">
+
+                        {% for slide in props.slides %}
+
+                            <div class="splide__slide">
+
+                                <div class="template-product-tour__slide">
+
+                                    <div class="template-product-tour__image">
+
+                                        <img src="{{ root }}{{ slide.image }}" alt="{{ slide.title }}">
+
+                                    </div>
+
+                                    <div class="template-product-tour__number">
+
+                                        {% if loop.index < 10 %}0{% endif %}{{ loop.index }}
+
+                                    </div>
+
+                                    <div class="template-product-tour__content">
+
+                                        <h2 class="template-product-tour__title">{{ slide.title | safe }}</h2>
+
+                                        <div class="template-product-tour__desrciption">
+                                            {{ slide.content | safe }}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="template-product-tour__navigation">
+
+                        <div class="template-product-tour__progress-wrapper">
+
+                            <div class="template-product-tour__progress-current">01</div>
+
+                            <div class="template-product-tour__progress">
+
+                                <div class="template-product-tour__progress-bar"></div>
+
+                            </div>
+
+                            {% set numberOfSlide = props.slides | length %}
+
+                            <div class="template-product-tour__progress-total">
+                                {% if numberOfSlide < 10 %}0{% endif %}{{ numberOfSlide }}
+                            </div>
+
+                        </div>
+
+                        <div class="splide__arrows"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}

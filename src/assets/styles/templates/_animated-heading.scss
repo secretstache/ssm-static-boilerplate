@@ -1,0 +1,48 @@
+.template-animated-heading {
+    &__word {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity var(--tr);
+        min-width: rem-calc(100);
+
+        @include breakpoint(large) {
+            white-space: nowrap;
+        }
+
+        &.is-active {
+            position: static;
+            opacity: 1;
+        }
+    }
+
+    &__words-animation-wrapper {
+        display: block;
+        position: relative;
+        opacity: 0;
+        transition: opacity var(--tr);
+        min-height: rem-calc(54);
+
+        + br {
+            display: none;
+        }
+
+        &.is-ready {
+            opacity: 1;
+        }
+
+        &:not(.is-ready) .word:first-child {
+            position: static;
+        }
+    }
+
+    &__letter {
+        display: inline-block;
+        position: relative;
+        transform: rotateX(90deg);
+        transform-origin: 50% 50% 25px;
+        transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+}
