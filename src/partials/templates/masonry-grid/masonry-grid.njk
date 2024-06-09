@@ -1,0 +1,17 @@
+{% macro render(props) %}
+
+<div class="grid-container">
+    <div class="template-masonry-grid__list">
+        {% for item in props.items %}
+        <div class="template-masonry-grid__item">
+            <div class="template-masonry-grid__item-content">
+                <h3 class="template-masonry-grid__item-title">{{ item.title }}</h3>
+                <p class="template-masonry-grid__item-description">{{ item.description }}</p>
+                <p class="template-masonry-grid__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab at incidunt voluptas!</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endmacro %}
