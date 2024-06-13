@@ -1,19 +1,21 @@
-const navItemsContainersClass = '.template-section-tabs__item-title';
-const navItemsClass = '.template-section-tabs__item-header > a';
-const contentItemsClass = '.template-section-tabs__panel';
+const NAV_ITEMS_CONTAINER_CLASS = '.template-section-tabs__item-title';
+const NAV_ITEMS_CLASS = '.template-section-tabs__item-header > a';
+const CONTENT_ITEMS_CLASS = '.template-section-tabs__panel';
 
-const navContainerClass = '.template-section-tabs__item';
-const hasAutoplayClass = '.has-autoplay';
-const blockClass = '.template-section-tabs';
+const NAV_CONTAINER_CLASS = '.template-section-tabs__item';
+const AUTOPLAY_CLASS = '.has-autoplay';
+const BLOCK_CLASS = '.template-section-tabs';
+
+const ACTIVE_CLASS = 'is-active';
 
 class SectionTabs {
     constructor(template) {
         // DOM elements
         this.template = template;
-        this.navItemsContainers = template.querySelectorAll(navItemsContainersClass);
-        this.navItems = template.querySelectorAll(navItemsClass);
-        this.contentItems = template.querySelectorAll(contentItemsClass);
-        this.navContainer = template.querySelector(navContainerClass);
+        this.navItemsContainers = template.querySelectorAll(NAV_ITEMS_CONTAINER_CLASS);
+        this.navItems = template.querySelectorAll(NAV_ITEMS_CLASS);
+        this.contentItems = template.querySelectorAll(CONTENT_ITEMS_CLASS);
+        this.navContainer = template.querySelector(NAV_CONTAINER_CLASS);
 
         // Variables
         this.currentIndex = 0;
@@ -48,16 +50,16 @@ class SectionTabs {
     }
 
     removeActiveClasses() {
-        this.contentItems.forEach(panel => panel.classList.remove('is-active'));
-        this.navItemsContainers.forEach(container => container.classList.remove('is-active'));
+        this.contentItems.forEach((panel) => panel.classList.remove(ACTIVE_CLASS));
+        this.navItemsContainers.forEach((container) => container.classList.remove(ACTIVE_CLASS));
     }
 
     goToTab(index) {
-        this.navItems[this.currentIndex].closest(navItemsContainersClass).classList.remove('is-active');
-        this.contentItems[this.currentIndex].classList.remove('is-active');
+        this.navItems[this.currentIndex].closest(NAV_ITEMS_CONTAINER_CLASS).classList.remove(ACTIVE_CLASS);
+        this.contentItems[this.currentIndex].classList.remove(ACTIVE_CLASS);
 
-        this.navItems[index].closest(navItemsContainersClass).classList.add('is-active');
-        this.contentItems[index].classList.add('is-active');
+        this.navItems[index].closest(NAV_ITEMS_CONTAINER_CLASS).classList.add(ACTIVE_CLASS);
+        this.contentItems[index].classList.add(ACTIVE_CLASS);
 
         this.currentIndex = index;
 
@@ -92,11 +94,11 @@ class SectionTabs {
     }
 
     init() {
-        this.hasAutoplay = !!this.template.querySelector(hasAutoplayClass);
+        this.hasAutoplay = !!this.template.querySelector(AUTOPLAY_CLASS);
         this.actions();
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
                 this.isPaused = !entry.isIntersecting;
             });
         });
@@ -128,7 +130,7 @@ class SectionTabs {
 }
 
 export default function SectionTabsInit() {
-    document.querySelectorAll(blockClass).forEach(template => {
+    document.querySelectorAll(BLOCK_CLASS).forEach((template) => {
         const tabs = new SectionTabs(template);
         tabs.init();
     });

@@ -1,5 +1,7 @@
 const WORDS_CONTAINER_SELECTOR = '.template-animated-heading__words-animation-wrapper';
 const WORD_SELECTOR = '.template-animated-heading__words-animation-wrapper span';
+const ACTIVE_CLASS = 'is-active';
+const READY_CLASS = 'is-ready';
 
 const animateWords = (words) => {
     let currentWordIndex = 0;
@@ -9,8 +11,8 @@ const animateWords = (words) => {
         let nextWordIndex = currentWordIndex === words.length - 1 ? 0 : currentWordIndex + 1;
         let newWord = words[nextWordIndex];
 
-        currentWord.classList.remove('is-active');
-        newWord.classList.add('is-active');
+        currentWord.classList.remove(ACTIVE_CLASS);
+        newWord.classList.add(ACTIVE_CLASS);
 
         currentWordIndex = nextWordIndex;
     };
@@ -35,9 +37,9 @@ export default function HeadingWordsAnimation() {
 
         if (!words) return;
 
-        words[0].classList.add('is-active');
+        words[0].classList.add(ACTIVE_CLASS);
 
-        wordsContainer.classList.add('is-ready');
+        wordsContainer.classList.add(READY_CLASS);
 
         animateWords(words);
     });

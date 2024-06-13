@@ -2,10 +2,11 @@ import Splide from '@splidejs/splide';
 import { Intersection } from '@splidejs/splide-extension-intersection';
 
 const TEMPLATE_CLASS = 'template-testimonials';
+const SLIDER_CLASS = '.splide';
 
 export default function Testimonials() {
     document.querySelectorAll(`.${TEMPLATE_CLASS}`).forEach((template) => {
-        const carousel = template.querySelector('.splide');
+        const carousel = template.querySelector(SLIDER_CLASS);
 
         if (!carousel) return;
 

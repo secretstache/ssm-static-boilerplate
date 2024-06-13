@@ -5,19 +5,19 @@ module.exports = {
         items: [
             {
                 title: 'title 01',
-                description: 'description'
+                description: 'description',
             },
             {
                 title: 'title 02',
-                description: 'description'
+                description: 'description',
             },
             {
                 title: 'title 03',
-                description: 'description'
+                description: 'description',
             },
             {
                 title: 'title 04',
-                description: 'description'
+                description: 'description',
             },
         ],
     },
@@ -29,27 +29,27 @@ module.exports = {
                 items: [
                     {
                         title: 'title 01',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 02',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 03',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 04',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 05',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 06',
-                        description: 'description'
+                        description: 'description',
                     },
                 ],
             },
@@ -61,34 +61,34 @@ module.exports = {
                 items: [
                     {
                         title: 'title 02',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 03',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 04',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 05',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 06',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 07',
-                        description: 'description'
+                        description: 'description',
                     },
                     {
                         title: 'title 08',
-                        description: 'description'
+                        description: 'description',
                     },
                 ],
             },
         },
-    ]
+    ],
 };

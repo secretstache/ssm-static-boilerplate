@@ -12,6 +12,7 @@ const VISIBLE_CLASS = 'is-visible';
 const VISIBLE_CATEGORY_CLASS = 'is-visible-cat';
 const HIDDEN_CLASS = 'hide';
 const HIDDEN_CAT_CLASS = 'hide-cat';
+const ACTIVE_CLASS = 'is-active';
 
 export default function Timeline() {
     document.querySelectorAll(BLOCK_SELECTOR).forEach((template) => {
@@ -72,10 +73,10 @@ class Filter {
 
     setActiveButton(btn) {
         this.filterBarItems.forEach((item) => {
-            item.classList.remove('is-active');
+            item.classList.remove(ACTIVE_CLASS);
         });
 
-        btn.classList.add('is-active');
+        btn.classList.add(ACTIVE_CLASS);
     }
 
     initLoadMoreList(items, hiddenClass = 'hide') {

@@ -1,6 +1,14 @@
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
+const BLOCK_SELECTOR = '.template-related-content.layout-ticker';
+const SLIDER_CONTAINER = '.splide-container';
+const SLIDER_CLASS = '.splide';
+const SLIDE_CLASS = '.splide__slide';
+
+const ROWS_CLASS = 'has-2-rows';
+const CENTERED_CLASS = 'is-centered';
+
 export default function RelatedContent() {
     initRelatedContentSliders();
 
@@ -30,12 +38,12 @@ const toGroups = (elems, numCols = 2) => {
 };
 
 function initRelatedContentSliders() {
-    document.querySelectorAll('.template-related-content.layout-ticker').forEach((template) => {
-        const container = template.querySelector('.splide-container');
+    document.querySelectorAll(BLOCK_SELECTOR).forEach((template) => {
+        const container = template.querySelector(SLIDER_CONTAINER);
 
-        if (container.querySelector('.splide')) return;
+        if (container.querySelector(SLIDER_CLASS)) return;
 
-        const slideItems = container.querySelectorAll('.splide__slide');
+        const slideItems = container.querySelectorAll(SLIDE_CLASS);
         const gap = 16;
 
         const options = {
@@ -56,7 +64,7 @@ function initRelatedContentSliders() {
         let has2Rows = false;
 
         //break to 2 rows
-        if (template.classList.contains('has-2-rows') && slideItems.length > 3) {
+        if (template.classList.contains(ROWS_CLASS) && slideItems.length > 3) {
             has2Rows = true;
 
             container.innerHTML = toGroups(slideItems, 2);
@@ -70,7 +78,7 @@ function initRelatedContentSliders() {
                             </div>`;
         }
 
-        const carousels = container.querySelectorAll('.splide');
+        const carousels = container.querySelectorAll(SLIDER_CLASS);
 
         carousels.forEach((carousel, index) => {
             if (index === 1) {
@@ -84,7 +92,8 @@ function initRelatedContentSliders() {
                     splide.options = {
                         type: 'loop',
                     };
-                    carousel.classList.remove('is-centered');
+
+                    carousel.classList.remove(CENTERED_CLASS);
                 } else {
                     if (!has2Rows) {
                         splide.options = {
@@ -92,7 +101,7 @@ function initRelatedContentSliders() {
                             clones: 0,
                         };
 
-                        carousel.classList.add('is-centered');
+                        carousel.classList.add(CENTERED_CLASS);
                     }
                 }
             });

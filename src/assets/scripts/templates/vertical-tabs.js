@@ -6,6 +6,8 @@ const NAV_CONTAINER_CLASS = '.template-vertical-tabs__item';
 const HAS_AUTOPLAY_CLASS = '.has-autoplay';
 const TEMPLATE_SELECTOR = '.template-vertical-tabs';
 
+const ACTIVE_CLASS = 'is-active';
+
 class VerticalTabs {
     constructor(template) {
         //dom
@@ -60,24 +62,24 @@ class VerticalTabs {
         const app = this;
 
         app.contentItems.forEach((panel) => {
-            panel.classList.remove('is-active');
+            panel.classList.remove(ACTIVE_CLASS);
         });
 
         app.navItemsContainers.forEach((container) => {
-            container.classList.remove('is-active');
+            container.classList.remove(ACTIVE_CLASS);
         });
     }
 
     goToTab(index) {
         const app = this;
 
-        app.navItems[app.currentIndex].closest(NAV_ITEMS_CONTAINERS_CLASS).classList.remove('is-active');
+        app.navItems[app.currentIndex].closest(NAV_ITEMS_CONTAINERS_CLASS).classList.remove(ACTIVE_CLASS);
         app.navItems[app.currentIndex].closest(NAV_ITEMS_CONTAINERS_CLASS).setAttribute('aria-selected', 'false');
-        app.contentItems[app.currentIndex].classList.remove('is-active');
+        app.contentItems[app.currentIndex].classList.remove(ACTIVE_CLASS);
 
-        app.navItems[index].closest(NAV_ITEMS_CONTAINERS_CLASS).classList.add('is-active');
+        app.navItems[index].closest(NAV_ITEMS_CONTAINERS_CLASS).classList.add(ACTIVE_CLASS);
         app.navItems[index].closest(NAV_ITEMS_CONTAINERS_CLASS).setAttribute('aria-selected', 'true');
-        app.contentItems[index].classList.add('is-active');
+        app.contentItems[index].classList.add(ACTIVE_CLASS);
 
         if (app.progressBars[app.currentIndex]) {
             app.progressBars[app.currentIndex].style.width = '0%';
@@ -138,7 +140,7 @@ class VerticalTabs {
 
         app.hasAutoplay = !!app.template.querySelector(HAS_AUTOPLAY_CLASS);
 
-        app.contentItems[app.currentIndex].classList.add('is-active');
+        app.contentItems[app.currentIndex].classList.add(ACTIVE_CLASS);
 
         // for the smooth animation of title
         app.navItems.forEach((el) => {
