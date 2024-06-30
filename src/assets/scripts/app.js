@@ -19,6 +19,7 @@ import SectionTabsInit from './templates/section-tabs';
 import HeadingWordsAnimation from './templates/animated-heading';
 import Stats from './templates/stats';
 import ProductTour from './templates/product-tour';
+import SecondaryNav from './templates/secondary-nav';
 
 import './templates/vertical-tabs';
 
@@ -75,4 +76,5 @@ document.addEventListener('DOMContentLoaded', function () {
     HeadingWordsAnimation();
     Stats();
     ProductTour();
+    SecondaryNav();
 });

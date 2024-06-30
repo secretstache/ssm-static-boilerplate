@@ -1,0 +1,30 @@
+{% macro render(props) %}
+    <div class="grid-container">
+
+        <div class="template-secondary-nav__container">
+            <div class="template-secondary-nav__title">{{ props.title }}</div>
+
+            <div class="template-secondary-nav__items-container">
+
+                <ul class="template-secondary-nav__items-list">
+
+                    {% for item in props.items %}
+                        <li class="template-secondary-nav__item">
+                            <a href="{{ root }}{{ item.link }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+            <button class="template-secondary-nav__expanded-button">
+
+                <div class="template-secondary-nav__expanded-button-open">
+                    <span>Related Pages</span>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+{% endmacro %}
