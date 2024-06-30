@@ -1,0 +1,41 @@
+{% macro render(props) %}
+
+  <div class="grid-container">
+
+    <ul class="template-image-list__list">
+
+      {% for item in props.items %}
+
+        <li class="template-image-list__item">
+
+          <div class="template-image-list__content">
+
+            <div class="template-image-list__media">
+              <img src="{{ root }}{{ item.img }}" alt="{{ item.title }}">
+            </div>
+
+            <div class="template-image-list__visible-content">
+              <h3 class="template-image-list__title">{{ item.title }}</h3>
+            </div>
+
+            <div class="template-image-list__hidden-content">
+
+              <div class="template-image-list__description">
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum perspiciatis quam mollitia! Consequuntur optio temporibus maxime autem sapiente ea facere.</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </li>
+
+      {% endfor %}
+
+    </ul>
+
+  </div>
+
+{% endmacro %}
