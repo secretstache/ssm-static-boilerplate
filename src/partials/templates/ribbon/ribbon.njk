@@ -1,0 +1,13 @@
+/**
+* @param {string} class
+* @param {array} logos
+*/
+
+{% macro render(props) %}
+
+    <div class="template-ribbon__card">
+        <span data-change-text="{{ props.changeText }}" class="template-ribbon__card-text">{{ props.text }}</span>
+    </div>
+    <button class="button template-ribbon__card-btn">Change Text</button>
+
+{% endmacro %}

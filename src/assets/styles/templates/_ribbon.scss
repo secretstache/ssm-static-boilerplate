@@ -1,0 +1,25 @@
+.template-ribbon {
+
+    &__card {
+        position: fixed;
+        top: rem-calc(30);
+        right: rem-calc(-40);
+        width: 200px;
+        background: var(--grey);
+        color: var(--white);
+        text-align: center;
+        transform: rotate(45deg);
+        z-index: 1000;
+    }
+
+    &__card-text {
+        font-size: rem-calc(12);
+        font-weight: 700;
+    }
+
+    &__card-btn {
+        position: absolute;
+        top: rem-calc(100);
+        left: rem-calc(50);
+    }
+}
