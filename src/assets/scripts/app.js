@@ -20,6 +20,9 @@ import HeadingWordsAnimation from './templates/animated-heading';
 import Stats from './templates/stats';
 import ProductTour from './templates/product-tour';
 import SecondaryNav from './templates/secondary-nav';
+import Ribbon from './templates/ribbon';
+import ImageGallery from './templates/image-gallery';
+
 
 import './templates/vertical-tabs';
 
@@ -75,6 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
     SectionTabsInit();
     HeadingWordsAnimation();
     Stats();
+    Ribbon();
     ProductTour();
     SecondaryNav();
+    ImageGallery();
 });

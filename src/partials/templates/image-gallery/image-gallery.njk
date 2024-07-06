@@ -1,0 +1,56 @@
+/**
+* @param {string} class
+* @param {array} logos
+*/
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="splide">
+
+            <div class="splide__track">
+
+                <div class="splide__list">
+
+                    {% for item in props.items %}
+
+                        <div class="splide__slide">
+
+                            <div class="template-image-gallery__card">
+
+                                <div class="template-image-gallery__img-wrapper">
+                                    <img src="{{root}}{{item.img}}" alt="image">
+                                </div>
+
+                                {% if item.caption or item.button %}
+
+                                    <div class="template-image-gallery__caption">
+
+                                        {% if item.caption %}
+                                            <p {% if item.captionColor %}style="color: {{ item.captionColor }}{% endif %}">{{ item.caption }}</p>
+                                        {% endif %}
+
+                                        {% if item.button %}
+                                            <a class="button{% if item.buttonClass %} {{ item.buttonClass }}{% endif %}" href="{{ item.buttonLink }}">{{ item.button }}</a>
+                                        {% endif %}
+
+                                    </div>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endmacro %}
