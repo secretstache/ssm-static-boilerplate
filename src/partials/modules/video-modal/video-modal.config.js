@@ -5,8 +5,6 @@ module.exports = {
     options,
     context: {
         src: '/assets/video/placeholder.mp4',
-        attributes: 'controls',
-        preload: 'auto',
     },
     variants: [
         {

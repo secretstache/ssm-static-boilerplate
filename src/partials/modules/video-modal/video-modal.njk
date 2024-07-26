@@ -9,21 +9,24 @@
 
 {% macro render( props ) %}
 
-    <div class="module video-modal{%if props.class %} {{ props.class }}{% endif %}">
-        <a href="#" class="button video-modal__open-modal" data-youtube-url="https://www.youtube.com/embed/dQw4w9WgXcQ">Open Video</a>
+    <div class="module video-modal">
+        <a href="#" class="button video-modal__open-modal" data-video-url="{{ props.src }}">Open Video</a>
 
         <div class="video-modal__modal-window" style="display: none;">
             <div class="video-modal__content">
                 <button class="video-modal__close-btn">&times;</button>
-                <iframe 
-                    class="video-modal__iframe" 
-                    src="" 
-                    allow="autoplay; encrypted-media" 
-                    sandbox="allow-scripts allow-same-origin allow-presentation">
-                </iframe>
+                
+                {% if props.type %}
+                <iframe class="video-modal__iframe" src="" allow="autoplay; encrypted-media" style="display: none;"></iframe>
+                {% else %}
+                <video class="video-modal__player" controls autoplay style="display: none;">
+                    <source class="video-modal__source" src="{{ root }}{{ props.src }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {% endif %}
+
             </div>
         </div>
-
     </div>
 
 {% endmacro %}
