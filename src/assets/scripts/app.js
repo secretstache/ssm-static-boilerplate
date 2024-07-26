@@ -22,6 +22,7 @@ import ProductTour from './templates/product-tour';
 import SecondaryNav from './templates/secondary-nav';
 import Ribbon from './templates/ribbon';
 import ImageGallery from './templates/image-gallery';
+import AsideNavigation from './global/asideNavigation'
 
 
 import './templates/vertical-tabs';
@@ -54,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (header) {
         new Header(header);
     }
+
+    // Aside Navigation
+    AsideNavigation()
 
     // modals
     // Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));

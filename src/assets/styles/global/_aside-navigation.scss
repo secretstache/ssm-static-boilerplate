@@ -1,0 +1,250 @@
+.aside-navigation {
+	display: flex;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	transform: translateX(calc(-100% + #{rem-calc(40)}));
+	z-index: 9999;
+	transition:
+		transform calc(var(--tr) * 2),
+		opacity var(--tr);
+	height: 100vh;
+
+	& ~ .content-block {
+		@include breakpoint(medium) {
+			margin-left: rem-calc(40) !important;
+		}
+	}
+
+	&.is-open {
+		transform: translateX(0);
+		z-index: 9999;
+
+		@include breakpoint(small only) {
+			width: calc(100% + #{rem-calc(40)});
+		}
+
+		.aside-navigation {
+			&__toggler {
+				&:before,
+				&:after {
+					transform: translateX(-50%) rotate(180deg);
+				}
+
+				@include breakpoint(small only) {
+					opacity: 0;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	&__content {
+		position: relative;
+		background-color: var(--light-grey);
+		padding: rem-calc(48 20);
+		width: 100%;
+		overflow: scroll;
+
+		@include breakpoint(medium) {
+			padding: rem-calc(38 30);
+			width: rem-calc(510);
+		}
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		> li {
+			> a {
+				padding-left: rem-calc(30);
+				font-weight: 600;
+
+				@include breakpoint(medium) {
+					padding-left: rem-calc(44);
+				}
+			}
+
+			&:last-of-type {
+				ul {
+					li:last-of-type {
+						a {
+							border-bottom: unset;
+						}
+					}
+				}
+			}
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		a {
+			display: block;
+			position: relative;
+			border-bottom: rem-calc(1) solid var(--black);
+			padding-left: rem-calc(106);
+			padding: rem-calc(9 0 9 80);
+			color: var(--dark-purple);
+			font-size: rem-calc(12);
+			line-height: 140%;
+			text-decoration: none;
+
+			@include breakpoint(medium) {
+				padding: rem-calc(13 0 8 106);
+				font-size: rem-calc(16);
+			}
+
+			&:hover,
+			&.show-active-state {
+				&:before {
+					opacity: 1;
+				}
+			}
+
+			&:before {
+				display: block;
+				position: absolute;
+				top: rem-calc(14);
+				left: rem-calc(10);
+				opacity: 0;
+				transition: opacity var(--tr);
+				border-radius: 50%;
+				background-color: var(--black);
+				width: rem-calc(6);
+				min-width: rem-calc(6);
+				height: rem-calc(6);
+				content: "";
+
+				@include breakpoint(medium) {
+					top: rem-calc(20);
+					left: rem-calc(20);
+					width: rem-calc(8);
+					min-width: rem-calc(8);
+					height: rem-calc(8);
+				}
+			}
+		}
+	}
+
+	&__toggler {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+		background: var(--grey);
+		padding: rem-calc(54 4);
+		width: rem-calc(40);
+		min-width: rem-calc(40);
+		overflow: hidden;
+
+		@include breakpoint(small only) {
+			transition: opacity var(--tr);
+			padding: 0;
+			height: rem-calc(40);
+			overflow: hidden;
+		}
+
+		&:before,
+		&:after {
+			display: block;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: transform var(--tr);
+			background: svg-uri('<svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L14 9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"/><path d="M8 2L15 9L8 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"/></svg>') no-repeat;
+			background-size: contain;
+			width: rem-calc(16);
+			min-width: rem-calc(16);
+			height: rem-calc(16);
+			content: "";
+		}
+
+		&:before {
+			top: rem-calc(20);
+
+			@include breakpoint(small only) {
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&:after {
+			bottom: rem-calc(20);
+
+			@include breakpoint(small only) {
+				display: none;
+			}
+		}
+
+		&-title,
+		&-category {
+			transform: rotate(180deg);
+			color: var(--white);
+			font-size: rem-calc(18);
+			writing-mode: vertical-rl;
+			user-select: none;
+
+			@include breakpoint(small only) {
+				display: none;
+			}
+		}
+
+		&-category {
+			font-weight: 700;
+		}
+	}
+
+	&__mobile-toggler {
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: 0;
+		align-items: center;
+		gap: rem-calc(20);
+		cursor: pointer;
+		background: var(--grey);
+		padding-left: rem-calc(20);
+		width: 100%;
+		height: rem-calc(40);
+		color: var(--black);
+		font-size: rem-calc(14);
+
+		&:before {
+			display: block;
+			transform: rotate(180deg);
+			background: svg-uri('<svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L14 9" stroke="#2F1A45" stroke-width="2" stroke-linecap="square"/><path d="M8 2L15 9L8 16" stroke="#2F1A45" stroke-width="2" stroke-linecap="square"/></svg>') no-repeat;
+			background-size: contain;
+			width: rem-calc(12);
+			min-width: rem-calc(12);
+			height: rem-calc(12);
+			content: "";
+		}
+
+		@include breakpoint(medium) {
+			display: none;
+		}
+	}
+}
+
+
+main.content:has(.aside-navigation) {
+
+	.template-free-form {
+		min-height: rem-calc(600);
+		display: flex;
+		align-items: center;
+		border-top: rem-calc(1) solid var(--grey);
+
+		.template-header {
+			width: 100%;
+		}
+	}
+}
