@@ -8,7 +8,7 @@ import DropdownMenu from './global/dropdownMenu';
 import ScrollspyMenu from './global/scrollspyMenu';
 import HorizontalTabs from './templates/horizontal-tabs';
 import LogoWall from './templates/logo-wall';
-import { FacetDropdown } from './templates/facet-elements';
+import FacetDropdown from './templates/facet-elements';
 import Testimonials from './templates/testimonials';
 import TeamMembers from './templates/team-members';
 import CardFlip from './templates/card-flip';
