@@ -23,6 +23,7 @@ import SecondaryNav from './templates/secondary-nav';
 import Ribbon from './templates/ribbon';
 import ImageGallery from './templates/image-gallery';
 import AsideNavigation from './global/asideNavigation'
+import VideoModal from './modal/video-modal'
 
 
 import './templates/vertical-tabs';
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // modules
     Accordion();
+    VideoModal();
 
     // templates
     HorizontalTabs();

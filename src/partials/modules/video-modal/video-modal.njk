@@ -1,0 +1,29 @@
+/**
+* @param {string} class
+* @param {string} type - iframe
+* @param {string} poster
+* @param {string} src
+* @param {string} attributes - loop autoplay muted
+* @param {string} preload - none | metadata | auto
+*/
+
+{% macro render( props ) %}
+
+    <div class="module video-modal{%if props.class %} {{ props.class }}{% endif %}">
+        <a href="#" class="button video-modal__open-modal" data-youtube-url="https://www.youtube.com/embed/dQw4w9WgXcQ">Open Video</a>
+
+        <div class="video-modal__modal-window" style="display: none;">
+            <div class="video-modal__content">
+                <button class="video-modal__close-btn">&times;</button>
+                <iframe 
+                    class="video-modal__iframe" 
+                    src="" 
+                    allow="autoplay; encrypted-media" 
+                    sandbox="allow-scripts allow-same-origin allow-presentation">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+
+{% endmacro %}
