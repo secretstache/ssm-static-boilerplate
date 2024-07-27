@@ -1,13 +1,12 @@
 .template-link-list {
-
     &__wrapper {
         display: flex;
         flex-direction: column;
-        
-        list-style: none;
         margin: 0;
-        padding: 0;
         border-top: rem-calc(1) solid var(--black);
+        padding: 0;
+
+        list-style: none;
     }
 
     &__item {
@@ -16,17 +15,17 @@
         justify-content: space-between;
         align-items: center;
         gap: rem-calc(12);
-        padding: rem-calc(12 0);
         border-bottom: rem-calc(1) solid var(--black);
+        padding: rem-calc(12 0);
 
         p {
-            @include typo('h6');
-            @include breakpoint(small only){
+            @include typo("h6");
+            @include breakpoint(small only) {
                 text-align: center;
             }
         }
 
-        @include breakpoint(medium){
+        @include breakpoint(medium) {
             flex-direction: row;
         }
     }

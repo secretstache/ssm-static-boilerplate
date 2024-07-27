@@ -33,6 +33,78 @@
         overflow-y: auto;
     }
 
+    &__navigation {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: rem-calc(24);
+            padding: 0;
+            list-style: none;
+
+            li {
+                &.menu-item-has-children {
+                    > div {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: rem-calc(10);
+                    }
+
+                    .dropdown-arrow {
+                        display: block;
+                        transform: rotate(90deg);
+                        mask-image: svg-uri('<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.999 1.99316C6.48502 1.99416 1.99902 6.48016 1.99902 11.9942C1.99902 17.5082 6.48502 21.9942 12 21.9942C17.513 21.9942 21.999 17.5082 22 11.9942C22 6.48016 17.514 1.99416 11.999 1.99316ZM12 19.9942C7.58802 19.9942 3.99902 16.4052 3.99902 11.9942C3.99902 7.58316 7.58802 3.99416 11.999 3.99316C16.411 3.99416 20 7.58316 20 11.9942C19.999 16.4052 16.41 19.9942 12 19.9942Z" fill="#192F5F"/><path d="M12 10.9941H8V12.9941H12V16.0001L16.005 11.9951L12 7.99109V10.9941Z" fill="#192F5F"/></svg>');
+                        mask-size: contain;
+                        mask-repeat: no-repeat;
+                        transition: transform var(--tr);
+                        background: var(--red);
+                        width: rem-calc(25);
+                        min-width: rem-calc(25);
+                        height: rem-calc(25);
+                        content: "";
+                    }
+
+                    .mega-menu__menu {
+                        li {
+                            padding-left: rem-calc(15);
+
+                            a {
+                                text-transform: none;
+                            }
+                        }
+                    }
+
+                    .mega-menu__menu,
+                    .mega-menu__sub-menu {
+                        gap: rem-calc(10);
+                        transition:
+                            max-height var(--tr),
+                            opacity var(--tr);
+                        overflow: hidden;
+
+                        li {
+                            &:first-child {
+                                padding-top: rem-calc(10);
+                            }
+                        }
+                    }
+
+                    &.is-active {
+                        > div > .dropdown-arrow {
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
+            }
+
+            a {
+                color: var(--red);
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        }
+    }
+
     @media (prefers-reduced-motion: reduce) {
         & {
             transition: none;
@@ -58,7 +130,7 @@
     opacity: 0;
     z-index: 1040;
     transition: opacity var(--tr);
-    background-color: #000;
+    background-color: var(--black);
     width: 100vw;
     height: 100vh;
 

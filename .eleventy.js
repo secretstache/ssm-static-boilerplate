@@ -16,6 +16,7 @@ const yaml = require('js-yaml');
 const assets = [
     'images',
     'video',
+    'audio',
     'fonts',
     'animations',
 ];

@@ -1,9 +1,9 @@
 .site-footer {
-    background: var(--black, #000);
+    background: var(--black);
     padding: rem-calc(40 0);
-    color: var(--inverse, #fff);
+    color: var(--inverse);
 
     a {
-        color: var(--inverse, #fff);
+        color: var(--inverse);
     }
 }

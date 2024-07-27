@@ -1,20 +1,19 @@
 .template-ribbon {
-
     &__card {
         position: fixed;
         top: rem-calc(30);
         right: rem-calc(-40);
-        width: 200px;
-        background: var(--grey);
-        color: var(--white);
-        text-align: center;
         transform: rotate(45deg);
         z-index: 1000;
+        background: var(--grey);
+        width: rem-calc(200);
+        color: var(--white);
+        text-align: center;
     }
 
     &__card-text {
-        font-size: rem-calc(12);
         font-weight: 700;
+        font-size: rem-calc(12);
     }
 
     &__card-btn {

@@ -8,7 +8,84 @@ main:
             url: '/design-system/module/button'
           - name: 'Free form'
             url: '/design-system/template/free-form'
-
+    - name: 'Mega menu'
+      url: '/'
+      megaMenu: true
+      megaMenuNavigation:
+        -
+          link: '/'
+          title: Mega menu link 1
+          subMegaMenuNavigation:
+            -
+              link: '/'
+              title: Sub menu link 1
+            -
+              link: '/'
+              title: Sub menu link 2
+            -
+              link: '/'
+              title: Sub menu link 3
+            -
+              link: '/'
+              title: Sub menu link 4
+            -
+              link: '/'
+              title: Sub menu link 5
+        -
+          link: '/'
+          title: Mega menu link 2
+          subMegaMenuNavigation:
+            -
+              link: '/'
+              title: Sub menu link 1
+            -
+              link: '/'
+              title: Sub menu link 2
+            -
+              link: '/'
+              title: Sub menu link 3
+            -
+              link: '/'
+              title: Sub menu link 4
+        -
+          link: '/'
+          title: Mega menu link 3
+          subMegaMenuNavigation:
+            -
+              link: '/'
+              title: Sub menu link 1
+            -
+              link: '/'
+              title: Sub menu link 2
+            -
+              link: '/'
+              title: Sub menu link 3
+        -
+          link: '/'
+          title: Mega menu link 4
+        -
+          link: '/'
+          title: Mega menu link 5
+          subMegaMenuNavigation:
+            -
+              link: '/'
+              title: Sub menu link 1
+            -
+              link: '/'
+              title: Sub menu link 2
+            -
+              link: '/'
+              title: Sub menu link 3
+        -
+          link: '/'
+          title: Mega menu link 6
+          subMegaMenuNavigation:
+            -
+              link: '/'
+              title: Sub menu link 1
+            -
+              link: '/'
+              title: Sub menu link 2
 footer:
     - name: 'Home'
       url: '/'

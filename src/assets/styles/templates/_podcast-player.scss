@@ -1,0 +1,175 @@
+.template-podcast-player {
+    --controls-bg: var(--red);
+
+    color: var(--black);
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc(30);
+        margin: 0 auto;
+
+        @include breakpoint(medium) {
+            gap: rem-calc(34);
+        }
+
+        @include breakpoint(xlarge) {
+            justify-content: center;
+            gap: rem-calc(36 90);
+        }
+    }
+
+    &__item {
+        width: 100%;
+
+        @include breakpoint(xlarge) {
+            width: calc(100% / 2 - #{rem-calc(45)});
+        }
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: rem-calc(12);
+
+        @include breakpoint(small only) {
+            justify-content: flex-start;
+            gap: rem-calc(8);
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+
+    &__img-wrapper {
+        flex-shrink: 0;
+        border-radius: 50%;
+        width: min-max(100, 201);
+        height: min-max(100, 201);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        @include typo("h5");
+    }
+
+    &__position {
+        @include breakpoint(small only) {
+            font-size: rem-calc(12);
+        }
+    }
+
+    &__podcast {
+        margin-top: rem-calc(15);
+
+        .plyr {
+            border-radius: rem-calc(15);
+
+            &__controls {
+                gap: rem-calc(15);
+                background: var(--controls-bg);
+                padding: rem-calc(14 12);
+                color: var(--black);
+
+                @include breakpoint(medium) {
+                    padding: rem-calc(18 14);
+                }
+
+                .plyr__controls__item {
+                    &:first-child {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        order: -2;
+                        border-radius: 50%;
+                        background: var(--red);
+                        padding: 0;
+                        width: min-max(25, 32);
+                        height: min-max(25, 32);
+
+                        .icon--pressed,
+                        .icon--not-pressed {
+                            width: rem-calc(14);
+                            height: rem-calc(15);
+                            color: var(--black);
+
+                            @include breakpoint(small only) {
+                                width: rem-calc(10);
+                                height: rem-calc(11);
+                            }
+                        }
+                    }
+                }
+
+                .plyr__volume {
+                    margin: 0;
+
+                    button {
+                        padding: 0;
+
+                        &:hover {
+                            background: none;
+                            color: var(--black);
+                        }
+                    }
+                }
+            }
+
+            &__progress {
+                input[type="range"] {
+                    position: relative;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    cursor: pointer;
+                    background: var(--white);
+                    height: rem-calc(4);
+                    color: var(--black);
+
+                    &::-webkit-slider-runnable-track {
+                        border-radius: 0;
+                        height: rem-calc(4);
+                    }
+
+                    &::-webkit-slider-thumb {
+                        position: relative;
+                        z-index: 4;
+                        cursor: pointer;
+                        box-shadow: none;
+                        background: var(--black);
+                        width: rem-calc(11);
+                        height: rem-calc(11);
+                    }
+                }
+            }
+
+            .plyr__time {
+                font-size: rem-calc(12);
+            }
+
+            &__controls__item.plyr__time--current.plyr__time {
+                order: -1;
+                margin: 0;
+                padding: 0;
+
+                + .plyr__time {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    font-size: rem-calc(12);
+
+                    &::before {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+}

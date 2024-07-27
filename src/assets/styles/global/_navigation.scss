@@ -48,29 +48,31 @@
 
     // submenu
     ul {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        flex-direction: column;
-        gap: rem-calc(8);
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity var(--tr);
-        margin: 0;
-        box-shadow: var(--shadow, 0 0 10px rgba(0, 0, 0, 0.1));
-        background: var(--white, #fff);
-        padding: rem-calc(20);
-        width: rem-calc(150);
-        pointer-events: none;
-        list-style: none;
+        &:not(.mega-menu__menu, .mega-menu__sub-menu) {
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            flex-direction: column;
+            gap: rem-calc(8);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity var(--tr);
+            margin: 0;
+            box-shadow: var(--shadow, 0 0 10px rgba(0, 0, 0, 0.1));
+            background: var(--white, #fff);
+            padding: rem-calc(20);
+            width: rem-calc(150);
+            pointer-events: none;
+            list-style: none;
 
-        > * + * {
-            margin-top: rem-calc(5);
-        }
+            > * + * {
+                margin-top: rem-calc(5);
+            }
 
-        &:has(:focus) {
-            opacity: 1;
+            &:has(:focus) {
+                opacity: 1;
+            }
         }
     }
 

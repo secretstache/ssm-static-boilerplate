@@ -39,11 +39,11 @@
 
                                     {% if testimonial.image %}
 
-                                        <img class="template-testimonials__image" src="{{ root }}{{ testimonial.image }}" alt="">
+                                        <img class="template-testimonials__image" src="{{ root }}{{ testimonial.image }}" alt="{{ testimonial.cite }}">
 
                                     {% endif %}
 
-                                    {% if testimonial.pullquote%}
+                                    {% if testimonial.pullquote %}
 
                                         <figure class="wp-block-pullquote">
 

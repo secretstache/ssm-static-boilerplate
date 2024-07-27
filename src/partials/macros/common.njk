@@ -1,17 +1,17 @@
 {# DropdownMenu macro #}
-{%- macro menu(props) -%}
+{% macro menu(props) %}
     {% from "macros/common.njk" import menu %}
 
     <ul class="{{ props.menuClass }}"{% if props.attributes %} {{ props.attributes | safe }}{% endif %}>
 
         {% for link in props.nav %}
 
-            <li>
+            {% set classes = (['menu-item-has-children' if link.submenu or link.megaMenu]) | toClassNames %}
+
+            <li class="menu__item{{ classes }}">
 
                 {% set linkClasses = ([
-                    'peer',
-                    props.linkClass if  props.linkClass,
-                    props.currentlinkClass if props.currentPage == link.url and props.currentlinkClass
+                    'peer', props.linkClass if props.linkClass, props.currentlinkClass if props.currentPage == link.url and props.currentlinkClass
                 ]) | toClassNames %}
 
                 {% set linkAttributes = ([
@@ -21,7 +21,7 @@
 
                 <a href="{{ root }}{{ link.url }}" class="{{ linkClasses }}"{{ linkAttributes | safe }}>{{ link.name }}</a>
 
-                {%if link.submenu %}
+                {% if link.submenu %}
                     {{ menu({
                         nav: link.submenu,
                         currentPage: props.currentPage,
@@ -32,18 +32,63 @@
 
                 {% endif %}
 
+                {% if link.megaMenu %}
+
+                    <div class="mega-menu">
+
+                        <ul class="mega-menu__menu" data-parent="{{ link.name }}">
+
+                            {% for item in link.megaMenuNavigation %}
+
+                                {% set classes = (['menu-item-has-children' if item.subMegaMenuNavigation]) | toClassNames %}
+
+                                <li class="mega-menu__item{{ classes }}" {% if item.image %}data-image="{{ root }}{{ item.image }}"{% endif %}>
+                                    <div class="mega-menu__header">
+                                        <a href="{{ root }}{{ item.link }}">{{ item.title }}</a>
+
+                                        {% if item.subMegaMenuNavigation %}
+                                            <button class="mega-menu__button"></button>
+                                        {% endif %}
+                                    </div>
+
+                                    {% if item.subMegaMenuNavigation %}
+
+                                        <ul class="mega-menu__sub-menu">
+
+                                            {% for subMenuItem in item.subMegaMenuNavigation %}
+
+                                                <li class="mega-menu__sub-menu-item">
+                                                    <a href="{{ root }}{{ subMenuItem.link }}">{{ subMenuItem.title }}</a>
+                                                </li>
+
+                                            {% endfor %}
+
+                                        </ul>
+
+                                    {% endif %}
+
+                                </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+                    </div>
+
+                {% endif %}
+
             </li>
 
-        {% endfor -%}
+        {% endfor %}
 
     </ul>
 
-{%- endmacro -%}
+{% endmacro %}
 
 {# Modal macro #}
-{%- macro modal(props) -%}
+{% macro modal(props) %}
 
-    <div class="modal{%if props.class %}{{ props.class }}{% endif %}" id="{{ props.id }}" tabindex="-1">
+    <div class="modal {%if props.class %}{{ props.class }}{% endif %}" id="{{ props.id }}" tabindex="-1">
 
         <div class="modal__wrapper">
 
@@ -57,7 +102,8 @@
 
                 <div class="modal__body">
 
-                    {% if caller %}{{ caller()  }}{% endif %}
+                    {% if caller %}{{ caller()  }}
+                    {% endif %}
 
                 </div>
 
@@ -67,4 +113,4 @@
 
     </div>
 
-{%- endmacro -%}
+{% endmacro %}

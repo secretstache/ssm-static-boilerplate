@@ -45,7 +45,10 @@
 
                                 <div class="template-horizontal-tabs__description-block">
                                     <p class="template-horizontal-tabs__description">{{ item.description}}</p>
-                                    <a href="" class="template-horizontal-tabs__link">{{ item.button }}</a>
+
+                                    {% if item.button %}
+                                        <a href="{{ root }}{{ item.link }}" class="template-horizontal-tabs__link">{{ item.button }}</a>
+                                    {% endif %}
                                 </div>
                             </div>
 

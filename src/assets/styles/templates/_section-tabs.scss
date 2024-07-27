@@ -137,8 +137,8 @@
             flex-direction: column;
             opacity: 1;
             animation: fade 2s linear;
-            width: 100%;
             padding: rem-calc(0 24);
+            width: 100%;
 
             @include breakpoint(large) {
                 // flex-direction: row;

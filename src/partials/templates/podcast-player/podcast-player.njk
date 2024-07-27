@@ -1,0 +1,66 @@
+/**
+* @param {string} class
+* @param {array} items
+*/
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-podcast-player__list">
+
+            {% for item in props.items %}
+
+                <div class="template-podcast-player__item">
+
+                    <div class="template-podcast-player__inner">
+
+                        <div class="template-podcast-player__img-wrapper">
+
+                            <img src="{{ root }}{{ item.image }}" alt="{{ item.name }}">
+
+                        </div>
+
+                        <div class="template-podcast-player__content">
+
+                            <h3 class="template-podcast-player__name">{{ item.name }}</h3>
+
+                            <span class="template-podcast-player__position">{{ item.position}}</span>
+
+                            {% if item.podcast %}
+
+                                <div class="template-podcast-player__podcast show-for-medium">
+
+                                    <audio controls>
+                                        <source src="{{ root }}{{ item.podcast }}" type="audio/mp3">
+                                    </audio>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                    {% if item.podcast %}
+
+                        <div class="template-podcast-player__podcast show-for-small-only">
+
+                            <audio controls>
+                                <source src="{{ root }}{{ item.podcast }}" type="audio/mp3">
+                            </audio>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

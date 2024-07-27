@@ -23,7 +23,6 @@
     </div>
 {% endmacro %}
 
-
 {% macro column(props) %}
     {% set classes = ([
         'medium-' + props.width if props.width,
@@ -38,20 +37,17 @@
             {% endif %}
         </div>
     </div>
-
 {% endmacro %}
-
 
 {% macro module(name, props) %}
-    {%- from "../modules/" + name + "/" + name + ".njk" import render -%}
+    {% from "../modules/" + name + "/" + name + ".njk" import render %}
 
-    {%- if caller -%}
-        {%- call render( props ) %}{{ caller() }}{% endcall -%}
-    {%- else -%}
-        {{- render( props ) -}}
-    {%- endif -%}
+    {% if caller %}
+        {% call render( props ) %}{{ caller() }}{% endcall %}
+    {% else %}
+        {{ render( props ) }}
+    {% endif %}
 {% endmacro %}
-
 
 {%- macro template(name, props) -%}
     {#    /**#}
@@ -93,9 +89,9 @@
                     {% set headlineTag = templateHeader.tag if templateHeader.tag else 'h2' %}
 
                     {% if templateHeader.headline %}
-                    <{{ headlineTag }} class="template-header__headline">
-                        {{ templateHeader.headline | safe }}
-                    </{{ headlineTag }}>
+                        <{{ headlineTag }} class="template-header__headline">
+                            {{ templateHeader.headline | safe }}
+                        </{{ headlineTag }}>
                     {% endif %}
 
                     {% if templateHeader.description %}
@@ -140,11 +136,11 @@
 
         {% endif %}
 
-        {%- if caller -%}
-            {%- call render( props ) %}{{ caller() }}{% endcall -%}
-        {%- else -%}
-            {{- render( props ) -}}
-        {%- endif -%}
+        {% if caller %}
+            {% call render( props ) %}{{ caller() }}{% endcall %}
+        {% else %}
+            {{ render( props ) }}
+        {% endif %}
 
     </section>
-{%- endmacro -%}
+{% endmacro %}

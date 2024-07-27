@@ -22,9 +22,10 @@ import ProductTour from './templates/product-tour';
 import SecondaryNav from './templates/secondary-nav';
 import Ribbon from './templates/ribbon';
 import ImageGallery from './templates/image-gallery';
-import AsideNavigation from './global/asideNavigation'
-import VideoModal from './modal/video-modal'
-
+import PodcastPlayer from './templates/podcast-player';
+import AsideNavigation from './global/asideNavigation';
+import { MegaMenuDesktop, MegaMenuMobile } from './global/megaMenu';
+import VideoModal from './modal/video-modal';
 
 import './templates/vertical-tabs';
 
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Aside Navigation
-    AsideNavigation()
+    AsideNavigation();
 
     // modals
     // Array.from(document.querySelectorAll('.modal')).map((el) => new Modal(el));
@@ -66,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // menus
     DropdownMenu();
     ScrollspyMenu();
+    MegaMenuDesktop();
+    MegaMenuMobile();
 
     // modules
     Accordion();
@@ -88,4 +91,5 @@ document.addEventListener('DOMContentLoaded', function () {
     ProductTour();
     SecondaryNav();
     ImageGallery();
+    PodcastPlayer();
 });
