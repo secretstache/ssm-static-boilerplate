@@ -3,9 +3,12 @@ import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
 // import Modal from './global/modal';
-import Accordion from './templates/accordion';
 import DropdownMenu from './global/dropdownMenu';
 import ScrollspyMenu from './global/scrollspyMenu';
+import AsideNavigation from './global/asideNavigation';
+import { MegaMenuDesktop, MegaMenuMobile } from './global/megaMenu';
+import VideoModal from './modal/video-modal';
+import Accordion from './templates/accordion';
 import HorizontalTabs from './templates/horizontal-tabs';
 import LogoWall from './templates/logo-wall';
 import FacetDropdown from './templates/facet-elements';
@@ -23,9 +26,7 @@ import SecondaryNav from './templates/secondary-nav';
 import Ribbon from './templates/ribbon';
 import ImageGallery from './templates/image-gallery';
 import PodcastPlayer from './templates/podcast-player';
-import AsideNavigation from './global/asideNavigation';
-import { MegaMenuDesktop, MegaMenuMobile } from './global/megaMenu';
-import VideoModal from './modal/video-modal';
+import FeaturedListAnimation from './templates/featured-list';
 
 import './templates/vertical-tabs';
 
@@ -92,4 +93,5 @@ document.addEventListener('DOMContentLoaded', function () {
     SecondaryNav();
     ImageGallery();
     PodcastPlayer();
+    FeaturedListAnimation();
 });

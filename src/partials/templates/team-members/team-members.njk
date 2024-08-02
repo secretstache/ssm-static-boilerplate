@@ -97,7 +97,9 @@
                                     {% endif %}
                                 </div>
 
-                                <button class="template-team-members__toggle-read-more more">Read More</button>
+                                {% if item.hiddenDescription %}
+                                    <button class="template-team-members__toggle-read-more more">Read More</button>
+                                {% endif %}
                             {% endif %}
 
                             <div class="template-team-members__buttons-wrapper">

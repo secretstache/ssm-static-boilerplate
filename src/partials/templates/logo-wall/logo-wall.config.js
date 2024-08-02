@@ -5,39 +5,39 @@ module.exports = {
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
                 title: 'Title Placeholder',
-                link: '#'
+                link: '#',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
             {
                 img: '/assets/images/cms/logo-placeholder.svg',
-                title: 'Title Placeholder'
+                title: 'Title Placeholder',
             },
         ],
     },
@@ -51,42 +51,42 @@ module.exports = {
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
                         title: 'Title Placeholder',
-                        link: '#'
+                        link: '#',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                     {
                         img: '/assets/images/cms/logo-placeholder.svg',
-                        title: 'Title Placeholder'
+                        title: 'Title Placeholder',
                     },
                 ],
             },
-        }
-    ]
+        },
+    ],
 };

@@ -1,6 +1,7 @@
 const MENU_SELECTOR = '.is-scrollspy';
 const SECTION_SELECTOR = '.content-block';
 const ACTIVE_CLASS = 'is-active';
+const ACTIVE_LINK = `li.${ACTIVE_CLASS}`;
 
 export default function ScrollspyMenu() {
     const menus = document.querySelectorAll(MENU_SELECTOR);
@@ -12,16 +13,16 @@ export default function ScrollspyMenu() {
                     if (entry.isIntersecting) {
                         const uid = entry.target.id;
 
-                        const activeLink = menu.querySelector(`li.${ACTIVE_CLASS}`);
+                        const activeLink = menu.querySelector(ACTIVE_LINK);
 
                         if (activeLink !== null) {
                             activeLink.classList.remove(ACTIVE_CLASS);
                         }
 
-                        const button = menu.querySelector('a[href="#' + uid + '"]');
+                        const buttonTrigger = menu.querySelector('a[href="#' + uid + '"]');
 
-                        if (button !== null) {
-                            button.parentNode.classList.add(ACTIVE_CLASS);
+                        if (buttonTrigger !== null) {
+                            buttonTrigger.parentNode.classList.add(ACTIVE_CLASS);
                         }
                     }
                 });

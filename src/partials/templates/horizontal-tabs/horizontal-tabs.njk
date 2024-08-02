@@ -1,65 +1,48 @@
 /**
 * @param {string} class
-* @param {string} style
-* @param {string} id
-* @param {string} customStyle
 * @param {array} items
 */
 
 {% macro render(props) %}
 
-    {% from 'macros/blocks.njk' import block %}
+    {% if props.items %}
 
-    {% set classes = ([
-    props.class if props.class,
-    'is-style-' + props.customStyle if props.customStyle
-  ]) | toClassNames %}
+        <div class="template-horizontal-tabs__list">
 
-    {% set styles = ([props.style if props.style]) | toStyleString | safe %}
+            {% for item in props.items %}
 
-    {% set id = ' id="' + props.id + '"' if props.id %}
+                <div class="template-horizontal-tabs__item{% if item.class %} {{ item.class }}{% endif %}">
 
-    <div class="template-horizontal-tabs{{ classes }}"{{ styles }}{{ id }}>
-
-        {% if props.items %}
-
-            <div class="template-horizontal-tabs__list">
-
-                {% for item in props.items %}
-
-                    <div class="template-horizontal-tabs__item{% if item.class%} {{ item.class }}{% endif%}">
-
-                        <div class="template-horizontal-tabs__label">
-                            <h3 class="template-horizontal-tabs__label-title">{{ item.title }}</h3>
-                        </div>
-
-                        <div class="template-horizontal-tabs__image">
-                            <img src="{{ root }}{{ item.image }}" alt="{{ item.title }}">
-                        </div>
-
-                        <div class="template-horizontal-tabs__item-content">
-                            <button class="template-horizontal-tabs__close-button">close</button>
-
-                            <div class="template-horizontal-tabs__content-inner">
-                                <h4 class="template-horizontal-tabs__title">{{ item.title }}</h4>
-
-                                <div class="template-horizontal-tabs__description-block">
-                                    <p class="template-horizontal-tabs__description">{{ item.description}}</p>
-
-                                    {% if item.button %}
-                                        <a href="{{ root }}{{ item.link }}" class="template-horizontal-tabs__link">{{ item.button }}</a>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                        </div>
+                    <div class="template-horizontal-tabs__label">
+                        <h3 class="template-horizontal-tabs__label-title">{{ item.title }}</h3>
                     </div>
 
-                {% endfor %}
+                    <div class="template-horizontal-tabs__image">
+                        <img src="{{ root }}{{ item.image }}" alt="{{ item.title }}">
+                    </div>
 
-            </div>
+                    <div class="template-horizontal-tabs__item-content">
+                        <button class="template-horizontal-tabs__close-button">close</button>
 
-        {% endif %}
-    </div>
+                        <div class="template-horizontal-tabs__content-inner">
+                            <h4 class="template-horizontal-tabs__title">{{ item.title }}</h4>
+
+                            <div class="template-horizontal-tabs__description-block">
+                                <p class="template-horizontal-tabs__description">{{ item.description }}</p>
+
+                                {% if item.button %}
+                                    <a href="{{ root }}{{ item.link }}" class="template-horizontal-tabs__link">{{ item.button }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
 
 {% endmacro %}

@@ -7,7 +7,7 @@ module.exports = {
         {
             title: 'Single Column',
             context: {
-                innerContent: 'single'
+                innerContent: 'single',
             },
         },
     ],

@@ -126,7 +126,7 @@
     &__back-side,
     &__front-side {
         backface-visibility: hidden;
-        transition: transform 0.6s;
+        transition: transform calc(var(--tr) * 2);
 
         @include overlay();
     }

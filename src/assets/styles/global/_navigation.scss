@@ -38,10 +38,10 @@
         &::after {
             display: block;
             transform: rotate(45deg);
-            border-right: 1px solid var(--body-color);
-            border-bottom: 1px solid var(--body-color);
-            width: 0.5em;
-            height: 0.5em;
+            border-right: rem-cac(1) solid var(--body-color);
+            border-bottom: rem-cac(1) solid var(--body-color);
+            width: rem-calc(8);
+            height: rem-calc(8);
             content: "";
         }
     }
@@ -59,8 +59,8 @@
             opacity: 0;
             transition: opacity var(--tr);
             margin: 0;
-            box-shadow: var(--shadow, 0 0 10px rgba(0, 0, 0, 0.1));
-            background: var(--white, #fff);
+            box-shadow: rem-calc(0 0 10) rgba(0, 0, 0, 0.1);
+            background: var(--white);
             padding: rem-calc(20);
             width: rem-calc(150);
             pointer-events: none;

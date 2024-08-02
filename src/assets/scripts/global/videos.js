@@ -1,6 +1,7 @@
 import Plyr from 'plyr';
 
 const VIDEO_SELECTOR = '.wp-block-video, .wp-block-embed';
+const CONTROLS_CLASS = 'has-controls';
 
 export default function Video() {
     document.querySelectorAll(VIDEO_SELECTOR).forEach((el) => {
@@ -16,7 +17,7 @@ export default function Video() {
             const instance = event.detail.plyr;
 
             if (hasControls) {
-                instance.elements.container.parentNode.classList.add('has-controls');
+                instance.elements.container.parentNode.classList.add(CONTROLS_CLASS);
             }
 
             if (video.hasAttribute('muted')) {

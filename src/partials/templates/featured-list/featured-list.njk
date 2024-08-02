@@ -1,0 +1,85 @@
+/**
+* @param {array} list
+* @param {string} class
+*/
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-featured-list__content">
+
+            {% if props.list %}
+
+                <div class="template-featured-list__list">
+
+                    <div class="template-featured-list__column-left">
+
+                        {% for item in props.list %}
+
+                            <div class="template-featured-list__item">
+                                {% if item.icon %}
+                                    <div class="template-featured-list__header">
+                                        <img class="editable-svg" src="{{ root }}{{ item.icon }}" alt="{{ item.title }}">
+                                    </div>
+                                {% endif %}
+
+                                <div class="template-featured-list__content">
+
+                                    {% if item.link %}
+
+                                        <a href="{{ root }}{{ item.link }}">
+
+                                    {% endif %}
+
+                                        <h3 class="template-featured-list__title">{{ item.title }}</h3>
+
+                                    {% if item.link %}
+
+                                        </a>
+
+                                    {% endif %}
+
+                                    {% if item.description or item.buttons %}
+
+                                        <div class="template-featured-list__info">
+
+                                            {% if item.description %}
+                                                <p>{{ item.description}}</p>
+                                            {% endif %}
+
+                                            {% if item.buttons %}
+
+                                                <div class="template-featured-list__buttons-wrapper">
+
+                                                    {% for button in item.buttons %}
+                                                        <a class="button" href="{{ button.link}}">{{ button.title}}</a>
+                                                    {% endfor %}
+
+                                                </div>
+
+                                            {% endif %}
+
+                                        </div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="template-featured-list__column-right"></div>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

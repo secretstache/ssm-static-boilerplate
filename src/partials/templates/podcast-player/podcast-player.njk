@@ -1,8 +1,3 @@
-/**
-* @param {string} class
-* @param {array} items
-*/
-
 {% macro render(props) %}
 
     <div class="grid-container">
@@ -25,7 +20,7 @@
 
                             <h3 class="template-podcast-player__name">{{ item.name }}</h3>
 
-                            <span class="template-podcast-player__position">{{ item.position}}</span>
+                            <span class="template-podcast-player__position">{{ item.position }}</span>
 
                             {% if item.podcast %}
 

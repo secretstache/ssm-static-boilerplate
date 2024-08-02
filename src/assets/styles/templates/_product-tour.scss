@@ -120,7 +120,7 @@
 
             img {
                 max-width: unset;
-                height: calc(100vh - 194px);
+                height: calc(100vh - #{rem-calc(194)});
             }
         }
     }
@@ -222,7 +222,7 @@
     /* stylelint-disable */
     &__content {
         > * {
-            transform: translateY(250px);
+            transform: translateY(#{rem-calc(250)});
             opacity: 0;
             transition:
                 transform var(--animation-duration),

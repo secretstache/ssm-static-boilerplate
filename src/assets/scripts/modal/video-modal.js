@@ -7,8 +7,7 @@ const VIDEO_PLAYER_SELECTOR = '.video-modal__player';
 const VIDEO_SOURCE_SELECTOR = '.video-modal__source';
 
 export default function VideoModal() {
-
-    document.querySelectorAll(MODULE_SELECTOR).forEach(module => {
+    document.querySelectorAll(MODULE_SELECTOR).forEach((module) => {
         const button = module.querySelector(OPEN_MODAL_BUTTON_SELECTOR);
         const modal = module.querySelector(MODAL_WINDOW_SELECTOR);
         const closeButton = modal.querySelector(CLOSE_BUTTON_SELECTOR);

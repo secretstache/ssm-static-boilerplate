@@ -1,19 +1,18 @@
 .video-modal {
-    
     &__modal-window {
         display: none;
         position: fixed;
-        z-index: 1;
-        left: 0;
         top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: var(--black);
+        background-color: rgba(0, 0, 0, 80%);
+        padding-top: rem-calc(80);
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: var(--black);
-        background-color: rgba(0, 0, 0, 0.8);
-        padding-top: rem-calc(80);
     }
-    
+
     &__content {
         position: relative;
         margin: 5% auto;
@@ -21,36 +20,36 @@
         width: 80%;
         max-width: rem-calc(720);
     }
-    
+
     &__close-btn {
         display: flex;
-        align-items: center;
+        position: absolute;
+        top: rem-calc(-32);
+        right: rem-calc(-32);
         justify-content: center;
-        color: var(--white);
-        background-color: var(--black);
+        align-items: center;
+        transition: color var(--tr);
+        cursor: pointer;
         border-radius: 50%;
+        background-color: var(--black);
         min-width: rem-calc(32);
         height: rem-calc(32);
-        position: absolute;
-        right: rem-calc(-32);
-        top: rem-calc(-32);
-        font-size: rem-calc(32);
+        color: var(--white);
         font-weight: 400;
-        cursor: pointer;
-        transition: color 0.3s;
+        font-size: rem-calc(32);
     }
-    
+
     &__close-btn:hover,
     &__close-btn:focus {
+        cursor: pointer;
         color: var(--light-grey);
         text-decoration: none;
-        cursor: pointer;
     }
 
     &__iframe {
+        border: unset;
+        aspect-ratio: 16/9;
         width: 100%;
         height: auto;
-        aspect-ratio: 16/9;
-        border: unset;
     }
 }

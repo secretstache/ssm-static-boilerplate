@@ -13,7 +13,7 @@ const MOBILE_BREAKPOINT = 1024;
 export default function HorizontalTabs() {
     const setActive = (el) => {
         const parent = el.parentElement.parentElement;
-        parent.querySelectorAll(`.${VISIBLE_CONTENT_CLASS}, .${ACTIVE_CLASS}`).forEach(sib => {
+        parent.querySelectorAll(`.${VISIBLE_CONTENT_CLASS}, .${ACTIVE_CLASS}`).forEach((sib) => {
             sib.classList.remove(VISIBLE_CONTENT_CLASS, ACTIVE_CLASS);
         });
 
@@ -25,13 +25,13 @@ export default function HorizontalTabs() {
 
     const handleResize = (tabs, contentBlocks, tabsList) => {
         if (window.innerWidth >= MOBILE_BREAKPOINT) {
-            contentBlocks.forEach(contentBlock => {
+            contentBlocks.forEach((contentBlock) => {
                 contentBlock.style.height = `auto`;
             });
 
             tabsList.classList.remove(HAS_OPEN_TAB_CLASS);
 
-            tabs.forEach(tab => {
+            tabs.forEach((tab) => {
                 tab.classList.remove(ACTIVE_CLASS);
             });
 
@@ -40,16 +40,16 @@ export default function HorizontalTabs() {
                 tabs[tabs.length - 1].classList.add(VISIBLE_CONTENT_CLASS);
             }, 600);
         } else {
-            tabs.forEach(tab => {
+            tabs.forEach((tab) => {
                 tab.classList.remove(ACTIVE_CLASS);
             });
-            contentBlocks.forEach(contentBlock => {
+            contentBlocks.forEach((contentBlock) => {
                 contentBlock.style.height = 0;
             });
         }
     };
 
-    document.querySelectorAll(BLOCK_SELECTOR).forEach(block => {
+    document.querySelectorAll(BLOCK_SELECTOR).forEach((block) => {
         const tabs = block.querySelectorAll(TAB_SELECTOR);
         const tabsList = block.querySelector(TAB_LIST_SELECTOR);
         const tabsButtons = block.querySelectorAll(TAB_LABEL_SELECTOR);
@@ -63,7 +63,7 @@ export default function HorizontalTabs() {
             tabs[tabs.length - 1].classList.add(VISIBLE_CONTENT_CLASS);
         }, 600);
 
-        tabsButtons.forEach(el => {
+        tabsButtons.forEach((el) => {
             const currentContentBlock = el.parentElement.querySelector(CONTENT_BLOCK_SELECTOR);
             const contentInnerHeight = el.parentElement.querySelector(INNER_CONTENT_SELECTOR).offsetHeight;
             const closeButton = el.parentElement.querySelector(CLOSE_BUTTON_SELECTOR);
@@ -82,7 +82,7 @@ export default function HorizontalTabs() {
                         currentContentBlock.style.height = 0;
                         el.classList.remove(ACTIVE_CLASS);
                     } else {
-                        contentBlocks.forEach(contentBlock => {
+                        contentBlocks.forEach((contentBlock) => {
                             contentBlock.style.height = 0;
                         });
                         currentContentBlock.style.height = `${contentInnerHeight}px`;

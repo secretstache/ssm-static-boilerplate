@@ -4,13 +4,14 @@
 #}
 
 {% macro render(props) %}
+
     <div class="grid-container">
 
         {% if props.tabs %}
             <div class="template-vertical-tabs__container">
 
                 <nav class="template-vertical-tabs__wrapper">
-                    <div class="template-vertical-tabs__item {% if props.autoplay%}has-autoplay{% endif %}" role="tablist">
+                    <div class="template-vertical-tabs__item {% if props.autoplay %}has-autoplay{% endif %}" role="tablist">
 
                         {% for tab in props.tabs %}
 
