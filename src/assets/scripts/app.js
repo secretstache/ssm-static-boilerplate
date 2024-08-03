@@ -26,6 +26,8 @@ import SecondaryNav from './templates/secondary-nav';
 import Ribbon from './templates/ribbon';
 import ImageGallery from './templates/image-gallery';
 import PodcastPlayer from './templates/podcast-player';
+import ScrollRotation from './templates/scroll-rotation';
+import MouseRotation from './templates/mouse-rotation';
 import FeaturedListAnimation from './templates/featured-list';
 
 import './templates/vertical-tabs';
@@ -93,5 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
     SecondaryNav();
     ImageGallery();
     PodcastPlayer();
+    ScrollRotation();
+    MouseRotation();
     FeaturedListAnimation();
 });

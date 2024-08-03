@@ -1,0 +1,41 @@
+.template-scroll-rotation {
+    min-height: 200vh;
+    --tr: 0.1s;
+
+    &__cube-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        min-height: rem-calc(200);
+        margin-top: rem-calc(200);
+    }
+
+    &__cube {
+        position: relative;
+        width: rem-calc(200);
+        transform-style: preserve-3d;
+        transform: rotateX(0deg) rotateY(0deg);
+        transition: transform var(--tr);
+    }
+    
+    &__cube-face {
+        position: absolute;
+        width: rem-calc(200);
+        height: rem-calc(200);
+        background: rgba(81, 142, 173, 0.7);
+        border: rem-calc(1) solid rgba(64, 111, 135, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem-calc(14);
+        letter-spacing: 0.1em;
+        color: var(--white);
+    }
+    
+    .front  { transform: translateZ(100px); }
+    .back   { transform: rotateY(180deg) translateZ(100px); }
+    .right  { transform: rotateY(90deg) translateZ(100px); }
+    .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .top    { transform: rotateX(90deg) translateZ(100px); }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+}
