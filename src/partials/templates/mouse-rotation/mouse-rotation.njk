@@ -1,0 +1,20 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-mouse-rotation__content">
+        <h2>Move mouse position</h2>
+
+        <div class="template-mouse-rotation__cube-container">
+            <div class="template-mouse-rotation__cube" data-rotate-x="{{ props.rotateX }}" data-rotate-y="{{ props.rotateY }}">
+                <div class="template-mouse-rotation__cube-face front">Front</div>
+                <div class="template-mouse-rotation__cube-face back">Back</div>
+                <div class="template-mouse-rotation__cube-face left">Left</div>
+                <div class="template-mouse-rotation__cube-face right">Right</div>
+                <div class="template-mouse-rotation__cube-face top">Top</div>
+                <div class="template-mouse-rotation__cube-face bottom">Bottom</div>
+            </div>
+        </div>
+    </div>
+
+{% endmacro %}
