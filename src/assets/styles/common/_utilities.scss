@@ -222,3 +222,14 @@ $-flex-align: (
         }
     }
 }
+
+@each $size in $breakpoint-classes {
+    @for $i from 1 through 6 {
+        .only-#{$size}-order-#{$i} {
+
+            @include breakpoint($size only) {
+                order: $i;
+            }
+        }
+    }
+}
