@@ -1,4 +1,8 @@
 import { inViewport } from '../utils/utilities';
+import Splide from '@splidejs/splide';
+
+const SLIDER_SELECTOR = '.template-timeline__outer';
+const YEAR_SELECTOR = '.template-timeline__year';
 
 const BLOCK_SELECTOR = '.template-timeline';
 const ITEM_CONTAINER = '.template-timeline__list';
@@ -16,30 +20,95 @@ const ACTIVE_CLASS = 'is-active';
 
 export default function Timeline() {
     document.querySelectorAll(BLOCK_SELECTOR).forEach((template) => {
-        new Filter(template);
+        const carousel = template.querySelector(SLIDER_SELECTOR);
 
-        const timelineItems = template.querySelectorAll(ITEM_SELECTOR);
-        const loadMoreBtn = template.querySelector(LOAD_MORE_SELECTOR);
-
-        let loadItems = 4;
-
-        timelineItems.forEach(function (timelineItem) {
-            inViewport(timelineItem, addVisibleClasss, { threshold: 0, rootMargin: '-50% 0% -50% 0%' });
-        });
-
-        loadMoreBtn.addEventListener('click', function () {
-            const hiddenTimelineItems = template.querySelectorAll(`.${HIDDEN_CLASS}`);
-
-            hiddenTimelineItems.forEach(function (hiddenTimelineItem, index) {
-                if (index < loadItems) {
-                    hiddenTimelineItem.classList.remove(HIDDEN_CLASS);
-                }
-
-                if (template.querySelectorAll(`.${HIDDEN_CLASS}`).length === 0) {
-                    loadMoreBtn.parentElement.style.display = 'none';
-                }
+        if (carousel) {
+            const splide = new Splide(carousel, {
+                autoWidth: true,
+                drag: 'free',
+                snap: false,
+                gap: '1rem',
+                updateOnMove: true,
+                padding: { left: 50, right: 50 },
             });
-        });
+
+            splide.mount();
+
+            const slides = splide.Components.Slides.get();
+            const slideWidth = slides[0].slide.clientWidth;
+            const years = [...new Set(slides.map((slide) => new Date(slide.slide.dataset.date).getFullYear()))];
+
+            years.sort((a, b) => a - b);
+
+            const sortedSlides = years.map((year) => {
+                return {
+                    year,
+                    slides: slides.filter((slide) => new Date(slide.slide.dataset.date).getFullYear() === year),
+                };
+            });
+
+            sortedSlides.forEach((year, index) => {
+                const yearEl = document.createElement('div');
+                yearEl.classList.add('template-timeline__year');
+                yearEl.dataset.year = year.year;
+                yearEl.innerHTML = `<span style="width: ${year.slides.length * slideWidth + year.slides.length * 16 + 64}px">${year.year}</span>`;
+
+                if (index === 0) {
+                    yearEl.classList.add('is-active');
+                }
+
+                year.slides.forEach((slide) => {
+                    splide.add(slide.slide);
+                });
+
+                splide.Components.Elements.list.appendChild(yearEl);
+            });
+
+            slides.forEach((slide) => {
+                slide.slide.addEventListener('click', () => {
+                    splide.go(slide.index);
+                });
+            });
+
+            splide.on('move', function () {
+                // get active slide
+                const activeSlide = slides[splide.index];
+
+                const activeYear = new Date(activeSlide.slide.dataset.date).getFullYear();
+                const yearEl = template.querySelector(`${YEAR_SELECTOR}[data-year="${activeYear}"]`);
+
+                template.querySelectorAll(YEAR_SELECTOR).forEach((el) => {
+                    el.classList.remove('is-active');
+                });
+
+                yearEl.classList.add('is-active');
+            });
+        } else {
+            new Filter(template);
+
+            const timelineItems = template.querySelectorAll(ITEM_SELECTOR);
+            const loadMoreBtn = template.querySelector(LOAD_MORE_SELECTOR);
+
+            let loadItems = 4;
+
+            timelineItems.forEach(function (timelineItem) {
+                inViewport(timelineItem, addVisibleClasss, { threshold: 0, rootMargin: '-50% 0% -50% 0%' });
+            });
+
+            loadMoreBtn.addEventListener('click', function () {
+                const hiddenTimelineItems = template.querySelectorAll(`.${HIDDEN_CLASS}`);
+
+                hiddenTimelineItems.forEach(function (hiddenTimelineItem, index) {
+                    if (index < loadItems) {
+                        hiddenTimelineItem.classList.remove(HIDDEN_CLASS);
+                    }
+
+                    if (template.querySelectorAll(`.${HIDDEN_CLASS}`).length === 0) {
+                        loadMoreBtn.parentElement.style.display = 'none';
+                    }
+                });
+            });
+        }
     });
 
     function addVisibleClasss(entries) {

@@ -7,7 +7,7 @@
 * @param {string} preload - none | metadata | auto
 */
 
-{% macro render( props ) %}
+{% macro render(props) %}
 
     <div class="module video{%if props.class %} {{ props.class }}{% endif %}">
         {% set tech = 'html5' %}

@@ -1,0 +1,54 @@
+{#
+# @prop {string} preheadline
+# @prop {string} headline
+# @prop {string} description
+# @prop {string} icon
+# @prop {array} buttons
+#}
+
+{% macro render(props) %}
+
+  {% from "macros/default.njk" import module %}
+
+    <div class="grid-container">
+        <div class="grid-x align-justify align-middle">
+
+            <div class="cell {% if props.wideColumn %}medium-7{% else %}medium-6{% endif %}">
+                <header class="template-cta__header {% if props.icon %}has-icon{% endif %}">
+
+                    <div class="template-cta__preheadline-wrapper">
+                        {% if props.preheadline %}
+                            <h2 class="template-cta__preheadline">{{ props.preheadline }}</h2>
+                        {% endif %}
+
+                        {% if props.icon %}
+                            <div class="template-cta__preheadline-icon"><img src="{{ root }}{{ props.icon }}" alt="{{ props.headline }}"></div>
+                        {% endif %}
+                    </div>
+
+                    {% if props.headline %}
+                        <h3 class="template-cta__headline">
+                            {{ props.headline | safe}}
+                        </h3>
+                    {% endif %}
+                </header>
+
+                {% if props.description %}
+                    <div class="template-cta__description">
+                        <p>{{ props.description }}</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="cell {% if props.wideColumn %}medium-5{% else %}medium-6{% endif %}">
+                {% if props.buttons %}
+                  {{ module("buttons", {
+                    "class": "is-centered",
+                    "buttons": props.buttons
+                  }) }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endmacro %}

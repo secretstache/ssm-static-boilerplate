@@ -2,9 +2,7 @@ const TEMPLATE_SELECTOR = '.template-mouse-rotation';
 const ELEMENT_SELECTOR = '.template-mouse-rotation__cube';
 
 export default function MouseRotation() {
-
-    document.querySelectorAll(TEMPLATE_SELECTOR).forEach(template => {
-
+    document.querySelectorAll(TEMPLATE_SELECTOR).forEach((template) => {
         let rotationX = 0;
         let rotationY = 0;
         let lastMouseX = 0;
@@ -15,7 +13,6 @@ export default function MouseRotation() {
         const rotateY = cube.getAttribute('data-rotate-y') === 'true';
 
         document.addEventListener('mousemove', (event) => {
-
             const deltaX = event.clientX - lastMouseX;
             const deltaY = event.clientY - lastMouseY;
 
@@ -31,6 +28,5 @@ export default function MouseRotation() {
 
             cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
         });
-
-    })
+    });
 }

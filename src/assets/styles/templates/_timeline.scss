@@ -201,4 +201,194 @@
         display: none;
         text-align: center;
     }
+
+    &.layout-horizontal {
+        --timeline-image-border-color: var(--black);
+        --timeline-image-bg: var(--white);
+        --timeline-border-color: var(--red);
+        --timeline-year-color: var(--black);
+
+        .grid-container {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .template-timeline__event {
+            position: relative;
+        }
+
+        .template-timeline__image {
+            transition: var(--tr);
+            margin-right: auto;
+            margin-left: auto;
+            border: rem-calc(5) solid var(--timeline-image-border-color);
+            border-radius: rem-calc(100);
+            background: var(--timeline-image-bg);
+            width: rem-calc(100);
+            min-width: rem-calc(100);
+            height: rem-calc(100);
+            overflow: hidden;
+
+            img {
+                display: block;
+                border-radius: rem-calc(100);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .template-timeline__desc {
+            position: absolute;
+            bottom: calc(100% + #{rem-calc(24)});
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: var(--tr);
+            width: rem-calc(175);
+            pointer-events: none;
+            text-align: center;
+        }
+
+        .template-timeline__title {
+            @include typo("h5");
+        }
+
+        .template-timeline__year {
+            position: relative;
+            margin-right: rem-calc(40);
+            margin-left: rem-calc(24);
+            border-right: rem-calc(2) solid var(--timeline-border-color);
+            white-space: nowrap;
+
+            &:last-of-type {
+                border: 0;
+            }
+
+            span {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                opacity: 0.5;
+                transition: opacity var(--tr);
+                min-width: rem-calc(100);
+                color: var(--timeline-year-color);
+                font-size: rem-calc(152);
+                line-height: 1;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            &.is-active {
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .splide {
+            &__track {
+                position: relative;
+                overflow: visible;
+
+                &::after {
+                    display: block;
+                    position: absolute;
+                    top: rem-calc(204);
+                    left: 0;
+                    z-index: -1;
+                    background: var(--timeline-border-color);
+                    width: 100%;
+                    height: rem-calc(2);
+                    content: "";
+                }
+            }
+
+            &__list {
+                position: relative;
+            }
+
+            &__arrows {
+                display: flex;
+                column-gap: rem-calc(12);
+                justify-content: flex-end;
+                align-items: center;
+                margin: rem-calc(30 35 0 0);
+            }
+
+            &__arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                border: rem-calc(2) solid var(--black);
+                border-radius: 50%;
+                width: rem-calc(40);
+                min-width: rem-calc(40);
+                height: rem-calc(40);
+                font-size: 0;
+
+                &::after {
+                    display: block;
+                    mask-image: svg-uri('<svg width="20" height="9" viewBox="0 0 20 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.836 8.12C14.0226 7.63466 14.228 7.18666 14.452 6.776C14.676 6.34666 14.928 5.94533 15.208 5.572H0.199951V3.276H15.208C14.9466 2.90266 14.704 2.51066 14.48 2.1C14.256 1.67066 14.0506 1.21333 13.864 0.727997H15.992C17.1493 2.09066 18.4186 3.12666 19.8 3.836V5.04C18.4186 5.712 17.1493 6.73866 15.992 8.12H13.836Z" fill="white"/></svg>');
+                    mask-size: contain;
+                    mask-repeat: no-repeat;
+                    background: var(--black);
+                    width: rem-calc(20);
+                    min-width: rem-calc(20);
+                    height: rem-calc(9);
+                    content: "";
+                }
+
+                svg {
+                    display: none;
+                }
+
+                &--prev {
+                    &::after {
+                        transform: scale(-1, 1);
+                    }
+                }
+            }
+
+            &__slide {
+                margin-top: rem-calc(155);
+                margin-bottom: rem-calc(230);
+
+                &:hover {
+                    .template-timeline__event {
+                        --timeline-image-border-color: var(--red);
+
+                        .template-timeline__image {
+                            transform: scale(1.3);
+                            border-width: rem-calc(2);
+                            padding: rem-calc(10);
+                        }
+
+                        .template-timeline__desc {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:not(:has(.splide__slide:hover)) {
+            .splide__slide {
+                &.is-active {
+                    --timeline-image-border-color: var(--red);
+
+                    .template-timeline__image {
+                        transform: scale(1.3);
+                        border-width: rem-calc(2);
+                        padding: rem-calc(10);
+                    }
+
+                    .template-timeline__desc {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,64 @@
+.template-cta {
+    &__header {
+        + .template-cta__description {
+            margin-top: rem-calc(30);
+        }
+
+        &.has-icon {
+            display: inline-flex;
+            flex-direction: column;
+            max-width: rem-calc(520);
+        }
+    }
+
+    &__preheadline-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        @include breakpoint(medium) {
+            max-width: rem-calc(480);
+            height: rem-calc(23);
+        }
+
+        + .cta-header__headline {
+            margin-top: rem-calc(10);
+        }
+    }
+
+    &__preheadline {
+        @include typo("h6");
+
+        &-icon {
+            align-self: flex-end;
+            margin-left: rem-calc(20);
+
+            @include breakpoint(large) {
+                margin-right: rem-calc(-40);
+                margin-left: auto;
+            }
+
+            &::before {
+                display: block;
+                content: "";
+            }
+        }
+    }
+
+    &__headline {
+        @include typo("h4");
+
+        @include breakpoint(medium) {
+            span {
+                display: block;
+            }
+        }
+    }
+
+    &__description {
+        color: var(--body-color);
+        @include breakpoint(medium) {
+            max-width: rem-calc(470);
+        }
+    }
+}

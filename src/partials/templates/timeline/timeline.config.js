@@ -1,5 +1,6 @@
 module.exports = {
     title: 'Timeline',
+    defaultTitle: 'Timeline - layout vertical',
     context: {
         timelines: [
             {
@@ -43,4 +44,99 @@ module.exports = {
             },
         ],
     },
+    variants: [
+        {
+            title: 'Timeline - layout vertical',
+            context: {
+                layoutHorizontal: true,
+                class: 'layout-horizontal',
+                items: [
+                    {
+                        date: '01-01-2018',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '02-01-2018',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '03-01-2018',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '04-01-2018',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '01-01-2019',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '02-01-2019',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '03-01-2019',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '04-01-2019',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '05-01-2019',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '01-01-2020',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '02-01-2020',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '03-01-2020',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '04-01-2020',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                    {
+                        date: '05-01-2020',
+                        image: '/assets/images/cms/placeholder.svg',
+                        title: 'Lorem Ipsum',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and',
+                    },
+                ],
+            },
+        },
+    ],
 };

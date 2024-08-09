@@ -6,62 +6,105 @@
 
     <div class="grid-container">
 
-        <div class="template-timeline__filters">
-            <button class="template-timeline__filters-item is-active" data-filter=".">All years</button>
-            <button class="template-timeline__filters-item" data-filter="1909-1939">1909 - 1939</button>
-            <button class="template-timeline__filters-item" data-filter="1944-1980">1944 - 1980</button>
-            <button class="template-timeline__filters-item" data-filter="1981-today">1981 - Today</button>
-        </div>
+        {% if props.layoutHorizontal %}
 
-        {% if props.timelines %}
+            <div class="splide template-timeline__outer">
 
-            <div class="template-timeline__list">
+                <div class="splide__track">
 
-                {% for timeline in props.timelines %}
+                    <div class="splide__list">
 
-                    <div class="template-timeline__item" data-categories="{{ timeline.categories }}">
+                        {% for event in props.items %}
 
-                        {% if timeline.image %}
-                            <div class="template-timeline__image">
-                                <img class="lazy-load" data-src="{{ root }}{{ timeline.image }}" alt="{{ timeline.title }}">
+                            <div class="splide__slide" data-date="{{ event.date }}">
+
+                                <div class="template-timeline__event">
+
+                                    <div class="template-timeline__desc">
+
+                                        <h3 class="template-timeline__title">{{ event.title }}</h3>
+                                        <p class="template-timeline__date">{{ event.description }}</p>
+
+                                    </div>
+
+                                    <div class="template-timeline__image">
+                                        <img src="{{ root }}{{ event.image }}" alt="{{ event.title }}">
+                                    </div>
+
+                                </div>
+
                             </div>
-                        {% endif %}
 
-                        <div class="template-timeline__content">
-
-                            {% if timeline.date %}
-                                <time class="template-timeline__date">{{ timeline.date }}</time>
-                            {% endif %}
-
-                            {% if timeline.title %}
-                                <h5 class="template-timeline__title">{{ timeline.title }}</h5>
-                            {% endif %}
-
-                            {% if timeline.description %}
-                                <p class="template-timeline__description">{{ timeline.description }}</p>
-                            {% endif %}
-
-                            {% if timeline.link %}
-
-                                <a href="{{ root }}{{ timeline.link }}" class="button template-timeline__button">Read More</a>
-
-                            {% endif %}
-
-                        </div>
+                        {% endfor %}
 
                     </div>
 
-                {% endfor %}
+                </div>
+
+                <div class="splide__arrows"></div>
 
             </div>
 
-            <div class="template-timeline__not-found">
-                <h2>Not Found</h2>
+        {% else %}
+
+            <div class="template-timeline__filters">
+                <button class="template-timeline__filters-item is-active" data-filter=".">All years</button>
+                <button class="template-timeline__filters-item" data-filter="1909-1939">1909 - 1939</button>
+                <button class="template-timeline__filters-item" data-filter="1944-1980">1944 - 1980</button>
+                <button class="template-timeline__filters-item" data-filter="1981-today">1981 - Today</button>
             </div>
 
-            <div class="template-timeline__loadmore">
-                <button>Load more</button>
-            </div>
+            {% if props.timelines %}
+
+                <div class="template-timeline__list">
+
+                    {% for timeline in props.timelines %}
+
+                        <div class="template-timeline__item" data-categories="{{ timeline.categories }}">
+
+                            {% if timeline.image %}
+                                <div class="template-timeline__image">
+                                    <img class="lazy-load" data-src="{{ root }}{{ timeline.image }}" alt="{{ timeline.title }}">
+                                </div>
+                            {% endif %}
+
+                            <div class="template-timeline__content">
+
+                                {% if timeline.date %}
+                                    <time class="template-timeline__date">{{ timeline.date }}</time>
+                                {% endif %}
+
+                                {% if timeline.title %}
+                                    <h5 class="template-timeline__title">{{ timeline.title }}</h5>
+                                {% endif %}
+
+                                {% if timeline.description %}
+                                    <p class="template-timeline__description">{{ timeline.description }}</p>
+                                {% endif %}
+
+                                {% if timeline.link %}
+
+                                    <a href="{{ root }}{{ timeline.link }}" class="button template-timeline__button">Read More</a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="template-timeline__not-found">
+                    <h2>Not Found</h2>
+                </div>
+
+                <div class="template-timeline__loadmore">
+                    <button>Load more</button>
+                </div>
+
+            {% endif %}
 
         {% endif %}
 

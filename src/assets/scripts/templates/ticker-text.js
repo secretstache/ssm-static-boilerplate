@@ -2,7 +2,7 @@ const TEMPLATE_SELECTOR = '.template-ticker-text';
 const TEXT_WRAPPER_SELECTOR = `${TEMPLATE_SELECTOR}__text`;
 
 export default function TickerText() {
-    document.querySelectorAll(TEMPLATE_SELECTOR).forEach(template => {
+    document.querySelectorAll(TEMPLATE_SELECTOR).forEach((template) => {
         const textWrapper = template.querySelector(TEXT_WRAPPER_SELECTOR);
         const originalText = textWrapper.innerHTML;
         const direction = template.getAttribute('direction') || 'rtl';
@@ -22,7 +22,7 @@ export default function TickerText() {
 
         let currentPosition = direction === 'rtl' ? 0 : -textWrapper.offsetWidth;
         const animationSettings = {
-            speed: 2
+            speed: 2,
         };
 
         function animateInnerText() {
@@ -37,7 +37,7 @@ export default function TickerText() {
                     currentPosition = -textWidth;
                 }
             }
-            
+
             textWrapper.style.transform = `translateX(${currentPosition}px)`;
             requestAnimationFrame(animateInnerText);
         }

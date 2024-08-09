@@ -11,7 +11,7 @@
 
             <div class="template-accordion__nav">
 
-                {% for filter in['Filter 1', 'Filter 2', 'Filter 3'] %}
+                {% for filter in ['Filter 1', 'Filter 2', 'Filter 3'] %}
 
                     <button class="template-accordion__nav-item {% if loop.index == 1 %}is-active{% endif %}">{{ filter }}</button>
 
@@ -23,7 +23,7 @@
 
         {% if props.filters %}
 
-            {% for i in[1, 2, 3] %}
+            {% for i in [1, 2, 3] %}
 
                 <div class="template-accordion__list {% if loop.index == 1 %}is-active{% endif %}">
 
