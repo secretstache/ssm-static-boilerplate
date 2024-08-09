@@ -1,0 +1,25 @@
+.template-ticker-text {
+    &__container {
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        width: 100%;
+        height: rem-calc(50);
+        background-color: var(--light-grey);
+    }
+
+    &__text {
+        display: flex;
+        white-space: nowrap;
+        position: absolute;
+        transform: translateX(0);
+        transition: transform 0.1s linear;
+        
+        span {
+            line-height: rem-calc(50);
+            display: inline-block;
+            margin-right: rem-calc(20);
+            white-space: nowrap;
+        }
+    }
+}

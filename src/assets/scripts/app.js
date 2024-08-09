@@ -29,6 +29,8 @@ import PodcastPlayer from './templates/podcast-player';
 import ScrollRotation from './templates/scroll-rotation';
 import MouseRotation from './templates/mouse-rotation';
 import FeaturedListAnimation from './templates/featured-list';
+import TickerText from './templates/ticker-text';
+import OpenCards from './templates/open-cards';
 
 import './templates/vertical-tabs';
 
@@ -98,4 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
     ScrollRotation();
     MouseRotation();
     FeaturedListAnimation();
+    TickerText();
+    OpenCards();
 });
