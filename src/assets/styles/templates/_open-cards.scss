@@ -1,0 +1,103 @@
+.template-open-cards {
+    
+    &__container {
+        position: static;
+
+        @include breakpoint(large){
+            position: relative;
+            display: inline-flex;
+        }
+    }
+    
+    &__card {
+        display: flex;
+        flex-direction: column;
+        padding: rem-calc(16);
+        background-color: var(--white);
+        border: rem-calc(1) solid var(--grey);
+        border-radius: rem-calc(8);
+        cursor: pointer;
+        transition: all var(--tr) ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+
+        @include breakpoint(large){
+            width: rem-calc(300);
+            height: rem-calc(300);
+        }
+
+        h3 {
+            @include typo('h5');
+
+            @include breakpoint(large){
+                @include typo('h4');
+            }
+        }
+
+        p {
+            max-height: rem-calc(180);
+            overflow: auto;
+            margin-top: auto;
+        }
+    }
+
+    .main-card {
+        position: relative;
+        z-index: 3;
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .bottom-card {
+        top: calc(100% + #{rem-calc(12)});
+        left: 0;
+    }
+    
+    .left-card {
+        top: 0;
+        left: calc(100% + #{rem-calc(12)});
+    }
+    
+    .diagonal-card {
+        top: calc(100% + #{rem-calc(12)});
+        left: calc(100% + #{rem-calc(12)});
+    }
+    
+    &__card.showing {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .return-btn {
+        font-size: rem-calc(24);
+        color: var(--black);
+        border: none;
+        position: absolute;
+        top: rem-calc(8);
+        right: rem-calc(8);
+        cursor: pointer;
+        border: rem-calc(2) solid var(--black);
+        border-radius: 50%;
+        width: rem-calc(30);
+        min-width: rem-calc(30);
+        height: rem-calc(30);
+        transition: background-color var(--tr);
+
+        &:hover {
+            background-color: var(--light-grey);
+        }
+    }
+
+    .bottom-card,
+    .left-card,
+    .diagonal-card {
+
+        @include breakpoint(large down) {
+            position: relative;
+            top: auto;
+            left: auto;
+            margin: rem-calc(12 0 0);
+        }
+    }
+}
