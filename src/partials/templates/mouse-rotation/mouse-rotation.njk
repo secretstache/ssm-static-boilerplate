@@ -8,7 +8,7 @@
             <div class="template-mouse-rotation__cube-container">
                 <div class="template-mouse-rotation__cube" data-rotate-x="{{ props.rotateX }}" data-rotate-y="{{ props.rotateY }}">
                     {% for item in props.items %}
-                        <div class="template-mouse-rotation__cube-face{% if item.itemClass %} {{item.itemClass}}{% endif%}">{{ item.itemTitle }}</div>
+                        <div class="template-mouse-rotation__cube-face{% if item.itemClass %} {{item.itemClass}}{% endif %}">{{ item.itemTitle }}</div>
                     {% endfor %}
                 </div>
             </div>

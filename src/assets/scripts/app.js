@@ -31,6 +31,8 @@ import MouseRotation from './templates/mouse-rotation';
 import FeaturedListAnimation from './templates/featured-list';
 import TickerText from './templates/ticker-text';
 import OpenCards from './templates/open-cards';
+import PieChart from './templates/pie-chart';
+import IconGrid from './templates/icon-grid';
 
 import './templates/vertical-tabs';
 
@@ -102,4 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
     FeaturedListAnimation();
     TickerText();
     OpenCards();
+    PieChart();
+    IconGrid();
 });

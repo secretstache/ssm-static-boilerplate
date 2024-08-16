@@ -1,0 +1,30 @@
+.template-button-grid {
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: rem-calc(20 25);
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background (--tr);
+        border-radius: rem-calc(15);
+        background: var(--red);
+        padding: rem-calc(15 30);
+        width: 100%;
+        max-width: rem-calc(311);
+        min-height: rem-calc(118);
+        color: var(--white);
+        font-size: rem-calc(32);
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+    }
+}

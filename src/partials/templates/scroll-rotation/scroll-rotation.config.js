@@ -28,7 +28,7 @@ module.exports = {
                 itemTitle: 'Bottom',
                 itemClass: 'bottom',
             },
-        ]
+        ],
     },
     variants: [
         {
@@ -61,7 +61,7 @@ module.exports = {
                         itemTitle: 'Bottom',
                         itemClass: 'bottom',
                     },
-                ]
+                ],
             },
         },
         {
@@ -94,7 +94,7 @@ module.exports = {
                         itemTitle: 'Bottom',
                         itemClass: 'bottom',
                     },
-                ]
+                ],
             },
         },
     ],

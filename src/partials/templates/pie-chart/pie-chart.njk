@@ -1,0 +1,40 @@
+/**
+* @param {string} class
+* @param {array} data
+*/
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-pie-chart__list">
+
+            <div class="template-pie-chart__info">
+
+                {% if props.data %}
+
+                    {% for value in props.data %}
+
+                        <div class="template-pie-chart__item" data-value="{{ value.quantity }}" data-color="{{ value.color }}">
+                            <span class="template-pie-chart__circle bg-{{ value.color }}"></span>
+
+                            <p class="template-pie-chart__title">{{ value.title }}</p>
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            </div>
+
+            <div class="template-pie-chart__chart-wrapper">
+
+                <canvas class="template-pie-chart__chart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endmacro %}

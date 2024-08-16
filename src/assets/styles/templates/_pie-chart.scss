@@ -1,0 +1,44 @@
+.template-pie-chart {
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(25);
+
+        @include breakpoint(medium) {
+            width: calc(50% - #{rem-calc(25)});
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: rem-calc(20);
+    }
+
+    &__circle {
+        border-radius: 50%;
+        width: rem-calc(24);
+        height: rem-calc(24);
+    }
+
+    &__list {
+        display: flex;
+        gap: rem-calc(25);
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+        }
+    }
+
+    &__chart-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-left: rem-calc(-10);
+        width: calc(100% + #{rem-calc(20)});
+
+        @include breakpoint(medium) {
+            margin-top: rem-calc(-100);
+            width: calc(50% + #{rem-calc(100)});
+        }
+    }
+}

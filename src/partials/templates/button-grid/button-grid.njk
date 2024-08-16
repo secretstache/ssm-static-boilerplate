@@ -1,0 +1,30 @@
+{#
+# @prop {string} headline
+# @prop {array} buttons
+#}
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        {% if props.buttons %}
+
+            <div class="template-button-grid__list">
+
+                {% for button in props.buttons %}
+
+                    <a href="{{ root }}{{ button.link }}" class="template-button-grid__item">
+
+                        {{ button.label }}
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% endmacro %}
