@@ -1,0 +1,14 @@
+/**
+* @param {string} class
+* @param {array} logos
+*/
+
+{% macro render(props) %}
+
+    <div class="template-parallax__background" style="background-image: url({{root}}{{props.img}})"></div>
+    <div class="grid-container">
+        <h2>{{ props.headline }}</h2>
+        <h6>{{ props.description }}</h6>
+    </div>
+
+{% endmacro %}

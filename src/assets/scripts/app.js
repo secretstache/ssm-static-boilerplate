@@ -33,6 +33,8 @@ import TickerText from './templates/ticker-text';
 import OpenCards from './templates/open-cards';
 import PieChart from './templates/pie-chart';
 import IconGrid from './templates/icon-grid';
+import Parallax from './templates/parallax';
+import StickySection from './templates/sticky-section';
 
 import './templates/vertical-tabs';
 
@@ -106,4 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
     OpenCards();
     PieChart();
     IconGrid();
+    Parallax();
+    StickySection();
 });
