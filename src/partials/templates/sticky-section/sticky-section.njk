@@ -1,0 +1,12 @@
+/**
+* @param {string} class
+* @param {array} logos
+*/
+
+{% macro render(props) %}
+
+    <div class="template-sticky-section__media">
+        <img src="{{root}}{{ props.img }}" alt="media">
+    </div>
+
+{% endmacro %}
