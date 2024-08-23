@@ -1,7 +1,6 @@
-
 module.exports = {
     title: 'Sticky Section',
     context: {
-        img: '/assets/images/cms/placeholder.svg'
+        img: '/assets/images/cms/placeholder.svg',
     },
 };

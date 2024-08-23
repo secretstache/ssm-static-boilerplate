@@ -3,6 +3,6 @@ module.exports = {
     context: {
         headline: 'Parallax Effect',
         description: 'Lorem ipsum dolor, sit amet',
-        img: '/assets/images/cms/placeholder.svg'
+        img: '/assets/images/cms/placeholder.svg',
     },
 };

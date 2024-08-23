@@ -9,7 +9,7 @@ export default function StickySection() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0
+        threshold: 0,
     };
 
     const observerCallback = (entries) => {
@@ -17,7 +17,7 @@ export default function StickySection() {
             const template = entry.target;
 
             if (entry.isIntersecting) {
-                return
+                return;
             } else {
                 template.classList.add(FIXED_CLASS);
             }

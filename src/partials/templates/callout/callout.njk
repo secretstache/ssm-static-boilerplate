@@ -1,0 +1,27 @@
+/**
+* @param {string} class
+* @param {array} items
+*/
+
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-callout__content"{% if props.borderColor %}style="border-color: {{props.borderColor}}"{% endif %}>
+            {% if props.innerContent %}
+
+                {% include props.innerContent %}
+
+            {% endif %}
+
+            {% if caller %}
+
+                {{ caller()  }}
+
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endmacro %}

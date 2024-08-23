@@ -1,0 +1,122 @@
+.template-content-feed {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc(22);
+
+        @include breakpoint(large) {
+            gap: rem-calc(43);
+        }
+    }
+
+    &__inner {
+        padding-top: rem-calc(50);
+    }
+
+    &__item {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: rem-calc(20);
+        min-height: rem-calc(430);
+        overflow: hidden;
+        text-decoration: none;
+
+        @include breakpoint(medium) {
+            padding: rem-calc(30);
+        }
+
+        &:hover,
+        &:focus-visible {
+            .template-content-feed__img-wrapper {
+                &::before {
+                    opacity: 0.6;
+                }
+            }
+
+            .template-content-feed__description {
+                transition-delay: 0.1s;
+                max-height: rem-calc(300);
+            }
+        }
+
+        &:nth-child(4n + 1),
+        &:nth-child(4n + 4) {
+            @include breakpoint(medium) {
+                width: calc(55% - #{rem-calc(22)} / 2);
+            }
+
+            @include breakpoint(large) {
+                width: calc(62% - #{rem-calc(43)} / 2);
+            }
+        }
+
+        &:nth-child(4n + 2),
+        &:nth-child(4n + 3) {
+            @include breakpoint(medium) {
+                width: calc(45% - #{rem-calc(43)} / 2);
+            }
+
+            @include breakpoint(large) {
+                width: calc(38% - #{rem-calc(43)} / 2);
+            }
+        }
+    }
+
+    &__title {
+        text-transform: uppercase;
+    }
+
+    &__content {
+        z-index: 1;
+        color: var(--white);
+    }
+
+    &__description {
+        transition: max-height calc(var(--tr) * 2);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    &__tag {
+        display: inline-block;
+        margin-bottom: rem-calc(20);
+        border-radius: rem-calc(5);
+        background: var(--grey);
+        padding: rem-calc(1 12);
+        font-weight: 700;
+        font-size: rem-calc(24);
+        line-height: 140%;
+        text-transform: uppercase;
+    }
+
+    &__img-wrapper {
+        @include overlay;
+        border-radius: rem-calc(15);
+        overflow: hidden;
+
+        &::after,
+        &::before {
+            display: block;
+            content: "";
+            @include overlay;
+            opacity: 0.6;
+            z-index: 1;
+            transition: opacity var(--tr);
+            background: linear-gradient(180deg, rgba(1, 0, 87, 0) 54.74%, #010057 73.53%);
+        }
+
+        &::before {
+            opacity: 0;
+            transition: opacity calc(var(--tr) * 2);
+            background: var(--black);
+        }
+
+        img {
+            @include overlay;
+            object-fit: cover;
+        }
+    }
+}

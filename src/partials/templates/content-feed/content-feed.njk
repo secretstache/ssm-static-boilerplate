@@ -1,0 +1,49 @@
+/**
+* @param {string} class
+* @param {array} items
+*/
+
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-content-feed__list">
+
+            {% for item in props.items %}
+
+                <a href="{{ root }}{{ item.link }}" class="template-content-feed__item">
+                    {% if item.img %}
+                        <div class="template-content-feed__img-wrapper">
+                            <img src="{{ root }}{{ item.img }}" alt="{{ item.title }}">
+                        </div>
+                    {% endif %}
+
+                    <div class="template-content-feed__content">
+
+                        {% if item.category %}
+                            <span class="template-content-feed__tag">{{ item.category }}</span>
+                        {% endif %}
+
+                        {% if item.title %}
+                            <h2 class="template-content-feed__title">{{ item.title }}</h2>
+                        {% endif %}
+
+                        {% if item.description %}
+                            <div class="template-content-feed__description">
+                                <div class="template-content-feed__inner">
+                                    <p>{{ item.description }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </a>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}
