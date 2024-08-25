@@ -1,0 +1,24 @@
+.module.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: rem-calc(12);
+    list-style: none;
+    padding-left: unset;
+
+    .tag-list__item {
+        border: rem-calc(1) solid var(--black);
+        border-radius: rem-calc(20);
+        padding: rem-calc(4 12);
+        font-size: rem-calc(12);
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: color var(--tr, background-color var(--tr));
+        user-select: none;
+
+        &:hover {
+            color: var(--white);
+            background-color: var(--black);
+        }
+    }
+}

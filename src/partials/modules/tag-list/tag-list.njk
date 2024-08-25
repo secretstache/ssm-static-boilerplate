@@ -1,0 +1,18 @@
+/**
+* @param {string} class
+* @param {string} url
+* @param {string} label
+* @param {string} type
+*/
+
+{% macro render(props) %}
+
+    {% set classes = ([props.class if props.class, props.type if props.type]) | toClassNames %}
+
+    <ul class="module tag-list">
+        {% for item in props.items %}
+        <li class="tag-list__item">{{ item.title }}</li>
+        {% endfor %}
+    </ul>
+
+{% endmacro %}
