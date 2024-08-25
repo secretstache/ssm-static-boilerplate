@@ -24,7 +24,6 @@ export default function LogoWall() {
         const slider = template.querySelector(SLIDER_SELECTOR);
 
         if (!slider) {
-            console.warn('Slider element not found in template:', template);
             return;
         }
 
