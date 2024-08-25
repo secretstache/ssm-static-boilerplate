@@ -1,0 +1,20 @@
+.template-observer-content {
+    
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: rem-calc(600);
+        margin: rem-calc(20 0);
+        background-color: lightblue;
+        transition: background-color var(--tr) ease;
+        @include typo('h5');
+        color: var(--white);
+
+        &.is-active {
+            background-color: lightgreen;
+        }
+    }
+}

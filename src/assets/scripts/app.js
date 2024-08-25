@@ -35,6 +35,7 @@ import PieChart from './templates/pie-chart';
 import IconGrid from './templates/icon-grid';
 import Parallax from './templates/parallax';
 import StickySection from './templates/sticky-section';
+import ObserverContent from './templates/observer-content';
 
 import './templates/vertical-tabs';
 
@@ -110,4 +111,5 @@ document.addEventListener('DOMContentLoaded', function () {
     IconGrid();
     Parallax();
     StickySection();
+    ObserverContent();
 });
