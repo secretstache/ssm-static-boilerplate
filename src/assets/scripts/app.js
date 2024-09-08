@@ -32,7 +32,7 @@ import FeaturedListAnimation from './templates/featured-list';
 import TickerText from './templates/ticker-text';
 import OpenCards from './templates/open-cards';
 import PieChart from './templates/pie-chart';
-import IconGrid from './templates/icon-grid';
+import { IconGrid } from './templates/icon-grid';
 import Parallax from './templates/parallax';
 import StickySection from './templates/sticky-section';
 import ObserverContent from './templates/observer-content';
