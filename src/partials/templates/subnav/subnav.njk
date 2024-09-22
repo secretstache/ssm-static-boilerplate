@@ -1,0 +1,23 @@
+/**
+* @param {string} class
+* @param {string} title
+* @param {array} items
+*/
+
+{% macro render(props) %}
+
+    {% from "macros/default.njk" import columns, column, module, template %}
+
+    <nav class="template-subnav__navigation">
+        <h3 class="template-subnav__title">{{ props.title }}</h3>
+        <ul class="template-subnav__nav-list">
+            {% for item in props.items %}
+            <li class="template-subnav__nav-item"><a href="{{ item.link }}"{% if item.active %} class="is-active"{% endif %}>{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <div class="template-subnav__show-more-btn">More</div>
+        <ul class="template-subnav__nav-list-hidden"></ul>
+    </nav>
+
+
+{% endmacro %}
