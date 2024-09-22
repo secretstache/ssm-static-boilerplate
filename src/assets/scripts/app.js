@@ -36,6 +36,8 @@ import { IconGrid } from './templates/icon-grid';
 import Parallax from './templates/parallax';
 import StickySection from './templates/sticky-section';
 import ObserverContent from './templates/observer-content';
+import { Subnav } from './templates/subnav'
+import { TextFilter } from './templates/text-filter'
 
 import './templates/vertical-tabs';
 
@@ -112,4 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
     Parallax();
     StickySection();
     ObserverContent();
+    Subnav();
+    TextFilter();
 });
