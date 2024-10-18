@@ -3,22 +3,22 @@
     flex-wrap: wrap;
     align-items: center;
     gap: rem-calc(12);
-    list-style: none;
     padding-left: unset;
+    list-style: none;
 
     .tag-list__item {
+        transition: color var(--tr, background-color var(--tr));
         border: rem-calc(1) solid var(--black);
         border-radius: rem-calc(20);
         padding: rem-calc(4 12);
-        font-size: rem-calc(12);
         font-weight: 700;
-        text-transform: uppercase;
-        transition: color var(--tr, background-color var(--tr));
+        font-size: rem-calc(12);
         user-select: none;
+        text-transform: uppercase;
 
         &:hover {
-            color: var(--white);
             background-color: var(--black);
+            color: var(--white);
         }
     }
 }

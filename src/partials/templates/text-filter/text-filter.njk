@@ -4,16 +4,26 @@
 
 {% macro render(props) %}
 
-  {% from "macros/default.njk" import module %}
+    {% from "macros/default.njk" import module %}
 
     <div class="grid-container">
+
         <div class="template-text-filter__wrapper">
+
             <input type="text" class="template-text-filter__filter-input" placeholder="Enter Text">
+
             <ol class="template-text-filter__item-list">
+
                 {% for item in props.items %}
-                <li><p>{{ item.text }}</p></li>
+
+                    <li>
+                        <p>{{ item.text }}</p>
+                    </li>
+
                 {% endfor %}
+                
             </ol>
+
         </div>
 
     </div>

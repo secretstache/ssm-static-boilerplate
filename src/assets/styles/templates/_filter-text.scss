@@ -1,29 +1,28 @@
 .template-text-filter {
-
     &__wrapper {
-        width: 100%;
-        max-width: rem-calc(600);
+        margin-right: auto;
+        margin-left: auto;
         border: rem-calc(1) solid var(--grey);
         border-radius: rem-calc(20);
         padding: rem-calc(32 24 64);
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        max-width: rem-calc(600);
     }
 
     &__filter-input {
-        width: 100%;
-        padding: rem-calc(12 16);
-        border-radius: rem-calc(8);
-        border: rem-calc(1) solid var(--grey);
         margin-bottom: rem-calc(32);
+        border: rem-calc(1) solid var(--grey);
+        border-radius: rem-calc(8);
+        padding: rem-calc(12 16);
+        width: 100%;
     }
 
-    &__item-list  {
-        margin: 0;
-        padding: rem-calc(0 0 0 24);
+    &__item-list {
         display: flex;
         flex-direction: column;
         gap: rem-calc(16);
+        margin: 0;
+        padding: rem-calc(0 0 0 24);
 
         li {
             border-bottom: rem-calc(1) solid var(--grey);

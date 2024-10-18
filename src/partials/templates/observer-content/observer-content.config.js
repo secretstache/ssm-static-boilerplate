@@ -3,14 +3,14 @@ module.exports = {
     context: {
         items: [
             {
-                title: 'not visible'
+                title: 'not visible',
             },
             {
-                title: 'not visible'
+                title: 'not visible',
             },
             {
-                title: 'not visible'
-            }
-        ]
+                title: 'not visible',
+            },
+        ],
     },
 };

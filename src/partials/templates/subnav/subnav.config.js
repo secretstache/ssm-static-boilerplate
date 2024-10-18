@@ -5,23 +5,23 @@ module.exports = {
         items: [
             {
                 link: '#',
-                title: 'Link Item 01'
+                title: 'Link Item 01',
             },
             {
                 link: '#',
-                title: 'Link Item 02'
+                title: 'Link Item 02',
             },
             {
                 link: '#',
-                title: 'Link Item 03'
+                title: 'Link Item 03',
             },
             {
                 link: '#',
-                title: 'Link Item 04'
+                title: 'Link Item 04',
             },
             {
                 link: '#',
-                title: 'Link Item 05'
+                title: 'Link Item 05',
             },
         ],
     },

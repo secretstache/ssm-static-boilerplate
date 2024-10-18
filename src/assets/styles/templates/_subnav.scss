@@ -12,8 +12,8 @@
             }
 
             &__nav-list-hidden {
-                max-height: rem-calc(700);
                 transition: max-height var(--tr);
+                max-height: rem-calc(700);
             }
         }
     }
@@ -45,8 +45,8 @@
         font-weight: 600;
         font-size: rem-calc(16);
         line-height: rem-calc(24);
-        white-space: nowrap;
         text-transform: uppercase;
+        white-space: nowrap;
 
         @include breakpoint(xlarge) {
             width: rem-calc(212);
@@ -76,8 +76,8 @@
     }
 
     &__nav-list-hidden {
-        max-height: 0;
         transition: max-height var(--tr);
+        max-height: 0;
     }
 
     &__nav-item {
@@ -91,12 +91,12 @@
             border-radius: rem-calc(7);
             background-color: var(--light-grey);
             padding: rem-calc(10);
+            color: var(--black);
             font-weight: 600;
             font-size: rem-calc(16);
             line-height: rem-calc(24);
-            text-transform: uppercase;
             text-decoration: none;
-            color: var(--black);
+            text-transform: uppercase;
 
             @include breakpoint(large) {
                 padding: rem-calc(10 20);
