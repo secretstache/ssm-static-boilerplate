@@ -1,0 +1,45 @@
+/**
+* @param {string} class
+* @param {array} items
+*/
+
+{% macro render(props) %}
+
+    {% from "macros/default.njk" import columns, column, module, template %}
+
+    <div class="grid-container">
+
+        <div class="template-numbered-blocks__list">
+
+            {% for item in props.items %}
+
+                <div class="template-numbered-blocks__item">
+                    <div class="template-numbered-blocks__header">
+                        <span class="template-numbered-blocks__count">{{ loop.index }}</span>
+
+                        <h2 class="template-numbered-blocks__title">{{ item.title }}</h2>
+                    </div>
+
+                    <div class="template-numbered-blocks__content">
+                        {% if item.headline %}
+                            <h4 class="template-numbered-blocks__description">{{ item.headline }}</h4>
+                        {% endif %}
+
+                        {% if item.description %}
+                            <p class="template-numbered-blocks__description">{{ item.description }}</p>
+                        {% endif %}
+
+                        {% for button in item.buttons %}
+                            <a href="{{ button.link }}" class="button">{{ button.label }}</a>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

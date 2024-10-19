@@ -1,0 +1,166 @@
+.template-numbered-blocks {
+    --profile-color: var(--red);
+
+    &__list {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+            gap: rem-calc(50);
+        }
+
+        @include breakpoint(medium) {
+            gap: rem-calc(30);
+        }
+
+        .module.separator.is-style-rotated {
+            @include breakpoint(medium) {
+                flex-shrink: 0;
+                width: rem-calc(3);
+                height: auto;
+
+                &::after {
+                    top: unset;
+                    bottom: rem-calc(-21);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-width: rem-calc(3);
+                    width: rem-calc(22);
+                    height: rem-calc(22);
+                }
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(20);
+        width: 100%;
+        max-width: 100%;
+
+        @include breakpoint(medium) {
+            max-width: rem-calc(489);
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: min-max(20, 43);
+    }
+
+    &__count {
+        color: var(--profile-color);
+        font-weight: 700;
+        font-size: min-max(70, 156);
+        line-height: 100%;
+        font-family: var(--secondary-font);
+    }
+
+    &__content .button {
+        margin-top: rem-calc(20);
+    }
+
+    &.layout-card {
+        .template-numbered-blocks__list {
+            position: relative;
+            border-radius: rem-calc(7);
+            background: var(--grey);
+            padding: rem-calc(90 60 70 102);
+            overflow: hidden;
+
+            @include breakpoint(small only) {
+                padding: rem-calc(45 30 35 70);
+            }
+
+            @include breakpoint(large down) {
+                flex-direction: column;
+            }
+
+            .template-numbered-blocks__item {
+                gap: rem-calc(27);
+            }
+        }
+
+        .template-numbered-blocks__title {
+            @include typo("h4");
+        }
+
+        .template-numbered-blocks__item {
+            max-width: 100%;
+
+            @include breakpoint(large) {
+                max-width: rem-calc(290);
+            }
+        }
+
+        .template-numbered-blocks__header {
+            gap: rem-calc(13);
+        }
+
+        .template-numbered-blocks__count {
+            display: flex;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: var(--profile-color);
+            width: rem-calc(56);
+            height: rem-calc(56);
+            color: var(--white);
+            font-size: rem-calc(24);
+        }
+
+        .module.separator {
+            height: rem-calc(3);
+
+            &::after {
+                right: rem-calc(-13);
+                border-width: rem-calc(3);
+                width: rem-calc(15);
+                height: rem-calc(15);
+            }
+        }
+    }
+
+    &.has-3-up-cards {
+        .template-numbered-blocks__item {
+            @include breakpoint(medium) {
+                max-width: rem-calc(265);
+            }
+        }
+
+        .template-numbered-blocks__title {
+            @include typo("h3");
+        }
+
+        .template-numbered-blocks__header {
+            gap: rem-calc(13);
+        }
+
+        .template-numbered-blocks__content .button {
+            margin: 0;
+        }
+    }
+
+    &.bg-dark {
+        &.layout-card {
+            color: var(--black);
+
+            .button {
+                --button-color: var(--black);
+
+                &:hover {
+                    --button-color: var(--red);
+                }
+
+                &::after {
+                    background: var(--red);
+                }
+            }
+        }
+    }
+}
