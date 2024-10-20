@@ -9,8 +9,15 @@
         max-width: rem-calc(600);
     }
 
-    &__filter-input {
+    &__search-form {
+        display: flex;
+        align-items: center;
+        gap: rem-calc(12);
         margin-bottom: rem-calc(32);
+    }
+
+    &__filter-input {
+        height: rem-calc(50);
         border: rem-calc(1) solid var(--grey);
         border-radius: rem-calc(8);
         padding: rem-calc(12 16);
@@ -32,5 +39,12 @@
         li.hidden {
             display: none;
         }
+
+        li.no-results {
+            &::marker {
+                font-size: 0;
+            }
+        }
     }
+
 }
