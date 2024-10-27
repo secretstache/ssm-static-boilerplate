@@ -8,130 +8,109 @@ const BLOCK_CLASS = '.template-section-tabs';
 
 const ACTIVE_CLASS = 'is-active';
 
-class SectionTabs {
-    constructor(template) {
-        // DOM elements
-        this.template = template;
-        this.navItemsContainers = template.querySelectorAll(NAV_ITEMS_CONTAINER_CLASS);
-        this.navItems = template.querySelectorAll(NAV_ITEMS_CLASS);
-        this.contentItems = template.querySelectorAll(CONTENT_ITEMS_CLASS);
-        this.navContainer = template.querySelector(NAV_CONTAINER_CLASS);
-
-        // Variables
-        this.currentIndex = 0;
-        this.hasAutoplay = false;
-        this.autoplayTime = 6000;
-        this.interval = null;
-        this.isPaused = true;
-    }
-
-    actions() {
-        // On nav item click
-        this.navItems.forEach((el) => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                const index = Array.from(this.navItems).indexOf(el);
-                this.isPaused = true;
-                this.goToTab(index);
-            });
+const setupActions = (navItems, goToTab, navContainer, setPaused) => {
+    navItems.forEach((el, index) => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            setPaused(true);
+            goToTab(index);
         });
+    });
 
-        if (this.hasAutoplay) {
-            // On mouse hover, pause autoplay
-            this.navContainer.addEventListener('mouseenter', () => {
-                this.isPaused = true;
-            });
+    navContainer.addEventListener('mouseenter', () => setPaused(true));
+    navContainer.addEventListener('mouseleave', () => setPaused(false));
+};
 
-            // On mouse leave, start autoplay
-            this.navContainer.addEventListener('mouseleave', () => {
-                this.isPaused = false;
-            });
-        }
+const removeActiveClasses = (contentItems, navItemsContainers) => {
+    contentItems.forEach((panel) => panel.classList.remove(ACTIVE_CLASS));
+    navItemsContainers.forEach((container) => container.classList.remove(ACTIVE_CLASS));
+};
+
+const goToTab = (index, state) => {
+    const { navItems, contentItems, navItemsContainers, currentIndex, hasAutoplay, startAutoplay } = state;
+
+    navItems[currentIndex].closest(NAV_ITEMS_CONTAINER_CLASS).classList.remove(ACTIVE_CLASS);
+    contentItems[currentIndex].classList.remove(ACTIVE_CLASS);
+
+    navItems[index].closest(NAV_ITEMS_CONTAINER_CLASS).classList.add(ACTIVE_CLASS);
+    contentItems[index].classList.add(ACTIVE_CLASS);
+
+    state.currentIndex = index;
+
+    if (hasAutoplay && window.innerWidth > 1024) {
+        startAutoplay();
     }
+};
 
-    removeActiveClasses() {
-        this.contentItems.forEach((panel) => panel.classList.remove(ACTIVE_CLASS));
-        this.navItemsContainers.forEach((container) => container.classList.remove(ACTIVE_CLASS));
-    }
+const startAutoplay = (state) => {
+    const { autoplayTime, navItems, currentIndex, setPaused, goToTab } = state;
+    if (state.interval) clearInterval(state.interval);
 
-    goToTab(index) {
-        this.navItems[this.currentIndex].closest(NAV_ITEMS_CONTAINER_CLASS).classList.remove(ACTIVE_CLASS);
-        this.contentItems[this.currentIndex].classList.remove(ACTIVE_CLASS);
+    let startTime = Date.now();
+    let progressTime = 0;
 
-        this.navItems[index].closest(NAV_ITEMS_CONTAINER_CLASS).classList.add(ACTIVE_CLASS);
-        this.contentItems[index].classList.add(ACTIVE_CLASS);
+    state.interval = setInterval(() => {
+        if (state.isPaused) {
+            startTime = Date.now() - progressTime;
+        } else {
+            progressTime = Date.now() - startTime;
 
-        this.currentIndex = index;
-
-        if (this.hasAutoplay && window.innerWidth > 1024) {
-            this.startAutoplay();
-        }
-    }
-
-    startAutoplay() {
-        if (this.interval) clearInterval(this.interval);
-
-        let startTime = Date.now();
-        let progressTime = 0;
-
-        this.interval = setInterval(() => {
-            if (this.isPaused) {
-                startTime = Date.now() - progressTime;
+            if (progressTime >= autoplayTime) {
+                const nextIndex = (currentIndex + 1) % navItems.length;
+                goToTab(nextIndex, state);
             }
+        }
+    }, 10);
+};
 
-            if (!this.isPaused) {
-                progressTime = Date.now() - startTime;
+const initSectionTabs = (template) => {
+    const navItemsContainers = template.querySelectorAll(NAV_ITEMS_CONTAINER_CLASS);
+    const navItems = template.querySelectorAll(NAV_ITEMS_CLASS);
+    const contentItems = template.querySelectorAll(CONTENT_ITEMS_CLASS);
+    const navContainer = template.querySelector(NAV_CONTAINER_CLASS);
+    const hasAutoplay = !!template.querySelector(AUTOPLAY_CLASS);
 
-                if (progressTime >= this.autoplayTime) {
-                    let nextIndex = this.currentIndex + 1;
-                    if (!this.navItems[nextIndex]) {
-                        nextIndex = 0;
-                    }
-                    this.goToTab(nextIndex);
-                }
-            }
-        }, 10);
+    const state = {
+        currentIndex: 0,
+        autoplayTime: 6000,
+        interval: null,
+        isPaused: true,
+        navItems,
+        contentItems,
+        navItemsContainers,
+        hasAutoplay,
+        startAutoplay: () => startAutoplay(state),
+        setPaused: (paused) => { state.isPaused = paused; },
+    };
+
+    setupActions(navItems, (index) => goToTab(index, state), navContainer, state.setPaused);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => state.setPaused(!entry.isIntersecting));
+    });
+    observer.observe(template);
+
+    if (hasAutoplay && window.innerWidth > 1024) {
+        state.startAutoplay();
     }
 
-    init() {
-        this.hasAutoplay = !!this.template.querySelector(AUTOPLAY_CLASS);
-        this.actions();
+    if (window.innerWidth < 768) {
+        removeActiveClasses(contentItems, navItemsContainers);
+        state.setPaused(false);
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                this.isPaused = !entry.isIntersecting;
-            });
-        });
-
-        observer.observe(this.template);
-
-        if (window.scrollY + window.innerHeight > this.template.offsetTop) {
-            this.isPaused = false;
-        }
-
-        if (this.hasAutoplay && window.innerWidth > 1024) {
-            this.startAutoplay();
-        }
-
+    window.addEventListener('resize', () => {
+        clearTimeout(state.resizeTimer);
         if (window.innerWidth < 768) {
-            this.removeActiveClasses();
-            this.isPaused = false;
+            state.resizeTimer = setTimeout(() => {
+                removeActiveClasses(contentItems, navItemsContainers);
+            }, 250);
         }
-
-        window.addEventListener('resize', () => {
-            clearTimeout(this.resizeTimer);
-            if (window.innerWidth < 768) {
-                this.resizeTimer = setTimeout(() => {
-                    this.removeActiveClasses();
-                }, 250);
-            }
-        });
-    }
-}
+    });
+};
 
 export default function SectionTabsInit() {
     document.querySelectorAll(BLOCK_CLASS).forEach((template) => {
-        const tabs = new SectionTabs(template);
-        tabs.init();
+        initSectionTabs(template);
     });
 }
