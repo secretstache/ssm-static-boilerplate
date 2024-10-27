@@ -4,6 +4,35 @@ const HIDDEN_LIST_SELECTOR = '.template-subnav__nav-list-hidden';
 const TOGGLER_BUTTON_SELECTOR = '.template-subnav__show-more-btn';
 const NAV_ITEMS_SELECTOR = '.template-subnav__nav-item';
 const ACTIVE_CLASS = 'is-open';
+const NAV_PADDING = 80; 
+const MORE_BTN_EXTRA_WIDTH = 80;
+
+const clearHiddenList = (navList, hiddenNavList) => {
+    while (hiddenNavList.firstChild) {
+        navList.appendChild(hiddenNavList.firstChild);
+    }
+};
+
+const calculateItemsToHide = (navItems, availableWidth) => {
+    let totalWidth = 0;
+    return Array.from(navItems).filter((item) => {
+        totalWidth += item.offsetWidth;
+        return totalWidth > availableWidth;
+    });
+};
+
+const updateMoreButtonVisibility = (moreBtn, hiddenNavList) => {
+    moreBtn.style.display = hiddenNavList.children.length > 0 ? 'flex' : 'none';
+};
+
+const setupEventListeners = (template, moreBtn, hiddenNavList, updateNav) => {
+    moreBtn.addEventListener('click', () => {
+        template.classList.toggle(ACTIVE_CLASS);
+        hiddenNavList.classList.toggle(ACTIVE_CLASS);
+    });
+
+    window.addEventListener('resize', updateNav);
+};
 
 export const Subnav = () => {
     document.querySelectorAll(TEMPLATE_SELECTOR).forEach((template) => {
@@ -12,62 +41,31 @@ export const Subnav = () => {
         const hiddenNavList = template.querySelector(HIDDEN_LIST_SELECTOR);
         const moreBtn = template.querySelector(TOGGLER_BUTTON_SELECTOR);
 
-        function updateNav() {
-            while (hiddenNavList.firstChild) {
-                navList.appendChild(hiddenNavList.firstChild);
-            }
+        const updateNav = () => {
+            clearHiddenList(navList, hiddenNavList);
+            updateMoreButtonVisibility(moreBtn, hiddenNavList);
 
-            moreBtn.style.display = 'none';
-            template.classList.remove(ACTIVE_CLASS);
-            hiddenNavList.classList.remove(ACTIVE_CLASS);
-
-            const navListWidth = navList.offsetWidth - 80;
-            const moreBtnWidth = moreBtn.offsetWidth + 80;
+            const navListWidth = navList.offsetWidth - NAV_PADDING;
+            const moreBtnWidth = moreBtn.offsetWidth + MORE_BTN_EXTRA_WIDTH;
             let availableWidth = navListWidth;
-            let totalWidth = 0;
-            let itemsToHide = [];
 
             navItems = navList.querySelectorAll(NAV_ITEMS_SELECTOR);
-
-            navItems.forEach((item) => {
-                totalWidth += item.offsetWidth;
-                if (totalWidth > availableWidth) {
-                    itemsToHide.push(item);
-                }
-            });
+            let itemsToHide = calculateItemsToHide(navItems, availableWidth);
 
             if (itemsToHide.length > 0) {
                 moreBtn.style.display = 'flex';
                 availableWidth = navListWidth - moreBtnWidth;
-                totalWidth = 0;
-                itemsToHide = [];
-
-                navItems.forEach((item) => {
-                    totalWidth += item.offsetWidth;
-                    if (totalWidth > availableWidth) {
-                        itemsToHide.push(item);
-                    }
-                });
+                itemsToHide = calculateItemsToHide(navItems, availableWidth);
             }
 
             itemsToHide.forEach((item) => {
                 hiddenNavList.appendChild(item);
             });
 
-            if (hiddenNavList.children.length > 0) {
-                moreBtn.style.display = 'flex';
-            } else {
-                moreBtn.style.display = 'none';
-            }
-        }
-        updateNav();
+            updateMoreButtonVisibility(moreBtn, hiddenNavList);
+        };
 
-        moreBtn.addEventListener('click', () => {
-            template.classList.toggle(ACTIVE_CLASS);
-            hiddenNavList.classList.toggle(ACTIVE_CLASS);
-        });
-
-        window.addEventListener('resize', updateNav);
+        setupEventListeners(template, moreBtn, hiddenNavList, updateNav);
         updateNav();
     });
 };
