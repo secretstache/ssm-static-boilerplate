@@ -1,9 +1,20 @@
 const ITEM_DATA_SELECTOR = '[data-count]';
 
-const easeInOutQuad = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+const EASING_THRESHOLD = 0.5;
+const EASING_MULTIPLIER = 2;
+const EASING_OFFSET = -1;
+const EASING_FACTOR = 4;
+
+const DEFAULT_DURATION = 5000;
+
+const easeInOutQuad = (t) => {
+    return t < EASING_THRESHOLD
+        ? EASING_MULTIPLIER * t * t
+        : EASING_OFFSET + (EASING_FACTOR - EASING_MULTIPLIER * t) * t;
+};
 
 const inViewportCounter = (el) => {
-    const duration = +el.dataset.duration || 5000;
+    const duration = +el.dataset.duration || DEFAULT_DURATION;
     const start = +el.textContent;
     const end = +el.dataset.count;
     let raf;
@@ -16,27 +27,28 @@ const inViewportCounter = (el) => {
         const timeStart = Date.now();
 
         const loop = () => {
-            let elaps = Date.now() - timeStart;
-            if (elaps > duration) elaps = duration;
-            const frac = easeInOutQuad(elaps / duration);
+            let elapsed = Date.now() - timeStart;
+            if (elapsed > duration) elapsed = duration;
+            const progress = elapsed / duration;
+            const frac = easeInOutQuad(progress);
             const step = frac * range;
             curr = start + step;
             el.textContent = Math.trunc(curr);
-            if (elaps < duration) raf = requestAnimationFrame(loop);
+            if (elapsed < duration) raf = requestAnimationFrame(loop);
         };
 
         raf = requestAnimationFrame(loop);
     };
 
-    const counterStop = (el) => {
+    const counterStop = () => {
         cancelAnimationFrame(raf);
         el.textContent = start;
     };
 
-    let observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) counterStart(entry.target);
-            else counterStop(entry.target);
+            if (entry.isIntersecting) counterStart();
+            else counterStop();
         });
     });
 
