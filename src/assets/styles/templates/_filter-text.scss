@@ -12,7 +12,6 @@
     &__search-form {
         display: flex;
         align-items: center;
-        gap: rem-calc(12);
         margin-bottom: rem-calc(32);
     }
 
@@ -22,6 +21,10 @@
         border-radius: rem-calc(8);
         padding: rem-calc(12 16);
         width: 100%;
+
+        + .template-text-filter__search-button {
+            margin-left: rem-calc(12);
+        }
     }
 
     &__item-list {
@@ -43,6 +46,43 @@
         li.no-results {
             &::marker {
                 font-size: 0;
+            }
+        }
+    }
+
+    &__letter-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc(8);
+        margin-bottom: rem-calc(24);
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: rem-calc(24);
+            min-width: rem-calc(24);
+            height: rem-calc(24);
+            border: rem-calc(1) solid var(--black);
+            border-radius: 50%;
+            font-size: rem-calc(12);
+            transition: background-color var(--tr), color var(--tr);
+            cursor: pointer;
+
+            &:not(.is-active):not(.disabled) {
+                &:hover {
+                    background-color: var(--light-grey);
+                }
+            }
+
+            &.is-active {
+                background-color: var(--black);
+                color: var(--white);
+            }
+
+            &.disabled {
+                opacity: .5;
+                cursor: not-allowed;
             }
         }
     }

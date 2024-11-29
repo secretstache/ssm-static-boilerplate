@@ -25,6 +25,34 @@
                 </form>
             {% endif %}
 
+            {%if props.wordFilter %}
+                <div class="template-text-filter__letter-list">
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>P</button>
+                    <button>Q</button>
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>V</button>
+                    <button>W</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>Z</button>
+                </div>
+            {% endif %}
+
             <ol class="template-text-filter__item-list">
 
                 {% for item in props.items %}
