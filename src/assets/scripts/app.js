@@ -38,6 +38,7 @@ import StickySection from './templates/sticky-section';
 import ObserverContent from './templates/observer-content';
 import { Subnav } from './templates/subnav';
 import { TextFilter } from './templates/text-filter';
+import { LargeDropdown } from './templates/large-dropdown';
 
 import './templates/vertical-tabs';
 
@@ -116,4 +117,5 @@ document.addEventListener('DOMContentLoaded', function () {
     ObserverContent();
     Subnav();
     TextFilter();
+    LargeDropdown();
 });

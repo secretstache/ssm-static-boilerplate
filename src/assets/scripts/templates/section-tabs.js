@@ -80,7 +80,9 @@ const initSectionTabs = (template) => {
         navItemsContainers,
         hasAutoplay,
         startAutoplay: () => startAutoplay(state),
-        setPaused: (paused) => { state.isPaused = paused; },
+        setPaused: (paused) => {
+            state.isPaused = paused;
+        },
     };
 
     setupActions(navItems, (index) => goToTab(index, state), navContainer, state.setPaused);

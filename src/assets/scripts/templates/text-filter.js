@@ -11,7 +11,7 @@ const filterItems = (items, filterValue) => {
 
     items.forEach((item) => {
         const itemText = item.textContent.toLowerCase();
-        
+
         if (filterValue === '' || itemText.includes(filterValue)) {
             item.classList.remove(HIDDEN_CLASS);
             hasResults = true;

@@ -1,0 +1,50 @@
+/**
+* @param {string} class
+* @param {array} items
+*/
+
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-large-dropdown__select-bar">
+            <h3 class="template-large-dropdown__select-bar-headline">I am a...</h3>
+
+            <div class="template-large-dropdown__dropdown">
+
+                <span class="selected-display">Select Option 1</span>
+
+                <ul class="dropdown">
+
+                    {% for filter in['Select Option 1', 'Select Option 2', 'Select Option 3'] %}
+
+                        <li id="block-{{ loop.index }}" class="dropdown__item {% if loop.index == 1 %}is-active{% endif %}">{{ filter }}</li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="template-large-dropdown__list">
+
+            {% for i in[1, 2, 3] %}
+
+                <div class="content-block template-block-grid has-3-col {% if loop.index == 1 %}is-active{% endif %}" id="block-{{ loop.index }}">
+
+                    <div class="template-block-grid__list">
+
+                        {% include 'templates/large-dropdown/items.njk' %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

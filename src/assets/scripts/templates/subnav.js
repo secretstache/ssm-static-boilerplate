@@ -4,7 +4,8 @@ const HIDDEN_LIST_SELECTOR = '.template-subnav__nav-list-hidden';
 const TOGGLER_BUTTON_SELECTOR = '.template-subnav__show-more-btn';
 const NAV_ITEMS_SELECTOR = '.template-subnav__nav-item';
 const ACTIVE_CLASS = 'is-open';
-const NAV_PADDING = 80; 
+
+const NAV_PADDING = 80;
 const MORE_BTN_EXTRA_WIDTH = 80;
 
 const clearHiddenList = (navList, hiddenNavList) => {
