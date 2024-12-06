@@ -39,6 +39,7 @@ import ObserverContent from './templates/observer-content';
 import { Subnav } from './templates/subnav';
 import { TextFilter } from './templates/text-filter';
 import { LargeDropdown } from './templates/large-dropdown';
+import { PricingPlans } from './templates/pricing-plans';
 
 import './templates/vertical-tabs';
 
@@ -118,4 +119,5 @@ document.addEventListener('DOMContentLoaded', function () {
     Subnav();
     TextFilter();
     LargeDropdown();
+    PricingPlans();
 });

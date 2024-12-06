@@ -15,9 +15,7 @@ const filterItems = (items, filterValue, activeLetter) => {
     items.forEach((item) => {
         const itemText = item.querySelector('p').textContent.trim();
         const itemTextLower = itemText.toLowerCase();
-        const startsWithLetter = activeLetter
-            ? itemText.charAt(0).toLowerCase() === activeLetter.toLowerCase()
-            : true;
+        const startsWithLetter = activeLetter ? itemText.charAt(0).toLowerCase() === activeLetter.toLowerCase() : true;
         const includesFilter = itemTextLower.includes(filterValue);
 
         if ((filterValue === '' || includesFilter) && startsWithLetter) {
@@ -52,11 +50,7 @@ const updateLetterButtons = (letterButtons, items, filterValue) => {
 
     items.forEach((item) => {
         if (!item.classList.contains(HIDDEN_CLASS)) {
-            const firstLetter = item
-                .querySelector('p')
-                .textContent.trim()
-                .charAt(0)
-                .toUpperCase();
+            const firstLetter = item.querySelector('p').textContent.trim().charAt(0).toUpperCase();
             availableLetters.add(firstLetter);
         }
     });
@@ -74,11 +68,7 @@ const initializeLetterButtons = (letterButtons, items) => {
     const availableLetters = new Set();
 
     items.forEach((item) => {
-        const firstLetter = item
-            .querySelector('p')
-            .textContent.trim()
-            .charAt(0)
-            .toUpperCase();
+        const firstLetter = item.querySelector('p').textContent.trim().charAt(0).toUpperCase();
         availableLetters.add(firstLetter);
     });
 
@@ -91,13 +81,7 @@ const initializeLetterButtons = (letterButtons, items) => {
     });
 };
 
-const setupEventListeners = (
-    filterInput,
-    items,
-    itemList,
-    searchButton,
-    letterButtons
-) => {
+const setupEventListeners = (filterInput, items, itemList, searchButton, letterButtons) => {
     let activeLetter = null;
 
     const handleFilter = () => {

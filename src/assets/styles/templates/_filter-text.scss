@@ -16,11 +16,11 @@
     }
 
     &__filter-input {
-        height: rem-calc(50);
         border: rem-calc(1) solid var(--grey);
         border-radius: rem-calc(8);
         padding: rem-calc(12 16);
         width: 100%;
+        height: rem-calc(50);
 
         + .template-text-filter__search-button {
             margin-left: rem-calc(12);
@@ -60,14 +60,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition:
+                background-color var(--tr),
+                color var(--tr);
+            cursor: pointer;
+            border: rem-calc(1) solid var(--black);
+            border-radius: 50%;
             width: rem-calc(24);
             min-width: rem-calc(24);
             height: rem-calc(24);
-            border: rem-calc(1) solid var(--black);
-            border-radius: 50%;
             font-size: rem-calc(12);
-            transition: background-color var(--tr), color var(--tr);
-            cursor: pointer;
 
             &:not(.is-active):not(.disabled) {
                 &:hover {
@@ -81,10 +83,9 @@
             }
 
             &.disabled {
-                opacity: .5;
+                opacity: 0.5;
                 cursor: not-allowed;
             }
         }
     }
-
 }

@@ -8,9 +8,7 @@ const EASING_FACTOR = 4;
 const DEFAULT_DURATION = 5000;
 
 const easeInOutQuad = (t) => {
-    return t < EASING_THRESHOLD
-        ? EASING_MULTIPLIER * t * t
-        : EASING_OFFSET + (EASING_FACTOR - EASING_MULTIPLIER * t) * t;
+    return t < EASING_THRESHOLD ? EASING_MULTIPLIER * t * t : EASING_OFFSET + (EASING_FACTOR - EASING_MULTIPLIER * t) * t;
 };
 
 const inViewportCounter = (el) => {

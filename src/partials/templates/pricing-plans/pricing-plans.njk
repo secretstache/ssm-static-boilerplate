@@ -1,0 +1,70 @@
+{% macro render(props) %}
+
+    <div class="grid-container">
+
+        <div class="template-pricing-plans__list">
+
+            <div class="template-pricing-plans__desc">
+
+                {% for value in props.plans[1].values %}
+                    <div class="template-pricing-plans__value">
+                        <span>{{ value.title}}</span>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="template-pricing-plans__items">
+                {% for plan in props.plans %}
+
+                    {% if plan.isActive %}
+
+                        <div class="template-pricing-plans__item">
+
+                            <div class="template-pricing-plans__dropdown">
+
+                                <span class="selected-display">{{ plan.title }}</span>
+
+                                <ul class="dropdown">
+                                    {% for plan in props.plans %}
+                                        <li class="item" id="plan-{{ loop.index }}">{{ plan.title }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            {% set id = plan.id %}
+
+                            {% for plan in props.plans %}
+
+                                <div class="template-pricing-plans__content{% if id == loop.index %} is-active{% endif %}" id="plan-{{ loop.index }}">
+
+                                    {% for value in plan.values %}
+
+                                        <div class="template-pricing-plans__value{% if value.class %} {{ value.class }}{% endif %}{% if value.value == 'Not Applicable' %} not-applicable{% endif %}">
+                                            <p class="hide-for-large">{{ value.title }}</p>
+                                            <span>{{ value.value }}</span>
+                                        </div>
+
+                                    {% endfor %}
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+            <div class="template-pricing-plans__button hide">
+                <button>Add Option</button>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endmacro %}
