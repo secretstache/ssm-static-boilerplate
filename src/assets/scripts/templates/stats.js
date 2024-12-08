@@ -1,60 +1,47 @@
 const ITEM_DATA_SELECTOR = '[data-count]';
 
-const EASING_THRESHOLD = 0.5;
-const EASING_MULTIPLIER = 2;
-const EASING_OFFSET = -1;
-const EASING_FACTOR = 4;
-
 const DEFAULT_DURATION = 5000;
 
-const easeInOutQuad = (t) => {
-    return t < EASING_THRESHOLD ? EASING_MULTIPLIER * t * t : EASING_OFFSET + (EASING_FACTOR - EASING_MULTIPLIER * t) * t;
-};
+const easeInOutQuad = (t) =>
+    t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
 const inViewportCounter = (el) => {
-    const duration = +el.dataset.duration || DEFAULT_DURATION;
-    const start = +el.textContent;
-    const end = +el.dataset.count;
-    let raf;
+    const duration = Number(el.dataset.duration) || DEFAULT_DURATION;
+    const start = Number(el.textContent);
+    const end = Number(el.dataset.count);
 
-    const counterStart = () => {
-        if (start === end) return;
+    if (start === end) return;
 
-        const range = end - start;
-        let curr = start;
-        const timeStart = Date.now();
+    const range = end - start;
 
-        const loop = () => {
-            let elapsed = Date.now() - timeStart;
-            if (elapsed > duration) elapsed = duration;
-            const progress = elapsed / duration;
-            const frac = easeInOutQuad(progress);
-            const step = frac * range;
-            curr = start + step;
-            el.textContent = Math.trunc(curr);
-            if (elapsed < duration) raf = requestAnimationFrame(loop);
-        };
+    const animate = (elapsed) => {
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeInOutQuad(progress);
+        el.textContent = Math.trunc(start + easedProgress * range);
 
-        raf = requestAnimationFrame(loop);
+        if (progress < 1) {
+            requestAnimationFrame((newTime) => animate(newTime - timeStart));
+        }
     };
 
-    const counterStop = () => {
-        cancelAnimationFrame(raf);
+    let timeStart;
+
+    const startAnimation = () => {
+        timeStart = performance.now();
+        requestAnimationFrame((newTime) => animate(newTime - timeStart));
+    };
+
+    const stopAnimation = () => {
         el.textContent = start;
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) counterStart();
-            else counterStop();
-        });
+    const observer = new IntersectionObserver(([entry]) => {
+        entry.isIntersecting ? startAnimation() : stopAnimation();
     });
 
     observer.observe(el);
 };
 
 export default function Stats() {
-    document.querySelectorAll(ITEM_DATA_SELECTOR).forEach((item) => {
-        inViewportCounter(item);
-    });
+    document.querySelectorAll(ITEM_DATA_SELECTOR).forEach(inViewportCounter);
 }

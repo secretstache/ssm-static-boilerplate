@@ -6,27 +6,18 @@ export default function StickySection() {
 
     if (!templates.length) return;
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0,
-    };
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(({ isIntersecting, target }) => {
+                target.classList.toggle(FIXED_CLASS, !isIntersecting);
+            });
+        },
+        {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0,
+        }
+    );
 
-    const observerCallback = (entries) => {
-        entries.forEach((entry) => {
-            const template = entry.target;
-
-            if (entry.isIntersecting) {
-                return;
-            } else {
-                template.classList.add(FIXED_CLASS);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    templates.forEach((template) => {
-        observer.observe(template);
-    });
+    templates.forEach((template) => observer.observe(template));
 }
