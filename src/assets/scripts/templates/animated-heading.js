@@ -7,35 +7,37 @@ const animateWords = (words) => {
     let currentWordIndex = 0;
 
     const startAnimation = () => {
-        let currentWord = words[currentWordIndex];
-        let nextWordIndex = currentWordIndex === words.length - 1 ? 0 : currentWordIndex + 1;
-        let newWord = words[nextWordIndex];
+        const currentWord = words[currentWordIndex];
+        const nextWordIndex = (currentWordIndex + 1) % words.length;
+        const newWord = words[nextWordIndex];
 
         currentWord.classList.remove(ACTIVE_CLASS);
         newWord.classList.add(ACTIVE_CLASS);
 
         currentWordIndex = nextWordIndex;
+
+        setTimeout(startAnimation, 4000);
     };
 
-    setInterval(startAnimation, 4000);
+    startAnimation();
 };
 
 export default function HeadingWordsAnimation() {
     document.querySelectorAll(WORDS_CONTAINER_SELECTOR).forEach((wordsContainer) => {
-        const arrWords = [...wordsContainer.querySelector(WORD_SELECTOR).textContent.trim().split(' ')];
+        const arrWords = wordsContainer
+            .querySelector(WORD_SELECTOR)
+            .textContent.trim()
+            .split(' ');
 
-        let outputWords = arrWords.map((word) => {
-            let formWord = word;
-            word = formWord.replace(/[^A-Za-z0-9]/g, '_');
-
-            return `<span class="template-animated-heading__word">${word}</span>`;
-        });
+        const outputWords = arrWords.map((word) =>
+            `<span class="template-animated-heading__word">${word.replace(/[^A-Za-z0-9]/g, '_')}</span>`
+        );
 
         wordsContainer.innerHTML = outputWords.join(' ');
 
         const words = wordsContainer.querySelectorAll(WORD_SELECTOR);
 
-        if (!words) return;
+        if (words.length === 0) return;
 
         words[0].classList.add(ACTIVE_CLASS);
 
