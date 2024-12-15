@@ -15,13 +15,12 @@ export default function FacetDropdown() {
             dropdown.classList.toggle(ACTIVE_CLASS);
         });
 
-        dropdown.querySelectorAll(`.${CHECKBOX_CLASS}, .${RADIOBUTTON_CLASS}`).forEach((option) => {
-            option.addEventListener('click', () => {
-                button.innerText = `${dropdownTitle}: ${option.innerText}`;
-                setTimeout(() => {
-                    dropdown.classList.remove(ACTIVE_CLASS);
-                }, 300);
-            });
+        dropdown.addEventListener('click', (event) => {
+            const { target } = event;
+            if (target.classList.contains(CHECKBOX_CLASS) || target.classList.contains(RADIOBUTTON_CLASS)) {
+                button.innerText = `${dropdownTitle}: ${target.innerText}`;
+                setTimeout(() => dropdown.classList.remove(ACTIVE_CLASS), 300);
+            }
         });
     });
 
