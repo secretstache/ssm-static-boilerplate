@@ -1,0 +1,48 @@
+.wp-block-ssm-ticker {
+    --borderColor: var(--black);
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: rem-calc(45 50);
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+            align-items: center;
+            gap: rem-calc(30);
+        }
+    }
+
+    &__prefix,
+    &__suffix,
+    &__number {
+        font-weight: 700;
+        font-size: rem-calc(65);
+        line-height: 1;
+
+        @include breakpoint(medium only) {
+            font-size: rem-calc(55);
+        }
+    }
+
+    &__subheadline {
+        font-weight: 700;
+        font-size: rem-calc(20);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem-calc(5);
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: rem-calc(5);
+        width: 100%;
+    }
+}

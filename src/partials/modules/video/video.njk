@@ -9,7 +9,7 @@
 
 {% macro render(props) %}
 
-    <div class="module video{%if props.class %} {{ props.class }}{% endif %}">
+    <div class="module video{% if props.class %} {{ props.class }}{% endif %}">
         {% set tech = 'html5' %}
 
         {% if props.type === 'youtube' %}
@@ -33,7 +33,7 @@
                         src="{{ root }}{{ props.src }}"
                         preload="{% if props.preload %}{{ props.preload }}{% else %}none{% endif %}"
                         {% if props.poster %} poster="{{ root }}{{ props.poster }}"{% endif %}
-                        {%if props.attributes %} {{ props.attributes | safe }}{% endif %}
+                        {% if props.attributes %} {{ props.attributes | safe }}{% endif %}
                 >
                     <p>
                     To view this video please enable JavaScript, and consider upgrading to a

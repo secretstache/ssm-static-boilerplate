@@ -1,6 +1,6 @@
 {% highlight "js" %}
 {% if component.isContainer %}
-{% brace 'call' %} call {{ component.type }}("{{ component.name }}"{% if component.context %}, {% endif%}{{ component.context | console | safe }}) {% endbrace %}
+{% brace 'call' %} call {{ component.type }}("{{ component.name }}"{% if component.context %}, {% endif %}{{ component.context | console | safe }}) {% endbrace %}
 {% if component.containerContext %}
 {% set fileUrl = component.type + 's/' + component.name + '/context/' + component.containerContext + '.njk' %}
 

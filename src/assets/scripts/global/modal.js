@@ -41,6 +41,8 @@ const Config = {
     backdrop: true,
     focus: true,
     keyboard: true,
+    destroyOnClose: false,
+    data: null,
 };
 
 /**
@@ -57,6 +59,7 @@ class Modal extends BaseComponent {
         this._isShown = false;
         this._isTransitioning = false;
         this._scrollBar = new ScrollbarHelper();
+
         this._addEventListeners();
     }
 
@@ -67,6 +70,59 @@ class Modal extends BaseComponent {
 
     static get NAME() {
         return NAME;
+    }
+
+    create(data) {
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.setAttribute('tabindex', '-1');
+        modal.setAttribute('role', 'dialog');
+
+        const info = JSON.parse(data.getAttribute('data-info'));
+
+        if (!info) return;
+
+        const name = info.title;
+        const photo = info.photo;
+        const description = info.description;
+        const phone = info.phone;
+        const email = info.email;
+        const position = info.position;
+
+        let imageHtml = '';
+
+        if (photo) {
+            imageHtml = `
+            <div class="modal__content-image">
+                <img src="${photo}" alt="${name}">
+            </div>`;
+        }
+
+        modal.innerHTML = `
+        <div class="modal__wrapper">
+            <div class="modal__header">
+                <button type="button" class="modal__close-btn" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal__content">
+                <div class="modal__body">
+                    <div class="modal__content-wrapper">
+                         ${imageHtml}
+                        <div class="modal__content-text">
+                            ${name ? `<h3 class="modal__content-title">${name}</h3>` : ''}
+                            ${position ? `<div class="modal__content-position">${position}</div>` : ''}
+                            ${description ? `<div class="modal__content-description">${description}</div>` : ''}
+                            <div class="modal__content-contacts">
+                                ${phone ? `<div class="modal__content-contact"><i class="icon-phone"></i>${phone}</div>` : ''}
+                                ${email ? `<div class="modal__content-contact"><i class="icon-email"></i><a href="mailto:${email}">${email}</a></div>` : ''}
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>`;
+
+        return modal;
     }
 
     // Public
@@ -120,6 +176,8 @@ class Modal extends BaseComponent {
     }
 
     dispose() {
+        this._element.remove();
+
         EventHandler.off(window, EVENT_KEY);
         EventHandler.off(this._dialog, EVENT_KEY);
 
@@ -233,6 +291,10 @@ class Modal extends BaseComponent {
             this._resetAdjustments();
             this._scrollBar.reset();
             EventHandler.trigger(this._element, EVENT_HIDDEN);
+
+            if (this._config.destroyOnClose) {
+                this.dispose();
+            }
         });
     }
 
@@ -288,6 +350,12 @@ class Modal extends BaseComponent {
         this._element.style.paddingLeft = '';
         this._element.style.paddingRight = '';
     }
+
+    _decodeHtml(html) {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+    }
 }
 
 /**
@@ -296,6 +364,7 @@ class Modal extends BaseComponent {
 
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     const target = SelectorEngine.getElementFromSelector(this);
+    const link = this;
 
     if (
         [
@@ -325,7 +394,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
         Modal.getInstance(alreadyOpen).hide();
     }
 
-    const data = Modal.getOrCreateInstance(target);
+    const data = target ? Modal.getOrCreateInstance(target) : Modal.getOrCreateInstance(target, { destroyOnClose: true, data: link });
 
     data.toggle(this);
 });

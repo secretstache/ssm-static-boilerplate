@@ -1,0 +1,125 @@
+/**
+* @param {string} class
+* @param {string} style
+* @param {string} id
+* @param {string} customStyle
+* @param {array} members
+*/
+
+{% from 'macros/blocks.njk' import block %}
+{% macro render(props) %}
+
+    {% set classes = ([
+    props.class if props.class,
+    'is-style-' + props.customStyle if props.customStyle,
+    'layout-' + props.layout if props.layout
+  ]) | toClassNames %}
+
+    {% set styles = ([props.style if props.style]) | toStyleString | safe %}
+
+    {% set id = ' id="' + props.id + '"' if props.id %}
+
+    <div class="wp-block-ssm-team-members{{ classes }}"{{ styles }}{{ id }}>
+
+        <div class="wp-block-ssm-team-members__grid">
+
+            {% for member in props.members %}
+
+                <div class="wp-block-ssm-team-members__item">
+
+                    {% if member.image %}
+
+                        <div class="wp-block-ssm-team-members__image">
+
+                            <img src="{{ root }}{{ member.image }}" alt="{{ member.title }}">
+
+                        </div>
+
+                    {% endif %}
+
+                    <div class="wp-block-ssm-team-members__content">
+
+                        {% if member.title %}
+
+                            <h2 class="wp-block-ssm-team-members__title">{{ member.title | safe }}</h2>
+
+                        {% endif %}
+
+                        {% if member.socials %}
+
+                            <div class="wp-block-ssm-team-members__socials">
+
+                                {% for social in member.socials %}
+                                    <div class="wp-block-ssm-team-members__socials-item">
+
+                                        <a class="wp-block-ssm-team-members__socials-link" href="{{ root }}{{ social.link }}">
+
+                                            {% if social.icon %}
+                                                <img class="wp-block-ssm-team-members__socials-icon" src="{{ root }}{{ social.icon }}" alt="{{ social.title }}">
+                                            {% endif %}
+
+                                            {% if social.title %}
+                                                {{ social.title }}
+                                            {% endif %}
+
+                                        </a>
+
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+
+                        {% endif %}
+
+                        {% if props.layout == "row" %}
+
+                            {% if member.description %}
+                                <div class="wp-block-ssm-team-members__description">
+                                    <p>{{ member.description | safe}}</p>
+
+                                    {% if member.hiddenDescription %}
+                                        <div class="wp-block-ssm-team-members__hidden-description">
+                                            <div class="wp-block-ssm-team-members__description-inner">
+                                                <p>{{ member.hiddenDescription }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                {% if member.hiddenDescription %}
+                                    <button class="wp-block-ssm-team-members__link more">Read More</button>
+                                {% endif %}
+                            {% endif %}
+
+                        {% else %}
+
+                            {% if member.description %}
+
+                                <div class="wp-block-ssm-team-members__description">
+                                    <p>{{ member.description | safe}}</p>
+                                </div>
+
+                            {% endif %}
+
+                            <a href="{{ root }}{{ link}}"
+                                 class="wp-block-ssm-team-members__link js-modal-toggle js-create-modal"
+                                 data-info='{
+                                    "title": "{{ member.title }}",
+                                    "photo": "{{ root }}{{ member.image }}",
+                                    "description": "{{ member.description }}"
+                                }'>
+
+                                <span class="show-for-sr">Full information</span>Full information</a>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endmacro %}

@@ -5,7 +5,7 @@
 
 {% macro render(props) %}
 
-    <div class="module text-editor{%if props.class %} {{ props.class }}{% endif %}">
+    <div class="module text-editor{% if props.class %} {{ props.class }}{% endif %}">
 
         {% if props.innerContent %}
 

@@ -1,0 +1,59 @@
+/**
+* @param {string} class
+* @param {string} style
+* @param {string} id
+* @param {string} customStyle
+* @param {array} members
+*/
+
+{% from 'macros/blocks.njk' import block %}
+{% macro render(props) %}
+
+    {% set classes = ([
+    props.class if props.class,
+    'is-style-' + props.customStyle if props.customStyle,
+    'layout-' + props.layout if props.layout
+  ]) | toClassNames %}
+
+    {% set styles = ([props.style if props.style]) | toStyleString | safe %}
+
+    {% set id = ' id="' + props.id + '"' if props.id %}
+
+    <div class="wp-block-ssm-ticker{{ classes }}"{{ styles }}{{ id }}>
+
+        <div class="wp-block-ssm-ticker__grid">
+
+            {% for item in props.items %}
+
+                <div class="wp-block-ssm-ticker__item">
+
+                    <div class="wp-block-ssm-ticker__content">
+
+                        {% if item.prefix %}
+                            <span class="wp-block-ssm-ticker__prefix">{{ item.prefix }}</span>
+                        {% endif %}
+
+                        {% if item.number %}
+                            <span class="wp-block-ssm-ticker__number">{{ item.number }}</span>
+                        {% endif %}
+
+                        {% if item.suffix %}
+                            <span class="wp-block-ssm-ticker__suffix">{{ item.suffix }}</span>
+                        {% endif %}
+
+                    </div>
+
+                    {% if item.subheadline %}
+                        <p class="wp-block-ssm-ticker__subheadline">{{ item.subheadline }}</p>
+                    {% endif %}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endmacro %}

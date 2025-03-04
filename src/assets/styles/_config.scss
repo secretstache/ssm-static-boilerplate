@@ -136,13 +136,13 @@ $spacings-props: (
     --module-margin: var(--module-spacing-md);
 
     // for gutenberg
-    //--content-width-wide: #{rem-calc(1724)};
-    //--content-width-full: calc(var(--vw, 1vw) * 100);
-    //--content-height-full: calc(var(--vh, 1vh) * 100);
-    //--content-padding-negative: calc(var(--content-padding) * -1);
-    //--section-margin: #{min-max(120, 200)};
-    //--section-padding: #{min-max(120, 200)};
-    //--block-margin: #{rem-calc(40)};
+    --content-width-wide: #{rem-calc(1724)};
+    --content-width-full: calc(var(--vw, 1vw) * 100);
+    --content-height-full: calc(var(--vh, 1vh) * 100);
+    --content-padding-negative: calc(var(--content-padding) * -1);
+    --section-margin: #{min-max(120, 200)};
+    --section-padding: #{min-max(120, 200)};
+    --block-margin: #{rem-calc(40)};
 
     // other
     --p-margin: var(--spacing-6);

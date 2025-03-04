@@ -6,7 +6,7 @@
 
     {% from "macros/default.njk" import module %}
 
-    <div class="module buttons{%if props.class %} {{ props.class }}{% endif %}">
+    <div class="module buttons{% if props.class %} {{ props.class }}{% endif %}">
 
         {% if props.buttons %}
 

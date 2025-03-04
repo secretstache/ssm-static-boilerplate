@@ -21,18 +21,18 @@ main.content {
 }
 
 // for gutenberg
-//main.content {
-//    flex-grow: 1;
-//    overflow: clip;
-//    @include content-layout;
-//
-//    > * {
-//        &:last-child {
-//            margin-bottom: var(--section-margin);
-//
-//            &.wp-block-ssm-section-wrapper {
-//                margin-bottom: 0;
-//            }
-//        }
-//    }
-//}
+main.content {
+   flex-grow: 1;
+   overflow: clip;
+   @include content-layout;
+
+   > * {
+       &:last-child {
+           margin-bottom: var(--section-margin);
+
+           &.wp-block-ssm-section-wrapper {
+               margin-bottom: 0;
+           }
+       }
+   }
+}

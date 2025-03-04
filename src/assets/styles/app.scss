@@ -27,25 +27,26 @@
 @import "global/hamburger";
 @import "global/skip-main";
 @import "global/aside-navigation";
+@import "global/modal";
 
 // wp plugins
 @import "libs/facetwp";
 @import "libs/gravity";
 
 // blocks
-//@import "blocks/wp-blocks-settings";
-//@import "blocks/buttons";
-//@import "blocks/blockquote";
-//@import "blocks/columns";
-//@import "blocks/cover";
-//@import "blocks/gallery";
-//@import "blocks/group";
-//@import "blocks/heading";
-//@import "blocks/image";
-//@import "blocks/list";
-//@import "blocks/separator";
-//@import "blocks/table";
-//@import "blocks/video";
+@import "blocks/wp-blocks-settings";
+@import "blocks/buttons";
+@import "blocks/blockquote";
+@import "blocks/columns";
+@import "blocks/cover";
+@import "blocks/gallery";
+@import "blocks/group";
+@import "blocks/heading";
+@import "blocks/image";
+@import "blocks/list";
+@import "blocks/separator";
+@import "blocks/table";
+@import "blocks/video";
 
 // modules
 @import "modules/shared";
@@ -110,3 +111,7 @@
 @import "templates/numbered-blocks";
 @import "templates/large-dropdown";
 @import "templates/pricing-plans";
+
+// blocks
+@import "blocks/team-members";
+@import "blocks/ticker";

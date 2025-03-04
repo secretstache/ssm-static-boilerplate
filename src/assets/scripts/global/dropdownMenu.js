@@ -65,7 +65,11 @@ class Dropdown {
                 this.toggleExpand(index, false);
             });
 
-            if (this.withArrowButton) {
+            if (this.topLevelClickable) {
+                button.addEventListener('focus', () => {
+                    this.toggleExpand(index, true);
+                });
+            } else {
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
                 });

@@ -45,7 +45,7 @@
                     item.style if item.style
                 ]) | toStyleString | safe %}
 
-                <li{%if classes %} class="{{ classes }}"{% endif %}{{ styles }}>
+                <li{% if classes %} class="{{ classes }}"{% endif %}{{ styles }}>
 
                     {{ item.content }}
 

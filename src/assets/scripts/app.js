@@ -2,46 +2,17 @@ import { setViewportUnits, PlayVideoInViewportOnly, EditableSvg, scrollToHash } 
 import LazyLoad from './utils/lazy-load';
 import Offcanvas from './global/offcanvas';
 import Header from './global/header';
-// import Modal from './global/modal';
+import Modal from './global/modal';
 import DropdownMenu from './global/dropdownMenu';
 import ScrollspyMenu from './global/scrollspyMenu';
 import AsideNavigation from './global/asideNavigation';
 import { MegaMenuDesktop, MegaMenuMobile } from './global/megaMenu';
 import VideoModal from './modal/video-modal';
 import Accordion from './templates/accordion';
-import HorizontalTabs from './templates/horizontal-tabs';
-import LogoWall from './templates/logo-wall';
-import FacetDropdown from './templates/facet-elements';
-import Testimonials from './templates/testimonials';
-import TeamMembers from './templates/team-members';
-import CardFlip from './templates/card-flip';
-import RelatedContent from './templates/related-content';
-import Timeline from './templates/timeline';
-import InteractiveMap from './templates/interactive-map';
-import SectionTabsInit from './templates/section-tabs';
-import HeadingWordsAnimation from './templates/animated-heading';
-import Stats from './templates/stats';
-import ProductTour from './templates/product-tour';
-import SecondaryNav from './templates/secondary-nav';
-import Ribbon from './templates/ribbon';
-import ImageGallery from './templates/image-gallery';
-import PodcastPlayer from './templates/podcast-player';
-import ScrollRotation from './templates/scroll-rotation';
-import MouseRotation from './templates/mouse-rotation';
-import FeaturedListAnimation from './templates/featured-list';
-import TickerText from './templates/ticker-text';
-import OpenCards from './templates/open-cards';
-import PieChart from './templates/pie-chart';
-import { IconGrid } from './templates/icon-grid';
-import Parallax from './templates/parallax';
-import StickySection from './templates/sticky-section';
-import ObserverContent from './templates/observer-content';
-import { Subnav } from './templates/subnav';
-import { TextFilter } from './templates/text-filter';
-import { LargeDropdown } from './templates/large-dropdown';
-import { PricingPlans } from './templates/pricing-plans';
 
-import './templates/vertical-tabs';
+import { TeamMembers } from './blocks/team-members';
+import { Gallery } from './blocks/gallery';
+import { Ticker } from './blocks/ticker';
 
 document.addEventListener('DOMContentLoaded', function () {
     // lazy loads elements with default selector '.lazy-load'
@@ -72,6 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
         new Header(header);
     }
 
+    // modals
+    Array.from(document.querySelectorAll('.js-create-modal')).forEach((el) => {
+        new Modal(null, {
+            destroyOnClose: true,
+            data: el,
+        });
+    });
+
     // Aside Navigation
     AsideNavigation();
 
@@ -88,36 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     Accordion();
     VideoModal();
 
-    // templates
-    HorizontalTabs();
-    FacetDropdown();
-    LogoWall();
-    Testimonials();
+    // blocks
     TeamMembers();
-    CardFlip();
-    RelatedContent();
-    Timeline();
-    InteractiveMap();
-    SectionTabsInit();
-    HeadingWordsAnimation();
-    Stats();
-    Ribbon();
-    ProductTour();
-    SecondaryNav();
-    ImageGallery();
-    PodcastPlayer();
-    ScrollRotation();
-    MouseRotation();
-    FeaturedListAnimation();
-    TickerText();
-    OpenCards();
-    PieChart();
-    IconGrid();
-    Parallax();
-    StickySection();
-    ObserverContent();
-    Subnav();
-    TextFilter();
-    LargeDropdown();
-    PricingPlans();
+    Gallery();
+    Ticker();
 });

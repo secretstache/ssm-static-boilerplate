@@ -5,9 +5,9 @@
 */
 
 {% macro render(props) %}
-    <picture class="module image{%if props.class %} {{ props.class }}{% endif %}">
+    <picture class="module image{% if props.class %} {{ props.class }}{% endif %}">
 
-        {%if props.src %}
+        {% if props.src %}
             <img src="{{ root }}{{ props.src }}" alt="">
 
             {% if props.mobileSrc %}

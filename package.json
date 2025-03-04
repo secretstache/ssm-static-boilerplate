@@ -5,7 +5,7 @@
     "license": "MIT",
     "vars": {
         "prefix": "/secretstache/ssmv4",
-        "project": "default"
+        "project": "blocks"
     },
     "scripts": {
         "clean": "rimraf dist",

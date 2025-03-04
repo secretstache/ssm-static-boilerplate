@@ -7,16 +7,38 @@ class BaseComponent {
         element = getElement(element);
 
         if (!element) {
-            return;
+            this._element = this.create(config.data);
+            document.body.appendChild(this._element);
+        } else {
+            this._element = element;
         }
 
-        this._element = element;
         this._config = this._getConfig(config);
 
         Data.set(this._element, this.constructor.DATA_KEY, this);
     }
 
     // Public
+    create(data) {
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.setAttribute('tabindex', '-1');
+        modal.setAttribute('role', 'dialog');
+
+        modal.innerHTML = `
+        <div class="modal__wrapper">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <button type="button" class="modal__close-btn" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal__body">
+                </div>
+            </div>
+        </div>`;
+
+        return modal;
+    }
+
     dispose() {
         Data.remove(this._element, this.constructor.DATA_KEY);
         EventHandler.off(this._element, this.constructor.EVENT_KEY);

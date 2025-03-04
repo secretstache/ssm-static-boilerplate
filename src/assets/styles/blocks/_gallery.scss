@@ -51,4 +51,89 @@
             }
         }
     }
+
+    &.alignfull {
+        margin-right: var(--content-padding-negative) !important;
+        margin-left: var(--content-padding-negative) !important;
+        max-width: var(--content-width-alignfull) !important;
+
+        @include breakpoint(1968) {
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+
+    .wp-block-image {
+        margin-bottom: 0;
+    }
+
+    &.is-style-full-width {
+        .wp-block-image {
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+        }
+    }
+
+    &.is-style-carousel:not(.is-carousel-not-preview) {
+        .wp-block-image {
+            width: 100% !important;
+            max-width: rem-calc(200);
+            height: 100%;
+            max-height: rem-calc(320);
+
+            @include breakpoint(large) {
+                max-width: rem-calc(446);
+                max-height: rem-calc(670);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &.is-style-lightbox {
+        display: flex;
+    }
+}
+
+.lg-backdrop {
+    z-index: 9997;
+
+    &.in {
+        opacity: 0.75;
+    }
+}
+
+.lg-outer {
+    z-index: 9998;
+}
+
+.lg-toolbar {
+    .lg-icon {
+        &.lg-close {
+            border-radius: 0;
+            background-image: svg-uri('<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="2.10042" y1="1.1863" x2="23.3136" y2="22.3995" stroke="white" stroke-width="2"/><line x1="1.6862" y1="22.3996" x2="22.8994" y2="1.18635" stroke="white" stroke-width="2"/></svg>');
+            background-position: 50% 50%;
+            background-size: rem-calc(25 24);
+            background-repeat: no-repeat;
+            background-color: rgba(0 0 0 / 45%);
+            padding: 0;
+            width: rem-calc(92);
+            min-width: rem-calc(92);
+            height: rem-calc(60);
+
+            &:after {
+                display: none;
+            }
+        }
+    }
 }
