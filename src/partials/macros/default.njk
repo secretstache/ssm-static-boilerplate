@@ -8,7 +8,7 @@
     {#    */#}
 
     {% set classes = ([
-        'grid grid-cols-12 gap-x-[--grid-column-gap] gap-y-[--grid-row-gap]',
+        'grid grid-cols-12 gap-x-(--grid-column-gap) gap-y-(--grid-row-gap)',
         props.class if props.class,
         'items-' + props.alignY if props.alignY,
         'justify-' + props.alignX if props.alignX,
@@ -67,7 +67,7 @@
     {% set classes = ([
         'template-' + name,
         'content-block relative',
-        'pt-[--base-margin] pb-[--base-margin] first:mt-0' if props.bg,
+        'pt-(--base-margin) pb-(--base-margin) first:mt-0' if props.bg,
         'bg-' + props.bg.color if props.bg.color,
         props.class if props.class
     ]) | toClassNames %}

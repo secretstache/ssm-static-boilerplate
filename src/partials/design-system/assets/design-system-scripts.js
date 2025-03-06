@@ -132,7 +132,7 @@ function viewpr(params) {
             links.innerHTML = links.innerHTML + '<li><a title="' + title + '" data-portsize=' + viewports[i].size + ' href="#">' + title + '</a></li>';
         }
     }
-    links.innerHTML += '<li><a class="fr-active !text-white" data-portsize="reset" href="#">' + defaultParams.reset + '<svg><use xlink:href="#' + defaultParams.reset + '"></use></svg></a></li>';
+    links.innerHTML += '<li><a class="fr-active text-white!" data-portsize="reset" href="#">' + defaultParams.reset + '<svg><use xlink:href="#' + defaultParams.reset + '"></use></svg></a></li>';
 
     // Just Do it!
     for (var i = 0; i < linklist.length; i++) {
@@ -140,15 +140,15 @@ function viewpr(params) {
             e.preventDefault();
 
             for (var i = 0; i < activeNav.length; i++) {
-                activeNav[i].classList.remove('fr-active', '!text-white');
+                activeNav[i].classList.remove('fr-active', 'text-white!');
             }
 
             if (this.getAttribute('data-portsize') == 'reset') {
-                this.classList.add('fr-active', '!text-white');
+                this.classList.add('fr-active', 'text-white!');
                 content.style.width = initWidth;
                 content.removeAttribute('fr-data');
             } else {
-                this.classList.add('fr-active', '!text-white');
+                this.classList.add('fr-active', 'text-white!');
                 content.style.width = this.getAttribute('data-portsize') + 'px';
                 content.setAttribute('fr-data', 'size-' + this.getAttribute('data-portsize'));
             }
